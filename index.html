@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en" class="cover-locked">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f2e3d6">
+  <meta name="description" content="Ivory Bloom — elegant cinematic wedding invitation">
+  <title>Ivory Bloom — Wedding Invitation</title>
+  <style>html.cover-locked{overflow:hidden;height:100%;overscroll-behavior:none}html.cover-locked body{position:fixed;inset:0;width:100%;height:100dvh;overflow:hidden}</style>
+  <style>
+:root{--ivory:#fff9f0;--ink:#735747;--gold:#a58a66;--reading-progress:0;--first-name-progress:0;--amp-progress:0;--second-name-progress:0;--details-progress:0;--front-scroll-opacity:0;--hanging-scroll-opacity:0;--frame-scroll-scale:1.08;--royal-core-retreat:0}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#e6d7d2;overscroll-behavior-y:contain}
+body{margin:0;color:var(--ink);font-family:Georgia,'Times New Roman',serif}
+button,a{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer;font:inherit}
+.invitation{position:relative;width:100%;max-width:430px;margin:auto;overflow:clip;background:#faeee8;min-height:100lvh}
+.scene-scroll-track{height:425vh;height:425lvh;margin-bottom:-100vh;margin-bottom:-100lvh;position:relative}
+.viewport{position:sticky;top:0;width:100%;height:100vh;height:100lvh;min-height:480px;overflow:hidden;isolation:isolate;background:#edc9bd;--reading-progress:0;--first-name-progress:0;--amp-progress:0;--second-name-progress:0;--details-progress:0;--royal-core-retreat:0;--hanging-scroll-opacity:0;--front-scroll-opacity:0}
+.scene-stage{position:absolute;bottom:0;left:50%;width:max(100%,56.25lvh);aspect-ratio:9/16;transform:translate3d(-50%,0,0);pointer-events:none;user-select:none}
+.animated-scene{position:absolute;inset:0;opacity:0;transition:opacity 400ms ease;pointer-events:none}
+.invitation[data-layers='ready'] .animated-scene,.invitation[data-layers='partial'] .animated-scene{opacity:1}
+.animated-scene .layer,.animated-scene .sprite{position:absolute;pointer-events:none}
+.animated-scene img{display:block;pointer-events:none;-webkit-user-drag:none;user-select:none;max-width:none}
+.layer.sky{inset:0;z-index:1;transform-origin:50% 72%;transform:translateY(var(--sky-scroll-y,0%)) scale(var(--sky-scroll-scale,1));transition:transform 1050ms cubic-bezier(.22,.61,.36,1)}
+.layer.sky img{width:100%;height:100%;object-fit:cover}
+.layer.couple{inset:0;z-index:3;overflow:visible}
+.layer.couple img{position:absolute;bottom:7%;left:50%;height:auto;width:clamp(420px,120%,560px);transform-origin:50% 100%;translate:-50% 0;scale:1;transition:scale 1050ms cubic-bezier(.22,.61,.36,1),translate 1050ms cubic-bezier(.22,.61,.36,1)}
+.invitation[data-state='opened'] .layer.couple img{translate:-50% calc(-3% + 3% * var(--royal-core-retreat,0));scale:calc(1.05 - .05 * var(--royal-core-retreat,0))}
+.layer.gateway{left:50%;bottom:0;z-index:7;width:100%;max-width:none;translate:-50% 0;transform:scale(var(--frame-scroll-scale,1));transform-origin:50% 72%;transition:transform 1050ms cubic-bezier(.22,.61,.36,1),opacity 1050ms}
+.layer.gateway img{width:100%;height:auto;object-fit:contain}
+.layer.drape{left:0;top:0;width:100%;z-index:11;transform-origin:50% 0%;transform:scale(var(--canopy-scroll-scale,1));transition:transform 1050ms cubic-bezier(.22,.61,.36,1)}
+.layer.drape img{display:block;width:100%;height:auto}
+.layer.drape img.royal-drape-left{clip-path:none;transform-origin:50% 0%;animation:canopy-soft 16.2s ease-in-out -3.05s infinite}
+.layer.drape img.royal-drape-right{display:none}
+.sprite{height:calc(var(--h)*1%);left:calc(var(--x)*1%);z-index:calc(12 + var(--z,0));transform:translateX(-50%);opacity:0}
+.sprite img{height:100%;width:auto;max-width:none}
+.sprite.hanging{top:calc(var(--y)*1%);opacity:var(--hanging-scroll-opacity,0);transform:translateX(-50%) translateY(var(--hanging-scroll-shift,-20lvh));z-index:12}
+.sprite.plant,.sprite.leaf,.sprite.peacock{bottom:calc(var(--y)*1%);opacity:var(--front-scroll-opacity,0)}
+.sprite.plant{z-index:17}
+.sprite.leaf{z-index:18}
+.sprite.peacock{z-index:19;opacity:var(--peacock-scroll-opacity,0)}
+.sprite.flipped img{scale:-1 1}
+/* Cover ornaments frame the couple without hiding the lettering. */
+.invitation[data-state='cover'] .sprite.plant{opacity:.76}
+.invitation[data-state='cover'] .sprite.hanging{opacity:.72;transform:translateX(-50%) translateY(-2lvh)}
+.sprite.hanging img{transform-origin:50% 0%;animation:royal-hanging-wind var(--royal-swing-duration,16s) cubic-bezier(.42,0,.58,1) var(--royal-swing-delay,-2.4s) infinite}
+.sprite.plant img{transform-origin:50% 100%;animation:royal-rooted-wind var(--royal-swing-duration,16.9s) cubic-bezier(.42,0,.58,1) var(--royal-swing-delay,-2.4s) infinite}
+.reading-veil{position:absolute;inset:0;z-index:20;pointer-events:none;background:linear-gradient(180deg,transparent 22%,#fffaf20b 40%,transparent 75%)}
+.cover,.opened{position:absolute;inset:0;z-index:30;pointer-events:none;text-align:center}
+.cover{opacity:1;transition:opacity 900ms ease,translate 900ms ease}
+.cover-copy{position:absolute;left:7%;width:86%;top:25%;text-shadow:0 1px 12px #fff8efc7}
+.eyebrow{font-family:Georgia,serif;font-size:clamp(11px,3.4vw,14px);font-weight:400;letter-spacing:.22em;line-height:1.5;color:#987957;margin:0 0 6px}
+.cover h1{font-weight:400;line-height:1.15;letter-spacing:.02em;font-size:clamp(29px,8.8vw,44px);color:#644b40;margin:0}
+.cover h1 em{font-family:cursive;font-size:.78em;font-weight:400}
+.open-button{display:flex;align-items:center;justify-content:center;position:absolute;top:min(77%, calc(100dvh - 78px));left:50%;translate:-50% 0;width:221px;height:49px;border:0;color:#654a3d;font-weight:500;font-size:13px;letter-spacing:.11em;background:transparent url('assets/ivory-bloom/royal-open-button.webp') center/100% 100% no-repeat;pointer-events:auto;white-space:nowrap;text-shadow:0 1px #fff8efb8}
+.open-button:focus-visible,.swipe-cue:focus-visible{outline:3px solid #8d6d55;outline-offset:3px;border-radius:8px}
+.invitation[data-state='opened'] .cover{opacity:0;pointer-events:none;translate:0 -12px}
+.opened{opacity:0;transition:opacity 900ms ease 260ms;z-index:31}
+.invitation[data-state='opened'] .opened{opacity:1}
+.opened-copy{position:absolute;left:8%;width:84%;top:30%;pointer-events:none;text-shadow:0 1px 7px #fff8eecc}
+.opening-heading{opacity:var(--reading-progress,0)}
+.ceremony-names{display:flex;flex-direction:column;align-items:center;gap:5px;margin:4px auto 0;line-height:1.12;color:#694e43;font-weight:400;max-width:100%}
+.ceremony-names span{display:block;max-width:100%;overflow-wrap:anywhere}
+.name-first,.name-second{font-size:clamp(31px,9.3vw,42px)}
+.name-amp{font-family:cursive;font-style:italic;font-size:clamp(19px,5vw,24px);line-height:1}
+.name-first{opacity:var(--first-name-progress,0)}.name-amp{opacity:var(--amp-progress,0)}.name-second{opacity:var(--second-name-progress,0)}
+.name-divider{width:76%;max-width:270px;height:auto;margin:8px auto 5px;opacity:var(--details-progress,0)}
+.date,.guest{opacity:var(--details-progress,0)}
+.date{font-family:Georgia,serif;letter-spacing:.13em;font-size:clamp(12px,3.3vw,14px);margin:8px auto}
+.guest{font-size:clamp(13px,3.6vw,16px);line-height:1.5;margin:8px auto}
+.swipe-cue{pointer-events:auto;position:absolute;bottom:max(27px,env(safe-area-inset-bottom));left:0;width:100%;font-size:11px;letter-spacing:.16em;text-decoration:none;color:#755c4c;opacity:.85}
+.swipe-cue span{display:block;font-size:27px;animation:cue 2s ease-in-out infinite}
+.invitation[data-reading='yes'] .swipe-cue{opacity:0;pointer-events:none}
+.butterfly-layer{position:absolute;inset:0;z-index:25;pointer-events:none;overflow:hidden}
+.butterfly{position:absolute;width:52px;height:41px;left:var(--fly-left);top:var(--fly-top);transform-origin:50% 50%;animation:butterfly-fly var(--fly-duration) ease-in-out var(--fly-delay) infinite;will-change:transform}
+.butterfly .wing{display:block;position:absolute;inset:0;background-image:var(--fly-image);background-size:100% 100%;background-repeat:no-repeat;transform-origin:50% 50%}
+.butterfly .wing-left{clip-path:inset(0 50% 0 0);animation:wing-left .43s ease-in-out infinite alternate}
+.butterfly .wing-right{clip-path:inset(0 0 0 50%);animation:wing-right .43s ease-in-out infinite alternate}
+.butterfly.ivory .wing-left,.butterfly.ivory .wing-right{animation-duration:.38s}
+.butterfly-hero{opacity:0}.invitation[data-state='opened'] .butterfly-cover{opacity:0}.invitation[data-state='opened'][data-reading='yes'] .butterfly-hero{opacity:1}
+.network-note{position:absolute;top:max(12px,env(safe-area-inset-top));left:6%;right:6%;z-index:80;text-align:center;padding:10px 12px;border-radius:8px;background:#fff8f0f2;font:13px/1.4 system-ui,sans-serif;color:#674a36}
+.next-section{min-height:100lvh;position:relative;z-index:40;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(150deg,#fbf5ed,#f5e4e4)}
+.next-inner{text-align:center;max-width:30ch}.next-inner h2{font-weight:400;font-size:clamp(30px,9vw,44px);margin:12px 0;color:#6f4e43}.next-inner p:last-child{font-size:15px;line-height:1.6}
+.invitation[data-scroll-active='yes'] .layer.sky,.invitation[data-scroll-active='yes'] .layer.couple img,.invitation[data-scroll-active='yes'] .layer.gateway,.invitation[data-scroll-active='yes'] .layer.drape{transition:none}
+@keyframes canopy-soft{0%,100%{transform:translateY(0) rotate(-.2deg)}50%{transform:translateY(.4%) rotate(.2deg)}}
+@keyframes drape-left{0%,100%{transform:rotate(-1.45deg)}22%{transform:rotate(1.65deg)}49%{transform:rotate(-2.15deg)}74%{transform:rotate(2.35deg)}}
+@keyframes drape-right{0%,100%{transform:rotate(-1.5deg)}22%{transform:rotate(1.75deg)}49%{transform:rotate(-2.35deg)}74%{transform:rotate(2.55deg)}}
+@keyframes royal-hanging-wind{0%,100%{transform:rotate(calc(var(--royal-left,-3.8deg)*.64))}22%{transform:rotate(var(--royal-right,3.8deg))}27%{transform:rotate(calc(var(--royal-right,3.8deg)*.83))}49%{transform:rotate(var(--royal-gust-left,-4.7deg))}54%{transform:rotate(calc(var(--royal-gust-left,-4.7deg)*.85))}74%{transform:rotate(var(--royal-gust-right,4.7deg))}79%{transform:rotate(calc(var(--royal-gust-right,4.7deg)*.85))}}
+@keyframes royal-rooted-wind{0%,100%{transform:rotate(calc(var(--royal-left,-2.2deg)*.65))}25%{transform:rotate(var(--royal-right,2.2deg))}50%{transform:rotate(var(--royal-gust-left,-2.5deg))}75%{transform:rotate(var(--royal-gust-right,2.5deg))}}
+@keyframes butterfly-fly{0%,100%{transform:translate(0,0) rotate(-9deg)}20%{transform:translate(28px,-38px) rotate(8deg)}45%{transform:translate(-20px,-61px) rotate(-7deg)}65%{transform:translate(30px,-15px) rotate(7deg)}78%{transform:translate(12px,0) rotate(0)}}
+@keyframes wing-left{to{transform:perspective(160px) rotateY(61deg)}}@keyframes wing-right{to{transform:perspective(160px) rotateY(-61deg)}}@keyframes cue{50%{translate:0 6px}}
+
+@media (min-width:431px){body{padding-block:20px}.invitation{border:1px solid #fff7f2;border-radius:4px;box-shadow:0 0 45px #5c354722}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.butterfly-layer{display:none!important}}
+
+</style>
+
+</head>
+<body>
+<main id="invitation" class="invitation" data-state="cover" data-layers="loading" data-ornaments="loading" data-scroll-active="no" aria-label="Ivory Bloom wedding invitation">
+  <div class="scene-scroll-track" id="sceneTrack">
+    <section class="viewport" id="viewport" aria-label="Cinematic wedding cover">
+      <div class="scene-stage" id="stage" aria-hidden="true">
+        <div id="animatedScene" class="animated-scene"></div>
+      </div>
+      <div class="reading-veil" aria-hidden="true"></div>
+      <div class="butterfly-layer butterfly-cover" id="coverButterflies" aria-hidden="true"></div>
+      <div class="butterfly-layer butterfly-hero" id="heroButterflies" aria-hidden="true"></div>
+      <section id="cover" class="cover" aria-label="Invitation cover" aria-hidden="false">
+        <div class="cover-copy"><p class="eyebrow">THE WEDDING OF</p><h1 id="coverNames">Bride <em>&amp;</em> Groom</h1></div>
+        <button id="openButton" class="open-button" type="button"><span>Open Invitation</span></button>
+      </section>
+      <section id="opened" class="opened" aria-label="Opened wedding invitation" aria-hidden="true" inert>
+        <div class="opened-copy">
+          <p class="eyebrow opening-heading">THE WEDDING OF</p>
+          <h2 class="ceremony-names" aria-label="Bride and Groom"><span class="name-first">Bride</span><span class="name-amp" aria-hidden="true">&amp;</span><span class="name-second">Groom</span></h2>
+          <img src="assets/ivory-bloom/royal-name-divider.webp" class="name-divider" alt="">
+          <p class="date">DATE TO BE ANNOUNCED</p>
+          <p class="guest">With love, we invite you to celebrate with us.</p>
+        </div>
+        <a href="#next" class="swipe-cue" id="swipeCue">SWIPE UP <span aria-hidden="true">⌄</span></a>
+      </section>
+      <div class="network-note" id="networkNote" role="status" hidden>Loading wedding artwork…</div>
+    </section>
+  </div>
+  <section class="next-section" id="next" aria-labelledby="nextTitle">
+    <div class="next-inner"><p class="eyebrow">IVORY BLOOM</p><h2 id="nextTitle">Our story continues</h2><p>Section 2 is reserved for the wedding message.</p></div>
+  </section>
+</main>
+  <script>
+'use strict';
+/* Ivory Bloom S1: dedicated adaptation of the approved Golden Pagoda choreography.
+   Do not load remote reference/vendor artwork and do not mutate any source WebPs. */
+(() => {
+  const base = './assets/ivory-bloom/';
+  const root = document.getElementById('invitation');
+  const viewport = document.getElementById('viewport');
+  const stage = document.getElementById('animatedScene');
+  const cover = document.getElementById('cover');
+  const opened = document.getElementById('opened');
+  const note = document.getElementById('networkNote');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const query = new URLSearchParams(location.search);
+
+  const settings = {
+    bride: query.get('bride')?.slice(0, 45) || 'Bride',
+    groom: query.get('groom')?.slice(0, 45) || 'Groom',
+    date: query.get('date')?.slice(0, 52) || 'DATE TO BE ANNOUNCED'
+  };
+  const first = opened.querySelector('.name-first');
+  const second = opened.querySelector('.name-second');
+  first.textContent = settings.bride;
+  second.textContent = settings.groom;
+  cover.querySelector('h1').replaceChildren(document.createTextNode(settings.bride + ' '),
+    Object.assign(document.createElement('em'), {textContent: '&'}),
+    document.createTextNode(' ' + settings.groom));
+  opened.querySelector('.date').textContent = settings.date;
+  opened.querySelector('.ceremony-names').setAttribute('aria-label', `${settings.bride} and ${settings.groom}`);
+
+  const layers = new Map();
+  const make = (name, classes, vars = {}) => {
+    const el = document.createElement('div');
+    el.className = classes;
+    Object.entries(vars).forEach(([key, val]) => el.style.setProperty('--' + key, String(val)));
+    const image = document.createElement('img');
+    image.alt = '';
+    image.decoding = 'async';
+    image.draggable = false;
+    el.appendChild(image);
+    if (name === 'drape.webp') {
+      image.classList.add('royal-drape-left');
+      const right = image.cloneNode();
+      right.className = 'royal-drape-right';
+      right.alt = '';
+      right.draggable = false;
+      el.appendChild(right);
+    }
+    stage.appendChild(el);
+    if (!layers.has(name)) layers.set(name, []);
+    layers.get(name).push(...el.querySelectorAll('img'));
+    return el;
+  };
+
+  // Priority order and original Section 1 image role mappings.
+  make('sky.webp', 'layer sky');
+  make('palace-horizontal.webp', 'layer couple');
+  make('arch.webp', 'layer gateway');
+  make('drape.webp', 'layer drape');
+  const hanging = [
+    ['hang_1.webp', 4, -3, 36, false, 2.462, 3.434],
+    ['hang_3.webp', 20, -5, 22, false, 2.074, 4.355],
+    ['hang_4.webp', 28, -6, 15, false, 3.353, 3.816],
+    ['hang_3.webp', 96, -3, 34, true, 1.842, 3.276],
+    ['hang_4.webp', 88, -4, 28, true, 1.910, 2.738],
+    ['hang_1.webp', 80, -5, 21, true, 3.188, 4.198]
+  ];
+  const plants = [
+    ['spike_5.webp', 5, 4, 44, false, 1.120, 2.400],
+    ['spike_3.webp', 13, 4, 36, false, 2.015, 3.861],
+    ['spike_4.webp', 95, 4, 42, false, 1.510, 3.321],
+    ['spike_5.webp', 87, 4, 35, true, 2.405, 2.782],
+    ['stem_1.webp', 9, 2, 26, false, 2.713, 4.243],
+    ['stem_2.webp', 91, 2, 26, true, 1.992, 3.704]
+  ];
+  const leaves = [
+    ['leaf_5.webp', 36, -1, 10, false],
+    ['leaf_6.webp', 46, -1, 8, false],
+    ['leaf_4.webp', 55, -1, 8, true],
+    ['leaf_5.webp', 64, -1, 10, true]
+  ];
+  const peacocks = [
+    ['peacock.webp', 20, -2, 40, false],
+    ['peacock.webp', 80, -2, 40, true]
+  ];
+  const addSpr = (kind, [name, x, y, h, flipped, amount = 0, speed = 3.5]) => {
+    const el = make(name, `sprite ${kind}${flipped ? ' flipped' : ''}`, {x, y, h});
+    if (kind === 'hanging' || kind === 'plant') {
+      const angle = (kind === 'hanging'
+        ? Math.min(4.2, Math.max(3.5, 2.8 + amount * .42))
+        : Math.min(2.7, Math.max(1.9, 1.45 + amount * .43))) * (flipped ? -1 : 1);
+      const cycle = (kind === 'hanging' ? 16 : 16.9) + (speed - 3.5) * .10;
+      const phase = -(2.4 + x / 100 * 1.35 + amount * .12);
+      for (const [key, value] of Object.entries({
+        'royal-swing-duration': `${cycle.toFixed(2)}s`,
+        'royal-swing-delay': `${phase.toFixed(2)}s`,
+        'royal-left': `${(-angle).toFixed(2)}deg`,
+        'royal-right': `${angle.toFixed(2)}deg`,
+        'royal-gust-left': `${(-angle * (kind === 'hanging' ? 1.19 : 1.10)).toFixed(2)}deg`,
+        'royal-gust-right': `${(angle * (kind === 'hanging' ? 1.19 : 1.10)).toFixed(2)}deg`
+      })) el.style.setProperty('--' + key, value);
+    }
+  };
+  hanging.forEach(entry => addSpr('hanging', entry));
+  plants.forEach(entry => addSpr('plant', entry));
+  leaves.forEach(entry => addSpr('leaf', entry));
+  peacocks.forEach(entry => addSpr('peacock', entry));
+
+  for (const id of ['coverButterflies', 'heroButterflies']) {
+    const holder = document.getElementById(id);
+    for (const [idx, name] of ['bfly_1.webp', 'bfly_white.webp'].entries()) {
+      const item = document.createElement('span');
+      item.className = 'butterfly ' + (idx ? 'ivory' : 'blush');
+      item.style.setProperty('--fly-image', `url("${base + name}")`);
+      item.style.setProperty('--fly-left', id === 'coverButterflies' ? (idx ? '84%' : '10%') : (idx ? '76%' : '12%'));
+      item.style.setProperty('--fly-top', id === 'coverButterflies' ? (idx ? '47%' : '51%') : (idx ? '31%' : '45%'));
+      item.style.setProperty('--fly-duration', idx ? '22s' : '24s');
+      item.style.setProperty('--fly-delay', idx ? '-7s' : '-2s');
+      for (const side of ['left', 'right']) {
+        const wing = document.createElement('i');
+        wing.className = 'wing wing-' + side;
+        item.appendChild(wing);
+      }
+      holder.appendChild(item);
+    }
+  }
+
+  const required = ['sky.webp', 'palace-horizontal.webp', 'arch.webp'];
+  const failed = new Set();
+  const allFiles = [...layers.keys()];
+  const loadFile = name => new Promise(resolve => {
+    const image = new Image();
+    image.decoding = 'async';
+    image.onload = async () => {
+      try { if (image.decode) await image.decode(); } catch { /* onload succeeded; iOS decode may reject transiently */ }
+      layers.get(name)?.forEach(el => { el.src = image.src; });
+      resolve(true);
+    };
+    image.onerror = () => { failed.add(name); resolve(false); };
+    image.src = base + name;
+  });
+  async function loadArtwork() {
+    const critical = await Promise.all(required.map(loadFile));
+    const ready = critical.every(Boolean);
+    root.dataset.layers = ready ? 'ready' : 'unavailable';
+    if (!ready) {
+      note.hidden = false;
+      note.textContent = 'Some invitation artwork is unavailable. Please refresh to try again.';
+      root.dataset.ornaments = 'unavailable';
+      return;
+    }
+    note.hidden = true;
+    const names = allFiles.filter(name => !required.includes(name));
+    let cursor = 0;
+    await Promise.all(Array.from({length:3}, async () => {
+      while (cursor < names.length) await loadFile(names[cursor++]);
+    }));
+    root.dataset.ornaments = failed.size ? 'partial' : 'complete';
+  }
+  loadArtwork();
+
+  let openedOnce = false;
+  let scrollMode = false;
+  let frame = 0;
+  let last = 0;
+  let camera = 0;
+  let cameraTarget = 0;
+  const heroHeight = () => Math.max(viewport.clientHeight || innerHeight, 1);
+  const clamp = n => Math.max(0, Math.min(1, n));
+  const smooth = (x, a, b) => {
+    const p = clamp((x - a) / (b - a));
+    return p * p * (3 - 2 * p);
+  };
+  const set = (key, value) => viewport.style.setProperty('--' + key, value);
+  function draw(fraction, easedCamera = fraction) {
+    fraction = Math.min(3, fraction);
+    easedCamera = Math.min(3, easedCamera);
+    const retreat = smooth(easedCamera, .22, .72);
+    const sky = smooth(easedCamera, .22, .55);
+    const frameChange = smooth(easedCamera, .84, 1.42);
+    const blossoms = smooth(easedCamera, .47, .78);
+    const peacockProgress = smooth(easedCamera, 1.06, 1.44);
+    const greet = smooth(fraction, 1.34, 1.49);
+    const firstName = smooth(fraction, 1.51, 1.67);
+    const ampersand = smooth(fraction, 1.69, 1.79);
+    const secondName = smooth(fraction, 1.81, 1.98);
+    const details = smooth(fraction, 2.02, 2.22);
+    set('sky-scroll-scale', (1.12 - .12 * sky).toFixed(4));
+    set('sky-scroll-y', (-4 * (1 - sky)).toFixed(3) + '%');
+    set('royal-core-retreat', retreat.toFixed(4));
+    set('frame-scroll-scale', (1.08 - .08 * frameChange).toFixed(4));
+    set('canopy-scroll-scale', (1.06 - .06 * frameChange).toFixed(4));
+    set('hanging-scroll-opacity', frameChange.toFixed(4));
+    set('hanging-scroll-shift', (-20 * (1 - frameChange)).toFixed(3) + 'lvh');
+    set('front-scroll-opacity', blossoms.toFixed(4));
+    set('peacock-scroll-opacity', peacockProgress.toFixed(4));
+    set('reading-progress', greet.toFixed(4));
+    set('first-name-progress', firstName.toFixed(4));
+    set('amp-progress', ampersand.toFixed(4));
+    set('second-name-progress', secondName.toFixed(4));
+    set('details-progress', details.toFixed(4));
+    root.dataset.reading = fraction >= 1.37 ? 'yes' : 'no';
+    if (fraction > .025) engageScrollMode();
+  }
+  function stopCamera() {
+    if (frame) cancelAnimationFrame(frame);
+    frame = 0; last = 0;
+  }
+  function easeCamera(now) {
+    frame = 0;
+    const dt = last ? Math.min(now - last, 50) : 16.7;
+    last = now;
+    camera += (cameraTarget - camera) * (1 - Math.exp(-dt / 70));
+    if (Math.abs(cameraTarget - camera) < .001) camera = cameraTarget;
+    draw(cameraTarget, camera);
+    if (camera !== cameraTarget) frame = requestAnimationFrame(easeCamera);
+    else last = 0;
+  }
+  function engageScrollMode() {
+    if (!openedOnce || scrollMode) return;
+    scrollMode = true;
+    root.dataset.scrollActive = 'yes';
+  }
+  function disableUnopenedScroll(event) {
+    if (event.type === 'touchmove' && event.touches?.length > 1) return;
+    if (event.cancelable) event.preventDefault();
+  }
+  function lock() {
+    document.documentElement.classList.add('cover-locked');
+    document.documentElement.style.overflowY = 'hidden';
+    document.addEventListener('touchmove', disableUnopenedScroll, {passive:false});
+    document.addEventListener('wheel', disableUnopenedScroll, {passive:false});
+  }
+  function unlock() {
+    document.removeEventListener('touchmove', disableUnopenedScroll);
+    document.removeEventListener('wheel', disableUnopenedScroll);
+    document.documentElement.classList.remove('cover-locked');
+    document.documentElement.style.overflowY = 'auto';
+  }
+  function openInvitation(event) {
+    if (openedOnce) return;
+    openedOnce = true;
+    scrollMode = false;
+    root.dataset.state = 'opened';
+    root.dataset.scrollActive = 'no';
+    cover.inert = true;
+    cover.setAttribute('aria-hidden', 'true');
+    opened.inert = false;
+    opened.setAttribute('aria-hidden', 'false');
+    stopCamera(); camera = cameraTarget = 0;
+    draw(0);
+    unlock();
+    if (event?.detail === 0) document.getElementById('swipeCue').focus({preventScroll:true});
+  }
+  const openButton = document.getElementById('openButton');
+  openButton.addEventListener('click', openInvitation);
+  lock();
+  const scrollHandler = () => {
+    if (!openedOnce) return;
+    const fraction = Math.min(scrollY / heroHeight(), 3);
+    if (reduceMotion.matches || fraction >= 3) {
+      stopCamera(); camera = cameraTarget = fraction; draw(fraction);
+    } else {
+      cameraTarget = fraction;
+      draw(fraction, camera);
+      if (!frame) frame = requestAnimationFrame(easeCamera);
+    }
+  };
+  addEventListener('scroll', scrollHandler, {passive:true});
+  addEventListener('resize', scrollHandler, {passive:true});
+  addEventListener('touchstart', engageScrollMode, {passive:true});
+  addEventListener('wheel', engageScrollMode, {passive:true});
+  addEventListener('pageshow', () => { if (!openedOnce && scrollY) scrollTo(0, 0); });
+  document.getElementById('swipeCue').addEventListener('click', ev => {
+    ev.preventDefault();
+    const y = Math.max(scrollY, heroHeight() * 1.6);
+    scrollTo({top:y,behavior:reduceMotion.matches ? 'instant':'smooth'});
+  });
+  draw(0);
+  window.ivoryBloomSection1 = Object.freeze({
+    get status() { return {opened:openedOnce,failed:[...failed],layers:root.dataset.layers,ornaments:root.dataset.ornaments}; }
+  });
+})();
+
+</script>
+</body>
+</html>
