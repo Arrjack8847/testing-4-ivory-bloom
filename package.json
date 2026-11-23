@@ -1,0 +1,11 @@
+{
+  "name": "ivory-bloom-section-one",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Mobile-only cinematic wedding invitation Section 1",
+  "scripts": {
+    "build": "node scripts/build-section1.mjs",
+    "test": "node --test tests/section1.source.test.mjs tests/prepare-section1-assets.test.mjs",
+    "test:syntax": "node --check scripts/build-section1.mjs && node --check scripts/prepare-section1-assets.mjs"
+  }
+}
