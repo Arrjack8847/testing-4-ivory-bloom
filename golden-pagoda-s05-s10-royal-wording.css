@@ -1,0 +1,249 @@
+/* Golden Pagoda Garden — Section 5–10 typography only.
+   Exact S01/S02 ivory/antique-gold language system, applied only to live
+   Myanmar copy. All artwork, source section dimensions, scroll/reveal timing,
+   sticky cameras, buttons, form states and reduced-motion rules are preserved. */
+html[data-golden-pagoda-skin="true"] [data-royal-wording="true"] .royal-my-text {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+  text-transform:none;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+
+/* S05 — compact Myanmar running-order labels in the existing time grid. */
+html[data-golden-pagoda-skin="true"] #runningOrder[data-royal-wording="true"] h2.order-heading.royal-my-text {
+  font:600 clamp(21px,6vw,27px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#754c30;
+  letter-spacing:0;
+  margin-bottom:26px;
+}
+html[data-golden-pagoda-skin="true"] #runningOrder[data-royal-wording="true"] .order-event-text strong.royal-my-text {
+  font:500 clamp(13px,3.6vw,15px)/1.7 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#60422c;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #runningOrder[data-royal-wording="true"] .order-event-text small.royal-my-text {
+  font:400 11px/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#755b3c;
+  letter-spacing:0;
+}
+
+/* S06 — keep exact original swatches; no extra instructions or cards. */
+html[data-golden-pagoda-skin="true"] #dressCode[data-royal-wording="true"] h2.dress-heading.royal-my-text {
+  font:600 clamp(22px,6.1vw,27px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#754c30;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #dressCode[data-royal-wording="true"] .dress-intro.royal-my-text {
+  font:400 clamp(13px,3.5vw,15px)/1.8 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#67472e;
+  letter-spacing:0;
+  max-width:34ch;
+}
+html[data-golden-pagoda-skin="true"] #dressCode[data-royal-wording="true"] .dress-side.royal-my-text {
+  font:500 12px/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+  color:#795735;
+}
+
+/* S07 — existing gallery slots/camera unchanged, including the photo overlays. */
+html[data-golden-pagoda-skin="true"] #gallery[data-royal-wording="true"] h2.gallery-heading.royal-my-text {
+  font:600 clamp(23px,6.1vw,29px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+  color:#754c30;
+  text-shadow:0 1px 7px rgba(255,248,234,.94);
+}
+html[data-golden-pagoda-skin="true"] #gallery[data-royal-wording="true"] .gallery-frame-caption.royal-my-text,
+html[data-golden-pagoda-skin="true"] #gallery[data-royal-wording="true"] .gallery-slot-label.royal-my-text {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:clamp(10px,3.05vw,13px);
+  line-height:1.6;
+  letter-spacing:0;
+  white-space:normal;
+}
+
+/* S08 — original ornament, gift action and bank/wishlist states untouched. */
+html[data-golden-pagoda-skin="true"] #weddingGift[data-royal-wording="true"] h2.gift-eight-heading.royal-my-text {
+  font:600 clamp(24px,6.6vw,30px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#754c30;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift[data-royal-wording="true"] .gift-eight-intro.royal-my-text {
+  font:400 clamp(13px,3.6vw,15px)/1.83 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#67472e;
+  letter-spacing:0;
+  max-width:35ch;
+}
+
+/* S09 — shorter, verifiable RSVP microcopy. Keep native input height,
+   validation semantics and the backend confirmation flow unchanged. */
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] h2.s9-heading.royal-my-text {
+  font:600 clamp(21px,5.9vw,26px)/1.67 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#754c30;
+  letter-spacing:0;
+  max-width:100%;
+  margin-bottom:31px;
+}
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-field label.royal-my-text {
+  font:500 clamp(11px,3.2vw,12px)/1.8 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#795735;
+  letter-spacing:0;
+  text-transform:none;
+  white-space:normal;
+}
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-note.royal-my-text {
+  font:400 11px/1.7 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-wish p.royal-my-text {
+  font:400 13px/1.75 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-who strong.royal-my-text,
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-demo-note.royal-my-text {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:11px;
+  line-height:1.7;
+  letter-spacing:0;
+}
+
+/* S10 — mobile closing typography only. Preserve the original 664px
+   content BOX and 346×720 frame, but replace the overly tall 92/42/92px
+   name rows with calm, naturally legible Myanmar lines. Nothing here
+   changes the painted WebPs, source camera, reveal order or contact state. */
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-inner {
+  padding: clamp(34px, 9.2vw, 44px) 12px 0;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] #closingHeading.royal-my-text {
+  margin: 0 auto 12px;
+  font: 600 clamp(19px, 5.3vw, 22px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color: #694528;
+  letter-spacing: 0;
+  text-transform: none;
+  text-shadow: 0 1px 5px rgba(255,250,237,.94);
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-message.royal-my-text {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 288px;
+  margin: 0 auto;
+  font: 400 clamp(13px, 3.5vw, 14.5px)/1.85 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color: #4e3524;
+  letter-spacing: 0;
+  text-align: center;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  text-shadow: 0 1px 5px rgba(255,250,237,.96);
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-rule {
+  margin: 19px auto 22px;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-signoff {
+  margin: 0 auto 2px;
+  font-size: 10.5px;
+  line-height: 1.55;
+  letter-spacing: .13em;
+  color: #7b512f;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names {
+  width: 100%;
+  max-width: 280px;
+  margin: 11px auto 0;
+  font: 600 clamp(26px, 7.2vw, 30px)/1.7 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color: #754522;
+  letter-spacing: 0;
+  text-align: center;
+  text-shadow: 0 1px 5px rgba(255,249,234,.96);
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names span {
+  display: block;
+  height: 54px;
+  line-height: 54px;
+  white-space: normal;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names .closing10-ampersand {
+  height: 30px;
+  line-height: 30px;
+  font-size: clamp(18px, 5.2vw, 21px);
+  font-weight: 400;
+  color: #906539;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-contacts {
+  margin: 14px auto 0;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-contacts-title {
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 2px;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-contact-row {
+  gap: 8px;
+  margin-top: 8px;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-contact-row button {
+  min-height: 40px;
+  margin-top: 0;
+  padding: 7px 14px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-credit {
+  margin: 21px auto 0;
+  font-size: 10px;
+  line-height: 1.45;
+  letter-spacing: 1.5px;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-disclosure {
+  max-width: 30ch;
+  margin: 9px auto 0;
+  font-size: 10px;
+  line-height: 1.45;
+}
+@media (max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #runningOrder[data-royal-wording="true"] .order-event-text strong.royal-my-text {
+    font-size:12.5px;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-field label.royal-my-text {
+    font-size:11px;
+  }
+}
+/* At 320px the Myanmar message naturally occupies additional lines.
+   Reduce decorative gaps, not the available glyph height or the artwork. */
+@media (max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-inner {
+    padding-top: 28px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] #closingHeading.royal-my-text {
+    margin-bottom: 7px;
+    font-size: 18px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-message.royal-my-text {
+    font-size: 12.5px;
+    line-height: 1.8;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-rule {
+    margin: 14px auto 18px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names {
+    margin-top: 7px;
+    font-size: 25px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names span {
+    height: 48px;
+    line-height: 48px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names .closing10-ampersand {
+    height: 26px;
+    line-height: 26px;
+    font-size: 18px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-contacts {
+    margin-top: 9px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-credit {
+    margin-top: 13px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-disclosure {
+    margin-top: 6px;
+  }
+}

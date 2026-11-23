@@ -1,0 +1,520 @@
+/* S07 Royal Gallery (opt-in, isolated). Import AFTER section-five.css.
+   The master coordinator owns loader wiring and final artwork approval.
+   Nothing in this stylesheet affects the default skin. */
+html[data-golden-pagoda-skin="true"] #gallery {
+  --s07-ivory: #f8f2e7;
+  --s07-antique-gold: #b99b60;
+  --s07-ink: #59432e;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding: clamp(88px, 12dvh, 120px) 28px clamp(98px, 13dvh, 140px);
+  color: var(--s07-ink);
+  background: var(--s07-ivory);
+  font-family: "EB Garamond", Georgia, serif;
+}
+
+/* Keep the original gallery surface and pseudo-element geometry; the former
+   parchment plate is disabled in the approved Section 1 scene reuse mode. */
+html[data-golden-pagoda-skin="true"] #gallery::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 0;
+  height: min(100vw, 430px);
+  pointer-events: none;
+  background-image: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% auto;
+  -webkit-mask-image: linear-gradient(#000 0%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(#000 0%, #000 70%, transparent 100%);
+}
+/* The approved gallery reuses Section 1 instead of its former parchment plate. */
+html[data-golden-pagoda-skin="true"] #gallery[data-golden-gallery-active="true"]::before {
+  background-image: none;
+}
+html[data-golden-pagoda-skin="true"] #gallery::after {
+  content: none;
+}
+/* Section 7 keeps the original Testing-4 sticky gallery scene slot.
+   Reuse the SAME sky and horizontal royal garden plate as Section 1,
+   without duplicating/restarting its animated hero or changing geometry. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-scene-backdrop {
+  display: block;
+  background: #e8bed0 url("./assets/skins/golden-pagoda-garden/sky.webp") center / cover no-repeat;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-scene-image {
+  display: block;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-scene-wash {
+  background: #faf7fb;
+  opacity: .10;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-atmosphere {
+  display: none;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-content {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  max-width: 400px;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-content::before,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-content::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 20px;
+  width: clamp(54px, 19vw, 92px);
+  height: clamp(94px, 31vw, 165px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  opacity: .74;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-content::before {
+  left: -23px;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-content::after {
+  right: -23px;
+}
+html[data-golden-pagoda-skin="true"] #gallery[data-golden-gallery-active="true"] .gallery-content::before {
+  background-image: url("./assets/skins/golden-pagoda-garden/section-07/gallery-floral-left.webp");
+}
+html[data-golden-pagoda-skin="true"] #gallery[data-golden-gallery-active="true"] .gallery-content::after {
+  background-image: url("./assets/skins/golden-pagoda-garden/section-07/gallery-floral-right.webp");
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-content > * {
+  position: relative;
+  z-index: 1;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-eyebrow {
+  color: #80613d;
+  letter-spacing: .28em;
+}
+html[data-golden-pagoda-skin="true"] #gallery h2.gallery-heading {
+  color: #82613a;
+  text-shadow: 0 2px 12px rgba(255,251,239,.88);
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-flourish {
+  display: flex;
+  margin-bottom: 26px;
+  color: #b99b60;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-flourish span {
+  background: linear-gradient(90deg, transparent, #b99b60, transparent);
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo {
+  /* Keep original five-slot grid, dimensions and button semantics. */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  /* Existing gallery reveal transforms remain authoritative. */
+  border: 3px solid #b4965a;
+  border-radius: 13px;
+  background: #ece1ce;
+  box-shadow: 0 10px 22px rgba(78,57,35,.18);
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo:not(:disabled):hover {
+  border-color: #b4965a;
+  box-shadow: 0 13px 27px rgba(78,57,35,.25);
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo:focus-visible {
+  outline: 3px solid #76511d;
+  outline-offset: 4px;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo::after {
+  content: none;
+  animation: none;
+}
+/* Actual portrait frame is an 800x1100 transparent overlay. The photo must
+   sit inside a separate rounded crop, not show through the outer transparent
+   corners. Final mask must be validated with approved artwork and real faces. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"]::before,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"]::before,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  background-image: none;
+}
+html[data-golden-pagoda-skin="true"] #gallery[data-golden-gallery-active="true"] .gallery-photo[data-gallery-slot="0"]::before,
+html[data-golden-pagoda-skin="true"] #gallery[data-golden-gallery-active="true"] .gallery-photo[data-gallery-slot="1"]::before,
+html[data-golden-pagoda-skin="true"] #gallery[data-golden-gallery-active="true"] .gallery-photo[data-gallery-slot="2"]::before {
+  background-image: url("./assets/skins/golden-pagoda-garden/section-07/photo-frame.webp");
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] .gallery-image,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] .gallery-image,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] .gallery-image {
+  inset: 9% 9% 7%;
+  width: 82%;
+  height: 84%;
+  border-radius: 46% 46% 7% 7% / 24% 24% 4% 4%;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+/* Landscape photos retain their wide source ratios and use a CSS gold frame
+   instead of stretching the portrait-specific painting sideways. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="3"]::before,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="4"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  border: 4px double #d6b571;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 3px rgba(255,248,224,.65);
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="3"] .gallery-image,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="4"] .gallery-image {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-frame-caption {
+  z-index: 5;
+  text-shadow: 0 1px 7px rgba(25,17,10,.95);
+  color: #fffaf0;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-slot-label,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-disclaimer,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-intro {
+  color: #604932;
+}
+html[data-golden-pagoda-skin="true"] .gallery-dialog .gallery-viewer-figure {
+  border-color: #d2b372;
+}
+html[data-golden-pagoda-skin="true"] .gallery-dialog .gallery-viewer-close {
+  border-color: #efda9f;
+  color: #fff9e9;
+}
+html[data-golden-pagoda-skin="true"] .gallery-dialog button:focus-visible {
+  outline: 3px solid #ead099;
+  outline-offset: 3px;
+}
+@media (max-width: 350px) {
+  html[data-golden-pagoda-skin="true"] #gallery {
+    padding-inline: 28px;
+  }
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-content::before {
+    left: -26px;
+  }
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-content::after {
+    right: -26px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo,
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-content::before,
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-content::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* S07 iPhone visual correction — 2026-11-14.
+   The approved WebP is the frame. Avoid a second gold CSS rectangle outside it.
+   Keep all five source grid slots and original reveal transforms unchanged. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"],
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"],
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] {
+  border:0;
+  border-radius:0;
+  padding:0;
+  background:transparent;
+  box-shadow:none;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"]:not(:disabled):hover,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"]:not(:disabled):hover,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"]:not(:disabled):hover {
+  border:0;
+  box-shadow:none;
+}
+
+/* The lower carved ornament is decoration, not a text plate. Place captions
+   inside the photograph crop, above that ornament, with a small dark backing. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] .gallery-frame-caption,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] .gallery-frame-caption,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] .gallery-frame-caption {
+  position:absolute;
+  top:auto;
+  left:50%;
+  right:auto;
+  bottom:16%;
+  transform:translateX(-50%);
+  display:block;
+  width:max-content;
+  max-width:74%;
+  min-height:0;
+  margin:0;
+  padding:4px 7px;
+  border:1px solid rgba(243,215,162,.35);
+  border-radius:12px;
+  background:rgba(39,29,19,.76);
+  color:#fff9eb;
+  font:500 clamp(9px,2.7vw,11px)/1.2 'EB Garamond',Georgia,serif;
+  letter-spacing:1.1px;
+  text-align:center;
+  text-shadow:none;
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+/* Landscape images stay wide, but the ornate frame should have only one
+   restrained gold edge rather than stacked double/triple rectangles. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="3"],
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="4"] {
+  border:2px solid #b69a65;
+  border-radius:11px;
+  padding:0;
+  background:#f6eddd;
+  box-shadow:0 7px 17px rgba(82,59,30,.14);
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="3"]::before,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="4"]::before {
+  content:none;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="3"] .gallery-frame-caption,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="4"] .gallery-frame-caption {
+  left:12px;
+  right:auto;
+  bottom:11px;
+  width:auto;
+  max-width:calc(100% - 24px);
+  padding:5px 9px;
+  border-radius:10px;
+  background:rgba(35,27,18,.72);
+  color:#fff9eb;
+  font-size:10px;
+  line-height:1.3;
+  letter-spacing:1.5px;
+  text-shadow:none;
+}
+
+/* Floral framing stays at the outer sides of the title, not on its script. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-content::before,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-content::after {
+  width:clamp(46px,16vw,78px);
+  opacity:.67;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-content::before {left:-34px;}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-content::after {right:-34px;}
+html[data-golden-pagoda-skin="true"] #gallery h2.gallery-heading {
+  font-size:clamp(44px,12vw,50px);
+  max-width:100%;
+}
+
+/* Only shown for ?galleryReference=1. Keep rights notice visible but quiet;
+   the normal guest-facing Royal gallery still does not display it. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-reference-note {
+  max-width:32ch;
+  margin:15px auto 0;
+  padding:6px 7px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:#8b7564;
+  font:400 11px/1.45 'EB Garamond',Georgia,serif;
+}
+@media(max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-content::before {left:-29px;}
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-content::after {right:-29px;}
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] .gallery-frame-caption,
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] .gallery-frame-caption,
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] .gallery-frame-caption {
+    font-size:9px;
+    letter-spacing:.6px;
+    padding:3px 5px;
+  }
+}
+
+
+/* S07 royal mobile gallery composition — 2026-11-20.
+   All three approved 800x1100 gold frames use their natural 8:11 ratio.
+   Preserve all five source images, existing buttons, reveal, and lightbox.
+   Scoped to the Golden Pagoda Garden mobile skin only. */
+@media (max-width: 600px) {
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photos {
+    row-gap: clamp(17px, 4.6vw, 21px);
+  }
+
+  /* Equal-height portraits; smaller silhouettes leave the garden visible.
+     The frame WebP is never stretched or cropped. */
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"],
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"],
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] {
+    aspect-ratio: 8 / 11;
+    min-height: 0;
+    width: min(100%, 150px);
+    justify-self: center;
+  }
+
+  /* Slot 2 spans both columns, so explicitly constrain its frame to the
+     same single-column width as the pair above it. */
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] {
+    width: min(calc((100% - 12px) / 2 - 1px), 150px);
+  }
+
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"]::before,
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"]::before,
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"]::before {
+    background-size: contain;
+  }
+
+  /* Use more of each existing portrait's inner opening so faces and
+     clothing read clearly on an iPhone. Never alter the approved frame WebP. */
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] .gallery-image,
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] .gallery-image {
+    inset: 7.5% 7.5% 6.5%;
+    width: 85%;
+    height: 86%;
+    object-fit: cover;
+    object-position: 50% 34%;
+  }
+
+  /* Groom's head stays clear beneath the ornate crown; show more shirt. */
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] .gallery-image {
+    inset: 9.5% 7.5% 6.5%;
+    width: 85%;
+    height: 84%;
+    object-fit: cover;
+    object-position: 50% 24%;
+  }
+
+  /* Keep Burmese captions readable but prevent them from obscuring portraits. */
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] .gallery-frame-caption,
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] .gallery-frame-caption,
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] .gallery-frame-caption {
+    bottom: 12%;
+    padding: 3px 7px;
+    max-width: 70%;
+  }
+
+  /* Make the change from three royal portraits to the wider garden pictures
+     deliberate, without altering the landscape photos' original ratios. */
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="3"] {
+    margin-top: 11px;
+  }
+}
+
+
+/* S07 final face-safe hierarchy. The approved 800x1100 frame is transparent
+   with an arched opening beginning roughly one fifth from its top. Previous
+   photo top offsets of 7–10% placed the faces UNDER the crest. Position the
+   photograph inside the opening instead of moving/retouching the frame. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] {
+  grid-column: 1;
+  grid-row: 1;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] {
+  grid-column: 2;
+  grid-row: 1;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-self: center;
+}
+/* Reveal in the same order as the visual and keyboard layout: groom, bride,
+   together, followed by the two original landscape shots. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photos [data-gallery-slot="2"] { --gallery-delay: 0ms; }
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photos [data-gallery-slot="1"] { --gallery-delay: 150ms; }
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photos [data-gallery-slot="0"] { --gallery-delay: 300ms; }
+
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"],
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"],
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] {
+  aspect-ratio: 8 / 11;
+  min-height: 0;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"],
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] {
+  width: min(100%, 164px);
+  justify-self: center;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] {
+  width: min(62%, 220px);
+}
+
+/* Real photo pixels begin beneath the top gold arch, not behind the crest.
+   Preserve the original source image and full frame; show head/hair first. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] .gallery-image,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] .gallery-image {
+  inset: 22% 8.25% 12%;
+  width: 83.5%;
+  height: 66%;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] .gallery-image {
+  inset: 24% 8.25% 12%;
+  width: 83.5%;
+  height: 64%;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+/* Keep Burmese text in the image's lower third, above the gilded foot. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] .gallery-frame-caption,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] .gallery-frame-caption,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] .gallery-frame-caption {
+  bottom: 13%;
+  padding: 3px 8px;
+  max-width: 77%;
+}
+
+@media (max-width: 600px) {
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photos {
+    row-gap: clamp(23px, 6vw, 29px);
+  }
+  html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="3"] {
+    margin-top: 15px;
+  }
+}
+
+
+/* S07 approved lotus parchment integration — under royal portrait WebPs.
+   Use the same file in all three portrait slots without modifying existing
+   frame or photograph bytes. The gold overlay is z4 and caption z5. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"],
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"],
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] {
+  background-image: url("./assets/skins/golden-pagoda-garden/section-07/s07-royal-lotus-parchment.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 84% 76%;
+}
+/* Keep the entire approved photo visible within its face-safe frame opening.
+   Parchment softly fills the unavoidable surrounding areas on tall portraits. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] .gallery-image,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] .gallery-image,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] .gallery-image {
+  object-fit: contain;
+  object-position: center top;
+}
+/* Do not demote the ornate frame behind photo or overlap its caption. */
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"]::before,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"]::before,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"]::before {
+  z-index: 4;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] .gallery-frame-caption,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] .gallery-frame-caption,
+html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] .gallery-frame-caption {
+  z-index: 5;
+}

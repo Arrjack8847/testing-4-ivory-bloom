@@ -1,0 +1,73 @@
+/* Section 08 — Royal Wedding Gift frame review.
+ * Exact approved transparent 1076×1461 WebP at its natural ratio.
+ * Scoped to the Golden Pagoda skin; no changes to default Testing-4.
+ * Existing gift disclosure, account verification, wishlist, motion and scrolling
+ * remain owned by the original HTML/JS and Section 8 stylesheet.
+ */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content {
+  position: relative;
+  isolation: isolate;
+  padding-top: 68px;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -66px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100vw - 10px), calc(100% + 46px));
+  height: auto;
+  aspect-ratio: 1076 / 1461;
+  background-image: url("./assets/skins/golden-pagoda-garden/section-08/s08-royal-frame.webp");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 1;
+  pointer-events: none;
+}
+/* The new frame includes the crown, lotus corners and bottom flourish:
+   suppress the old separate motifs rather than stacking duplicates. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-heading::before,
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content::after {
+  display: none;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-heading {
+  font-size: clamp(39px, 10.5vw, 46px);
+  line-height: 1.15;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-intro {
+  max-width: 34ch;
+  margin: 13px auto 12px;
+  font-size: clamp(14px, 4vw, 16px);
+  line-height: 1.45;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-send {
+  margin-top: clamp(12px, 4vw, 23px);
+}
+/* When expanded, bank cards start below the frame's original bottom artwork.
+   The frame is never stretched to the height of the expanded gift content. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-bank-list:not([hidden]) {
+  margin-top: clamp(96px, 30vw, 145px);
+}
+@media (max-width: 350px) {
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content { padding-top: 60px; }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-heading {
+    font-size: 36px;
+  }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-intro {
+    margin: 9px auto 6px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-send { margin-top: 8px; }
+}
+@media (min-width: 351px) and (max-width: 374px) {
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content { padding-top: 63px; }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-intro {
+    font-size: 14.5px;
+    margin-bottom: 7px;
+  }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-send { margin-top: 10px; }
+}
+/* Full original artwork stays visible, and reduced-motion behavior is unchanged. */

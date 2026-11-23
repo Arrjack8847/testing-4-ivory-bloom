@@ -1,0 +1,194 @@
+/* Golden Pagoda Garden — Section 9: Royal Ivory Parchment review.
+   Source-first art mapping: retain original Testing-4 Section 9 geometry,
+   form labels, validation, submission, approved-wishes wall, animation clocks,
+   privacy controls and accessible interaction semantics. No extra DOM slots. */
+
+html[data-golden-pagoda-skin="true"] #rsvp.s9-rsvp {
+  --s9-bg: #f7efe2;
+  background: var(--s9-bg);
+  color: #59402d;
+}
+
+/* A: Refined Royal RSVP. The supplied 1024x1024 paper has corner artwork,
+   so NEVER cover/crop it into the taller section. Display the complete,
+   unmodified image at its natural aspect ratio over a matching ivory gradient.
+   The section's geometry and scrolling behavior stay identical to Testing-4. */
+html[data-golden-pagoda-skin="true"] #rsvp .s9-original-paper {
+  display: block;
+  inset: 0;
+  opacity: 1;
+  background:
+    url("./assets/skins/golden-pagoda-garden/section-09/rsvp-paper.webp")
+      center top / min(100%, 540px) auto no-repeat,
+    linear-gradient(180deg,#f9efe2 0%,#f7efe2 78%,#f2e4d2 100%) no-repeat;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-original-paper::before,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-original-paper::after {
+  content: none;
+}
+/* The third-party comparison paper is never shown with the Royal skin. */
+html[data-golden-pagoda-skin="true"] #rsvp.s9-reference-loaded .s9-reference-art {
+  display: none;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.s9-reference-loaded .s9-original-paper {
+  display: block;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-art-wash {
+  /* The artwork already includes its approved shading: no color wash over it. */
+  background: none;
+}
+/* Existing art-wash pseudo-elements carry the two remaining unchanged
+   transparent WebPs. Keep their complete silhouettes within the viewport.
+   No artwork retouching, opacity fade, mirroring, distortion or crop. */
+html[data-golden-pagoda-skin="true"] #rsvp .s9-art-wash::before {
+  content: "";
+  position: absolute;
+  top: 24%;
+  right: 4px;
+  width: clamp(70px, 22vw, 104px);
+  height: clamp(110px, 32vw, 155px);
+  background: url("./assets/skins/golden-pagoda-garden/section-09/rsvp-floral.webp")
+    center / contain no-repeat;
+  opacity: 1;
+  pointer-events: none;
+}
+/* The royal frame already contains an ornamental lotus footer.
+   Retain the original separate closing WebP in the repository, but do not
+   paint it underneath the new frame: two stacked footers looked crowded
+   in the 2026-11-15 iPhone screenshot. This is skin-scoped only. */
+html[data-golden-pagoda-skin="true"] #rsvp .s9-art-wash::after {
+  display: none;
+}
+
+/* Keep original .s9-frame in its exact absolute top/bottom/left/right slot.
+   The painterly decoration overlays it without adding a DOM node, changing
+   the frame geometry or disturbing form movement. */
+/* The approved 724 x 2172 gold-lotus frame has a short engraved arch,
+   straight middle side rails, and a floral foot. Its natural 1:3 ratio would
+   leave the RSVP wall outside if displayed with background-size: contain.
+   Nine-slice the STRAIGHT vertical rails only. Top arch, side ornaments and
+   bottom lotus corners keep their original proportions; no cover/crop/fade. */
+html[data-golden-pagoda-skin="true"] #rsvp .s9-frame {
+  --s9-frame-w: min(calc(100vw - 30px), 416px);
+  /* Preview-only: paper is already clipped inside the original royal frame SVG.
+     Remove rectangular paper paint behind the shaped artwork. */
+  background: transparent;
+  border: 0;
+  border-radius: 190px 190px 19px 19px / 191px 191px 14px 14px;
+  box-shadow: none;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: none;
+  border-image-source: url("./assets/skins/golden-pagoda-garden/section-09/rsvp-royal-frame-paper.svg");
+  border-image-slice: 340 45 225 45 fill;
+  border-image-width:
+    calc(var(--s9-frame-w) * 0.469613)
+    calc(var(--s9-frame-w) * 0.062155)
+    calc(var(--s9-frame-w) * 0.310773)
+    calc(var(--s9-frame-w) * 0.062155);
+  border-image-repeat: stretch;
+  border-image-outset: 0;
+  opacity: 1;
+  pointer-events: none;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-frame::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: min(100%,360px);
+  height: 140px;
+  transform: translateX(-50%);
+  background: url("./assets/skins/golden-pagoda-garden/section-09/rsvp-kanote-top.webp")
+    center top / contain no-repeat;
+  pointer-events: none;
+}
+/* Remove the template corner brackets: the artwork now supplies them. */
+html[data-golden-pagoda-skin="true"] #rsvp .s9-frame i {
+  display: none;
+}
+/* Keep the original eight falling petals and their animation, but behind
+   the interactive panel so they never sweep over fields or the submit label. */
+html[data-golden-pagoda-skin="true"] #rsvp .s9-petals {
+  z-index: 1;
+}
+
+/* Typography recolor only: original 52px heading, native field height,
+   gaps, grid dimensions, button offsets and 1215.9px min-height survive. */
+html[data-golden-pagoda-skin="true"] #rsvp .s9-eyebrow,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field label {
+  color: #786044;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-heading {
+  color: #875e2e;
+  text-shadow: 0 1px 1px rgba(255,251,242,.62);
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field input,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field select,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field textarea {
+  background-color: #fffdf8;
+  border-color: rgba(166,126,76,.48);
+  color: #493422;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field input::placeholder,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field textarea::placeholder {
+  color: #98856f;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-submit {
+  background: #9d7341;
+  color: #fffaf0;
+  box-shadow: 0 4px 11px rgba(112,78,37,.2);
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-note,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-form-status.s9-feedback-visible {
+  color: #795c43;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-consent input {
+  accent-color: #9d7341;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-wish {
+  background: #fffaf1;
+  box-shadow: 0 2px 10px rgba(143,100,47,.12);
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-who,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-wish p {
+  color: #715035;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-who span,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-demo-note {
+  color: #8b7058;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-preview {
+  background: #fffaf0;
+  border-color: #d2b98d;
+  color: #59402d;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-preview button {
+  border-color: #b89360;
+  color: #59402d;
+}
+html[data-golden-pagoda-skin="true"] #rsvp :is(input,select,textarea,button):focus-visible {
+  outline-color: #a4773d;
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-petals i {
+  background: linear-gradient(120deg,#f5d5c6,#d7b18c 72%,#b48b62);
+}
+html[data-golden-pagoda-skin="true"] #rsvp .s9-wing {
+  background: radial-gradient(ellipse at 60% 40%,#fff8ea 8%,#e6c2aa 57%,#b58b69 92%);
+}
+@media(max-width:350px){
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-art-wash::before {
+    right: 4px;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-frame::after {
+    height: 126px;
+  }
+}
+/* Existing reduced-motion policies remain in section-nine.css and JS. */

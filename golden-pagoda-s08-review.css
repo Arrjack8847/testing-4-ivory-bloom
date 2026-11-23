@@ -1,0 +1,184 @@
+/* Golden Pagoda Garden / Section 8 Royal Wedding Gift — isolated preview.
+   Art direction A: Royal Ivory Parchment. The four existing uploaded files
+   replace only active decorative surfaces. Original Testing-4 typography
+   geometry, responsive min-heights, padding, photo-gallery adjacency, and
+   Send Gift / wishlist / copy / reduced-motion interactions stay authoritative.
+   This stylesheet follows section-eight-gift.css; no HTML gift markup changes. */
+
+html[data-golden-pagoda-skin="true"] #weddingGift.gift-eight {
+  --royal-gift-ivory: #f5ecdc;
+  --royal-gift-gold: #a47c42;
+  --royal-gift-ink: #624b3c;
+  background: var(--royal-gift-ivory);
+  color: var(--royal-gift-ink);
+}
+
+/* Replace the original two rectangular CSS borders with the pre-existing
+   Kanote SVG. Its aspect ratio is fixed: it never expands/distorts when the
+   two bank cards and wishlist are disclosed. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gift-eight::before,
+html[data-golden-pagoda-skin="true"] #weddingGift.gift-eight::after {
+  display: none;
+}
+
+/* Exactly one 1024x1024 paper image, no vertical tiling or cover crop.  The
+   rest of the original section height is continuous ivory.  The native
+   12-second ambient cycle and its offscreen pause/reduced-motion gates remain
+   owned by section-eight-gift.css and section-eight-gift.js. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-art,
+html[data-golden-pagoda-skin="true"] #weddingGift[data-gift-artwork="reference-local"] .gift-eight-art {
+  background-color: var(--royal-gift-ivory);
+  background-image: url("./assets/skins/golden-pagoda-garden/section-08/gift-paper.webp");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-art::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: min(100vw, 480px);
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(245,236,220,0) 0%,
+    rgba(245,236,220,0) 54%,
+    rgba(245,236,220,.48) 75%,
+    #f5ecdc 100%);
+}
+
+/* Use the original 390px maximum-width content surface, without adding
+   padding or top margins. Decorative surfaces do not affect document flow. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content {
+  position: relative;
+  isolation: isolate;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -39px;
+  left: -15px;
+  width: calc(100% + 30px);
+  aspect-ratio: 700 / 950;
+  background: url("./assets/skins/golden-pagoda-garden/section-08/gift-kanote-border.svg")
+    center top / 100% 100% no-repeat;
+  opacity: .76;
+  pointer-events: none;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  right: -30px;
+  bottom: -83px;
+  width: 72px;
+  height: 126px;
+  background: url("./assets/skins/golden-pagoda-garden/section-08/gift-floral.webp")
+    center / contain no-repeat;
+  opacity: .62;
+  pointer-events: none;
+}
+
+/* The royal header is an overlaid ornament above the existing title.
+   position:absolute is essential: adding a normal-flow image would move the
+   calibrated heading, letter and Send Gift trigger. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-heading {
+  position: relative;
+  color: #805b36;
+  text-shadow: 0 1px 2px rgba(255,250,240,.65);
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-heading::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -77px;
+  transform: translateX(-50%);
+  display: block;
+  width: min(78vw, 240px);
+  height: 65px;
+  background: url("./assets/skins/golden-pagoda-garden/section-08/gift-header.webp")
+    center / contain no-repeat;
+  pointer-events: none;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-intro {
+  color: #624b3c;
+  text-shadow: 0 1px 0 rgba(255,250,242,.58);
+}
+
+/* Repaint existing controls only: retain their native sizes, positioning,
+   disclosure offsets, horizontal-swipe banks and expandable wishlist. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-trigger {
+  border: 1px solid #a87837;
+  background: linear-gradient(145deg, #fdf9ed, #f2e2bf);
+  color: #6c4b25;
+  box-shadow: 0 5px 18px rgba(139,101,52,.14);
+}
+html[data-golden-pagoda-skin="true"] #weddingGift button:focus-visible {
+  outline-color: #9c642b;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-bank {
+  border-color: #d6bb83;
+  background: linear-gradient(150deg,#fffcf6,#f5e7cf);
+  box-shadow: 0 5px 18px rgba(114,81,38,.1);
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-bank-name,
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-wishlist h3 {
+  color: #765328;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-account {
+  color: #46362e;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-holder,
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-status,
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-wishlist-intro,
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-item p {
+  color: #695548;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-copy {
+  border: 1px solid #ba955b;
+  background: #fbf4e4;
+  color: #684721;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-wishlist:not([hidden]) {
+  border-color: #d4b784;
+  background: #fffaf0;
+  color: #554234;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-item {
+  background-color: #fffaf2;
+  border-color: #decba7;
+  color: #554234;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-item h4 {
+  color: #503e34;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-actions span {
+  color: #77552b;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-actions button:disabled {
+  background: #eee3cf;
+  color: #6d4e2e;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-disclaimer:not([hidden]) {
+  color: #6c5845;
+}
+
+/* Keep all existing petal count, keyframes, butterfly geometry, offscreen
+   animation pause and reduced-motion behavior. Only tint their artwork. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-petals i {
+  background: linear-gradient(120deg,#f9d9d4,#dcad92 70%,#b48853);
+  opacity: .36;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly {
+  filter: sepia(.27) saturate(.75) drop-shadow(0 2px 3px rgba(135,106,84,.2));
+}
+@media (max-width: 350px) {
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content::before {
+    left: -11px;
+    width: calc(100% + 22px);
+  }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content::after {
+    right: -25px;
+    width: 66px;
+  }
+}
