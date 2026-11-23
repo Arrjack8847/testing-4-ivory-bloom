@@ -1,0 +1,159 @@
+/* Myanmar Royal — Section 6 Dress Code.
+   Restricted to the Golden Pagoda skin; never touches the Section 1 camera.
+   Royal artwork is on independently composited layers. */
+html[data-golden-pagoda-skin="true"] #dressCode {
+  --dress-royal-ink:#61442d;
+  --dress-royal-gold:#a97c42;
+  background:#f6ead9;
+  color:var(--dress-royal-ink);
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-art {
+  overflow:hidden;
+  isolation:isolate;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-source-scene {
+  z-index:0;
+  object-fit:cover;
+  object-position:center;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-art-original {
+  display:block;
+  z-index:1;
+  inset:0;
+  opacity:.82 !important;
+  background:url("./assets/skins/golden-pagoda-garden/section-06/dress-floral.webp")
+    right -38px center / min(62%,260px) auto no-repeat;
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-art-original::after {
+  display:none;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-art::before,
+html[data-golden-pagoda-skin="true"] #dressCode .dress-art::after {
+  content:"";
+  display:block;
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  height:clamp(90px,31vw,155px);
+  pointer-events:none;
+  background-repeat:no-repeat;
+  background-size:100% auto;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-art::before {
+  top:10%;
+  background-image:url("./assets/skins/golden-pagoda-garden/section-06/dress-top.webp");
+  background-position:top center;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-art::after {
+  bottom:10%;
+  background-image:url("./assets/skins/golden-pagoda-garden/section-06/dress-bottom.webp");
+  background-position:bottom center;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-paper-wash {
+  background:linear-gradient(180deg,rgba(255,251,243,.08),rgba(255,251,243,.3) 40%,rgba(255,251,243,.08));
+  pointer-events:none;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-eyebrow,
+html[data-golden-pagoda-skin="true"] #dressCode .dress-side {
+  color:#775b3f;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-heading {
+  color:#956424;
+  text-shadow:0 2px 10px #fff9ed;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-intro,
+html[data-golden-pagoda-skin="true"] #dressCode .dress-colour-label {
+  color:#5f4939;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-palette {
+  background:rgba(255,250,242,.86);
+  border:1px solid rgba(157,109,53,.5);
+  box-shadow:0 8px 24px rgba(99,60,23,.09);
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-palette-name {
+  color:#68472d;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-swatch {
+  box-shadow:0 0 0 1px rgba(147,107,63,.6),0 2px 5px #6d526b26;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-flight-wing {
+  filter:sepia(.18) drop-shadow(0 1px 2px rgba(70,48,36,.3));
+}
+@media(max-width:350px){
+  html[data-golden-pagoda-skin="true"] #dressCode .dress-art-original {
+    background-position:right -52px center;
+    background-size:205px auto;
+  }
+  html[data-golden-pagoda-skin="true"] #dressCode .dress-art::before,
+  html[data-golden-pagoda-skin="true"] #dressCode .dress-art::after {
+    height:104px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-golden-pagoda-skin="true"] #dressCode .dress-art {
+    transform:none!important;
+    will-change:auto;
+  }
+}
+
+/* Royal-only typography and spacing. Keep swatch data in index.html unchanged. */
+html[data-golden-pagoda-skin="true"] #dressCode .dress-inner {
+  padding:clamp(88px,calc(11vw + 50px),102px) clamp(20px,7vw,28px) 92px;
+}
+html[data-golden-pagoda-skin="true"] #dressCode h2.dress-heading {
+  font-size:clamp(46px,13vw,52px);
+  line-height:1.18;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-intro {
+  max-width:36ch;
+  font-size:clamp(13px,3.4vw,15px);
+  line-height:1.65;
+  margin-bottom:28px;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-palettes {
+  gap:16px;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-palette {
+  padding:21px clamp(13px,4vw,18px);
+  border-radius:16px;
+  background:rgba(255,250,242,.9);
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-palette-name {
+  font-size:clamp(18px,4.7vw,20px);
+  line-height:1.35;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-colour-label {
+  font-size:12px;
+  line-height:1.6;
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-swatches {
+  flex-wrap:nowrap;
+  gap:clamp(8px,2.4vw,10px);
+}
+html[data-golden-pagoda-skin="true"] #dressCode .dress-swatch {
+  width:30px;
+  height:30px;
+  flex:0 0 30px;
+  border-color:#fffaf2;
+}
+@media (max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #dressCode .dress-art-original {
+    background-position:right -55px center;
+    background-size:205px auto;
+  }
+  html[data-golden-pagoda-skin="true"] #dressCode .dress-inner {
+    padding-inline:20px;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-golden-pagoda-skin="true"] #dressCode .dress-flight {
+    will-change:auto;
+  }
+  html[data-golden-pagoda-skin="true"] #dressCode .dress-reveal {
+    transition:none!important;
+    transition-delay:0s!important;
+  }
+}
