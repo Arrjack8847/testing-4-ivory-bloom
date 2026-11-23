@@ -67,12 +67,22 @@ html[data-golden-pagoda-skin="true"] #invitation[data-layers="ready"] #viewport 
    * visible marble shelf and corner roses are contained within the frame.
    */
   bottom: 0;
+  /* styles-bundle-a.css defines .animated-scene::after with inset:0.
+   * Explicitly release its top/right constraints; otherwise top:0 wins
+   * over bottom:0 with a fixed shelf height and sends it above the arch.
+   */
+  top: auto;
+  right: auto;
   width: min(100vw, 430px);
   height: min(19vw, 82px);
   z-index: 15; /* behind foreground flowers, above the couple and columns */
   pointer-events: none;
   translate: -50% 0;
-  background: url("./assets/skins/ivory-bloom/s01-ivory-bottom-shelf.webp") center center / 100% auto no-repeat;
+  background: url("./assets/skins/ivory-bloom/s01-ivory-bottom-shelf.webp") center 30% / 100% auto no-repeat;
+  /* The inherited screen-blend rule is for the previous mist overlay,
+   * not this opaque marble foundation. Preserve original artwork tones.
+   */
+  mix-blend-mode: normal;
   filter: drop-shadow(0 3px 4px rgba(91, 61, 43, .20));
   opacity: 1;
   transform: translateY(0);
