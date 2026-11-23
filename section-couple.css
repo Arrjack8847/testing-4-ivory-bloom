@@ -1,0 +1,281 @@
+/* Section 3 — original, reference-structured floral couple portrait scene.
+   At 390px the reference spans about 1840px. No vendor artwork is embedded. */
+.couple-section{
+  position:relative;z-index:2;isolation:isolate;overflow:hidden;
+  box-sizing:border-box;width:100%;min-height:1840px;
+  padding:225px 28px 170px;
+  text-align:center;color:#6c3a60;
+  background-color:#dedbda;
+  background-image:url("./assets/couple-garden-original.svg");
+  background-repeat:no-repeat;
+  background-size:100% calc(100% + 128px);
+  background-position:center calc(-64px + var(--couple-bg-y,0px));
+}
+.couple-section::before{
+  content:"";pointer-events:none;position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,rgba(230,223,223,.03) 0%,transparent 16%,
+    rgba(255,248,234,.04) 77%,rgba(104,85,131,.14) 100%);
+}
+/* Decorative underlay: visible only below the ivory arch; its overlap is
+   intentionally behind the panel, never above the names or photo cards. */
+.couple-section .couple-lake-finish{
+  position:absolute;left:0;right:0;bottom:0;height:178px;z-index:0;
+  pointer-events:none;
+  background:url("./assets/couple-lake-finish-original.svg") center bottom/100% 178px no-repeat;
+}
+/* Independent original botanical side garden. Its painted flowers hug the
+   outer margins and never obscure the couple's live HTML text or portrait cards. */
+.couple-section .couple-botanical-edges{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:url("./assets/couple-botanical-edges-original.svg") center top/100% 100% no-repeat;
+  transform-origin:center bottom;
+  animation:couple-botanical-breathe 16s ease-in-out infinite alternate;
+}
+@keyframes couple-botanical-breathe{
+  to{transform:translate3d(0,2px,0) scale(1.006)}
+}
+.couple-section .couple-arch{
+  position:absolute;z-index:1;pointer-events:none;
+  top:129px;left:12px;right:12px;bottom:140px;
+  border:1.5px solid rgba(182,148,93,.76);
+  border-radius:48% 48% 9px 9px / 13% 13% 0 0;
+  background-image:url("./assets/couple-arch-relief-original.svg"),
+    linear-gradient(100deg,rgba(255,255,255,.94),rgba(250,247,244,.97) 48%,rgba(255,251,244,.93));
+  background-size:100% 100%,100% 100%;
+  background-repeat:no-repeat;
+  box-shadow:0 0 0 5px rgba(255,250,237,.4),0 10px 30px rgba(41,29,46,.11),
+    inset 0 0 0 8px rgba(250,242,232,.36);
+}
+.couple-section .couple-arch::before{
+  content:"";position:absolute;inset:5px;
+  border:1px solid rgba(206,170,107,.65);
+  border-radius:48% 48% 5px 5px / 13% 13% 0 0;
+}
+.couple-section .couple-arch::after{
+  content:"";position:absolute;inset:12px;opacity:.32;
+  background-image:radial-gradient(#ddcbd4 1px,transparent 1px),
+    repeating-linear-gradient(118deg,transparent 0 9px,rgba(163,133,147,.025) 9px 10px);
+  background-size:25px 30px,auto;
+  border-radius:48% 48% 3px 3px / 13% 13% 0 0;
+}
+.couple-section .couple-arch-finial{
+  pointer-events:none;position:absolute;z-index:2;left:50%;top:125px;
+  width:10px;height:10px;background:#b79b6d;border:2px solid #f5e8cb;
+  transform:translateX(-50%) rotate(45deg);
+}
+.couple-section .couple-hanging{
+  position:absolute;top:-11px;left:0;width:100%;height:295px;z-index:3;pointer-events:none;
+  background:url("./assets/couple-canopy-original.svg") center top/100% 295px no-repeat;
+  filter:drop-shadow(0 2px 2px rgba(58,52,76,.09));
+  transform-origin:center top;animation:couple-flower-breathe 9s ease-in-out infinite alternate;
+}
+.couple-section .couple-inner{
+  position:relative;z-index:4;max-width:334px;margin:0 auto;
+  display:flex;align-items:center;flex-direction:column;
+}
+.couple-section .couple-intro{width:100%;margin:0;}
+.couple-section .couple-salutation{
+  margin:0 0 12px;font:400 11px/18.15px 'EB Garamond',Georgia,serif;
+  letter-spacing:4.95px;text-transform:uppercase;color:#9d7193;
+}
+.couple-section .couple-title{
+  margin:0;white-space:nowrap;color:#7e3f6d;text-shadow:0 2px 8px rgba(249,239,241,.8);
+  font:400 52px/59.8px 'Pinyon Script','Alex Brush',cursive;
+}
+.couple-section .couple-profile{display:flex;align-items:center;flex-direction:column;width:100%;position:relative;}
+.couple-section .couple-profile--groom{margin-top:44px;}
+.couple-section .couple-profile--bride{margin-top:52px;}
+.couple-section .couple-portrait{
+  box-sizing:border-box;width:72%;max-width:240.5px;
+  aspect-ratio:240.5 / 332.7;max-height:none;
+  border:5px solid #fffdfa;border-radius:16px;
+  box-shadow:0 2px 2px rgba(57,39,43,.1),0 0 0 1px rgba(178,147,113,.30),
+    0 12px 25px rgba(57,43,48,.10);
+  overflow:hidden;background:#483044;
+}
+.couple-section .couple-portrait img{display:block;width:100%;height:100%;object-fit:cover;}
+.couple-section .couple-name{
+  margin:30px 0 0;width:100%;height:92.4px;color:#80436f;
+  font:400 42px/46.2px 'Pinyon Script','Alex Brush',cursive;
+  overflow-wrap:anywhere;text-shadow:0 1px 4px rgba(255,250,255,.75);
+}
+.couple-section .couple-role{
+  margin:14px 0 4px;font:400 11px/18.15px 'EB Garamond',Georgia,serif;letter-spacing:3.3px;color:#9d8097;text-transform:uppercase;
+}
+.couple-section .couple-family{
+  max-width:100%;min-height:62.7px;margin:0;
+  color:#613a55;font:500 19px/31.35px 'EB Garamond',Georgia,serif;
+  overflow-wrap:break-word;
+}
+.couple-section .couple-separator{
+  margin:52px 0 0;height:99px;line-height:99px;font-size:60px;
+  font-family:'Pinyon Script',cursive;color:#815272;
+}
+.couple-section .couple-demo-note{
+  position:absolute;top:calc(100% + 6px);margin:0 16px;font:400 11px/1.4 'EB Garamond',Georgia,serif;
+  font-style:italic;color:#867085;
+}
+.couple-section .couple-floating-petals{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden;}
+.couple-section .couple-floating-petals span{
+  position:absolute;left:var(--p-x);top:-20px;width:8px;height:12px;
+  border-radius:90% 0 85% 12%;opacity:.45;
+  background:linear-gradient(135deg,#eee6f4,#ab7db3);
+  animation:couple-petal-drift var(--p-duration,13s) linear infinite;
+  animation-delay:var(--p-delay,0s);
+  animation-play-state:paused;
+}
+.couple-section[data-petals-active="true"] .couple-floating-petals span{animation-play-state:running;}
+@keyframes couple-petal-drift{
+  0%{transform:translate3d(-12px,-35px,0) rotate(-18deg);opacity:0}
+  12%{opacity:.42}
+  31%{transform:translate3d(12px,440px,0) rotate(65deg)}
+  58%{transform:translate3d(-7px,1050px,0) rotate(147deg)}
+  88%{opacity:.4}
+  100%{transform:translate3d(19px,1870px,0) rotate(269deg);opacity:0}
+}
+@keyframes couple-flower-breathe{to{transform:scale(1.018) translateY(3px)}}
+.couple-section[data-reveal-ready="true"] .couple-reveal{
+  opacity:0;transform:translate3d(0,24px,0) scale(.985);
+  transition:opacity .85s ease,transform .9s cubic-bezier(.2,.68,.18,1);
+}
+.couple-section[data-reveal-ready="true"] .couple-reveal.in-view{
+  opacity:1;transform:none;
+}
+@media(max-width:350px){
+  .couple-section{min-height:1776px;padding:225px 28px 170px;}
+  .couple-section .couple-arch{left:12px;right:12px;bottom:140px;}
+  .couple-section .couple-portrait{width:72%;}
+  .couple-section .couple-profile--bride{margin-top:52px;}
+  .couple-section .couple-family{font-size:17px;line-height:29px;}
+  .couple-section .couple-name{font-size:42px;}
+}
+@media(min-width:400px){
+  .couple-section .couple-arch{left:12px;right:12px;}
+  .couple-section .couple-portrait{width:72%;}
+}
+@media(prefers-reduced-motion:reduce){
+  .couple-section .couple-hanging,.couple-section .couple-botanical-edges,
+  .couple-section .couple-floating-petals span{animation:none!important;}
+  .couple-section[data-reveal-ready="true"] .couple-reveal,
+  .couple-section .couple-reveal{opacity:1!important;transform:none!important;transition:none!important;}
+}
+
+/* Default Section 3 reference-recreation prototype on /.
+   Provider assets are only hotlinked for development comparison;
+   no vendor artwork is embedded or licensed for commercial publication. */
+.couple-section .couple-reference-scene{display:none;}
+.couple-section[data-art="reference"]{
+  background:#f2ecf3;
+}
+/* The live Couple section places a subtle paper tint above its sticky
+   backdrop and beneath its arched panel. Keep the same stacking order here,
+   scoped strictly to Section 3. */
+.couple-section[data-art="reference"]::before{
+  display:block;z-index:1;pointer-events:none;
+  background:#f8f1ec;opacity:.1;
+}
+/* The track fills exactly the existing Section 3 padding box, without
+   affecting the Couple portraits, arch or either adjacent section. A native
+   sticky child lets the browser's scrolling compositor pin the garden in
+   the SAME frame as the content instead of cancelling scroll from a JS rAF.
+   Both dimensions and the reference's 64px artwork overscan are preserved. */
+.couple-section[data-art="reference"] .couple-reference-track{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+}
+.couple-section[data-art="reference"] .couple-reference-scene{
+  display:block;position:absolute;top:0;left:0;
+  width:100%;height:100dvh;height:100lvh;min-height:480px;
+  z-index:0;pointer-events:none;
+  background:none;
+  /* Legacy fallback (older engines without overflow:clip or sticky):
+     existing JS pin displacement remains available. */
+  transform:translate3d(0,var(--couple-reference-y,0px),0);
+  backface-visibility:hidden;
+}
+/* overflow:hidden creates a new scrolling ancestor and breaks sticky pinning.
+   clip does not. The absolute track bounds the sticky scene to Section 3,
+   naturally releasing it at the same end-of-section point as the old camera.
+   Only the small source-calibrated 4.27% drift stays JS-controlled. */
+@supports (overflow:clip) and (position:sticky){
+  .couple-section[data-art="reference"]{overflow:clip;}
+  .couple-section[data-art="reference"] .couple-reference-scene{
+    position:sticky;top:0;left:auto;
+    transform:translate3d(0,var(--couple-camera-y,0px),0);
+  }
+}
+/* Promote the garden and portrait zooms only while Section 3 is near the
+   viewport. Avoid keeping large decorative GPU layers alive across the rest
+   of this ten-section page. The motion path stays scroll-synchronous. */
+.couple-section[data-art="reference"][data-camera-near="true"] .couple-reference-scene,
+.couple-section[data-art="reference"][data-camera-near="true"] .couple-portrait img{
+  will-change:transform;
+}
+.couple-section[data-art="reference"] .couple-reference-scene::before{
+  content:"";position:absolute;inset:-64px 0;
+  pointer-events:none;
+  background-image:var(--couple-reference-image,url("./assets/scene.webp"));
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.couple-section[data-art="reference"] .couple-lake-finish,
+.couple-section[data-art="reference"] .couple-botanical-edges,
+.couple-section[data-art="reference"] .couple-hanging,
+.couple-section[data-art="reference"] .couple-arch-finial{
+  display:none;
+}
+/* The measured reference SVG arch panel is always active in Section 3.
+    Dimensions/position remain those of the approved scene. */
+.couple-section[data-art="reference"] .couple-arch{
+  z-index:2;
+  border:solid transparent;
+  border-width:200px 28px 26px;
+  border-image-source:url("https://undangankahwin.com/images/concierge/packs/tasik-kayangan/arch_panel.svg");
+  border-image-slice:200 28 26 fill;
+  border-image-width:200px 28px 26px;
+  border-image-repeat:stretch;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+.couple-section[data-art="reference"] .couple-arch::before,
+.couple-section[data-art="reference"] .couple-arch::after{display:none;}
+.couple-section[data-art="reference"] .couple-demo-note{display:none;}
+/* Live reference: BOTH photographs zoom to 105% while their midpoint
+   occupies the visible focal band, and ease back to natural crop on exit. */
+.couple-section[data-art="reference"] .couple-portrait img{
+  transform:none;
+  transform-origin:center center;
+  transition:transform .6s cubic-bezier(.2,.68,.18,1);
+}
+.couple-section[data-art="reference"] .couple-portrait.is-focal img{
+  transform:scale(1.05);
+}
+@media(prefers-reduced-motion:reduce){
+  .couple-section[data-art="reference"] .couple-portrait img{
+    transform:none!important;
+    transition:none!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .couple-section[data-art="reference"] .couple-reference-scene{will-change:auto;}
+}
+
+
+/* Reference timing applies to Section 3 on all URLs.
+    The other six sections remain untouched. */
+.couple-section[data-art="reference"][data-reveal-ready="true"] .couple-reveal{
+  opacity:0;
+  transform:translate3d(0,52px,0) scale(.955);
+  transition:opacity .85s ease, transform .95s cubic-bezier(.2,.68,.18,1);
+}
+.couple-section[data-art="reference"][data-reveal-ready="true"] .couple-reveal.in-view{
+  opacity:1;
+  transform:none;
+}
+@media(prefers-reduced-motion:reduce){
+  .couple-section[data-art="reference"] .couple-reference-scene{
+    transition:none;
+  }
+}
