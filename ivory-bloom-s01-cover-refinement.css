@@ -1,0 +1,51 @@
+/* Ivory Bloom — Section 1 mobile cover refinement (2026-11-23).
+ * This stylesheet applies only to the duplicated Golden Pagoda skin on the
+ * unopened cover. It does not modify a WebP, any keyframe, the camera code,
+ * opened-scene lettering, or the Section 1 -> Section 2 sticky handoff.
+ */
+
+/* Create calmer breathing room without moving the original cover's flex slots. */
+html[data-golden-pagoda-skin="true"] #invitation[data-state="cover"] #viewport .cover-copy {
+  margin-top: min(16px, 2lvh);
+}
+html[data-golden-pagoda-skin="true"] #invitation[data-state="cover"] #viewport .cover-copy .eyebrow {
+  color: #754b35;
+  text-shadow: 0 1px 3px rgba(255, 251, 245, .96);
+}
+html[data-golden-pagoda-skin="true"] #invitation[data-state="cover"] #viewport .cover-copy h1 {
+  color: #593b30;
+  text-shadow: 0 1px 3px rgba(255, 251, 245, .94);
+}
+
+/* Keep the existing 220.6 x 49.1 WebP button intact, below both faces.
+ * Leave at least 80px plus the actual bottom safe inset for the art bases.
+ */
+html[data-golden-pagoda-skin="true"] #invitation[data-state="cover"] #viewport .open-button {
+  top: min(74%, calc(100% - 80px - env(safe-area-inset-bottom, 0px)));
+  color: #563626;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 254, 250, .94);
+}
+
+/* Safari's visible viewport can be shorter than 100lvh when the bottom
+ * browser toolbar is on screen. Keep the *unopened* existing scene, floral
+ * urn bases and button in the visible 100dvh box. Preserve the original
+ * 100lvh camera/sticky geometry once the guest opens the invitation.
+ */
+@supports (height: 100dvh) {
+  html.invitation-cover-locked[data-golden-pagoda-skin="true"] #viewport {
+    height: 100dvh;
+  }
+  html.invitation-cover-locked[data-golden-pagoda-skin="true"] #viewport .scene-stage {
+    width: max(100%, 56.25dvh);
+  }
+  html.invitation-cover-locked[data-golden-pagoda-skin="true"] #viewport .depth.arch {
+    width: 56.25dvh;
+  }
+  html.invitation-cover-locked[data-golden-pagoda-skin="true"] #viewport .depth.canopy {
+    top: -11dvh;
+  }
+  html.invitation-cover-locked[data-golden-pagoda-skin="true"] {
+    --unit: min(1dvh, 2.164vw);
+  }
+}
