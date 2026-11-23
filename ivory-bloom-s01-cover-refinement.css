@@ -52,19 +52,23 @@ html[data-golden-pagoda-skin="true"] #invitation[data-state="cover"] #viewport .
 
 /* Section 1 bottom marble shelf — one non-interactive artwork overlay.
  * The approved 2172x724 WebP contains transparent padding above and below
- * its painted ledge. Anchor the visible ledge flush with the scene bottom
- * without scaling or cropping the artwork, and let it retreat alongside
- * the existing foreground when VIEW INVITATION is pressed.
+ * its painted ledge. At 320–430px widths the painted ledge becomes about
+ * 40–56px tall; anchor its bottom to the viewport and keep flowers in front.
+ * Render the full uncut artwork, then let it retreat alongside the
+ * existing foreground when VIEW INVITATION is pressed.
  * CSS only: no new DOM elements or edits to any of the original 20 slots.
  */
 html[data-golden-pagoda-skin="true"] #invitation[data-layers="ready"] #viewport .animated-scene::after {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -10vw;
-  width: min(100vw, 430px);
+  /* Offset the WebP's transparent lower margin so the painted ledge sits at the visible edge. */
+  bottom: max(-11vw, -47.3px);
+  /* 110% width: a substantial, full-bleed marble base behind the floral urns. */
+  width: min(110vw, 473px);
   aspect-ratio: 2172 / 724;
-  z-index: 28;
+  /* Above the background and columns (z:7), below rooted plants and flowers (z:16+). */
+  z-index: 15;
   pointer-events: none;
   translate: -50% 0;
   background: url("./assets/skins/ivory-bloom/s01-ivory-bottom-shelf.webp") center / 100% 100% no-repeat;
