@@ -49,3 +49,35 @@ html[data-golden-pagoda-skin="true"] #invitation[data-state="cover"] #viewport .
     --unit: min(1dvh, 2.164vw);
   }
 }
+
+/* Section 1 bottom marble shelf — one non-interactive artwork overlay.
+ * The approved 2172x724 WebP contains transparent padding above and below
+ * its painted ledge. Anchor the visible ledge flush with the scene bottom
+ * without scaling or cropping the artwork, and let it retreat alongside
+ * the existing foreground when VIEW INVITATION is pressed.
+ * CSS only: no new DOM elements or edits to any of the original 20 slots.
+ */
+html[data-golden-pagoda-skin="true"] #invitation[data-layers="ready"] #viewport .animated-scene::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10vw;
+  width: min(100vw, 430px);
+  aspect-ratio: 2172 / 724;
+  z-index: 28;
+  pointer-events: none;
+  translate: -50% 0;
+  background: url("./assets/skins/ivory-bloom/s01-ivory-bottom-shelf.webp") center / 100% 100% no-repeat;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1050ms ease, transform 1700ms cubic-bezier(.55, 0, .75, .4);
+}
+html[data-golden-pagoda-skin="true"] #invitation[data-state="opened"] #viewport .animated-scene::after {
+  opacity: 0;
+  transform: translateY(20lvh);
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-golden-pagoda-skin="true"] #viewport .animated-scene::after {
+    transition: none !important;
+  }
+}
