@@ -8,7 +8,7 @@
   <title>Ivory Bloom — Wedding Invitation</title>
   <style>html.cover-locked{overflow:hidden;height:100%;overscroll-behavior:none}html.cover-locked body{position:fixed;inset:0;width:100%;height:100dvh;overflow:hidden}</style>
   <style>
-:root{--ivory:#fff9f0;--ink:#735747;--gold:#a58a66;--reading-progress:0;--first-name-progress:0;--amp-progress:0;--second-name-progress:0;--details-progress:0;--front-scroll-opacity:0;--hanging-scroll-opacity:0;--frame-scroll-scale:2.6;--royal-core-retreat:0}
+:root{--ivory:#fff9f0;--ink:#735747;--gold:#a58a66;--reading-progress:0;--first-name-progress:0;--amp-progress:0;--second-name-progress:0;--details-progress:0;--front-scroll-opacity:0;--hanging-scroll-opacity:0;--frame-scroll-scale:1.08;--royal-core-retreat:0}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;background:#e6d7d2;overscroll-behavior-y:contain}
 body{margin:0;color:var(--ink);font-family:Georgia,'Times New Roman',serif}
@@ -25,14 +25,14 @@ button{cursor:pointer;font:inherit}
 .layer.sky{inset:0;z-index:1;transform-origin:50% 72%;transform:translateY(var(--sky-scroll-y,0%)) scale(var(--sky-scroll-scale,1));transition:transform 1050ms cubic-bezier(.22,.61,.36,1)}
 .layer.sky img{width:100%;height:100%;object-fit:cover}
 .layer.couple{inset:0;z-index:3;overflow:visible}
-.layer.couple img{position:absolute;bottom:-11%;left:50%;height:100%;width:auto;transform-origin:50% 100%;translate:-50% 0;scale:.78;transition:scale 1050ms cubic-bezier(.22,.61,.36,1),translate 1050ms cubic-bezier(.22,.61,.36,1)}
-.invitation[data-state='opened'] .layer.couple img{translate:-50% calc(-10% + 10% * var(--royal-core-retreat,0));scale:calc(.98 - .20 * var(--royal-core-retreat,0))}
-.layer.gateway{left:50%;bottom:0;z-index:7;width:56.25lvh;max-width:none;translate:-50% 0;transform:scale(var(--frame-scroll-scale,2.6));transform-origin:50% 72%;transition:transform 1050ms cubic-bezier(.22,.61,.36,1),opacity 1050ms}
+.layer.couple img{position:absolute;bottom:7%;left:50%;height:auto;width:clamp(420px,120%,560px);transform-origin:50% 100%;translate:-50% 0;scale:1;transition:scale 1050ms cubic-bezier(.22,.61,.36,1),translate 1050ms cubic-bezier(.22,.61,.36,1)}
+.invitation[data-state='opened'] .layer.couple img{translate:-50% calc(-3% + 3% * var(--royal-core-retreat,0));scale:calc(1.05 - .05 * var(--royal-core-retreat,0))}
+.layer.gateway{left:50%;bottom:0;z-index:7;width:100%;max-width:none;translate:-50% 0;transform:scale(var(--frame-scroll-scale,1));transform-origin:50% 72%;transition:transform 1050ms cubic-bezier(.22,.61,.36,1),opacity 1050ms}
 .layer.gateway img{width:100%;height:auto;object-fit:contain}
 .layer.drape{left:0;top:0;width:100%;z-index:11;transform-origin:50% 0%;transform:scale(var(--canopy-scroll-scale,1));transition:transform 1050ms cubic-bezier(.22,.61,.36,1)}
 .layer.drape img{display:block;width:100%;height:auto}
-.layer.drape img.royal-drape-left{clip-path:inset(0 50% 0 0);transform-origin:31% 0%;animation:drape-left 16.2s cubic-bezier(.42,0,.58,1) -3.05s infinite}
-.layer.drape img.royal-drape-right{position:absolute;inset:0 auto auto 0;clip-path:inset(0 0 0 50%);transform-origin:69% 0%;animation:drape-right 16.2s cubic-bezier(.42,0,.58,1) -4.05s infinite}
+.layer.drape img.royal-drape-left{clip-path:none;transform-origin:50% 0%;animation:canopy-soft 16.2s ease-in-out -3.05s infinite}
+.layer.drape img.royal-drape-right{display:none}
 .sprite{height:calc(var(--h)*1%);left:calc(var(--x)*1%);z-index:calc(12 + var(--z,0));transform:translateX(-50%);opacity:0}
 .sprite img{height:100%;width:auto;max-width:none}
 .sprite.hanging{top:calc(var(--y)*1%);opacity:var(--hanging-scroll-opacity,0);transform:translateX(-50%) translateY(var(--hanging-scroll-shift,-20lvh));z-index:12}
@@ -41,16 +41,19 @@ button{cursor:pointer;font:inherit}
 .sprite.leaf{z-index:18}
 .sprite.peacock{z-index:19;opacity:var(--peacock-scroll-opacity,0)}
 .sprite.flipped img{scale:-1 1}
+/* Cover ornaments frame the couple without hiding the lettering. */
+.invitation[data-state='cover'] .sprite.plant{opacity:.76}
+.invitation[data-state='cover'] .sprite.hanging{opacity:.72;transform:translateX(-50%) translateY(-2lvh)}
 .sprite.hanging img{transform-origin:50% 0%;animation:royal-hanging-wind var(--royal-swing-duration,16s) cubic-bezier(.42,0,.58,1) var(--royal-swing-delay,-2.4s) infinite}
 .sprite.plant img{transform-origin:50% 100%;animation:royal-rooted-wind var(--royal-swing-duration,16.9s) cubic-bezier(.42,0,.58,1) var(--royal-swing-delay,-2.4s) infinite}
 .reading-veil{position:absolute;inset:0;z-index:20;pointer-events:none;background:linear-gradient(180deg,transparent 22%,#fffaf20b 40%,transparent 75%)}
 .cover,.opened{position:absolute;inset:0;z-index:30;pointer-events:none;text-align:center}
 .cover{opacity:1;transition:opacity 900ms ease,translate 900ms ease}
-.cover-copy{position:absolute;left:7%;width:86%;top:28%;text-shadow:0 1px 12px #fff8efc7}
+.cover-copy{position:absolute;left:7%;width:86%;top:25%;text-shadow:0 1px 12px #fff8efc7}
 .eyebrow{font-family:Georgia,serif;font-size:clamp(11px,3.4vw,14px);font-weight:400;letter-spacing:.22em;line-height:1.5;color:#987957;margin:0 0 6px}
 .cover h1{font-weight:400;line-height:1.15;letter-spacing:.02em;font-size:clamp(29px,8.8vw,44px);color:#644b40;margin:0}
 .cover h1 em{font-family:cursive;font-size:.78em;font-weight:400}
-.open-button{display:flex;align-items:center;justify-content:center;position:absolute;top:53%;left:50%;translate:-50% 0;width:221px;height:49px;border:0;color:#654a3d;font-weight:500;font-size:13px;letter-spacing:.11em;background:transparent url('assets/ivory-bloom/royal-open-button.webp') center/100% 100% no-repeat;pointer-events:auto;white-space:nowrap;text-shadow:0 1px #fff8efb8}
+.open-button{display:flex;align-items:center;justify-content:center;position:absolute;top:min(77%, calc(100dvh - 78px));left:50%;translate:-50% 0;width:221px;height:49px;border:0;color:#654a3d;font-weight:500;font-size:13px;letter-spacing:.11em;background:transparent url('assets/ivory-bloom/royal-open-button.webp') center/100% 100% no-repeat;pointer-events:auto;white-space:nowrap;text-shadow:0 1px #fff8efb8}
 .open-button:focus-visible,.swipe-cue:focus-visible{outline:3px solid #8d6d55;outline-offset:3px;border-radius:8px}
 .invitation[data-state='opened'] .cover{opacity:0;pointer-events:none;translate:0 -12px}
 .opened{opacity:0;transition:opacity 900ms ease 260ms;z-index:31}
@@ -80,13 +83,14 @@ button{cursor:pointer;font:inherit}
 .next-section{min-height:100lvh;position:relative;z-index:40;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(150deg,#fbf5ed,#f5e4e4)}
 .next-inner{text-align:center;max-width:30ch}.next-inner h2{font-weight:400;font-size:clamp(30px,9vw,44px);margin:12px 0;color:#6f4e43}.next-inner p:last-child{font-size:15px;line-height:1.6}
 .invitation[data-scroll-active='yes'] .layer.sky,.invitation[data-scroll-active='yes'] .layer.couple img,.invitation[data-scroll-active='yes'] .layer.gateway,.invitation[data-scroll-active='yes'] .layer.drape{transition:none}
+@keyframes canopy-soft{0%,100%{transform:translateY(0) rotate(-.2deg)}50%{transform:translateY(.4%) rotate(.2deg)}}
 @keyframes drape-left{0%,100%{transform:rotate(-1.45deg)}22%{transform:rotate(1.65deg)}49%{transform:rotate(-2.15deg)}74%{transform:rotate(2.35deg)}}
 @keyframes drape-right{0%,100%{transform:rotate(-1.5deg)}22%{transform:rotate(1.75deg)}49%{transform:rotate(-2.35deg)}74%{transform:rotate(2.55deg)}}
 @keyframes royal-hanging-wind{0%,100%{transform:rotate(calc(var(--royal-left,-3.8deg)*.64))}22%{transform:rotate(var(--royal-right,3.8deg))}27%{transform:rotate(calc(var(--royal-right,3.8deg)*.83))}49%{transform:rotate(var(--royal-gust-left,-4.7deg))}54%{transform:rotate(calc(var(--royal-gust-left,-4.7deg)*.85))}74%{transform:rotate(var(--royal-gust-right,4.7deg))}79%{transform:rotate(calc(var(--royal-gust-right,4.7deg)*.85))}}
 @keyframes royal-rooted-wind{0%,100%{transform:rotate(calc(var(--royal-left,-2.2deg)*.65))}25%{transform:rotate(var(--royal-right,2.2deg))}50%{transform:rotate(var(--royal-gust-left,-2.5deg))}75%{transform:rotate(var(--royal-gust-right,2.5deg))}}
 @keyframes butterfly-fly{0%,100%{transform:translate(0,0) rotate(-9deg)}20%{transform:translate(28px,-38px) rotate(8deg)}45%{transform:translate(-20px,-61px) rotate(-7deg)}65%{transform:translate(30px,-15px) rotate(7deg)}78%{transform:translate(12px,0) rotate(0)}}
 @keyframes wing-left{to{transform:perspective(160px) rotateY(61deg)}}@keyframes wing-right{to{transform:perspective(160px) rotateY(-61deg)}}@keyframes cue{50%{translate:0 6px}}
-@supports not (clip-path:inset(0)){.layer.drape img.royal-drape-right{display:none}.layer.drape img.royal-drape-left{clip-path:none;animation:none}}
+
 @media (min-width:431px){body{padding-block:20px}.invitation{border:1px solid #fff7f2;border-radius:4px;box-shadow:0 0 45px #5c354722}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.butterfly-layer{display:none!important}}
 
@@ -238,8 +242,8 @@ button{cursor:pointer;font:inherit}
       const item = document.createElement('span');
       item.className = 'butterfly ' + (idx ? 'ivory' : 'blush');
       item.style.setProperty('--fly-image', `url("${base + name}")`);
-      item.style.setProperty('--fly-left', idx ? '67%' : '23%');
-      item.style.setProperty('--fly-top', id === 'coverButterflies' ? (idx ? '70%' : '62%') : (idx ? '30%' : '44%'));
+      item.style.setProperty('--fly-left', id === 'coverButterflies' ? (idx ? '84%' : '10%') : (idx ? '76%' : '12%'));
+      item.style.setProperty('--fly-top', id === 'coverButterflies' ? (idx ? '47%' : '51%') : (idx ? '31%' : '45%'));
       item.style.setProperty('--fly-duration', idx ? '22s' : '24s');
       item.style.setProperty('--fly-delay', idx ? '-7s' : '-2s');
       for (const side of ['left', 'right']) {
@@ -314,8 +318,8 @@ button{cursor:pointer;font:inherit}
     set('sky-scroll-scale', (1.12 - .12 * sky).toFixed(4));
     set('sky-scroll-y', (-4 * (1 - sky)).toFixed(3) + '%');
     set('royal-core-retreat', retreat.toFixed(4));
-    set('frame-scroll-scale', (2.6 - 1.6 * frameChange).toFixed(4));
-    set('canopy-scroll-scale', (2.2 - 1.2 * frameChange).toFixed(4));
+    set('frame-scroll-scale', (1.08 - .08 * frameChange).toFixed(4));
+    set('canopy-scroll-scale', (1.06 - .06 * frameChange).toFixed(4));
     set('hanging-scroll-opacity', frameChange.toFixed(4));
     set('hanging-scroll-shift', (-20 * (1 - frameChange)).toFixed(3) + 'lvh');
     set('front-scroll-opacity', blossoms.toFixed(4));
