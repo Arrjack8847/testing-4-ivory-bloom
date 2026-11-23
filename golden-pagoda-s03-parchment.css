@@ -1,0 +1,191 @@
+/* Section 03 — Royal Floating Parchment. These rules only affect the
+   Golden Pagoda Garden skin after its corresponding markup was installed.
+   Original artwork is never stretched, cropped, mirrored, or recolored.
+   Section 03's sticky scene, portrait zoom and ring separator are untouched. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .couple-profile {
+  isolation: isolate;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .couple-portrait {
+  position: relative;
+  z-index: 3;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-paper-stack {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: clamp(255px, 70vw, 278px);
+  aspect-ratio: 971 / 1619;
+  /* The approved portrait masks the paper crown; reveal the garden at the sides. */
+  margin: clamp(-128px, -32vw, -98px) auto 0;
+  padding: clamp(104px, 31vw, 126px) clamp(14px, 4.2vw, 19px) 19px;
+  text-align: center;
+  color: #4c3020;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-paper-art {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 971 / 1619;
+  object-fit: contain;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-paper-stack > :not(.royal-paper-art) {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+/* Match the reference's compact oval portrait. The photo, Kanote overlay and
+   existing focal zoom retain the same intrinsic canvas and proportions. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"][data-royal-wording="true"][data-royal-paper="ready"] .couple-portrait {
+  width: clamp(150px, 45vw, 182px);
+  max-width: 182px;
+  aspect-ratio: 800 / 1100;
+}
+
+/* Keep all live name and family text readable, with the existing approved
+   name divider. Hide the old family divider, superseded by the new lotus. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"][data-royal-wording="true"][data-royal-paper="ready"] .royal-paper-stack .couple-name {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0 auto 13px;
+  font-size: clamp(23px, 6.8vw, 28px);
+  line-height: 1.53;
+  color: #492a17;
+  background: none;
+  text-shadow: none;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"][data-royal-wording="true"][data-royal-paper="ready"] .royal-paper-stack .couple-role {
+  width: 100%;
+  margin: 0 auto;
+  font-size: clamp(11px, 2.9vw, 12px);
+  line-height: 1.4;
+  color: #65401f;
+  background: none;
+  text-shadow: none;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"][data-royal-wording="true"][data-royal-paper="ready"] .royal-paper-stack .couple-family {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 7px auto 0;
+  padding: 0 4px;
+  font: 500 clamp(13px, 3.8vw, 15px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color: #53351d;
+  letter-spacing: 0;
+  text-shadow: none;
+  background: none;
+  overflow-wrap: break-word;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"][data-royal-wording="true"][data-royal-paper="ready"] .royal-paper-stack .couple-family::after {
+  content: none;
+  display: none;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-parentage-plaque {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  /* At its native 2.5:1 ratio, reserve the ornate top for goldwork,
+     and center the two live text lines within the unobstructed field. */
+  width: min(214px, calc(100% - 10px));
+  aspect-ratio: 1983 / 793;
+  margin: 9px auto 0;
+  padding: 16px 13px 4px;
+  text-align: center;
+  isolation: isolate;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-parentage-art {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-parentage-my {
+  display: block;
+  width: 100%;
+  font: 500 clamp(10px, 2.8vw, 11px)/1.4 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color: #56351e;
+  letter-spacing: 0;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-parentage-en {
+  display: block;
+  width: 100%;
+  margin-top: 1px;
+  font: 600 clamp(9px, 2.45vw, 10px)/1.25 'Cinzel','EB Garamond',Georgia,serif;
+  letter-spacing: .09em;
+  color: #684424;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-parents-pending {
+  display: block;
+  margin: 1px auto 0;
+  font: 400 9px/1.45 'EB Garamond',Georgia,serif;
+  letter-spacing: .025em;
+  color: #775a3e;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-lotus-footer {
+  display: block;
+  width: min(174px, 74%);
+  height: auto;
+  aspect-ratio: 1983 / 793;
+  object-fit: contain;
+  margin: 4px auto 0;
+  pointer-events: none;
+}
+/* One-time subtle art reveal, independent of the original scroll-driven
+   portrait and text transitions. No persistent GPU layers or filters. */
+html[data-golden-pagoda-skin="true"] #couple[data-royal-paper-motion="ready"] .royal-paper-art,
+html[data-golden-pagoda-skin="true"] #couple[data-royal-paper-motion="ready"] .royal-parentage-art,
+html[data-golden-pagoda-skin="true"] #couple[data-royal-paper-motion="ready"] .royal-lotus-footer {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.2,.68,.18,1);
+}
+html[data-golden-pagoda-skin="true"] #couple[data-royal-paper-motion="ready"] .royal-paper-stack.is-in-view .royal-paper-art,
+html[data-golden-pagoda-skin="true"] #couple[data-royal-paper-motion="ready"] .royal-paper-stack.is-in-view .royal-parentage-art,
+html[data-golden-pagoda-skin="true"] #couple[data-royal-paper-motion="ready"] .royal-paper-stack.is-in-view .royal-lotus-footer {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 350px) {
+  html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-paper-stack {
+    margin-top: clamp(-128px, -32vw, -98px);
+    padding: clamp(104px, 31vw, 126px) 14px 19px;
+  }
+  html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-parentage-plaque {
+    width: min(206px, calc(100% - 10px));
+    margin-top: 7px;
+    padding: 15px 12px 3px;
+  }
+  html[data-golden-pagoda-skin="true"] #couple.couple-section[data-royal-paper="ready"] .royal-lotus-footer {
+    width: min(166px, 74%);
+    margin-top: 3px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-golden-pagoda-skin="true"] #couple .royal-paper-art,
+  html[data-golden-pagoda-skin="true"] #couple .royal-parentage-art,
+  html[data-golden-pagoda-skin="true"] #couple .royal-lotus-footer {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

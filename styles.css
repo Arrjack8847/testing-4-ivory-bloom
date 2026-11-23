@@ -1,0 +1,1005 @@
+:root {
+  --ink:#594962; --gold:#957a58; --ivory:#f6f0e9;
+  --art-ratio:1080 / 1920; --open-time:900ms;
+  --stage-parallax:0px; --debug-blend:.5;
+}
+*,*::before,*::after { box-sizing:border-box; }
+html { background:#c9bed0; scroll-behavior:smooth; }
+body { margin:0; color:var(--ink); font-family:'Cormorant Garamond',Georgia,serif; }
+button,a { -webkit-tap-highlight-color:transparent; }
+button { cursor:pointer; font:inherit; }
+.invitation { position:relative; width:100%; max-width:430px; margin:0 auto; background:#eae0e5; box-shadow:0 0 60px #5f475321; }
+.viewport { position:relative; width:100%; height:100vh; height:100lvh; min-height:480px; overflow:hidden; isolation:isolate; background:#d0bfd9; }
+.scene-stage {
+  position:absolute; top:50%; left:50%; width:max(100%,56.25lvh);
+  aspect-ratio:var(--art-ratio);
+  transform:translate(-50%,calc(-50% + var(--stage-parallax)));
+  pointer-events:none; user-select:none; will-change:transform;
+}
+.scene-stage img { display:block; pointer-events:none; user-select:none; -webkit-user-drag:none; }
+.master-art,.animated-scene { position:absolute; inset:0; width:100%; height:100%; }
+.master-art { z-index:1; object-fit:contain; opacity:1; transition:opacity 1250ms ease; }
+.animated-scene { z-index:2; overflow:hidden; opacity:0; transition:opacity 1200ms ease; }
+.invitation[data-state="opened"][data-layers="ready"] .master-art { opacity:0; }
+.invitation[data-state="opened"][data-layers="ready"] .animated-scene { opacity:1; }
+.invitation[data-state="opened"][data-layers="ready"] .animated-scene .reveal {
+  animation:arrive .95s cubic-bezier(.18,.65,.22,1) var(--delay,0ms) both;
+}
+.invitation[data-layers="failed"] .animated-scene { display:none; }
+.animated-scene > div { position:absolute; }
+.animated-scene img { width:100%; height:auto; }
+.sky-layer { z-index:1; inset:0; width:100%; height:100%; }
+.sky-layer img { width:100%; height:100%; object-fit:contain; animation:sky-breathe 38s ease-in-out infinite alternate; }
+.depth { width:100%; height:auto; }
+.depth.palace { left:0; top:36%; z-index:3; }
+.depth.reeds { inset:0; width:100%; height:100%; z-index:4; }
+.depth.reeds img { height:100%; object-fit:contain; }
+.depth.arch { inset:0; width:100%; height:100%; z-index:7; }
+.depth.arch img { height:100%; object-fit:contain; }
+/* Both tree assets are full 1080x1920 transparent canvases, NOT isolated cropped trees.
+   Preserve exact canvas geometry instead of scaling them to 73% and moving out of frame. */
+.depth.tree { inset:0; width:100%; height:100%; z-index:8; }
+.depth.tree-left { left:0; right:auto; }
+.depth.tree-right { left:0; right:auto; }
+.depth.tree img { display:block; width:100%; height:100%; object-fit:contain; }
+.depth.tree .gentle-tree { transform-origin:18% 12%; animation:tree-sway 9s ease-in-out infinite alternate; }
+.depth.tree-right .gentle-tree { transform-origin:82% 12%; animation-delay:-4s; }
+.depth.canopy { inset:0; width:100%; height:100%; z-index:11; }
+.depth.canopy img { height:100%; object-fit:contain; }
+.depth.peacock { width:45%; top:59%; z-index:15; }
+.depth.peacock-left { left:-1%; }
+.depth.peacock-right { right:-1%; }
+.depth.peacock-right img { transform:scaleX(-1); }
+.animated-scene > .sprite { left:var(--x); top:var(--y,auto); bottom:var(--bottom,auto); width:var(--w); height:auto; }
+.sprite.hanging { z-index:12; }
+.sprite.plant { z-index:17; }
+.sprite.flower { z-index:18; }
+.sprite.hanging .swing { transform-origin:50% 0%; animation:floral-sway 5.4s ease-in-out var(--motion-delay,0s) infinite alternate; }
+.sprite.hanging.alternate .swing { animation-duration:6.3s; animation-direction:alternate-reverse; }
+.sprite.plant .plant-sway { transform-origin:50% 100%; animation:plant-sway 7s ease-in-out var(--motion-delay,-1.8s) infinite alternate; }
+.sprite.flower .flower-sway { transform-origin:50% 93%; animation:flower-sway 5.5s ease-in-out var(--motion-delay,-1.2s) infinite alternate; }
+.sprite.alternate img { animation-direction:alternate-reverse; animation-delay:-2s; }
+.water-glow { z-index:5; left:13%; right:13%; bottom:8%; height:14%;
+  border-radius:50%; background:linear-gradient(106deg,transparent,#f7edff24 44%,#fff8ff36 52%,transparent 62%);
+  mix-blend-mode:screen; filter:blur(9px); animation:shimmer 7s ease-in-out infinite alternate;
+}
+.reading-veil { position:absolute; inset:0; z-index:3; pointer-events:none;
+  background:linear-gradient(to bottom,#f8f1f41c,transparent 20%,#ffffff2a 30%,#ffffff30 50%,transparent 66%);
+}
+.cover,.opened { position:absolute; inset:0; z-index:4; text-align:center; padding-inline:6%; }
+.cover { opacity:1; transition:opacity var(--open-time) ease,translate var(--open-time) ease; }
+.monogram { position:absolute; top:18%; left:0; width:100%;
+  font:500 clamp(20px,6vw,29px)/1 'Cinzel',serif;
+  letter-spacing:.24em; color:var(--gold); text-shadow:0 1px 9px #fff;
+}
+.monogram span { font:18px Georgia,serif; letter-spacing:0; padding-inline:3px; }
+.cover-copy { position:absolute; left:4%; top:29%; width:92%; }
+.eyebrow { margin:0 0 6px; font:400 clamp(17px,4.4vw,20px)/1.2 'Cormorant Garamond',serif; letter-spacing:.07em; }
+h1,h2 { margin:0; font-weight:500; letter-spacing:-.04em; text-shadow:0 2px 10px #ffffffbb; }
+h1 { font-size:clamp(42px,12.2vw,62px); line-height:1.08; }
+h1 em,h2 em { font-size:.75em; font-style:italic; }
+.open-button { position:absolute; top:53%; left:50%; translate:-50% 0; min-width:188px; min-height:46px;
+  padding:11px 21px; border:1px solid #b49c7e; border-radius:2px;
+  background:#fffaf1d9; color:#62546b; box-shadow:0 5px 22px #3c2b4230;
+  backdrop-filter:blur(7px); font:500 11px/1.1 'Cinzel',serif;
+  letter-spacing:.1em; white-space:nowrap;
+}
+.open-button:active { scale:.98; }
+.open-button:focus-visible,a:focus-visible,.debug-panel button:focus-visible { outline:2px solid #87669c; outline-offset:4px; }
+.opened { opacity:0; pointer-events:none; translate:0 16px; transition:opacity 1200ms ease 280ms,translate 1200ms ease 280ms; }
+.opened-copy { position:absolute; top:25%; left:4%; width:92%; }
+.opened h2 { font-size:clamp(41px,11.3vw,58px); line-height:1.02; }
+.date { font:500 12px/1.4 'Cinzel',serif; letter-spacing:.15em; margin:22px 0 0; }
+.guest { margin:17px 0 0; font-size:17px; }
+.guest span,.guest strong { display:block; }
+.guest strong { font-weight:600; font-size:22px; }
+.swipe-cue { position:absolute; left:0; width:100%; bottom:max(24px,env(safe-area-inset-bottom));
+  font:400 11px/1.2 'Cinzel',serif; letter-spacing:.14em; color:var(--ink);
+  text-decoration:none; text-shadow:0 1px 8px white;
+}
+.swipe-cue span { display:block; margin-top:6px; font:normal 27px/1 Georgia,serif; animation:cue 1.9s ease-in-out infinite; }
+.invitation[data-state="opened"] .cover { opacity:0; pointer-events:none; translate:0 -12px; }
+.invitation[data-state="opened"] .opened { opacity:1; pointer-events:auto; translate:0 0; }
+.message { padding:16vh 9% 15vh; min-height:95dvh; text-align:center; background:linear-gradient(170deg,#f4edf1,#e5dbe8); }
+.message h2 { font-size:clamp(38px,10vw,54px); }
+.message .date { margin-top:12px; }
+.message .rule { font-size:21px; color:#b39b6d; margin:24px 0; }
+.message .bismillah { font-size:33px; }
+.message p:not(.eyebrow,.date,.bismillah) { font-size:19px; line-height:1.6; max-width:32ch; margin-inline:auto; }
+.invitation[data-state="cover"] .message { visibility:hidden; }
+@media (min-width:431px) { body { padding-block:20px; }
+  .invitation { border:1px solid #ffffff7b; border-radius:3px; overflow:clip; }
+}
+.invitation[data-compare="master"] .master-art { opacity:1 !important; }
+.invitation[data-compare="master"] .animated-scene { opacity:0 !important; }
+.invitation[data-compare="layers"] .master-art { opacity:0 !important; }
+.invitation[data-compare="layers"] .animated-scene { opacity:1 !important; display:block !important; }
+.invitation[data-compare="blend"] .master-art { opacity:calc(1 - var(--debug-blend,.5)) !important; }
+.invitation[data-compare="blend"] .animated-scene { opacity:var(--debug-blend,.5) !important; display:block !important; }
+.invitation[data-compare] .cover,.invitation[data-compare] .opened,.invitation[data-compare] .reading-veil { visibility:hidden !important; }
+html.debug-freeze .animated-scene *,html.debug-freeze .animated-scene { animation:none !important; transition:none !important; }
+html.debug-freeze .scene-stage { --stage-parallax:0px; }
+.network-note { position:fixed; bottom:13px; left:50%; translate:-50%; z-index:30;
+  padding:7px 10px; border-radius:6px; background:#342c35d9; color:white;
+  font:12px/1.3 sans-serif; max-width:85vw; text-align:center;
+}
+.debug-panel { position:fixed; top:max(8px,env(safe-area-inset-top)); right:8px; width:min(250px,64vw);
+  z-index:40; padding:12px; border-radius:9px; color:#29242c; background:#fffcf5f2;
+  border:1px solid #cdb8ce; box-shadow:0 3px 18px #17101940; font:12px/1.35 sans-serif;
+}
+.debug-panel b { display:block; margin-bottom:10px; }
+.debug-panel label { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:8px 0; }
+.debug-panel select { max-width:100%; }
+.debug-panel .stats { display:block; white-space:pre-line; font-size:11px; }
+.debug-panel .debug-actions { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+.debug-panel button { border:1px solid #a998ab; background:white; padding:5px 8px; border-radius:4px; }
+.debug-panel small { display:block; }
+@keyframes arrive { from { opacity:0; translate:0 10px; } to { opacity:1; translate:0 0; } }
+@keyframes sky-breathe { from { transform:scale(1); } to { transform:scale(1.025); } }
+@keyframes shimmer { from { transform:translateX(-13px); opacity:.4; } to { transform:translateX(13px); opacity:.95; } }
+@keyframes tree-sway { from { transform:rotate(-.7deg); } to { transform:rotate(.75deg); } }
+@keyframes floral-sway { from { transform:rotate(-2.8deg); } to { transform:rotate(2.9deg); } }
+@keyframes plant-sway { from { transform:rotate(-1.6deg); } to { transform:rotate(2deg); } }
+@keyframes flower-sway { from { transform:rotate(-2.3deg); } to { transform:rotate(2deg); } }
+@keyframes cue { 0%,100% { translate:0 0; } 50% { translate:0 6px; } }
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+}
+
+
+/* Phase 5: geometry measured from the actual live 390x844 mobile reference.
+   Original artwork files remain their respective owners' property.
+   This CSS is an independent implementation of the measured layout. */
+:root { --ink:#5c264f; --gold:#5c264f; --unit:min(1lvh,2.164vw); --open-time:900ms; }
+body { font-family:'EB Garamond', Georgia,serif; }
+/* The reference's 9:16 art frame is bottom-aligned, NOT vertically centered. */
+/* Render the whole pinned 9:16 artwork in one stable composited stage.
+   The scene itself never counter-scrolls; only its child layers follow the
+   original reference curves. This has the same x/y geometry as translate(). */
+.scene-stage { top:auto;bottom:0;width:max(100%,56.25lvh);
+  transform:translate3d(-50%,var(--stage-parallax),0);
+  backface-visibility:hidden;
+}
+/* The cover is animated even BEFORE the guest opens it. */
+.invitation[data-layers="ready"] .master-art {opacity:0;}
+.invitation[data-layers="ready"] .animated-scene {opacity:1;}
+.sky-layer {transform-origin:50% 72%;transition:transform 1.7s cubic-bezier(.6,0,.25,1);}
+.sky-layer img {animation:none;}
+/* Palace was measured at 557x557 with its bottom at 844px.
+   In the opened valley it grows to 836x836 around the SAME bottom anchor. */
+.depth.palace {inset:0;width:100%;height:100%;z-index:3;}
+.depth.palace img {position:absolute;left:50%;bottom:0;top:auto;height:100%;width:auto;max-width:none;
+  translate:-50% 0;scale:.66;transform-origin:50% 100%;transition:scale 1.7s cubic-bezier(.6,0,.25,1);}
+.depth.reeds,.depth.arch {top:auto;left:50%;bottom:0;width:100vw;height:auto;translate:-50% 0;}
+.depth.reeds img,.depth.arch img {width:100%;height:auto;object-fit:contain;}
+.depth.reeds {z-index:5;transform:translateY(40%);opacity:0;transition:transform 1s ease .7s,opacity 1s ease .7s;}
+.depth.arch {z-index:7;transform-origin:50% 72%;transition:transform 1.5s cubic-bezier(.55,0,.75,.4),opacity 1.3s ease;}
+/* Trees have a 1080x1920 source canvas, but the live reference displays
+   each at 70% viewport HEIGHT, anchored 4% above the bottom.
+   Full-size stacking was an earlier assumption and is now corrected. */
+.depth.tree {top:auto;bottom:4lvh;width:39.375lvh;height:70lvh;z-index:8;
+  transform-origin:50% 100%;transition:transform 1.45s cubic-bezier(.55,0,.75,.4),opacity 1.25s ease;}
+.depth.tree-left {left:calc(25vw - 39.375lvh * .759 + max(0px,(56.25lvh - 100vw)/2));right:auto;}
+.depth.tree-right {left:auto;right:calc(27vw - 39.375lvh * .929 + max(0px,(56.25lvh - 100vw)/2));}
+.depth.tree img {height:100%;width:100%;object-fit:contain;}
+.depth.tree .gentle-tree {animation-duration:7.5s;}
+.depth.tree-right .gentle-tree {animation-duration:8.6s;animation-delay:-3s;}
+.depth.canopy {top:-11lvh;bottom:auto;left:50%;width:104vw;height:auto;translate:-50% 0;z-index:11;
+  transform-origin:50% 0;transition:transform 1.35s cubic-bezier(.55,0,.75,.4),opacity 1s ease;}
+.depth.canopy img {width:100%;height:auto;animation:floral-sway 9s ease-in-out infinite alternate;}
+/* Sprite coordinates are copied as measurements, not hand-estimated.
+   --x: horizontal viewport percentage
+   --y: distance from top (hanging) or bottom (other)
+   --h: height in common artwork units
+*/
+.animated-scene > .sprite {
+  left:calc((100% - 100vw)/2 + var(--x) * 1vw);
+  width:max-content;height:calc(var(--h) * var(--unit));
+  top:auto;bottom:calc(var(--y) * var(--unit));
+  translate:-50% 0;transform-origin:50% 100%;
+}
+.animated-scene > .sprite.hanging {top:calc(var(--y) * var(--unit));bottom:auto;z-index:12;transform-origin:50% 0;}
+.animated-scene > .sprite.front {z-index:calc(15 + var(--z,1));}
+.animated-scene > .sprite.flipped {scale:-1 1;}
+.animated-scene > .sprite img {display:block;width:auto;height:100%;max-width:none;}
+.sprite.hanging .swing {animation:reference-sway var(--sd,4s) ease-in-out var(--sl,0s) infinite alternate;transform-origin:50% 0;}
+.sprite.plant .plant-sway,.sprite.flower .flower-sway,.sprite.leaf .plant-sway {
+  animation:reference-sway var(--sd,4s) ease-in-out var(--sl,0s) infinite alternate;transform-origin:50% 100%;
+}
+.sprite.still img {animation:none!important;}
+/* Original living-garden wind: offset timings remain per asset, as measured,
+   but a slight easing lull and a small return wobble prevent perfectly
+   mechanical pendulum motion. Only img elements rotate; their top/bottom
+   anchoring wrappers, and therefore the visible scene edges, stay fixed. */
+@keyframes reference-sway {
+  0%   {transform:rotate(calc(var(--sa,2)*-0.88deg));}
+  17%  {transform:rotate(calc(var(--sa,2)*-0.60deg));}
+  38%  {transform:rotate(calc(var(--sa,2)*0.10deg));}
+  57%  {transform:rotate(calc(var(--sa,2)*0.48deg));}
+  78%  {transform:rotate(calc(var(--sa,2)*0.78deg));}
+  100% {transform:rotate(calc(var(--sa,2)*1deg));}
+}
+/* The reference cover groups its large script monogram, small title,
+   paired names, divider, and pill control above the living scene. */
+.cover {display:flex;align-items:center;flex-direction:column;justify-content:flex-start;
+  padding-top:min(23lvh,calc(54lvh - 200px));color:#5c264f;}
+.monogram {position:static;top:auto;left:auto;width:auto;display:flex;align-items:flex-end;justify-content:center;
+  font-family:'Alex Brush','EB Garamond',serif;font-weight:400;
+  font-size:clamp(64px,min(27vw,13.6lvh),118px);line-height:.9;letter-spacing:0;
+  text-shadow:0 2px 18px rgba(255,250,244,.85);}
+.monogram span {display:block;padding:0;font:inherit;letter-spacing:0;}
+.monogram span + span {margin-left:-.08em;transform:translateY(.1em);}
+.cover-copy {position:static;top:auto;left:auto;width:100%;margin-top:min(22px,2.6lvh);text-shadow:0 1px 10px rgba(255,250,244,.95);}
+.cover-copy .eyebrow {font-family:'EB Garamond',serif;font-size:16px;line-height:1.2;letter-spacing:.03em;color:#5c264f;margin:0 0 3px;}
+.cover-copy h1 {font-family:'EB Garamond',serif;font-size:22px;font-weight:600;line-height:1.2;letter-spacing:.02em;}
+.cover-copy h1 em {font-size:1em;font-weight:600;font-style:normal;}
+.cover-rule {display:block;width:min(56%,230px);height:1px;flex:0 0 1px;margin:min(12px,1.4lvh) 0 0;
+  background:linear-gradient(90deg,transparent,#5c264fb2,transparent);}
+.open-button {top:50.02%;left:50%;position:absolute;translate:-50% 0;
+  width:220.6px;min-width:0;height:49.1px;min-height:0;padding:0 26px;margin:0;
+  border:0;border-radius:999px;background:#5c264f;color:#fff8ef;
+  font:600 14px/1.2 'EB Garamond',Georgia,serif;letter-spacing:.16em;text-transform:uppercase;
+  box-shadow:0 10px 24px rgba(70,40,24,.32),inset 0 1px 0 rgba(255,236,214,.35);}
+.opened {font-family:'EB Garamond',Georgia,serif;}
+/* The camera moves INTO the valley, removing the close architectural
+   ornaments, rather than only fading between two copies of the same scene. */
+.invitation[data-state="opened"] .sky-layer {transform:translateY(-4%) scale(1.12);}
+.invitation[data-state="opened"] .depth.palace img {scale:.99;}
+.invitation[data-state="opened"] .depth.reeds {transform:translateY(0);opacity:1;}
+.invitation[data-state="opened"] .depth.arch {transform:scale(2.6);opacity:0;}
+.invitation[data-state="opened"] .depth.tree-left {transform:scale(2.1) translateX(-14%);opacity:0;}
+.invitation[data-state="opened"] .depth.tree-right {transform:scale(2.1) translateX(14%);opacity:0;}
+.invitation[data-state="opened"] .depth.canopy {transform:scale(2.2) translateY(-10%);opacity:0;}
+.invitation[data-state="opened"] .sprite.hanging {opacity:0;transform:translateY(-20lvh);transition:opacity 1s ease,transform 1.35s ease;}
+.invitation[data-state="opened"] .sprite.front {transform:translateY(20lvh);transition:transform 1.7s ease;}
+/* Explicit comparison mode always wins over the default animated cover. */
+.invitation[data-compare="master"] .master-art {opacity:1!important;}
+.invitation[data-compare="master"] .animated-scene {opacity:0!important;}
+.invitation[data-compare="layers"] .master-art {opacity:0!important;}
+.invitation[data-compare="layers"] .animated-scene {opacity:1!important;}
+.invitation[data-compare="blend"] .master-art {opacity:calc(1 - var(--debug-blend,.5))!important;}
+.invitation[data-compare="blend"] .animated-scene {opacity:var(--debug-blend,.5)!important;}
+
+/* Phase 5 visual sequence refinement, validated against actual mobile screenshots.
+   At the moment of opening, the live reference shows the valley and swipe cue.
+   Names are introduced by later scrolling, not immediately after the button tap. */
+.opened-copy {opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease;}
+.invitation[data-state="opened"][data-reading="yes"] .opened-copy {
+  opacity:1;transform:translateY(0);
+}
+.invitation[data-state="opened"] .sprite.front {
+  opacity:0;
+  transform:translateY(45lvh);
+  transition:transform 1.7s cubic-bezier(.55,0,.75,.4),opacity 1.05s ease;
+}
+/* Compact raised swipe invitation visible over the lake.
+   Vendor-only navigation and payment controls are deliberately excluded. */
+.swipe-cue {
+  left:50%;width:106px;bottom:17.5%;translate:-50% 0;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  gap:2px;border-radius:999px;padding:11px 15px 9px;
+  border:1px solid rgba(154,104,136,.22);
+  background:rgba(255,247,251,.94);
+  color:#6b315b;
+  font-family:'EB Garamond',Georgia,serif;font-size:12px;
+  font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  box-shadow:0 5px 19px rgba(68,39,64,.24);
+  text-shadow:none;
+}
+.swipe-cue span {order:-1;font-size:17px;margin:0;line-height:.5;transform:rotate(180deg);}
+
+
+/* Phase 6 — original scene's quiet ambient details.
+   The elements below are independent overlays, never part of the master WebP. */
+.petal-canvas {
+  position:absolute;inset:0;width:100%;height:100%;z-index:3;
+  pointer-events:none;user-select:none;
+}
+.sky-birds {position:absolute;inset:0;overflow:hidden;z-index:2;pointer-events:none;}
+.sky-birds span {
+  position:absolute;left:0;width:calc(26px * var(--bird-scale,1));
+  opacity:0;animation:bird-cross var(--bird-duration,15s) linear var(--bird-delay,0s) infinite;
+}
+.sky-birds svg {
+  display:block;width:100%;fill:#5f5a78;opacity:.75;
+  transform-origin:50% 60%;animation:bird-flap .42s ease-in-out infinite alternate;
+}
+@keyframes bird-cross {
+  0% {transform:translate(-12vw,0);opacity:0;}
+  6% {opacity:1;}
+  50% {transform:translate(50vw,-3lvh);}
+  94% {opacity:1;}
+  100% {transform:translate(112vw,1lvh);opacity:0;}
+}
+@keyframes bird-flap {from{transform:scaleY(1)}to{transform:scaleY(-.55)}}
+.depth.palace .waterfalls {
+  position:absolute;left:50%;bottom:0;top:auto;height:100%;aspect-ratio:1;
+  translate:-50% 0;scale:.66;transform-origin:50% 100%;
+  transition:scale 1.7s cubic-bezier(.6,0,.25,1);pointer-events:none;
+}
+.invitation[data-state="opened"] .depth.palace .waterfalls {scale:.99;}
+.waterfall {
+  position:absolute;overflow:visible;
+  -webkit-mask:linear-gradient(180deg,transparent,#000 10%,#000 86%,transparent);
+  mask:linear-gradient(180deg,transparent,#000 10%,#000 86%,transparent);
+}
+.waterfall i {position:absolute;inset:0;mix-blend-mode:screen;opacity:.7;}
+.waterfall i:first-child {
+  background:repeating-linear-gradient(91deg,transparent 0 2px,rgba(255,255,255,.6) 3px,transparent 5px 9px);
+  -webkit-mask:repeating-linear-gradient(176deg,transparent 0,#000 18px,#000 34px,transparent 54px,transparent 76px);
+  mask:repeating-linear-gradient(176deg,transparent 0,#000 18px,#000 34px,transparent 54px,transparent 76px);
+  animation:fall-flow-a 1.1s linear var(--fall-delay,0s) infinite;
+}
+.waterfall i:nth-child(2) {
+  background:repeating-linear-gradient(89deg,transparent 0 4px,rgba(255,255,255,.42) 5px,transparent 7px 13px);
+  -webkit-mask:repeating-linear-gradient(184deg,transparent 0,#000 30px,#000 44px,transparent 70px,transparent 110px);
+  mask:repeating-linear-gradient(184deg,transparent 0,#000 30px,#000 44px,transparent 70px,transparent 110px);
+  animation:fall-flow-b 1.7s linear var(--fall-delay,0s) infinite;
+}
+.waterfall b {
+  position:absolute;left:-30%;right:-30%;bottom:-14%;height:34%;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 60%,rgba(255,255,255,.7),transparent 68%);
+  mix-blend-mode:screen;animation:water-mist 4.8s ease-in-out infinite alternate;
+}
+@keyframes fall-flow-a {
+  from{-webkit-mask-position:0 0;mask-position:0 0;}
+  to{-webkit-mask-position:0 76px;mask-position:0 76px;}
+}
+@keyframes fall-flow-b {
+  from{-webkit-mask-position:0 0;mask-position:0 0;}
+  to{-webkit-mask-position:0 110px;mask-position:0 110px;}
+}
+@keyframes water-mist {from{opacity:.4;transform:scale(.9)}to{opacity:.78;transform:scale(1.08)}}
+/* The reference already contains painted mist. This subtle veil ties
+   the animated water to it without covering the illustration. */
+.animated-scene::after {
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:4;
+  background:linear-gradient(180deg,transparent 55%,rgba(240,234,250,.08) 78%,rgba(246,242,252,.04));
+  mix-blend-mode:screen;
+}
+@media (prefers-reduced-motion:reduce) {
+  .sky-birds{display:none;}
+  .petal-canvas{display:none;}
+  .waterfall i,.waterfall b{animation:none!important;}
+}
+
+/* Refined with the Celestial Lake theme's measured ornamental type variables:
+   script size 1.08x, linked initials with -.42em overlap, second initial .3em lower. */
+.monogram { font-size:calc(clamp(64px,min(27vw,13.6lvh),118px) * 1.08); }
+.monogram span + span {margin-left:-.42em;transform:translateY(.3em);}
+
+
+/* Phase 7 — two-wing butterflies from live Tasik Kayangan cover inspection.
+   Real sprite sizes: violet 52x41, ivory 44x34. A measured flight crosses
+   the cover starting ~2 s after load; the second starts later.
+   Wings split one source WebP horizontally, hinged to the body. */
+.butterfly-layer {
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;
+  z-index:4;transition:opacity .9s ease,visibility .9s;
+}
+.butterfly-cover {opacity:1;visibility:visible;}
+.butterfly-hero {opacity:0;visibility:hidden;}
+.invitation[data-state="opened"] .butterfly-cover {opacity:0;visibility:hidden;}
+.invitation[data-state="opened"][data-reading="yes"] .butterfly-hero {opacity:1;visibility:visible;}
+.butterfly {
+  position:absolute;left:0;top:0;opacity:0;display:block;
+  width:var(--fly-size-w);height:var(--fly-size-h);
+  filter:drop-shadow(0 6px 5px rgba(40,52,40,.2));
+  will-change:transform,opacity;transform-origin:center center;
+}
+.butterfly-wing {
+  position:absolute;top:0;width:50%;height:100%;
+  background-image:var(--fly-image);
+  background-repeat:no-repeat;background-size:200% 100%;
+  backface-visibility:visible;will-change:transform;
+}
+.butterfly-wing-l {left:0;background-position:0 0;transform-origin:100% 50%;}
+.butterfly-wing-r {right:0;background-position:100% 0;transform-origin:0 50%;}
+.butterfly-wing-l {animation:bf-wing-left .54s ease-in-out infinite alternate;}
+.butterfly-wing-r {animation:bf-wing-right .54s ease-in-out infinite alternate;}
+.butterfly.ivory .butterfly-wing-l,.butterfly.ivory .butterfly-wing-r {animation-duration:.46s;animation-delay:-.1s;}
+@keyframes bf-wing-left {from{transform:perspective(210px) rotateY(-8deg);}to{transform:perspective(210px) rotateY(-72deg);}}
+@keyframes bf-wing-right {from{transform:perspective(210px) rotateY(8deg);}to{transform:perspective(210px) rotateY(72deg);}}
+/* Positions are expressed in the viewport so the flight stays mobile-centric
+   even though the 9:16 scenery is cropped differently on taller phones.
+   Reference samples: violet at x~227 y~-40 (2.5 s), x~162 y110 (4.5 s);
+   ivory at x~340 y104 (4.5 s), with rotation included in the rectangles. */
+.butterfly-cover .violet {
+  animation:bf-violet-cover 13s cubic-bezier(.47,.05,.53,.95) 1.9s infinite;
+}
+.butterfly-cover .ivory {
+  animation:bf-ivory-cover 14s cubic-bezier(.48,.12,.52,.92) 3.9s infinite;
+}
+.butterfly-hero .violet {
+  animation:bf-violet-hero 13.5s ease-in-out .8s infinite;
+}
+.butterfly-hero .ivory {
+  animation:bf-ivory-hero 14.5s ease-in-out 3.2s infinite;
+}
+@keyframes bf-violet-cover {
+  0%{opacity:0;transform:translate3d(285px,-85px,0) rotate(-125deg);}
+  5%{opacity:1;}
+  9%{opacity:1;transform:translate3d(calc(50vw + 65px),-25px,0) rotate(-138deg);}
+  23%{transform:translate3d(calc(50vw - 8px),116px,0) rotate(-157deg);}
+  52%{transform:translate3d(calc(50vw - 112px),238px,0) rotate(-201deg);}
+  80%{opacity:1;transform:translate3d(calc(50vw - 220px),358px,0) rotate(-242deg);}
+  93%,100%{opacity:0;transform:translate3d(-75px,430px,0) rotate(-270deg);}
+}
+@keyframes bf-ivory-cover {
+  0%{opacity:0;transform:translate3d(calc(100vw + 44px),40px,0) rotate(-25deg);}
+  6%{opacity:1;}
+  12%{transform:translate3d(calc(100vw - 38px),104px,0) rotate(-98deg);}
+  45%{transform:translate3d(calc(50vw + 20px),165px,0) rotate(-140deg);}
+  77%{opacity:1;transform:translate3d(75px,235px,0) rotate(-205deg);}
+  91%,100%{opacity:0;transform:translate3d(-80px,298px,0) rotate(-260deg);}
+}
+@keyframes bf-violet-hero {
+  0%{opacity:0;transform:translate3d(calc(100vw + 35px),17vh,0) rotate(-100deg);}
+  8%{opacity:1;}
+  40%{transform:translate3d(calc(50vw + 15px),26vh,0) rotate(-160deg);}
+  76%{opacity:1;transform:translate3d(50px,18vh,0) rotate(-235deg);}
+  92%,100%{opacity:0;transform:translate3d(-72px,34vh,0) rotate(-250deg);}
+}
+@keyframes bf-ivory-hero {
+  0%{opacity:0;transform:translate3d(-44px,19vh,0) rotate(35deg);}
+  8%{opacity:1;}
+  45%{transform:translate3d(calc(48vw - 20px),11vh,0) rotate(95deg);}
+  77%{opacity:1;transform:translate3d(calc(100vw - 28px),24vh,0) rotate(142deg);}
+  92%,100%{opacity:0;transform:translate3d(calc(100vw + 50px),35vh,0) rotate(160deg);}
+}
+html.debug-freeze .butterfly,html.debug-freeze .butterfly-wing {
+  animation:none!important;
+}
+@media (prefers-reduced-motion:reduce) {
+  .butterfly-layer {display:none;}
+}
+
+
+/* Section 1 timing calibration, measured at the returning garden:
+   the live reference already has visible butterflies near the ceremonial
+   arch by 1.5H. Start each original hero-flight path partway along its
+   route when the reading state begins, rather than leaving both sprites
+   invisible behind positive animation delays. Cover/perch routes unchanged. */
+.butterfly-hero .violet {animation-delay:-1.8s;}
+.butterfly-hero .ivory {animation-delay:-2.5s;}
+
+/* Don't run invisible flight loops on mobile; begin the valley flight when
+   the guest actually swipes, rather than using an already elapsed animation. */
+.butterfly-hero .butterfly {animation-play-state:paused;}
+.invitation[data-state="opened"][data-reading="yes"] .butterfly-hero .butterfly {animation-play-state:running;}
+.invitation[data-state="opened"] .butterfly-cover .butterfly {animation-play-state:paused;}
+
+
+/* Section 1 → Section 2: the live reference keeps the whole lake frame
+   sticky through the final 3H boundary while the mauve band rises over it.
+   Give the sticky scene a 4H containing block and overlap its last 1H
+   with the message via negative margin: *document flow* still starts the
+   second scene at exactly 3H, without exposing the bottom of the artwork. */
+.scene-scroll-track {
+  position:relative;
+  height:400vh;height:400lvh;
+  margin-bottom:-100vh;margin-bottom:-100lvh;
+}
+.scene-scroll-track > .viewport {position:sticky;top:0;z-index:1;}
+.message {position:relative;z-index:2;}
+@media (min-width:431px) {
+  /* The desktop shell is only a phone preview; mobile behavior remains primary. */
+  .scene-scroll-track > .viewport {position:sticky;top:0;}
+}
+
+
+/* Phase 8 — verified sticky reference: do not translate the entire art on scroll.
+   The first swipe reveals text over the lake, not an abrupt full-page jump. */
+:root { --reading-progress:0; }
+.opened-copy {opacity:0;transform:translateY(16px);transition:opacity .12s linear,transform .8s ease;}
+.invitation[data-state="opened"][data-reading="yes"] .opened-copy {
+  opacity:var(--reading-progress,0);transform:translateY(0);
+}
+/* Keep the lake in place for the full duration of its sticky track. */
+.scene-scroll-track .scene-stage {will-change:auto;}
+@media (prefers-reduced-motion:reduce) {
+  .opened-copy{transition:none;}
+}
+
+
+/* Phase 8 visual correction: the real opened/45%-scrolled lake has neither
+   the foreground reed screen nor the original Swipe Up pill on top of it. */
+.invitation[data-state="opened"] .depth.reeds {
+  transform:translateY(50%);opacity:0;pointer-events:none;
+  transition:opacity .45s ease,transform 1.1s ease;
+}
+.invitation[data-state="opened"][data-reading="yes"] .swipe-cue {
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+
+
+/* Section 1 calibration — original scroll choreography is preserved.
+   .45H lake only, .75H side blossoms, .95H floral hangers,
+   1.15H arch/peacocks, 1.5H title. No duplicate 4H track override. */
+.invitation[data-state="opened"] .sky-layer {
+  transform:translateY(var(--sky-scroll-y,-4%)) scale(var(--sky-scroll-scale,1.12));
+}
+.invitation[data-state="opened"] .depth.palace img {
+  scale:var(--palace-scroll-scale,.99);
+}
+.invitation[data-state="opened"] .depth.palace .waterfalls {
+  scale:var(--palace-scroll-scale,.99);
+}
+.invitation[data-state="opened"] .depth.arch {
+  transform:scale(var(--frame-scroll-scale,2.6));
+  opacity:var(--frame-scroll-opacity,0);
+}
+.invitation[data-state="opened"] .depth.tree-left {
+  transform:scale(var(--tree-scroll-scale,2.1)) translateX(calc(-1 * var(--tree-scroll-shift,14%)));
+  opacity:var(--frame-scroll-opacity,0);
+}
+.invitation[data-state="opened"] .depth.tree-right {
+  transform:scale(var(--tree-scroll-scale,2.1)) translateX(var(--tree-scroll-shift,14%));
+  opacity:var(--frame-scroll-opacity,0);
+}
+.invitation[data-state="opened"] .depth.canopy {
+  transform:scale(var(--canopy-scroll-scale,2.2)) translateY(var(--canopy-scroll-shift,-10%));
+  opacity:var(--frame-scroll-opacity,0);
+}
+.invitation[data-state="opened"] .sprite.hanging {
+  opacity:var(--hanging-scroll-opacity,0);
+  transform:translateY(var(--hanging-scroll-shift,-20lvh));
+}
+.invitation[data-state="opened"] .sprite.front {
+  opacity:var(--front-scroll-opacity,0);
+  transform:translateY(var(--front-scroll-shift,45lvh));
+}
+.invitation[data-state="opened"] .sprite.peacock-sprite.front {
+  opacity:var(--peacock-scroll-opacity,0);
+  transform:translateY(var(--front-scroll-shift,45lvh));
+}
+/* The scroll-active state now latches from the first touch/wheel until
+   reset, including a reversal to 0px. Never let the long opening easing
+   resume mid-gesture or smear the artwork behind the user's finger. */
+.invitation[data-state="opened"][data-scroll-active="yes"] :is(
+  .sky-layer,.depth.palace img,.depth.palace .waterfalls,
+  .depth.arch,.depth.tree,.depth.canopy,.sprite.front,.sprite.hanging
+) {transition:none;}
+/* Text follows the returning ceremonial garden, NOT the empty lake.
+   The intro headline is visible around 1.5 viewport scrolls; names and
+   guest details are staggered later. */
+.opened-copy {top:30%;opacity:0;}
+.invitation[data-state="opened"][data-reading="yes"] .opened-copy {
+  opacity:var(--reading-progress,0);
+  transform:translateY(0);
+}
+.opened-copy h2 {opacity:var(--names-progress,0);}
+.opened-copy .date,.opened-copy .guest {opacity:var(--details-progress,0);}
+.invitation[data-state="opened"][data-swiped="yes"] .swipe-cue {
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+@media (prefers-reduced-motion:reduce) {
+  .invitation[data-state="opened"][data-scroll-active="yes"] :is(
+    .sky-layer,.depth.palace img,.depth.arch,.depth.tree,.depth.canopy,.sprite.front,.sprite.hanging
+  ){transition:none!important;}
+}
+
+
+/* Reference late scroll: the content block travels upward after 2 viewport
+   heights while the artwork remains pinned. See scroll QA at 2.15/2.5/2.9H. */
+.invitation[data-state="opened"][data-reading="yes"] .opened-copy {
+  transform:translateY(var(--text-scroll-shift,0px));
+}
+
+
+/* Phase 10 — flowing script name reveal within the returned ceremonial arch.
+   The first name draws from left to right at the 1.5H reference checkpoint.
+   All names remain actual selectable text, not embedded in a flattened image. */
+.opened-copy {left:3%;width:94%;top:30%;font-family:'EB Garamond',Georgia,serif;}
+.opened-copy .eyebrow {
+  color:#5b2d51;font-size:clamp(19px,5.5vw,23px);letter-spacing:.13em;
+  line-height:1.38;text-shadow:0 1px 7px #fff9f4bd;
+}
+.invitation[data-state="opened"] .opened-copy {opacity:1;transition:none;}
+.invitation[data-state="opened"] .opened-copy .eyebrow {
+  opacity:var(--reading-progress,0);
+}
+.invitation[data-state="opened"] .ceremony-names {
+  display:flex;flex-direction:column;align-items:center;
+  gap:0;width:100%;margin:0 auto;
+  color:#5d2450;
+  font:400 clamp(58px,16.5vw,72px)/.83 'Alex Brush',cursive;
+  letter-spacing:0;text-align:center;
+  opacity:1;text-shadow:0 1px 7px #fff8f0a6;
+  transform:none;white-space:nowrap;
+}
+.ceremony-names .name-line {
+  display:block;max-width:100%;height:1.12em;line-height:1.12;
+  overflow:visible;transform:none;
+}
+.ceremony-names .name-first {
+  clip-path:inset(0 var(--first-name-hidden,100%) 0 0);
+  -webkit-clip-path:inset(0 var(--first-name-hidden,100%) 0 0);
+}
+.ceremony-names .name-amp {
+  display:block;font-family:'EB Garamond',Georgia,serif;
+  font-size:.47em;font-style:italic;line-height:.93;height:.93em;
+  opacity:var(--amp-progress,0);
+}
+.ceremony-names .name-second {
+  clip-path:inset(0 var(--second-name-hidden,100%) 0 0);
+  -webkit-clip-path:inset(0 var(--second-name-hidden,100%) 0 0);
+}
+.invitation[data-state="opened"] .opened-copy .date,
+.invitation[data-state="opened"] .opened-copy .guest {
+  opacity:var(--details-progress,0);
+}
+
+
+/* Phase 10 calibrated typography — measured in the original 390×844 mobile
+   reference using computed CSS and DOM rectangles at 1.3–2.3H scroll:
+   .cgv-t1 x=74 y=253 w=242 h=36, EB Garamond 22px/2.2px tracking;
+   .cgv-t2 x=28 y=289 w=334 h=174, Pinyon Script 60px;
+   first name x=84 y=269 w=222 h=96; amp x=102 y=356 w=186 h=41;
+   second name x=84 y=378 w=222 h=96.
+   This recreates those positions with original selectable text. */
+.opened-copy {top:30%;left:0;width:100%;padding:0 6%;overflow:visible;}
+.opened-copy .eyebrow {
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:22px;line-height:36px;font-weight:400;letter-spacing:2.2px;
+  margin:0;color:#5d2450;
+}
+.invitation[data-state="opened"] .ceremony-names {
+  position:relative;display:block;width:334px;max-width:calc(100% - 20px);
+  height:174px;margin:0 auto;overflow:visible;
+  font-family:'Pinyon Script',cursive;font-size:60px;line-height:1;
+  font-style:normal;font-weight:400;letter-spacing:normal;text-align:center;
+  color:#5d2450;opacity:1;text-shadow:0 1px 6px #fff9f4b3;
+}
+.ceremony-names .name-line {
+  position:absolute;left:50%;display:block;white-space:nowrap;
+  width:222px;height:96px;max-width:calc(100% - 8px);
+  line-height:96px;translate:-50% 0;
+  font-family:'Pinyon Script',cursive;font-size:60px;font-weight:400;
+}
+.ceremony-names .name-first {top:-20px;}
+.ceremony-names .name-second {top:89px;}
+.ceremony-names .name-amp {
+  position:absolute;left:50%;top:67px;translate:-50% 0;
+  display:block;width:186px;height:41px;line-height:41px;
+  font:400 36px/41px 'Pinyon Script',cursive;
+  text-align:center;color:inherit;
+  opacity:var(--amp-progress,0);
+}
+@media(max-width:359px) {
+  .opened-copy .eyebrow {font-size:20px;letter-spacing:1.7px;}
+  .invitation[data-state="opened"] .ceremony-names {font-size:54px;}
+  .ceremony-names .name-line {font-size:54px;}
+}
+
+
+/* The opened greeting is staged by scroll, so entrance translation must not
+   offset the calibrated 390×844 text boxes while the camera settles. */
+.invitation .opened {translate:none;transition:opacity 700ms ease;}
+.invitation[data-state="opened"] .opened-copy {transform:translateY(0);}
+
+
+/* Phase 10 measured-container correction: remove inherited 6% side padding.
+   At 390px this yields heading x74/w242 and names group x28/w334,
+   with the scripted first-name box centered at x84/w222. */
+.opened-copy {padding-left:0;padding-right:0;}
+.opened-copy .eyebrow {width:242px;max-width:100%;margin:0 auto;}
+.invitation[data-state="opened"] .ceremony-names {
+  width:334px;max-width:calc(100% - 56px);
+}
+
+
+/* Phase 11 — continuously written lettering.
+   Reference audit: soft edged moving mask, first name 1.5s after a .35s
+   delay; ampersand rises after 1.05s, second name starts after 1.45s.
+   Unlike the earlier hard-edge scroll wipe, these keyframes continue after
+   the guest stops scrolling. Letters remain real, accessible HTML text. */
+.ceremony-names .name-line {
+  clip-path:none;
+  -webkit-clip-path:none;
+  -webkit-mask-image:linear-gradient(90deg,#000 42%,transparent 62%);
+  mask-image:linear-gradient(90deg,#000 42%,transparent 62%);
+  -webkit-mask-size:270% 100%;
+  mask-size:270% 100%;
+  -webkit-mask-position:100% 0;
+  mask-position:100% 0;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+}
+.invitation[data-lettering="playing"] .ceremony-names .name-first {
+  animation:write-ceremony-name 1.5s cubic-bezier(.45,.05,.35,1) .35s both;
+}
+.invitation[data-lettering="playing"] .ceremony-names .name-second {
+  animation:write-ceremony-name 1.5s cubic-bezier(.45,.05,.35,1) 1.45s both;
+}
+.invitation[data-lettering="playing"] .ceremony-names .name-amp {
+  animation:rise-ceremony-amp .8s ease 1.05s both;
+}
+@keyframes write-ceremony-name {
+  0% {
+    -webkit-mask-position:100% 0;
+    mask-position:100% 0;
+  }
+  100% {
+    -webkit-mask-position:0 0;
+    mask-position:0 0;
+  }
+}
+@keyframes rise-ceremony-amp {
+  from { opacity:0; transform:translateY(8px) scale(.97); }
+  to { opacity:1; transform:translateY(0) scale(1); }
+}
+/* Respect reduced motion without hiding the couple's names after the scroll
+   arrives. Keep the ordinary threshold so names don't appear over the empty lake. */
+@media (prefers-reduced-motion:reduce) {
+  .invitation[data-lettering="playing"] .ceremony-names .name-line {
+    animation:none!important;
+    -webkit-mask-image:none!important;
+    mask-image:none!important;
+  }
+  .invitation[data-lettering="playing"] .ceremony-names .name-amp {
+    animation:none!important;
+    opacity:1!important;
+    transform:none!important;
+  }
+}
+
+
+/* Phase 12 — measured ambient motion: slow water mist and feather glints.
+   Lightweight CSS layers are attached to the existing palace and peacocks;
+   they use source artwork transparency rather than a flattened overlay. */
+.depth.palace .scene-mist {
+  position:absolute;
+  left:calc(var(--mist-x) - 11%);
+  top:72%;
+  width:calc(var(--mist-width) + 22%);
+  height:17%;
+  pointer-events:none;
+  mix-blend-mode:screen;
+  opacity:.75;
+}
+.scene-mist i {
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(36% 48% at 26% 62%,rgba(255,255,255,.65),transparent),
+    radial-gradient(30% 44% at 54% 48%,rgba(255,252,254,.58),transparent),
+    radial-gradient(34% 46% at 80% 64%,rgba(255,255,255,.60),transparent);
+  opacity:.40;
+  animation:scene-mist-drift 16s ease-in-out var(--mist-delay,0s) infinite alternate;
+}
+.scene-mist i:nth-child(2) {
+  inset:-8% 12% 10% -14%;
+  opacity:.30;
+  animation-duration:21s;
+  animation-delay:calc(var(--mist-delay,0s) - 7s);
+}
+.scene-mist i:nth-child(3) {
+  inset:14% -12% -10% 18%;
+  opacity:.26;
+  animation-duration:26s;
+  animation-delay:calc(var(--mist-delay,0s) - 13s);
+}
+@keyframes scene-mist-drift {
+  0%   { translate:-6% 0;  scale:1 1; }
+  50%  { translate:2% -4%; scale:1.08 1.10; }
+  100% { translate:7% 1%;  scale:.96 1; }
+}
+/* Very low-intensity recurring reflection on the still peacock feather image.
+   The same alpha mask follows each peacock's loaded WebP (including the mirror).
+   A soft-light blend prevents bright rectangular flashes around the artwork. */
+.sprite.peacock-sprite .peacock-glint {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(
+    105deg,
+    transparent 45%,
+    rgba(255,250,232,.80) 50%,
+    transparent 55%
+  ) 100% 0 / 300% 100% no-repeat;
+  -webkit-mask-image:var(--peacock-image,none);
+  mask-image:var(--peacock-image,none);
+  -webkit-mask-size:100% 100%;
+  mask-size:100% 100%;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  mix-blend-mode:soft-light;
+  opacity:.66;
+  animation:peacock-sheen 9s ease-in-out -3s infinite;
+}
+@keyframes peacock-sheen {
+  0%,52% { background-position:100% 0; }
+  88%,100% { background-position:0 0; }
+}
+html.debug-freeze .scene-mist i,
+html.debug-freeze .peacock-glint {
+  animation:none!important;
+}
+@media(prefers-reduced-motion:reduce) {
+  .scene-mist i, .peacock-glint { animation:none!important; }
+  .peacock-glint { display:none; }
+}
+/* Flutter remains rooted to each sprite's own asset. Avoid overpowering the
+   slow ambient movement with a global vignette or changing scroll geometry. */
+
+
+/* Phase 13 — original cover's five perch coordinates and flight speeds.
+   The source template defines perches at x/y: (.45,.94), (.56,.95),
+   (.50,.90), (.07,.44), (.93,.48) and species wingbeat frequencies of
+   2.2Hz and 2.6Hz. This code creates an original responsive route through
+   those positions; the original procedural routes vary between loads.
+   Timings are deliberately gentle and the butterfly pauses near flowers. */
+.butterfly-cover .violet {
+  animation-name:bf-violet-garden;
+  animation-duration:24s;
+  animation-timing-function:linear;
+  animation-delay:.45s;
+  animation-iteration-count:infinite;
+}
+.butterfly-cover .ivory {
+  animation-name:bf-ivory-garden;
+  animation-duration:22s;
+  animation-timing-function:linear;
+  animation-delay:2.7s;
+  animation-iteration-count:infinite;
+}
+/* CSS alternate halves each complete wingbeat cycle:
+   full cycle = 2 * .22727s = 2.2 Hz, 2 * .19231s = 2.6 Hz. */
+.butterfly.violet :is(.butterfly-wing-l,.butterfly-wing-r) {
+  animation-duration:.22727s;
+}
+.butterfly.ivory :is(.butterfly-wing-l,.butterfly-wing-r) {
+  animation-duration:.19231s;
+}
+.butterfly .butterfly-wing-r {animation-delay:-.065s;}
+/* Initial low-left approach matches reference browser measurements around
+   1.6-9.5 seconds; subsequent turns visit the documented garden perches.
+   The frame is viewport-relative and never modifies the 9:16 scenery. */
+@keyframes bf-violet-garden {
+  0% {
+    opacity:0;
+    transform:translate3d(-110px,48lvh,0) rotate(-20deg);
+  }
+  3% {opacity:1;}
+  11% {transform:translate3d(calc(6vw - 26px),64lvh,0) rotate(14deg);}
+  23% {transform:translate3d(calc(23vw - 26px),80lvh,0) rotate(25deg);}
+  /* Short low-flower pause: wings keep beating while flight velocity eases. */
+  35% {transform:translate3d(calc(45vw - 26px),calc(94lvh - 20px),0) rotate(19deg);}
+  38% {transform:translate3d(calc(45vw - 26px),calc(94lvh - 20px),0) rotate(15deg);}
+  40% {transform:translate3d(calc(46vw - 26px),calc(93lvh - 20px),0) rotate(6deg);}
+  42% {transform:translate3d(calc(49vw - 26px),calc(91lvh - 20px),0) rotate(-15deg);}
+  50% {transform:translate3d(calc(56vw - 26px),calc(95lvh - 20px),0) rotate(13deg);}
+  60% {transform:translate3d(calc(50vw - 26px),calc(90lvh - 20px),0) rotate(-38deg);}
+  73% {transform:translate3d(calc(7vw - 26px),calc(44lvh - 20px),0) rotate(-18deg);}
+  84% {transform:translate3d(calc(60vw - 26px),calc(32lvh - 20px),0) rotate(28deg);}
+  94% {opacity:1;transform:translate3d(calc(93vw - 26px),calc(48lvh - 20px),0) rotate(17deg);}
+  100% {opacity:0;transform:translate3d(calc(105vw - 26px),calc(49lvh - 20px),0) rotate(14deg);}
+}
+@keyframes bf-ivory-garden {
+  0% {opacity:0;transform:translate3d(-85px,47lvh,0) rotate(-26deg);}
+  5% {opacity:1;}
+  20% {transform:translate3d(calc(7vw - 22px),calc(60lvh - 17px),0) rotate(17deg);}
+  35% {transform:translate3d(calc(31vw - 22px),calc(82lvh - 17px),0) rotate(24deg);}
+  /* Independent white butterfly settles slightly later than the violet one. */
+  46% {transform:translate3d(calc(56vw - 22px),calc(95lvh - 17px),0) rotate(13deg);}
+  49% {transform:translate3d(calc(56vw - 22px),calc(95lvh - 17px),0) rotate(9deg);}
+  51% {transform:translate3d(calc(55vw - 22px),calc(94lvh - 17px),0) rotate(-4deg);}
+  54% {transform:translate3d(calc(50vw - 22px),calc(90lvh - 17px),0) rotate(-30deg);}
+  68% {transform:translate3d(calc(7vw - 22px),calc(44lvh - 17px),0) rotate(-20deg);}
+  83% {transform:translate3d(calc(58vw - 22px),calc(32lvh - 17px),0) rotate(22deg);}
+  94% {opacity:1;transform:translate3d(calc(93vw - 22px),calc(48lvh - 17px),0) rotate(17deg);}
+  100% {opacity:0;transform:translate3d(calc(106vw - 22px),calc(52lvh - 17px),0) rotate(9deg);}
+}
+/* Avoid hiding the original, more ornamental valley-flight pair; those
+   remain delayed until the scroll enters the couple-name ceremony. */
+@media(prefers-reduced-motion:reduce) {
+  .butterfly-layer {display:none;}
+}
+
+
+/* Phase 14 — performance gating, not a visual redesign.
+   When the sticky scene leaves the viewport or the page/tab is hidden,
+   the same finite-state controller pauses its canvas RAF and decorative
+   animations. Scroll-linked layout and accessibility are unaffected. */
+.invitation[data-ambient="paused"] .animated-scene *,
+.invitation[data-ambient="paused"] .sky-birds *,
+.invitation[data-ambient="paused"] .butterfly,
+.invitation[data-ambient="paused"] .butterfly-wing {
+  animation-play-state:paused !important;
+}
+.invitation[data-ambient="paused"] .butterfly {
+  will-change:auto;
+}
+
+
+/* Phase 15 — artwork failure recovery.
+   The original invitation copy remains legible even when all art hosts fail.
+   This gradient appears ONLY when neither a full animated scene nor the
+   original still image is available, never on the normal artwork path. */
+.invitation[data-layers="unavailable"] .animated-scene,
+.invitation[data-layers="unavailable"] .master-art {display:none;}
+.invitation[data-layers="unavailable"] .viewport {
+  background:
+    radial-gradient(ellipse at 50% 24%,#fff5e4 0%,transparent 60%),
+    linear-gradient(170deg,#ede0ea 0%,#d3c3df 47%,#988bb3 100%);
+}
+.invitation[data-layers="unavailable"] .cover-copy,
+.invitation[data-layers="unavailable"] .monogram,
+.invitation[data-layers="unavailable"] .opened-copy {
+  text-shadow:0 1px 12px #fffaf0c9;
+}
+
+/* Phase 16: on-device QA is loaded only with ?phoneqa=1.
+   Avoid covering the wedding button when the panel is closed. */
+#phoneQaLaunch {
+  position:fixed; z-index:100;
+  top:max(10px,env(safe-area-inset-top));
+  left:max(10px,env(safe-area-inset-left));
+  border:1px solid #73577d; border-radius:999px;
+  background:#fff9f4; color:#3b2740;
+  box-shadow:0 3px 18px #1f163252;
+  min-height:44px; padding:0 15px;
+  font:600 14px/1 system-ui,sans-serif;
+  touch-action:manipulation;
+}
+.phone-qa-panel {
+  position:fixed; z-index:101;
+  top:max(8px,env(safe-area-inset-top));
+  left:50%; translate:-50% 0;
+  width:min(370px,calc(100vw - 16px));
+  max-height:calc(100dvh - max(16px,env(safe-area-inset-top)) - max(16px,env(safe-area-inset-bottom)));
+  overflow-y:auto; overscroll-behavior:contain;
+  border:1px solid #cbb6ca; border-radius:14px;
+  background:#fffaf6; color:#332938; box-shadow:0 10px 40px #20172c66;
+  padding:14px;
+  font:14px/1.4 system-ui,sans-serif;
+  -webkit-overflow-scrolling:touch;
+}
+.phone-qa-panel[hidden] {display:none!important;}
+.phone-qa-header {display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.phone-qa-header strong {font-size:16px;}
+.phone-qa-info {color:#665568;margin:8px 0 12px;}
+.phone-qa-panel button {
+  border:1px solid #806a89;border-radius:8px;background:#5c4066;
+  color:white;min-height:44px;padding:9px 12px;font:600 14px system-ui,sans-serif;
+  touch-action:manipulation;
+}
+.phone-qa-panel button:disabled {opacity:.6;}
+.phone-qa-panel .phone-qa-stats {
+  display:grid;grid-template-columns:1fr auto;row-gap:6px;column-gap:8px;
+  margin:0 0 12px;max-width:100%;padding:10px;border-radius:8px;
+  background:#eee5ee;font:12px/1.3 system-ui,sans-serif;
+}
+.phone-qa-stats dt {color:#625069;}
+.phone-qa-stats dd {margin:0;font-variant-numeric:tabular-nums;text-align:right;}
+.phone-qa-panel fieldset {border:1px solid #d1c3d2;border-radius:8px;margin:12px 0;padding:8px;}
+.phone-qa-panel legend {font-weight:700;padding:0 4px;}
+.phone-qa-panel fieldset label {display:flex;align-items:flex-start;gap:9px;padding:8px 0;}
+.phone-qa-panel input[type=checkbox] {width:20px;height:20px;flex-shrink:0;accent-color:#5c4066;}
+.phone-qa-notes-label {display:block;font-weight:700;margin-bottom:5px;}
+.phone-qa-panel textarea {
+  display:block;box-sizing:border-box;width:100%;padding:8px;
+  border:1px solid #bbaaaf;border-radius:8px;background:#fff;color:#2d2531;
+  font:13px/1.4 system-ui,sans-serif;resize:vertical;
+}
+.phone-qa-panel #phoneQaCopy {width:100%;margin-top:12px;}
+.phone-qa-panel #phoneQaReport {margin-top:8px;}
+.phone-qa-panel #phoneQaFeedback,#phoneQaMeasureResult {font-size:12px;}
+@media (prefers-reduced-motion:reduce) {
+  #phoneQaLaunch,.phone-qa-panel {animation:none!important;transition:none!important;}
+}
+
+/* Phase 17 — match the live 0H→0.75H transition.
+   The opened lake initially retains the tall reeds in the foreground,
+   which descend out of view by ~0.4 viewport scroll. Side flowers
+   return sooner, reaching the visible frame around 0.75H. */
+.invitation[data-state="opened"] .depth.reeds {
+  transform:translateY(var(--reed-scroll-shift,0lvh));
+  opacity:var(--reed-scroll-opacity,1);
+  transition:none;
+  pointer-events:none;
+}
+.invitation[data-state="opened"][data-scroll-active="yes"] .depth.reeds {
+  transition:none;
+}

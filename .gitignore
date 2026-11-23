@@ -1,0 +1,28 @@
+# Never redistribute vendor artwork downloaded for local development.
+assets/reference-dev/
+
+# Local test infrastructure and screenshots
+node_modules/
+test-results/
+playwright-report/
+section5-live-evidence/
+
+# Private RSVPs and local data (never publish)
+.private/
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+
+# Local-only source artwork; do not commit vendor WebPs or test captures.
+assets/*.webp
+assets/gallery/reference/
+section7-method-evidence/
+section7-shell-evidence/
+section7-reference-evidence/
+section4-exact-audit/
+section10-motion-evidence/
+section10-visual-qa/
+section10-evidence/
+
+# Generated production output (only this directory is deployed)
+dist/

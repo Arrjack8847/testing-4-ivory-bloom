@@ -1,0 +1,17 @@
+/* Golden Pagoda Garden — Section 3, clean open-garden review.
+   User preference: remove the repeated left and right edge florals.
+   Hide ONLY the botanical side decoration layer; all source assets remain
+   in the repository untouched for rollback. Preserve the approved garden,
+   portraits, frames, Kanote lotus ring crest, text and scroll choreography.
+   Other skins are unaffected, as are Section 2's four corner ornaments. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-botanical-edges {
+  display: none !important;
+  background: none !important;
+  animation: none !important;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-botanical-edges::before,
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-botanical-edges::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}

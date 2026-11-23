@@ -1,0 +1,209 @@
+/* Golden Pagoda Garden — Section 09 mobile typography and spacing review.
+   Text/layout ONLY. Do not alter the approved SVG nine-slice royal frame,
+   floral parchment, background layers, image crop, native form validation,
+   RSVP submission, preview-only privacy semantics, camera or reveal animations.
+   Selectors are restricted to the royal skin and Section 9. */
+
+html[data-golden-pagoda-skin="true"] #rsvp.s9-rsvp {
+  /* The natural content determines section height; never clip long Myanmar
+     text, guest wishes, the confirmation preview or the sample disclosure. */
+  height: auto;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-inner {
+  /* The original ornate arch begins 91px above this box. Move COPY below
+     its high Kanote crown without moving or scaling any artwork. */
+  padding-top: clamp(86px, 23vw, 108px);
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-eyebrow {
+  max-width: 100%;
+  margin: 0 auto 8px;
+  color: #795635;
+  font: 600 11px/1.6 'Cinzel','EB Garamond',Georgia,serif;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] h2.s9-heading.royal-my-text {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 315px;
+  margin: 0 auto 29px;
+  padding: 0 4px;
+  color: #593722;
+  font: 600 clamp(22px, 5.8vw, 26px)/1.7 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing: 0;
+  text-align: center;
+  text-wrap: balance;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-shadow: 0 1px 4px rgba(255,250,239,.92);
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-form {
+  width: 100%;
+  max-width: 328px;
+  margin: 0 auto;
+  gap: 18px;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field {
+  min-width: 0;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-field label.royal-my-text {
+  display: block;
+  margin: 0 0 7px;
+  color: #654029;
+  font: 600 clamp(12px, 3.3vw, 13.5px)/1.8 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field input,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field select,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field textarea {
+  min-width: 0;
+  min-height: 54px;
+  padding: 12px 14px;
+  font: 400 16px/1.55 'Noto Serif Myanmar','Myanmar Text','Padauk','EB Garamond',Georgia,serif;
+  letter-spacing: 0;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field textarea {
+  height: 116px;
+  min-height: 116px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-submit {
+  align-self: center;
+  display: block;
+  width: min(100%, 260px);
+  margin-top: 10px;
+  min-height: 50px;
+  padding: 12px 18px;
+  font: 600 12px/1.55 'Cinzel','EB Garamond',Georgia,serif;
+  letter-spacing: .12em;
+  white-space: normal;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-note.royal-my-text {
+  max-width: 32ch;
+  margin: 4px auto 0;
+  color: #6a4a32;
+  font: 400 clamp(12px, 3.2vw, 13px)/1.8 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing: 0;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-consent {
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  max-width: 320px;
+  min-height: 0;
+  text-align: left;
+  line-height: 1.7;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-consent input {
+  flex: 0 0 16px;
+  margin-top: 5px;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-wall {
+  max-width: 328px;
+  margin: 38px auto 0;
+  padding: 0;
+  gap: 15px;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-wish {
+  min-width: 0;
+  padding: 18px 17px;
+  text-align: left;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-who {
+  gap: 5px 10px;
+  align-items: baseline;
+  line-height: 1.65;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-who strong.royal-my-text {
+  font: 600 13px/1.75 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color: #60402b;
+  letter-spacing: 0;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-who span {
+  letter-spacing: .11em;
+  font-size: 10px;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-wish p.royal-my-text {
+  margin-top: 7px;
+  color: #64442d;
+  font: 400 clamp(13.5px, 3.7vw, 14.5px)/1.85 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-demo-note.royal-my-text {
+  /* Place the honest SAMPLE label after the wish cards instead of
+     absolutely positioning it beyond a variable-height royal frame. */
+  position: static;
+  max-width: 29ch;
+  margin: 15px auto 0;
+  color: #795b43;
+  font: 400 11px/1.8 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing: 0;
+  text-align: center;
+  pointer-events: none;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-preview {
+  margin-top: 22px;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-form-status.s9-feedback-visible {
+  max-width: 32ch;
+  margin: 4px auto 0;
+  line-height: 1.6;
+}
+
+/* On mobile, put Attendance and Guests on separate rows.
+   A two-column layout truncates long values and Myanmar labels at 320–430px. */
+@media (max-width: 480px) {
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-row2 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+  }
+}
+
+/* 320px iPhone: use typography clearance, never scale or distort the art. */
+@media (max-width: 350px) {
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-inner {
+    padding-top: 86px;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] h2.s9-heading.royal-my-text {
+    font-size: 22px;
+    line-height: 1.72;
+    margin-bottom: 24px;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-form {
+    gap: 16px;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-wish {
+    padding: 16px 14px;
+  }
+}

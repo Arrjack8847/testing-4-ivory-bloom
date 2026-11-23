@@ -1,0 +1,74 @@
+/* Golden Pagoda Garden: original user-uploaded royal butterflies, Sections 8–9.
+   Scope: golden-pagoda skin only, preserve original full WebP compositions.
+   Uploads are opaque-white VP8 WebPs, not alpha sprites. Multiplying the
+   complete butterfly image removes the visible white matte over ivory paper
+   without cropping, mirroring, splitting, retouching or modifying source files.
+   The EXISTING motion: S08 floating path and S09 two opposing flight paths,
+   visibility gating and reduced-motion policy remain authoritative. Since
+   the source is one flattened butterfly, disable the prior independent
+   CSS wing flaps rather than pretending the full image has movable wings. */
+
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward {
+  width: clamp(42px, 12vw, 52px);
+  height: clamp(42px, 12vw, 52px);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Tint/filter originally used for the template SVG wings must not recolour
+   the uploaded pale blush/champagne gold butterfly artwork. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly {
+  filter: none;
+}
+
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly::before,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly::before,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly::before {
+  background-image: url("./assets/skins/golden-pagoda-garden/section-08/s08-royal-butterfly.webp");
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly::before,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward::before {
+  background-image: url("./assets/skins/golden-pagoda-garden/section-09/s09-royal-butterfly.webp");
+}
+
+/* Do not stack the old CSS butterfly wings/body over the complete upload,
+   or animate fragments of the approved, unsplittable painting. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-bfly-body,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-wing {
+  display: none !important;
+  animation: none !important;
+}
+
+/* The royal S08 butterfly must be visible on its own. The earlier
+   reference-demo JS sets data-gift-butterfly=reference-local only when a
+   separate comparison sprite loads; that must not gate approved royal art. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly {
+  visibility: visible;
+  opacity: .87;
+  animation: gift-eight-butterfly-drift 5.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly,
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly,
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward {
+    animation: none !important;
+  }
+}
