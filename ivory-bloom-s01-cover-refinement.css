@@ -62,21 +62,23 @@ html[data-golden-pagoda-skin="true"] #invitation[data-layers="ready"] #viewport 
   content: "";
   position: absolute;
   left: 50%;
-  /* Offset the WebP's transparent lower margin so the painted ledge sits at the visible edge. */
-  bottom: max(-11vw, -47.3px);
-  /* 110% width: a substantial, full-bleed marble base behind the floral urns. */
-  width: min(110vw, 473px);
-  aspect-ratio: 2172 / 724;
-  /* Above the background and columns (z:7), below rooted plants and flowers (z:16+). */
-  z-index: 15;
+  /* Tight 100%-width shelf frame. Original 2172x724 WebP remains unchanged.
+   * Only its empty transparent upper/lower margins are hidden; the entire
+   * visible marble shelf and corner roses are contained within the frame.
+   */
+  bottom: 0;
+  width: min(100vw, 430px);
+  height: min(19vw, 82px);
+  z-index: 15; /* behind foreground flowers, above the couple and columns */
   pointer-events: none;
   translate: -50% 0;
-  background: url("./assets/skins/ivory-bloom/s01-ivory-bottom-shelf.webp") center / 100% 100% no-repeat;
+  background: url("./assets/skins/ivory-bloom/s01-ivory-bottom-shelf.webp") center center / 100% auto no-repeat;
+  filter: drop-shadow(0 3px 4px rgba(91, 61, 43, .20));
   opacity: 1;
   transform: translateY(0);
   transition: opacity 1050ms ease, transform 1700ms cubic-bezier(.55, 0, .75, .4);
 }
-html[data-golden-pagoda-skin="true"] #invitation[data-state="opened"] #viewport .animated-scene::after {
+html[data-golden-pagoda-skin="true"] #invitation[data-state="opened"][data-layers="ready"] #viewport .animated-scene::after {
   opacity: 0;
   transform: translateY(20lvh);
 }
