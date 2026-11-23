@@ -91,7 +91,40 @@ button{cursor:pointer;font:inherit}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.butterfly-layer{display:none!important}}
 
 </style>
-  <script defer>
+
+</head>
+<body>
+<main id="invitation" class="invitation" data-state="cover" data-layers="loading" data-ornaments="loading" data-scroll-active="no" aria-label="Ivory Bloom wedding invitation">
+  <div class="scene-scroll-track" id="sceneTrack">
+    <section class="viewport" id="viewport" aria-label="Cinematic wedding cover">
+      <div class="scene-stage" id="stage" aria-hidden="true">
+        <div id="animatedScene" class="animated-scene"></div>
+      </div>
+      <div class="reading-veil" aria-hidden="true"></div>
+      <div class="butterfly-layer butterfly-cover" id="coverButterflies" aria-hidden="true"></div>
+      <div class="butterfly-layer butterfly-hero" id="heroButterflies" aria-hidden="true"></div>
+      <section id="cover" class="cover" aria-label="Invitation cover" aria-hidden="false">
+        <div class="cover-copy"><p class="eyebrow">THE WEDDING OF</p><h1 id="coverNames">Bride <em>&amp;</em> Groom</h1></div>
+        <button id="openButton" class="open-button" type="button"><span>Open Invitation</span></button>
+      </section>
+      <section id="opened" class="opened" aria-label="Opened wedding invitation" aria-hidden="true" inert>
+        <div class="opened-copy">
+          <p class="eyebrow opening-heading">THE WEDDING OF</p>
+          <h2 class="ceremony-names" aria-label="Bride and Groom"><span class="name-first">Bride</span><span class="name-amp" aria-hidden="true">&amp;</span><span class="name-second">Groom</span></h2>
+          <img src="assets/ivory-bloom/royal-name-divider.webp" class="name-divider" alt="">
+          <p class="date">DATE TO BE ANNOUNCED</p>
+          <p class="guest">With love, we invite you to celebrate with us.</p>
+        </div>
+        <a href="#next" class="swipe-cue" id="swipeCue">SWIPE UP <span aria-hidden="true">⌄</span></a>
+      </section>
+      <div class="network-note" id="networkNote" role="status" hidden>Loading wedding artwork…</div>
+    </section>
+  </div>
+  <section class="next-section" id="next" aria-labelledby="nextTitle">
+    <div class="next-inner"><p class="eyebrow">IVORY BLOOM</p><h2 id="nextTitle">Our story continues</h2><p>Section 2 is reserved for the wedding message.</p></div>
+  </section>
+</main>
+  <script>
 'use strict';
 /* Ivory Bloom S1: dedicated adaptation of the approved Golden Pagoda choreography.
    Do not load remote reference/vendor artwork and do not mutate any source WebPs. */
@@ -376,37 +409,5 @@ button{cursor:pointer;font:inherit}
 })();
 
 </script>
-</head>
-<body>
-<main id="invitation" class="invitation" data-state="cover" data-layers="loading" data-ornaments="loading" data-scroll-active="no" aria-label="Ivory Bloom wedding invitation">
-  <div class="scene-scroll-track" id="sceneTrack">
-    <section class="viewport" id="viewport" aria-label="Cinematic wedding cover">
-      <div class="scene-stage" id="stage" aria-hidden="true">
-        <div id="animatedScene" class="animated-scene"></div>
-      </div>
-      <div class="reading-veil" aria-hidden="true"></div>
-      <div class="butterfly-layer butterfly-cover" id="coverButterflies" aria-hidden="true"></div>
-      <div class="butterfly-layer butterfly-hero" id="heroButterflies" aria-hidden="true"></div>
-      <section id="cover" class="cover" aria-label="Invitation cover" aria-hidden="false">
-        <div class="cover-copy"><p class="eyebrow">THE WEDDING OF</p><h1 id="coverNames">Bride <em>&amp;</em> Groom</h1></div>
-        <button id="openButton" class="open-button" type="button"><span>Open Invitation</span></button>
-      </section>
-      <section id="opened" class="opened" aria-label="Opened wedding invitation" aria-hidden="true" inert>
-        <div class="opened-copy">
-          <p class="eyebrow opening-heading">THE WEDDING OF</p>
-          <h2 class="ceremony-names" aria-label="Bride and Groom"><span class="name-first">Bride</span><span class="name-amp" aria-hidden="true">&amp;</span><span class="name-second">Groom</span></h2>
-          <img src="assets/ivory-bloom/royal-name-divider.webp" class="name-divider" alt="">
-          <p class="date">DATE TO BE ANNOUNCED</p>
-          <p class="guest">With love, we invite you to celebrate with us.</p>
-        </div>
-        <a href="#next" class="swipe-cue" id="swipeCue">SWIPE UP <span aria-hidden="true">⌄</span></a>
-      </section>
-      <div class="network-note" id="networkNote" role="status" hidden>Loading wedding artwork…</div>
-    </section>
-  </div>
-  <section class="next-section" id="next" aria-labelledby="nextTitle">
-    <div class="next-inner"><p class="eyebrow">IVORY BLOOM</p><h2 id="nextTitle">Our story continues</h2><p>Section 2 is reserved for the wedding message.</p></div>
-  </section>
-</main>
 </body>
 </html>
