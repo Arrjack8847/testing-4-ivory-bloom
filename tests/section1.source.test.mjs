@@ -25,7 +25,7 @@ test('Golden Pagoda scene checkpoints retained in Ivory Bloom',()=>{
     'smooth(fraction, 2.02, 2.22)','Math.exp(-dt / 70)']){
     assert.ok(html.includes(expr),expr);
   }
-  assert.match(html,/drape-left 16\.2s/);
+  assert.match(html,/canopy-soft 16\.2s/);
   assert.match(html,/royal-hanging-wind/);
   assert.match(html,/royal-rooted-wind/);
   assert.match(html,/height:425vh;height:425lvh/);
@@ -38,4 +38,15 @@ test('keyboard and reduced-motion paths retained',()=>{
   assert.match(html,/:focus-visible/);
   assert.match(html,/event\?\.detail === 0/);
   assert.match(html,/opened\.inert = false/);
+});
+
+test('iPhone cover: continuous canopy, visible gateway, safe CTA and outer flutter',()=>{
+  assert.match(html,/img\.royal-drape-left\{clip-path:none/);
+  assert.match(html,/img\.royal-drape-right\{display:none\}/);
+  assert.match(html,/top:min\(77%, calc\(100dvh - 78px\)\)/);
+  assert.match(html,/bottom:7%;left:50%;height:auto;width:clamp\(420px,120%,560px\)/);
+  assert.match(html,/set\('frame-scroll-scale', \(1\.08 - \.08 \* frameChange\)/);
+  assert.match(html,/\.invitation\[data-state='cover'\] \.sprite\.plant\{opacity:\.76\}/);
+  assert.match(html,/id === 'coverButterflies' \? \(idx \? '84%' : '10%'\)/);
+  assert.doesNotMatch(html,/top:53%;left:50%;translate:-50% 0;/);
 });
