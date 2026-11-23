@@ -1,0 +1,407 @@
+'use strict';
+// Tasik Kayangan reference Section 5: Order of the Day.
+// Reference-art layout is the only default. Licensed WebPs are loaded locally.
+ // Missing art shows an explicit warning; no illustrated substitute is claimed.
+(() => {
+  const invite=document.getElementById('invitation');
+  const section=document.getElementById('runningOrder');
+  if (!invite || !section) return;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const royal=document.documentElement.dataset.goldenPagodaSkin==='true';
+  const query=new URLSearchParams(location.search);
+  const legacy=document.getElementById('saveTheDate');
+  // Existing date-only countdown duplicates the second-accurate Events clock.
+  // Keep it in the DOM for past demonstrations, hidden in reference sequence.
+  if (legacy && query.get('legacySaveDate')==='1') legacy.hidden=false;
+
+  let royalInView=false;
+  function updateRoyalVisibility(){
+    if(!royal)return;
+    const active=royalInView && invite.dataset.state==='opened' &&
+      !document.hidden && !reduced.matches;
+    section.classList.toggle('order-visible',active);
+  }
+  function syncCover(){
+    const closed=invite.dataset.state!=='opened';
+    section.inert=closed;
+    section.setAttribute('aria-hidden',String(closed));
+    if(!royal){
+      if(closed)section.style.setProperty('--order-stage-y','0px');
+      else schedule();
+    }
+  }
+  syncCover();
+  new MutationObserver(()=>{
+    syncCover();
+    if(royal)updateRoyalVisibility();
+    else updateAmbient();
+  }).observe(invite,{attributes:true,attributeFilter:['data-state']});
+
+  if(!royal) {
+    // The original WebPs are intentionally NOT committed or hotlinked.
+    // A user who has the necessary rights stages these files locally, and
+    // both are used on the plain root URL without a mode flag.
+    section.dataset.art='reference';
+    section.dataset.assetSource='local-webp';
+    const notice=document.getElementById('orderArtworkNotice');
+    const assetRoot='./assets/reference-dev/';
+    const images=[
+      [document.getElementById('orderSourceBand'),'bandStatus',assetRoot+'band_plum.webp','band_plum.webp'],
+      [document.getElementById('orderSourceButterfly'),'butterflyStatus',assetRoot+'bfly_blush.webp','bfly_blush.webp']
+    ];
+    const syncArtworkStatus=()=>{
+      const states=images.map(([img,key])=>img?section.dataset[key]:'failed');
+      const loading=states.includes('loading');
+      const loaded=states.filter(s=>s==='loaded').length;
+      section.dataset.artworkStatus=loading?'loading':loaded===images.length?'ready':loaded===0?'missing':'partial';
+      section.dataset.backgroundRenderer=section.dataset.bandStatus==='loaded'?'reference-webp':
+        section.dataset.bandStatus==='failed'?'original-svg':'neutral-loading';
+      if (notice) {
+        notice.hidden=loading||loaded===images.length;
+        if(!notice.hidden) {
+          const missing=images.filter(([img,key])=>!img||section.dataset[key]!=='loaded').map(item=>item[3]);
+          notice.textContent='Exact reference artwork unavailable: '+missing.join(', ')+
+            '. The background uses original illustrated botanical relief when the reference band is absent. '+
+            'Provide permission-cleared WebP files in assets/reference-dev/ for reference comparison.';
+        }
+      }
+    };
+    for (const [img,key,url] of images) {
+      section.dataset[key]=img?'loading':'failed';
+      if (!img) continue;
+      img.addEventListener('load',()=>{
+        section.dataset[key]=img.naturalWidth>0?'loaded':'failed';
+        syncArtworkStatus();updateAmbient();
+      },{once:true});
+      img.addEventListener('error',()=>{
+        section.dataset[key]='failed';
+        syncArtworkStatus();updateAmbient();
+      },{once:true});
+      img.src=url;
+    }
+    syncArtworkStatus();
+  } else {
+    // Do not fetch licensed reference-demo artwork on the independent royal skin.
+    section.dataset.art='royal';
+    section.dataset.assetSource='golden-pagoda-garden';
+    section.dataset.bandStatus='not-used';
+    section.dataset.butterflyStatus='not-used';
+    section.dataset.backgroundRenderer='royal-paper';
+    const notice=document.getElementById('orderArtworkNotice');
+    if(notice)notice.hidden=true;
+  }
+
+  const reveals=[...section.querySelectorAll('.order-reveal')];
+  const observer='IntersectionObserver' in window
+    ? new IntersectionObserver(entries=>{
+        for(const entry of entries){
+          entry.target.classList.toggle('order-in-view',entry.isIntersecting);
+        }
+      },{threshold:0.02,rootMargin:royal?'0px 0px 130px 0px':'20px 0px 0px 0px'})
+    : null;
+  if(observer)reveals.forEach(el=>observer.observe(el));
+  else reveals.forEach(el=>el.classList.add('order-in-view'));
+
+  // The Royal timeline paints its own WebPs and background; it does not use
+  // the hidden reference camera, petal canvas or reference butterfly. Avoid
+  // creating that canvas and installing scroll-rAF listeners for this skin.
+  // Preserve independent floral sway via a lightweight visibility observer.
+  if(royal){
+    section.dataset.orderCamera='0';
+    section.dataset.orderCameraMode='disabled-royal';
+    section.dataset.petalMotion='paused';
+    section.dataset.butterflyMotion='unavailable';
+    section.style.removeProperty('--order-stage-y');
+    if('IntersectionObserver' in window){
+      const royalObserver=new IntersectionObserver(entries=>{
+        royalInView=entries.some(entry=>entry.isIntersecting && entry.intersectionRatio>0);
+        updateRoyalVisibility();
+      },{threshold:0.01});
+      royalObserver.observe(section);
+    }else{
+      royalInView=true;
+    }
+    const syncRoyalMotion=()=>{
+      if(reduced.matches)section.removeAttribute('data-reveal-ready');
+      else if(observer)section.dataset.revealReady='true';
+      updateRoyalVisibility();
+    };
+    document.addEventListener('visibilitychange',updateRoyalVisibility);
+    reduced.addEventListener?.('change',syncRoyalMotion);
+    syncRoyalMotion();
+    return;
+  }
+
+  // Source observation: two single-direction passages separated by holds.
+  // First, right-to-left at ~39px/s near y=570–610. Later, left-to-right
+  // at ~44px/s near y=540–575. Each waits outside before changing direction.
+  // The source petals are drawn on a fixed 300px-wide canvas.
+  // This is an independent implementation, not copied vendor animation code.
+  const butterfly=section.querySelector('#orderButterflyFlight');
+  const wings=butterfly ? [...butterfly.querySelectorAll('.order-bf-wing')] : [];
+  const canvas=section.querySelector('#orderPetalCanvas');
+  const ctx=canvas?.getContext('2d', {alpha:true}) || null;
+  let petalVisible=false;
+  let visiblePixels=false;
+  let petalFrame=0;
+  let lastFrame=0;
+  let elapsed=0;
+  let flightElapsed=0;
+  let ambientWasActive=false;
+  let canvasWidth=0;
+  let canvasHeight=0;
+  const colors=['#e4cadd','#f5e4e9','#ac8baa','#d7b0cb','#ead8e6'];
+  // Each petal has a fixed deterministic seed; no random jitter or
+  // new particle allocation is performed on individual animation frames.
+  const particles=Array.from({length:16},(_,i)=>({
+    x:((i*0.61803398875+.13)%1),y:((i*.38196601125+.26)%1),
+    speed:11+(i%4)*5,phase:i*2.17,size:2.2+(i%3)*.6,
+    color:colors[i%colors.length]
+  }));
+  if(ctx)section.dataset.petalRenderer='canvas';
+
+  function resizeCanvas(){
+    if(!canvas || !ctx)return;
+    const w=Math.min(300,Math.max(1,Math.round(innerWidth)));
+    const h=Math.max(1,Math.round(innerHeight));
+    const ratio=Math.min(devicePixelRatio||1,2);
+    if(w===canvasWidth && h===canvasHeight && canvas.width===Math.round(w*ratio))return;
+    canvasWidth=w;canvasHeight=h;
+    canvas.style.width=w+'px';canvas.style.height=h+'px';
+    canvas.width=Math.round(w*ratio);canvas.height=Math.round(h*ratio);
+    ctx.setTransform(ratio,0,0,ratio,0,0);
+    ctx.clearRect(0,0,w,h);
+  }
+  function paintPetals(t){
+    if(!ctx)return;
+    ctx.clearRect(0,0,canvasWidth,canvasHeight);
+    const range=canvasHeight+90;
+    for(const petal of particles){
+      const x=petal.x*canvasWidth+Math.sin(t*.85+petal.phase)*14;
+      const y=((petal.y*range+t*petal.speed)%range)-40;
+      const a=.48+.24*(.5+.5*Math.sin(t*1.25+petal.phase));
+      ctx.save();
+      ctx.translate(x,y);
+      ctx.rotate(Math.sin(t*1.8+petal.phase)*1.1+petal.phase*.3);
+      ctx.globalAlpha=a;
+      ctx.fillStyle=petal.color;
+      ctx.beginPath();
+      ctx.moveTo(0,-petal.size*2.0);
+      ctx.bezierCurveTo(petal.size*2,-petal.size*.7,petal.size*1.4,petal.size*1.3,0,petal.size*2.3);
+      ctx.bezierCurveTo(-petal.size*1.5,petal.size*.7,-petal.size*1.8,-petal.size*.5,0,-petal.size*2);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+  function paintButterfly(t){
+    if(!butterfly)return;
+    // Timed source: x 427.9 -> 387.5 -> 320 -> -54.6 on the first pass,
+    // then -54.6 -> 14.5 -> 101.9 -> 444.6 on a separate return.
+    const entryX=section.clientWidth+38;
+    const exitX=-55;
+    // Source contains two distinct scripted passes. On a second recording,
+    // the butterfly traveled -55 -> +445 at ~44px/s with reversed body
+    // rotation and paused at the right edge for at least five seconds.
+    // Exact inter-pass delays are unmeasured; use conservative pauses.
+    const reverseExit=section.clientWidth+55;
+    const firstDuration=(entryX-exitX)/39;
+    const leftHold=2.5;
+    const returnDuration=(reverseExit-exitX)/44;
+    const rightHold=5;
+    const cycle=firstDuration+leftHold+returnDuration+rightHold;
+    const phase=t%cycle;
+    let x,y,rotation,direction,passage;
+    if(phase<firstDuration){
+      x=entryX-phase*39;
+      y=585+18*Math.cos(phase*.56+.15);
+      direction='left';passage='in-flight';
+    }else if(phase<firstDuration+leftHold){
+      x=exitX;y=585+18*Math.cos(firstDuration*.56+.15);
+      direction='left';passage='paused-at-left';
+    }else if(phase<firstDuration+leftHold+returnDuration){
+      const time=phase-firstDuration-leftHold;
+      x=exitX+time*44;
+      y=556+16*Math.cos(time*.53+.55);
+      direction='right';passage='in-flight';
+    }else{
+      x=reverseExit;
+      y=556+16*Math.cos(returnDuration*.53+.55);
+      direction='right';passage='paused-at-right';
+    }
+    const angle=direction==='left'?-1.43:1.43;
+    rotation=angle+.21*Math.sin(t*1.8+.5);
+    butterfly.style.transform='translate3d('+x.toFixed(2)+'px,'+y.toFixed(2)+'px,0) translate(-50%,-50%) rotate('+rotation.toFixed(4)+'rad) scale(.82)';
+    butterfly.dataset.x=x.toFixed(2);
+    butterfly.dataset.y=y.toFixed(2);
+    butterfly.dataset.direction=direction;
+    butterfly.dataset.passage=passage;
+    const flap=17+54*Math.abs(Math.sin(t*17.5));
+    if(wings[0])wings[0].style.transform='perspective(110px) rotateY('+flap.toFixed(2)+'deg)';
+    if(wings[1])wings[1].style.transform='perspective(110px) rotateY('+(-flap).toFixed(2)+'deg)';
+  }
+  function animateAmbient(now){
+    petalFrame=0;
+    if(!canAnimateAmbient())return;
+    const dt=lastFrame?Math.min((now-lastFrame)/1000,.06):0;
+    lastFrame=now;
+    elapsed+=dt;
+    flightElapsed+=dt;
+    paintPetals(elapsed);
+    paintButterfly(flightElapsed);
+    petalFrame=requestAnimationFrame(animateAmbient);
+  }
+  function canAnimateAmbient(){
+    return !royal && petalVisible && visiblePixels && invite.dataset.state==='opened'
+      && !document.hidden && !reduced.matches;
+  }
+  function updateAmbient(){
+    // A section touching the viewport boundary is not actually visible.
+    // IntersectionObserver can report isIntersecting=true for zero-area
+    // edge adjacency; the geometry guard prevents leaking animation into
+    // Section 6 at precisely the 5→6 seam.
+    const rect=section.getBoundingClientRect();
+    visiblePixels=rect.bottom>1 && rect.top<innerHeight-1;
+    const active=canAnimateAmbient();
+    section.classList.toggle('order-visible',petalVisible && visiblePixels && invite.dataset.state==='opened');
+    section.dataset.petalMotion=active?'running':(reduced.matches?'still':'paused');
+    // Preserve the strict-reference-art policy on main: no substitute
+    // butterfly is claimed when the permission-cleared WebP is unavailable.
+    section.dataset.butterflyMotion=section.dataset.butterflyStatus==='loaded'
+      ? (active?'running':'paused') : 'unavailable';
+    if(active){
+      if(!ambientWasActive){
+        flightElapsed=0;
+        paintButterfly(0);
+      }
+      if(!petalFrame){
+        lastFrame=0;
+        petalFrame=requestAnimationFrame(animateAmbient);
+      }
+    }else{
+      if(petalFrame){cancelAnimationFrame(petalFrame);petalFrame=0;}
+      lastFrame=0;
+      if(ctx){
+        if(reduced.matches && petalVisible && invite.dataset.state==='opened')paintPetals(elapsed);
+        else ctx.clearRect(0,0,canvasWidth,canvasHeight);
+      }
+    }
+    ambientWasActive=active;
+  }
+  resizeCanvas();
+  paintButterfly(0);
+  if('IntersectionObserver' in window){
+    const ambientObserver=new IntersectionObserver(entries=>{
+      petalVisible=entries.some(entry=>entry.isIntersecting);
+      updateAmbient();
+    },{threshold:0,rootMargin:'0px 0px'});
+    ambientObserver.observe(section);
+  }else{petalVisible=true;}
+  addEventListener('resize',()=>{resizeCanvas();updateAmbient();},{passive:true});
+  document.addEventListener('visibilitychange',updateAmbient);
+  reduced.addEventListener?.('change',updateAmbient);
+  updateAmbient();
+
+  let frame=0;
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  function paint(){
+    frame=0;
+    const rect=section.getBoundingClientRect();
+    const travel=clamp(-rect.top,0,Math.max(0,rect.height-innerHeight));
+    const camera=reduced.matches?0:clamp(-rect.top*.0427,-20,24);
+    if (invite.dataset.state!=='opened')return;
+    section.style.setProperty('--order-stage-y',(travel+camera).toFixed(2)+'px');
+    section.dataset.orderCamera=camera.toFixed(2);
+    updateAmbient();
+  }
+  function schedule(){if(!frame)frame=requestAnimationFrame(paint)}
+  function motionChanged(){
+    if(reduced.matches){
+      section.removeAttribute('data-reveal-ready');
+      section.style.setProperty('--order-stage-y','0px');
+      if(frame){cancelAnimationFrame(frame);frame=0;}
+    }else{
+      if(observer)section.dataset.revealReady='true';
+      schedule();
+    }
+  }
+  addEventListener('scroll',schedule,{passive:true});
+  addEventListener('resize',schedule,{passive:true});
+  reduced.addEventListener?.('change',motionChanged);
+  motionChanged();
+})();
+
+
+/* S05 Golden Pagoda only. Own artwork; no extra scroll loops or shared-loader edits.
+   The six original schedule entries remain in index.html, unchanged. */
+(() => {
+  const section=document.getElementById('runningOrder');
+  if(!section || document.documentElement.dataset.goldenPagodaSkin!=='true')return;
+  const inner=section.querySelector('.order-inner');
+  if(!inner)return;
+  const root='./assets/skins/golden-pagoda-garden/section-05/';
+  const notice=section.querySelector('#orderArtworkNotice');
+  const states=new Map();
+  const warmers=[];
+  const art=[
+    ['paper','timeline-paper.webp'],
+    ['top','timeline-top.webp'],
+    ['floral','timeline-floral.webp'],
+    ['seal','timeline-seal.webp'],
+    ['bottom','timeline-bottom.webp']
+  ];
+  const refresh=()=>{
+    const missing=art.filter(([key])=>states.get(key)==='failed').map(([,file])=>file);
+    const pending=art.some(([key])=>states.get(key)==='loading');
+    section.dataset.royalAssets=pending?'loading':missing.length?'missing':'ready';
+    section.dataset.royalMissing=String(missing.length);
+    if(notice){
+      notice.hidden=missing.length===0;
+      if(missing.length){
+        notice.textContent='Royal timeline artwork unavailable: '+missing.join(', ')+
+          '. Schedule details remain visible on the ivory background.';
+      }
+    }
+  };
+  for(const [key,file] of art){
+    states.set(key,'loading');
+    const image=key==='paper'?new Image():document.createElement('img');
+    image.decoding='async';
+    image.addEventListener('load',()=>{
+      states.set(key,image.naturalWidth>0?'loaded':'failed');
+      refresh();
+    },{once:true});
+    image.addEventListener('error',()=>{
+      states.set(key,'failed');
+      refresh();
+    },{once:true});
+    if(key!=='paper'){
+      image.className='order-royal-art order-royal-'+key;
+      image.alt='';
+      image.setAttribute('aria-hidden','true');
+      // Keep art decoration out of the accessible running-order list.
+      if(key==='seal')inner.append(image);
+      else section.insertBefore(image,inner);
+    }
+    warmers.push(()=>{ image.src=root+file; });
+  }
+  refresh();
+  section.dataset.royalPrewarm='pending';
+  const beginPrewarm=()=>{
+    if(section.dataset.royalPrewarm!=='pending')return;
+    section.dataset.royalPrewarm='started';
+    warmers.splice(0).forEach(start=>start());
+  };
+  // Keep the ~39 KB paper texture as a CSS background. Warm the four
+  // ornament WebPs and image status probes only when Section 5 approaches,
+  // avoiding early downloads while the guest is viewing the royal cover.
+  if('IntersectionObserver' in window){
+    const distance=Math.ceil(Math.max(innerHeight,1)*2);
+    const prewarmObserver=new IntersectionObserver(entries=>{
+      if(!entries.some(entry=>entry.isIntersecting))return;
+      prewarmObserver.disconnect();
+      beginPrewarm();
+    },{rootMargin:distance+'px 0px',threshold:0});
+    prewarmObserver.observe(section);
+  }else beginPrewarm();
+})();

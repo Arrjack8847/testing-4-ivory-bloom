@@ -1,0 +1,574 @@
+/* Section 1 review-only bilingual text fit.
+   Live only at ?skin=golden-pagoda-garden&wordingPreview=1.
+   Preserve source 1-screen cover, natural camera, scroll reveal and letters.
+   No positions, section heights, artwork surfaces or animation timings changed. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Myanmar:wght@400;500;600;700&display=swap');
+
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy h1 {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:clamp(17px,5.45vw,23px);
+  font-weight:500;
+  line-height:1.55;
+  letter-spacing:0;
+  white-space:nowrap;
+  color:#633c2b;
+  text-shadow:0 1px 2px rgba(255,249,239,.68);
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy h1 em {
+  font-family:inherit;
+  font-style:normal;
+  font-size:.89em;
+  font-weight:500;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy .eyebrow {
+  color:#987248;
+  font-size:clamp(12px,3.45vw,14px);
+  line-height:1.4;
+  letter-spacing:.12em;
+  margin-bottom:6px;
+}
+/* Hide monogram visually while preserving its original flex-space footprint.
+   This prevents the heading from jumping upward under the gateway artwork. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .monogram {
+  visibility:hidden;
+  min-height:.9em;
+  pointer-events:none;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-rule {
+  background:linear-gradient(90deg,transparent,#ba955c,transparent);
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .open-button {
+  background:#795536;
+  color:#fffaf0;
+  font-size:13px;
+  letter-spacing:.10em;
+  box-shadow:0 8px 19px rgba(76,49,24,.22),inset 0 1px 0 rgba(255,236,214,.33);
+}
+
+/* Original heading: 242px wide and a fixed 36px text line at 390px.
+   Burmese needs zero latin letter-spacing to avoid awkward shaping. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .eyebrow {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:clamp(16px,4.8vw,20px);
+  font-weight:500;
+  line-height:36px;
+  letter-spacing:0;
+  color:#987248;
+  white-space:nowrap;
+}
+
+/* Use original absolute name slots: 222x96px lines, 186x41px connector.
+   The original scripted masks/animations remain authoritative. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names {
+  color:#633c2b;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:clamp(30px,9.2vw,39px);
+  font-weight:500;
+  letter-spacing:0;
+  line-height:96px;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:clamp(19px,5.7vw,25px);
+  font-weight:400;
+  line-height:41px;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .guest {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#755331;
+  font-size:clamp(14px,4.1vw,16px);
+  line-height:1.7;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .guest strong {
+  font-size:clamp(16px,4.7vw,19px);
+  font-weight:600;
+  line-height:1.7;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .date {
+  color:#78572f;
+}
+
+/* Preserve arrow and original swipe-cue interaction, only harmonize text. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .swipe-cue {
+  color:#765331;
+}
+
+
+/* Section 1 final royal typography trial — style only, original slots retained.
+   The gold lotus is a static CSS decoration, NOT a sparkle or animation. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy .eyebrow {
+  font-family:'Cinzel','EB Garamond',Georgia,serif;
+  font-size:clamp(11px,3.25vw,14px);
+  font-weight:500;
+  letter-spacing:.16em;
+  line-height:1.4;
+  color:#79502f;
+  margin-bottom:0;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy .eyebrow::after {
+  content:"";
+  display:block;
+  width:min(64%,230px);
+  height:12px;
+  margin:7px auto 7px; /* same 26px combined height as prior preview */
+  background:url("./assets/skins/golden-pagoda-garden/royal-name-divider.webp") center / 100% 100% no-repeat;
+  pointer-events:none;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy h1 {
+  font-size:clamp(17px,5.45vw,23px);
+  font-weight:500;
+  line-height:1.52;
+  color:#633c2b;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-rule {
+  visibility:hidden; /* original divider footprint stays unchanged */
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .open-button {
+  /* The original Testing-4 interactive 220.6 x 49.1 CSS pixel button slot. */
+  width:220.6px;
+  min-width:0;
+  height:49.1px;
+  min-height:0;
+  padding:0 12px;
+  border:0;
+  border-radius:999px;
+  background-color:transparent;
+  background-image:url("./assets/skins/golden-pagoda-garden/royal-open-button.webp");
+  background-position:center;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  box-shadow:none; /* shadows and gold border are painted inside the WebP */
+  color:#fff6e9;
+  font-family:'Cinzel','EB Garamond',Georgia,serif;
+  font-size:clamp(11px,3.15vw,13px);
+  font-weight:500;
+  letter-spacing:.12em;
+  text-shadow:0 1px 2px rgba(55,31,21,.35);
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .open-button:focus-visible {
+  outline:2px solid #9b6e39;
+  outline-offset:4px;
+}
+@media (max-width:350px) {
+  html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy h1 {
+    font-size:clamp(16px,5.1vw,18px);
+  }
+}
+
+/* Grand & Traditional — isolated Section 1 name typography review.
+   Preserve the exact original title line-box height and existing title slot.
+   All WebP assets, stage coordinates, button mechanics and camera remain untouched. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy h1 {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-weight:600;
+  font-size:clamp(19px,5.9vw,24px);
+  line-height:clamp(26px,8.284vw,35px);
+  letter-spacing:0;
+  white-space:nowrap;
+  color:#633c2b;
+  text-shadow:0 1px 2px rgba(255,249,239,.62);
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy h1 em {
+  font-family:inherit;
+  font-size:.79em;
+  font-style:normal;
+  font-weight:400;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy .eyebrow::after {
+  /* Keep the same 12px divider and 14px combined margins / overall layout height. */
+  margin:4px auto 10px;
+}
+@media (max-width:350px) {
+  html[data-golden-pagoda-s01-wording="true"] #viewport .cover-copy h1 {
+    font-size:clamp(18px,5.4vw,19.5px);
+  }
+}
+
+
+/* Corrected Royal opened-scene typography — isolated ?wordingPreview=1.
+   The three original live names use natural vertical flow: no absolute
+   positions, no overlapping Myanmar line boxes, no cropped vowel marks.
+   The compact one-line version contains the SAME live-editable text, is
+   aria-hidden, and cross-fades with the original; total name opacity stays
+   constant during the sticky transition. Cover CSS remains untouched. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy {
+  top:calc(30% - 30px - 20px * var(--royal-y-progress,0));
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .eyebrow {
+  position:relative;
+  top:6px;
+  width:242px;
+  max-width:100%;
+  margin:0 auto 4px;
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:clamp(15px,4.35vw,18px);
+  font-weight:500;
+  line-height:30px;
+  letter-spacing:0;
+  color:#8a633d;
+  text-shadow:0 1px 3px rgba(255,248,239,.72);
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+  gap:calc(7px - 4px * var(--royal-x-progress,0));
+  width:min(334px,calc(100% - 40px));
+  max-width:100%;
+  height:calc(113px - 70px * var(--royal-y-progress,0));
+  margin:0 auto;
+  color:#633c2b;
+  overflow:visible;
+  white-space:nowrap;
+  text-align:center;
+  text-shadow:0 1px 3px rgba(255,248,239,.76);
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names {
+  opacity:var(--reading-progress,0);
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line,
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  position:static;
+  top:auto;
+  right:auto;
+  bottom:auto;
+  left:auto;
+  display:block;
+  flex:0 0 auto;
+  width:max-content;
+  max-width:100%;
+  margin:0;
+  padding:0;
+  translate:none;
+  transform:none;
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-style:normal;
+  letter-spacing:0;
+  text-align:center;
+  white-space:nowrap;
+  overflow:visible;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line {
+  font-size:calc((clamp(21px,6.0vw,24px) - 4px * var(--royal-x-progress,0)) * (1 - (1 - var(--royal-name-fit,1)) * var(--royal-x-progress,0)));
+  font-weight:600;
+  line-height:calc(35px - 3px * var(--royal-x-progress,0));
+  height:calc(35px - 3px * var(--royal-x-progress,0));
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  font-size:calc((clamp(15px,4.1vw,17px) - 2px * var(--royal-x-progress,0)) * (1 - (1 - var(--royal-name-fit,1)) * var(--royal-x-progress,0)));
+  font-weight:400;
+  line-height:calc(25px - 4px * var(--royal-x-progress,0));
+  height:calc(25px - 4px * var(--royal-x-progress,0));
+  color:#a77c48;
+}
+/* The 39 + 21 + 39px text slots and two 2px gaps total 103px,
+   inside a 107px stable introduction box. */
+
+/* Move the SAME original three words from vertical to horizontal without
+   crossfading duplicate text. Horizontal spacing finishes FIRST; vertical
+   motion follows, preventing collisions at intermediate scroll positions.
+   Pixel offsets are measured after Myanmar font loading, not per scroll. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-first {
+  translate:calc(var(--royal-shift-first,-43px) * var(--royal-x-progress,0)) 0;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  translate:calc(var(--royal-shift-amp,17px) * var(--royal-x-progress,0)) calc(-35px * var(--royal-y-progress,0));
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-second {
+  translate:calc(var(--royal-shift-second,61px) * var(--royal-x-progress,0)) calc(-59px * var(--royal-y-progress,0));
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .date {
+  margin:5px auto 0;
+  font:500 clamp(11px,3.05vw,12px)/17px 'Cinzel','EB Garamond',Georgia,serif;
+  letter-spacing:.07em;
+  color:#78572f;
+  text-shadow:0 1px 3px rgba(255,250,239,.8);
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .guest {
+  margin:4px auto 0;
+  max-width:96%;
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:clamp(11px,3.35vw,13px);
+  font-weight:400;
+  line-height:24px;
+  letter-spacing:0;
+  white-space:normal;
+  color:#755331;
+  text-shadow:0 1px 3px rgba(255,250,239,.8);
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .guest span,
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .guest strong {
+  display:inline;
+  font-family:inherit;
+  font-size:inherit;
+  line-height:inherit;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .guest strong {
+  margin-left:.25em;
+  font-weight:600;
+}
+/* At the full date reveal, remove the handwritten masks rather than leave
+   incomplete Burmese syllables when scrolling quickly. */
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-royal-details="yes"] .ceremony-names .name-line {
+  animation:none !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-royal-details="yes"] .ceremony-names .name-amp {
+  animation:none !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+/* Preserve Royal preview's approved upper-arch butterfly routes. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .butterfly-hero .violet {
+  animation-name:royal-s01-violet-safe-flight;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .butterfly-hero .ivory {
+  animation-name:royal-s01-ivory-safe-flight;
+}
+@keyframes royal-s01-violet-safe-flight {
+  0%{opacity:0;transform:translate3d(calc(100vw + 35px),16lvh,0) rotate(-100deg);}
+  8%{opacity:1;}
+  40%{transform:translate3d(calc(50vw + 15px),13lvh,0) rotate(-160deg);}
+  76%{opacity:1;transform:translate3d(50px,18lvh,0) rotate(-235deg);}
+  92%,100%{opacity:0;transform:translate3d(-72px,32lvh,0) rotate(-250deg);}
+}
+@keyframes royal-s01-ivory-safe-flight {
+  0%{opacity:0;transform:translate3d(-44px,16lvh,0) rotate(35deg);}
+  8%{opacity:1;}
+  45%{transform:translate3d(calc(48vw - 20px),10lvh,0) rotate(95deg);}
+  77%{opacity:1;transform:translate3d(calc(100vw - 28px),19lvh,0) rotate(142deg);}
+  92%,100%{opacity:0;transform:translate3d(calc(100vw + 50px),32lvh,0) rotate(160deg);}
+}
+@media(max-width:359px) {
+  html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line {
+    font-size:calc((clamp(20px,5.8vw,22px) - 3px * var(--royal-x-progress,0)) * (1 - (1 - var(--royal-name-fit,1)) * var(--royal-x-progress,0)));
+  }
+  html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .guest {
+    font-size:clamp(10px,3.28vw,11.5px);
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line {
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+  }
+}
+
+/* Royal S01 glyph-safe opened-scene review.
+   The Myanmar text must be entirely visible, including top vowels, bottom
+   descenders, and all portions of the words. Never horizontally mask it.
+   Move the complete ceremonial typography beneath the centre arch carving.
+   Preserve the approved COVER artwork/layout and all non-Royal skins. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened {
+  z-index:8;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy {
+  top:calc(30% + 7px - 57px * var(--royal-y-progress,0));
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .eyebrow {
+  top:0;
+  margin:0 auto 5px;
+  font-size:clamp(13px,3.8vw,15px);
+  line-height:24px;
+  white-space:nowrap;
+  overflow:visible;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names {
+  height:calc(82px - 54px * var(--royal-y-progress,0));
+  gap:calc(4px - 4px * var(--royal-y-progress,0));
+  overflow:visible;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line {
+  font-size:calc((clamp(20px,5.5vw,22px) - 3px * var(--royal-x-progress,0)) * (1 - (1 - var(--royal-name-fit,1)) * var(--royal-x-progress,0)));
+  line-height:28px;
+  height:28px;
+  overflow:visible;
+  padding:0;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  font-size:calc((clamp(13px,3.8vw,15px) - 2px * var(--royal-x-progress,0)) * (1 - (1 - var(--royal-name-fit,1)) * var(--royal-x-progress,0)));
+  line-height:18px;
+  height:18px;
+  overflow:visible;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  translate:calc(var(--royal-shift-amp,17px) * var(--royal-x-progress,0)) calc(-28px * var(--royal-y-progress,0));
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-second {
+  translate:calc(var(--royal-shift-second,61px) * var(--royal-x-progress,0)) calc(-46px * var(--royal-y-progress,0));
+}
+/* For Burmese, a character-complete opacity reveal is safer than the
+   original English left-to-right mask, especially in iPhone Safari. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line,
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+  -webkit-clip-path:none !important;
+  clip-path:none !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line {
+  opacity:0;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  opacity:0;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-lettering="playing"] #viewport .ceremony-names .name-first {
+  animation:royal-glyph-safe-reveal .55s ease-out .12s both;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-lettering="playing"] #viewport .ceremony-names .name-amp {
+  animation:royal-glyph-safe-reveal .48s ease-out .58s both;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-lettering="playing"] #viewport .ceremony-names .name-second {
+  animation:royal-glyph-safe-reveal .62s ease-out .95s both;
+}
+@keyframes royal-glyph-safe-reveal {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-royal-details="yes"] #viewport .ceremony-names .name-line,
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-royal-details="yes"] #viewport .ceremony-names .name-amp {
+  animation:none !important;
+  opacity:1 !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line,
+  html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+    animation:none !important;
+    opacity:1 !important;
+  }
+}
+@media(max-width:359px) {
+  html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line {
+    font-size:calc((clamp(19px,5.45vw,20px) - 3px * var(--royal-x-progress,0)) * (1 - (1 - var(--royal-name-fit,1)) * var(--royal-x-progress,0)));
+  }
+}
+
+/* Section 1 only: REVEAL -> HOLD -> COVER.
+   Keep the completed heading, names, date and Myanmar invitation sentence
+   stationary over the garden until Section 2 begins naturally rising.
+   Original Testing-4 geometry and other skins remain unchanged. */
+html[data-golden-pagoda-s01-wording="true"] .scene-scroll-track {
+  height:425vh;
+  height:425lvh;
+  margin-bottom:-100vh;
+  margin-bottom:-100lvh;
+}
+/* The scroll track spans 4.25H; Section 2 starts at 3.25H, after all
+   Royal typography completes by 2.16H, leaving 1.09H of reading travel.
+   The sticky 9:16 scenery, peacocks, gateway and WebP images are unaltered.
+   Section 2 still has the higher z-index and covers from the bottom. */
+
+/* LOCK: Royal S1 words stay in fixed vertical positions until S2 covers.
+   Each whole Myanmar word fades in according to scroll position only.
+   No shrink, moving masks, relayout or translate. Cover/WebPs unchanged. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy {
+  top:calc(30% + 13px);
+  overflow:visible;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .eyebrow {
+  position:static;top:auto;
+  margin:0 auto 3px;
+  font-size:clamp(13px,3.8vw,15px);
+  line-height:22px;
+  white-space:nowrap;overflow:visible;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names {
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-start;
+  gap:1px;width:min(334px,calc(100% - 40px));
+  height:80px;margin:0 auto;
+  overflow:visible;white-space:nowrap;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line,
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  position:static;top:auto;left:auto;right:auto;bottom:auto;
+  flex:0 0 auto;
+  translate:none !important;transform:none !important;
+  clip-path:none !important;-webkit-clip-path:none !important;
+  mask-image:none !important;-webkit-mask-image:none !important;
+  overflow:visible;white-space:nowrap;animation:none !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line {
+  width:max-content;height:30px;line-height:30px;
+  font-size:clamp(20px,5.5vw,22px);font-weight:600;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  width:max-content;height:18px;line-height:18px;
+  font-size:clamp(13px,3.8vw,15px);font-weight:400;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names .name-first {
+  opacity:var(--first-name-progress,0) !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names .name-amp {
+  opacity:var(--amp-progress,0) !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names .name-second {
+  opacity:var(--second-name-progress,0) !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .date {
+  margin:3px auto 0;font-size:clamp(10px,3vw,12px);
+  line-height:17px;white-space:nowrap;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .guest {
+  margin:3px auto 0;max-width:98%;
+  font-size:clamp(10px,3.2vw,13px);
+  line-height:22px;white-space:nowrap;overflow:visible;
+}
+@media (max-height:760px) {
+  html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy {top:calc(30% + 8px);}
+  html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .eyebrow {font-size:13px;line-height:20px;margin-bottom:2px;}
+  html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names {height:73px;}
+  html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line {font-size:clamp(18px,5.3vw,20px);height:27px;line-height:27px;}
+  html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {font-size:13px;height:17px;line-height:17px;}
+  html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .date {font-size:10px;margin-top:2px;line-height:14px;}
+  html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .guest {font-size:10px;line-height:20px;margin-top:2px;}
+}
+
+/* Micro-refinement: breathing room around “နှင့်” only.
+   Keep connector EXACTLY centered, with the same font, color and reveal.
+   Lift the first name 2px and keep the second 6px lower; do not change the
+   fixed-position scroll choreography, heading, date, artwork or cover. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-first {
+  translate:0 -2px !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-second {
+  translate:0 6px !important;
+}
+
+/* Royal copy is now active for the normal skin URL. Keep all names centered
+   while preserving only the approved vertical reveal; never translate names
+   horizontally while scrolling or risk clipping Burmese characters. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-first {
+  translate:0 calc(-10px * var(--royal-y-progress, 0)) !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
+  translate:0 calc(-28px * var(--royal-y-progress, 0)) !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-second {
+  translate:0 calc(-46px * var(--royal-y-progress, 0)) !important;
+}
+
+/* Phase 2 — recover the approved name breathing offsets.
+   The former final royal-y-progress overrides always resolved to zero
+   (the variable is not written by scene.js) and silently cancelled the
+   earlier -2px first-name / +6px second-name settings. These two offsets
+   are constant through scroll: retain fixed royal text, natural Myanmar
+   glyphs, original reveal opacity, and the exact 4.25H handoff. */
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-first {
+  translate:0 -2px !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-second {
+  translate:0 6px !important;
+}

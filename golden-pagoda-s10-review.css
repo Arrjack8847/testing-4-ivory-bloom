@@ -1,0 +1,140 @@
+/* Golden Pagoda Garden / Section 10 — original Testing-4 geometry.
+   REVIEW: one-to-one WebP artwork replacement, not a redesigned section.
+   Inherited layout: 1109px minimum section, 215px/28px/230px padding,
+   334x664 central live-text area, 346x720 decorative frame at 390px,
+   source sticky/parallax camera, reverse-scroll and reveal timing.
+   Never modify Section 1, the contact states or the underlying form/JS. */
+
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten {
+  --closing10-purple: #967447;
+  --closing10-ink: #594333;
+  background: #f0d2a2;
+  color: var(--closing10-ink);
+}
+
+/* Preserve original 9→10 seam, with only a short ivory-to-sunset fade.
+   This does not add content height or obscure the native moving scenery. */
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten::before {
+  display: block;
+  content: "";
+  opacity: .8;
+  background: linear-gradient(180deg,
+    rgba(247,239,226,.76) 0,
+    rgba(247,239,226,.17) 72px,
+    transparent 108px);
+}
+
+/* Use the original native sticky-camera image surface. Existing
+   section-ten.js supplies the royal finale-scene.webp only for this skin,
+   retaining all original 24px camera pans and reverse-scroll behavior. */
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-sticky-art {
+  background: #eac695;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten[data-artwork="local-reference"] .closing10-sticky-art::before {
+  background: url("./assets/skins/golden-pagoda-garden/section-10/finale-scene.webp")
+    center / cover no-repeat;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten[data-artwork="local-reference"] .closing10-source-scene {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Reuse the two EXISTING vine slots, no extra DOM or separate scroll work.
+   The new assets already have unique left/right perspectives, so do not
+   mirror the right painting. Source vine animation and Reduced Motion apply. */
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .ref-environment::before {
+  display: none;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .ref-vine {
+  display: block; /* override reference-scene-only source hiding */
+  background-size: contain;
+  background-position: center 69%;
+  background-repeat: no-repeat;
+  opacity: .72;
+  filter: drop-shadow(0 2px 3px rgba(96,69,38,.12));
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .ref-vine-left {
+  background-image: url("./assets/skins/golden-pagoda-garden/section-10/finale-lotus-left.webp");
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .ref-vine-right {
+  background-image: url("./assets/skins/golden-pagoda-garden/section-10/finale-lotus-right.webp");
+  scale: 1 1;
+}
+
+/* Restore the ORIGINAL gradient footprint and translucency. The heavy
+   rectangular-looking panel in the previous review is removed. */
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-inner::before {
+  background: radial-gradient(closest-side,
+    rgba(255,251,246,.86),
+    rgba(255,251,246,.55) 62%,
+    transparent);
+}
+
+/* 1038x2160 WebP => original approximately 346x720 at 3x.
+   Render it on the EXISTING .closing10-frame with its exact original
+   -6px/720px geometry, transparent border maintaining the source box.
+   The image does NOT create a new frame or move live headings/buttons. */
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-frame {
+  border-color: transparent;
+  background-image: url("./assets/skins/golden-pagoda-garden/section-10/finale-royal-frame.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin: border-box;
+  background-size: 100% 100%;
+}
+/* No duplicate Kanote crown or reference diamond corner ornaments. */
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-frame::before,
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-frame::after,
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-corner {
+  display: none;
+}
+
+/* Original one-pixel horizontal divider stays in its precise text slot.
+   The existing small transparent farewell ornament only paints across it. */
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-rule {
+  position: relative;
+  background: linear-gradient(90deg,transparent,#ae8554,transparent);
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-rule::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -17px;
+  width: 88px;
+  height: 35px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: url("./assets/skins/golden-pagoda-garden/section-10/finale-gold-ornament.webp")
+    center / contain no-repeat;
+  opacity: .82;
+}
+
+/* Paint color only — original font sizes, line heights, margins and reveal
+   transitions are intentionally NOT overridden. */
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-label,
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-contacts-title {
+  color: #8b633d;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-message,
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-credit,
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-disclosure {
+  color: #654935;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-names {
+  color: #87562d;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-contact-row button {
+  background: #fff9ec;
+  color: #74502c;
+  border: 1px solid rgba(171,129,76,.55);
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten .closing10-credit {
+  background: none;
+  text-shadow: 0 1px 2px rgba(255,250,240,.78);
+}
+html[data-golden-pagoda-skin="true"] #closingMessage.section-ten button:focus-visible {
+  outline-color: #a4773d;
+}
+/* The source CSS/JS still own motion, camera, element state, clipping,
+   mobile paddings, fixed frame height, and Reduced Motion. */

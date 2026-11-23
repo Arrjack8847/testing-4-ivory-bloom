@@ -1,0 +1,599 @@
+{
+  "title": "Golden Pagoda Garden Phase 3 source-art snapshot — not a license or automatic approval",
+  "baseCommit": "8eea9679294acca3a9a45402febf9753ce9707b0",
+  "sourceDate": "2026-11-21",
+  "assetCount": 118,
+  "assetBytes": 31322499,
+  "files": [
+    {
+      "path": "assets/skins/golden-pagoda-garden/arch.webp",
+      "bytes": 388566,
+      "gitBlobSha": "75d8bc2096c63e6cafcd2c0e1ad0df3b2ec7d24e"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/bfly_1.webp",
+      "bytes": 23728,
+      "gitBlobSha": "e9b69de13036853f32dfc9acd3dcdd575cf17847"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/bfly_white.webp",
+      "bytes": 22782,
+      "gitBlobSha": "d640c597f71660d6267bb24b7f4062c654e37c6b"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/drape.webp",
+      "bytes": 319916,
+      "gitBlobSha": "deb06d9522ed485ff80cb4e379660037cd1ad340"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/hang_1.webp",
+      "bytes": 361126,
+      "gitBlobSha": "d7a0028995bf9fefb96de8054e492b414dd8dd7f"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/hang_3.webp",
+      "bytes": 259248,
+      "gitBlobSha": "6387ea59291461f507f485aea330dad8a7bae41a"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/hang_4.webp",
+      "bytes": 321422,
+      "gitBlobSha": "95e1826145bce614802633484e816d0d5c26f8dd"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/leaf_4.webp",
+      "bytes": 307308,
+      "gitBlobSha": "e8d8cefe8602ca0419f34a9388688c040bed0971"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/leaf_5.webp",
+      "bytes": 268772,
+      "gitBlobSha": "005a197ded8948da220819d0c80b5914e4453a6c"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/leaf_6.webp",
+      "bytes": 215078,
+      "gitBlobSha": "1b13657b93853222359d2579e868a2f470b644a4"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/palace-horizontal.webp",
+      "bytes": 551324,
+      "gitBlobSha": "e89f95507657e12100ee53f6ba7221032f508059"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/peacock.webp",
+      "bytes": 465800,
+      "gitBlobSha": "a7dfa39c568247c03f966f12f1955b9afafb41e0"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/royal-name-divider.webp",
+      "bytes": 7724,
+      "gitBlobSha": "0970a7ee7a859cc8535b3bf307036d2c26844624"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/royal-open-button.webp",
+      "bytes": 80994,
+      "gitBlobSha": "fb57d69bebb1c8de6e10427801367c7797fe4a95"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-02/closing-ornament.webp",
+      "bytes": 68660,
+      "gitBlobSha": "142feddccee50284a009b7434edca4958febe97f"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-02/lotus-left.webp",
+      "bytes": 178052,
+      "gitBlobSha": "e425d1ee49c41d92135d78a199901a6e85535cf3"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-02/lotus-right.webp",
+      "bytes": 190846,
+      "gitBlobSha": "adebd4773789264209f6230a5d500fbef2aac8bd"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-02/message-canopy.webp",
+      "bytes": 120306,
+      "gitBlobSha": "d0a765dd6c73b653556034aeb7e5b299ea2a9219"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-02/message-paper.webp",
+      "bytes": 15484,
+      "gitBlobSha": "eb4bdc5b1f3eda1de1609f04cfdd80cd374d67fd"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-02/s02-strict-decor-composite.svg",
+      "bytes": 653952,
+      "gitBlobSha": "a935fe524269db7339f2cfe1282788f0826ed4fa"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-02/section02-bottom-left.webp",
+      "bytes": 1005966,
+      "gitBlobSha": "0b8b96323dc3c2c493b1bd8471bcf2b9781b385c"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-02/section02-bottom-right.webp",
+      "bytes": 1012192,
+      "gitBlobSha": "c6e1431f819e980f8a70c6830d10dee97502c30d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-02/section02-upper-left.webp",
+      "bytes": 780564,
+      "gitBlobSha": "a2d7f04bc989fb082febd0c70fa6e246c084d5cf"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-02/section02-upper-right.webp",
+      "bytes": 761238,
+      "gitBlobSha": "4f1e6e34ba90f9e6eb94ba0c879283c661166219"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/arch-kanote.webp",
+      "bytes": 159404,
+      "gitBlobSha": "d873b950049becfd792cd5bf49739c2e86217271"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/canopy.webp",
+      "bytes": 193084,
+      "gitBlobSha": "60e6574a2432557b3e843d4f861fa4f985f94ad4"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/couple-garden.webp",
+      "bytes": 323320,
+      "gitBlobSha": "4a0fe67f5fde04bd78273325ca6f4544d30af0e3"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/floral-left.webp",
+      "bytes": 188548,
+      "gitBlobSha": "68f0f290de22917b50db5f738b772044ce8451cf"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/floral-right.webp",
+      "bytes": 170870,
+      "gitBlobSha": "b62580c15491cb2c4daa57b76641831d9fab9f94"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/lake-transition.webp",
+      "bytes": 65170,
+      "gitBlobSha": "daa196ef7dc9d6b355e264bbfc1a3ddbb5ff6c42"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/portrait-frame.webp",
+      "bytes": 211678,
+      "gitBlobSha": "c85a4bb831cd92350f90ed489028a4ea8ffdbd9b"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/s03-kanote-lotus-ring-crest.webp",
+      "bytes": 132422,
+      "gitBlobSha": "00ceb0c11577c5965227a824bd7746534b5403be"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/s03-royal-bride-portrait.webp",
+      "bytes": 420246,
+      "gitBlobSha": "c8a1dac9335a3b013f65fc77b0249220df4da50d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/s03-royal-groom-portrait.webp",
+      "bytes": 365412,
+      "gitBlobSha": "da2df3229bfcc6918ea55897a722c20e60087e58"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/s03-royal-rings.webp",
+      "bytes": 562918,
+      "gitBlobSha": "5185944e95057c3312fdb91aa0c139e47a2ecd64"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/s03-royal-wedding-rings.webp",
+      "bytes": 8980,
+      "gitBlobSha": "bdbe6fcf3e94e9378386741166dfba9af7428f4d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/s03-strict-arch-border.svg",
+      "bytes": 323625,
+      "gitBlobSha": "2f9065521045b9ce8eca627252a96a3805f2700f"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/s03-strict-garden-composite.svg",
+      "bytes": 1504289,
+      "gitBlobSha": "07ccabca43d55c9105a4e0904792f7affec2ef6f"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-03/s03-strict-portrait-overlay.svg",
+      "bytes": 389495,
+      "gitBlobSha": "9a421ddfd3c77a47e0162f1c41fc27ec08818049"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/countdown-card-frame.webp",
+      "bytes": 954230,
+      "gitBlobSha": "ea6c8ec4bcc79959e87e92904ea16e4925ba35fe"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/countdown-divider-bottom.webp",
+      "bytes": 283512,
+      "gitBlobSha": "fa4a78281110eefc4f0355768267820543a03fad"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/countdown-divider-top.webp",
+      "bytes": 413064,
+      "gitBlobSha": "36efb87255a2e510779ca7123264d7e1ce4c64b8"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/countdown-lotus-corner.webp",
+      "bytes": 763532,
+      "gitBlobSha": "eaf7239d7bec6ae1687ee80cc677b189a671e9e0"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/countdown-scene-bottom.webp",
+      "bytes": 524128,
+      "gitBlobSha": "c8dfac2a3097e4f0af8af4381e0ffaba5b6074bd"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/countdown-title-plaque.webp",
+      "bytes": 442032,
+      "gitBlobSha": "3c2b1e5c89f0cad39e5822a8e42b3afb7893360b"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/event-arch.webp",
+      "bytes": 157384,
+      "gitBlobSha": "f2175a3143eca2264d73eac90c6a114db8128b18"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/event-bottom-ornament.webp",
+      "bytes": 419060,
+      "gitBlobSha": "1e2015cc7a6a41444f8807d1e9ebeb588f10a0f3"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/event-corner.webp",
+      "bytes": 93450,
+      "gitBlobSha": "7f343a232af6a545b1155014e642734f3c9d0a1d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/event-divider.webp",
+      "bytes": 308582,
+      "gitBlobSha": "b902552a2b2bb3816163843ef7308e7993d7b777"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/event-paper-bottom.webp",
+      "bytes": 14482,
+      "gitBlobSha": "2d4b39392e2c467e2834ce166f4a78ea041b1565"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/event-paper-top.webp",
+      "bytes": 39812,
+      "gitBlobSha": "ae95a18a75e4186adefd1e2470ffaa6de193e81e"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/event-scene-bottom.webp",
+      "bytes": 190148,
+      "gitBlobSha": "f52ff2478661dcc8508eeccc6563d65a859e2315"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/event-side-left.webp",
+      "bytes": 621532,
+      "gitBlobSha": "a805d1b37f377cf48f9cedbb9e43c25a2d59e6e1"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/event-side-right.webp",
+      "bytes": 543462,
+      "gitBlobSha": "dfed9f27ec97219fd9c96a62729af06904375d79"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/recreated-20261113/event-arch (1).webp",
+      "bytes": 248048,
+      "gitBlobSha": "d59e721afdb9f0053e72d171d267bc1378ac3003"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/recreated-20261113/event-corner (1).webp",
+      "bytes": 76550,
+      "gitBlobSha": "28982d9d31d28ab580acc1d105d0477bec258dbe"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/recreated-20261113/event-paper-bottom (1).webp",
+      "bytes": 155174,
+      "gitBlobSha": "8abc788db57d3821f821fd17462b5bb22a459746"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/recreated-20261113/event-paper-top (1).webp",
+      "bytes": 169022,
+      "gitBlobSha": "ffaf670da998a28b3c95bb0f15ea5d2617b3598d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/s04-royal-background.webp",
+      "bytes": 310160,
+      "gitBlobSha": "28fc1caad3f34ff6d56a82e97753eb2356e2fa01"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/s04-royal-frame.webp",
+      "bytes": 520600,
+      "gitBlobSha": "ca1d79d3db3a6c95b33dfbc01d66ca7e88830aed"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/s04-strict-arch-border.svg",
+      "bytes": 435168,
+      "gitBlobSha": "dbcdd5e5f43a72010e3bad5856b0960d21feca03"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-04/s04-strict-paper-composite.svg",
+      "bytes": 434121,
+      "gitBlobSha": "4d2b2f7eaa13b287698c3557e8660788aa924765"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-05/timeline-bottom.webp",
+      "bytes": 92328,
+      "gitBlobSha": "741ee6d8b373c4a0045843a07e4d64868922171b"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-05/timeline-floral.webp",
+      "bytes": 133168,
+      "gitBlobSha": "7ed0c0237efd7c8f7b8c80b00b92a9b9f0e717d1"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-05/timeline-paper.webp",
+      "bytes": 38782,
+      "gitBlobSha": "9c9ee4e656ab01e63fbed503583647c28af46b05"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-05/timeline-seal.webp",
+      "bytes": 57704,
+      "gitBlobSha": "8ca41daaf76450ce238c8af1ba553b7e97de7428"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-05/timeline-top.webp",
+      "bytes": 76484,
+      "gitBlobSha": "65366a6762b5e2b8881ef55a6f2fd114d70d43b8"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-06/dress-bottom.webp",
+      "bytes": 49658,
+      "gitBlobSha": "ec67bbdd1e4f9bfbeccf83d99dcc6121b89d57ca"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-06/dress-floral.webp",
+      "bytes": 98154,
+      "gitBlobSha": "de04c31bf608dca9b2851c51971b0f382f514e2b"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-06/dress-paper.webp",
+      "bytes": 39070,
+      "gitBlobSha": "9c2c3a87bfb096028c0758eb49d6a69edcf18644"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-06/dress-top.webp",
+      "bytes": 50530,
+      "gitBlobSha": "62689125a7fb3f74eba2b19b35d9b6900f6508f4"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-07/gallery-floral-left.webp",
+      "bytes": 132728,
+      "gitBlobSha": "b7d8c56fae67a7da8a146b3db7aa08bddae4d340"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-07/gallery-floral-right.webp",
+      "bytes": 132682,
+      "gitBlobSha": "7c22aafc1155e686572ee257aa4fecdf69f81c5d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-07/gallery-paper.webp",
+      "bytes": 113618,
+      "gitBlobSha": "d3e79e0c005ddd60a1782747eba8e5c34030e614"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-07/photo-frame.webp",
+      "bytes": 239878,
+      "gitBlobSha": "9a2e971d6451f5f0698537feff98ab90035f96b0"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-07/s07-royal-couple-portrait.webp",
+      "bytes": 318942,
+      "gitBlobSha": "084350a26f90d80f35994f609b73904ea6a6f6bd"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-07/s07-royal-garden-walk.webp",
+      "bytes": 349038,
+      "gitBlobSha": "bcb78441073e23ec10690f03932e257fff137291"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-07/s07-royal-lakeside-portrait.webp",
+      "bytes": 265764,
+      "gitBlobSha": "6231d1fb9d17d6a2f60d47bc207f4fc6d511abb9"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-07/s07-royal-lotus-parchment.webp",
+      "bytes": 261378,
+      "gitBlobSha": "52c555a4e65a852baa9413155a0961ff48afbce4"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-08/gift-floral.webp",
+      "bytes": 118770,
+      "gitBlobSha": "071fa838a2ffc418d26f4a2529fba8b1de446ab1"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-08/gift-header.webp",
+      "bytes": 130834,
+      "gitBlobSha": "2c575eec35c66f84e5323bc21b251493a6aa477c"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-08/gift-kanote-border.svg",
+      "bytes": 3432,
+      "gitBlobSha": "b169e7e013a16ba8cf8f3f21d65d77c414621f7b"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-08/gift-paper.webp",
+      "bytes": 143294,
+      "gitBlobSha": "51673fe0e9f0a62c0954c541e8ecc09cca01677d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-08/s08-butterfly-body.webp",
+      "bytes": 168348,
+      "gitBlobSha": "317ab47d8e82d57da3edba66b655722cd1a8082c"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-08/s08-butterfly-left-wing.webp",
+      "bytes": 253374,
+      "gitBlobSha": "62c0071a2e8719d07ea0cc834ac6c61f1fc041b8"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-08/s08-butterfly-right-wing.webp",
+      "bytes": 298246,
+      "gitBlobSha": "db3b24d4f5e60be9f1621166ec302279c1e5ea26"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-08/s08-royal-butterfly.webp",
+      "bytes": 254068,
+      "gitBlobSha": "3989367ae16c1738103eea82cdab22a4b8255887"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-08/s08-royal-frame.webp",
+      "bytes": 521034,
+      "gitBlobSha": "951c17a17f3b8c1a217a0d2820db86a52f504a0d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-09/rsvp-bottom.webp",
+      "bytes": 137144,
+      "gitBlobSha": "bb6bc3e880bcc6ddff1179adf3127ab8a5c16ef1"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-09/rsvp-floral.webp",
+      "bytes": 128112,
+      "gitBlobSha": "5e7b18ea79ab08cd818f5e035aba20c2ca4d9614"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-09/rsvp-kanote-top.webp",
+      "bytes": 59024,
+      "gitBlobSha": "73f8cafa03af7efe198d95b2402cc8b528a846a1"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-09/rsvp-paper.webp",
+      "bytes": 117744,
+      "gitBlobSha": "7f75820dc6730c3bd9995c2cb1b043ef49c1d059"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-09/rsvp-royal-frame-paper.svg",
+      "bytes": 655075,
+      "gitBlobSha": "4a478a2e130525afd2084729c4bd88f6c2f6a961"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-09/rsvp-royal-frame.webp",
+      "bytes": 372652,
+      "gitBlobSha": "cca9a7169c9ba6ccb007dd9b295b3951edf08365"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-09/s09-butterfly-body.webp",
+      "bytes": 109776,
+      "gitBlobSha": "8b035d4d57343ee64aaaaf56ca0ed4c21a7f5c17"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-09/s09-butterfly-left-wing.webp",
+      "bytes": 231162,
+      "gitBlobSha": "341d447c0b45f25887687456dc639a916f8b9fa5"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-09/s09-butterfly-right-wing.webp",
+      "bytes": 254634,
+      "gitBlobSha": "aec17077446d1cd9848ebc86c3e99ef8b080d07d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-09/s09-royal-butterfly.webp",
+      "bytes": 312096,
+      "gitBlobSha": "f1b8b707dece92cebb9efa84d3708baaef87293d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-10/finale-gold-ornament.webp",
+      "bytes": 35514,
+      "gitBlobSha": "8ac45b9a32881f06a017ba9cb837d6d4de2c41e8"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-10/finale-kanote.webp",
+      "bytes": 175704,
+      "gitBlobSha": "05459762b1aa4071ee869b4ef20223facf75f26d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-10/finale-lotus-left.webp",
+      "bytes": 195792,
+      "gitBlobSha": "626f2f14eff04c2aa152cc9d42f73a3387ea75c5"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-10/finale-lotus-right.webp",
+      "bytes": 219932,
+      "gitBlobSha": "2fef1ca6a3e6507224280a3e53cba78bf7048317"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-10/finale-royal-frame.webp",
+      "bytes": 200078,
+      "gitBlobSha": "21f1b88431526f636856c81ce0dda063da82ce7d"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/section-10/finale-scene.webp",
+      "bytes": 151164,
+      "gitBlobSha": "a50cfbc117959541a338512f944825a4d6d57d11"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/shared/bridge-floral-left.webp",
+      "bytes": 201214,
+      "gitBlobSha": "cc6f0d2e2bf09a9cbaeaace0f41c531dfbfe3553"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/shared/gold-corner.svg",
+      "bytes": 7226,
+      "gitBlobSha": "adc0b1cacfd635c3a2d028dfe97cb79ff0eb6098"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/shared/gold-divider.svg",
+      "bytes": 7832,
+      "gitBlobSha": "46b8d54db9cd2ee2df7558a290beb6be528410a4"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/shared/jasmine-sprig.webp",
+      "bytes": 141600,
+      "gitBlobSha": "ee5b69b91cba38a47683e3a240b1d0a6233b618a"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/shared/lotus-small.webp",
+      "bytes": 106086,
+      "gitBlobSha": "8ab6b3b94c24ec52a316411f6d1554706b4bce85"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/shared/petals/s00-lotus-petal-ivory.webp",
+      "bytes": 132322,
+      "gitBlobSha": "1ac03092ba97068241b48841ef48830564b96b36"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/shared/petals/s00-lotus-petal-pink-curled.webp",
+      "bytes": 199198,
+      "gitBlobSha": "7c2729bec6933c45be6e13d7c4e217eca43a03d8"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/shared/petals/s00-lotus-petal-pink-flat.webp",
+      "bytes": 160934,
+      "gitBlobSha": "d5368bea610e3ffd40960a5365d026b7e632b6e3"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/sky.webp",
+      "bytes": 144176,
+      "gitBlobSha": "e32779b9f13e93ec822a6cffec770c7b4295777b"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/spike_3.webp",
+      "bytes": 239920,
+      "gitBlobSha": "91d7333687343eb9241c4e519ded2837b9ae45cb"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/spike_4.webp",
+      "bytes": 136500,
+      "gitBlobSha": "de42bdd9ac3912773f5572251ba705197d958716"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/spike_5.webp",
+      "bytes": 308796,
+      "gitBlobSha": "89885848721ae9179e16e0327cc67dfa12ba021f"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/stem_1.webp",
+      "bytes": 168052,
+      "gitBlobSha": "07228d781c610d9cc5722139ca5be21fa30c23be"
+    },
+    {
+      "path": "assets/skins/golden-pagoda-garden/stem_2.webp",
+      "bytes": 153972,
+      "gitBlobSha": "0aa177e035b77253ef2d4357ac8233a924db4747"
+    }
+  ]
+}

@@ -1,0 +1,777 @@
+/* Isolated Section 8. Reference boundary #faf7fb -> #5c264f, no spacer. */
+.gift-eight{position:relative;isolation:isolate;box-sizing:border-box;width:100%;min-height:990px;
+  overflow:hidden;margin:0;padding:96px 28px;background:#5c264f;color:#fdf4ea;
+  font:400 18px/1.65 'EB Garamond',Georgia,serif;text-align:center}
+.gift-eight *, .gift-eight *::before,.gift-eight *::after{box-sizing:border-box}
+.gift-eight-art{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at 22% 10%,#ffe4cf18,transparent 33%),
+  radial-gradient(ellipse at 83% 65%,#f8c7e014,transparent 38%),
+  linear-gradient(180deg,#5c264f,#612b54 54%,#5c264f)}
+/* Rights-gated artwork: only a local authorized WebP, never a hotlink. */
+.gift-eight[data-gift-artwork="reference-local"] .gift-eight-art{
+  background:linear-gradient(#32122a1f,#32122a1f),
+    url("./assets/reference-dev/band_plum.webp") center / cover no-repeat}
+.gift-eight-content{position:relative;z-index:1;max-width:390px;margin:auto}
+.gift-eight-heading{margin:0 0 16px;color:#f7e4d5;
+  font:400 52px/1.15 'Pinyon Script','Alex Brush',cursive}
+.gift-eight-intro{margin:0 auto 22px;max-width:36ch;color:#f7e9e7;
+  font:400 16px/1.55 'EB Garamond',Georgia,serif}
+.gift-eight-subheading{display:flex;justify-content:center;align-items:center;gap:8px;
+  margin:0 0 12px;color:#fff0e8;font:500 22px/1.25 'EB Garamond',Georgia,serif}
+.gift-eight-subheading span{font:20px/1 system-ui,sans-serif}
+.gift-eight-bank-list{display:grid;gap:10px}
+.gift-eight-bank{min-width:0;padding:11px 14px 12px;border:1px solid #f4d3cc80;
+  border-radius:12px;background:#fef6f41a;box-shadow:0 8px 26px #1a091e1f}
+.gift-eight-bank-name{margin:0;color:#fff3e7;font:600 17px/1.35 'EB Garamond',Georgia,serif}
+.gift-eight-account{margin:2px 0 0;color:#fff3e7;font:500 15px/1.4 'EB Garamond',Georgia,serif}
+.gift-eight-holder{margin:1px 0 5px;color:#e8d0df;font:400 12px/1.35 'EB Garamond',Georgia,serif}
+.gift-eight-copy,.gift-eight-actions button{min-height:34px;padding:6px 15px;border:1px solid #e2cdd5;
+  border-radius:20px;background:#f8e7ef;color:#512944;cursor:pointer;
+  font:500 12px/1.25 'EB Garamond',Georgia,serif}
+.gift-eight button:disabled{opacity:.65;cursor:not-allowed}
+.gift-eight button:focus-visible{outline:3px solid #ffdbab;outline-offset:3px}
+.gift-eight-status{margin:2px 0 0;color:#f7e3ed;font-size:12px}
+.gift-eight-status:empty{display:none}
+.gift-eight-wishlist{margin-top:22px}
+.gift-eight-wishlist h3{margin:0 0 3px;color:#fff1e5;
+  font:400 29px/1.2 'EB Garamond',Georgia,serif}
+.gift-eight-wishlist-intro{margin:0 0 12px;color:#f4dce7;
+  font:400 14px/1.45 'EB Garamond',Georgia,serif}
+.gift-eight-items{display:grid;gap:9px}
+.gift-eight-item{display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px;align-items:center;
+  min-width:0;padding:9px;border-radius:10px;background:#fff9f4;color:#563147;text-align:left;
+  box-shadow:0 8px 24px #200b2f30}
+.gift-eight-thumb{display:grid;place-items:center;width:54px;height:64px;border-radius:6px;
+  background:linear-gradient(140deg,#eee6e8,#cfbacd);color:#88506c;font:29px/1 Georgia,serif}
+.gift-eight-item h4{margin:0 0 2px;font:600 14px/1.24 'EB Garamond',Georgia,serif;
+  overflow-wrap:anywhere}
+.gift-eight-item p{margin:0 0 5px;color:#846e7b;font:400 11px/1.3 'EB Garamond',Georgia,serif}
+.gift-eight-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.gift-eight-actions span{color:#70465a;text-decoration:underline;text-underline-offset:2px;font-size:12px}
+.gift-eight-actions button{min-height:28px;padding:3px 11px;font-size:11px}
+.gift-eight-disclaimer{max-width:37ch;margin:15px auto 0;color:#e5c5d5;
+  font:400 11px/1.35 'EB Garamond',Georgia,serif}
+.gift-eight[data-gift-reveal-ready="true"] .gift-eight-reveal{
+  opacity:0;transform:translate3d(0,52px,0) scale(.955);
+  transition:opacity 1s ease,transform 1.1s cubic-bezier(.22,.9,.24,1)}
+.gift-eight[data-gift-reveal-ready="true"] .gift-eight-reveal.in{opacity:1;transform:none}
+.gift-eight[data-gift-reveal-ready="true"] .gift-eight-heading{transition-delay:150ms}
+@media(max-width:350px){.gift-eight-item{grid-template-columns:46px minmax(0,1fr);gap:8px}
+  .gift-eight-thumb{width:46px;height:60px}.gift-eight-item h4{font-size:13px}
+  .gift-eight-bank{padding-inline:10px}}
+@media(prefers-reduced-motion:reduce){.gift-eight .gift-eight-reveal{
+  opacity:1!important;transform:none!important;transition:none!important;animation:none!important}}
+
+
+/* Source-calibrated Gift presentation, 2026-11-04 read-only four-width audit.
+   Original SVG is a substitute; official vendor WebP is private/licensed-only. */
+.gift-eight{
+  min-height:990px;
+  padding:96px 28px;
+}
+.gift-eight-art{
+  background:
+    linear-gradient(180deg,rgba(35,10,30,.11),rgba(35,10,30,.13)),
+    url("./assets/section8-plum-botanical-original.svg") center top / cover no-repeat,
+    #5c264f;
+}
+.gift-eight::before,.gift-eight::after{
+  content:"";position:absolute;pointer-events:none;z-index:1;
+  border:1px solid rgba(250,226,243,.78);
+}
+.gift-eight::before{inset:70px 22px;}
+.gift-eight::after{inset:74px 26px;opacity:.22;}
+.gift-eight-content{z-index:2;}
+.gift-eight-heading{
+  margin:0;
+  font-family:'Pinyon Script',cursive;
+  font-size:46px;
+  font-weight:400;
+  line-height:1.15;
+  letter-spacing:normal;
+  color:#f3dff0;
+  text-shadow:none;
+}
+.gift-eight-intro{
+  margin:18px auto 24px;
+  font:400 18px/1.65 'EB Garamond',Georgia,serif;
+  max-width:34ch;
+  color:#f4e4ee;
+}
+.gift-eight-trigger{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:48px;min-width:184px;padding:11px 25px;
+  background:#fffaf4;border:0;border-radius:50px;color:#6b3159;
+  font:600 11px/1.4 'EB Garamond',Georgia,serif;
+  letter-spacing:3.2px;text-transform:uppercase;
+  box-shadow:0 6px 18px rgba(20,6,18,.2);
+  cursor:pointer;
+}
+.gift-eight-trigger span{font:17px/1 system-ui,sans-serif}
+.gift-eight-trigger:focus-visible{outline:3px solid #f7d4e7;outline-offset:4px}
+.gift-eight-bank-list[hidden]{display:none!important}
+.gift-eight-bank-list:not([hidden]){margin-top:18px}
+.gift-eight-wishlist{margin-top:56px}
+.gift-eight-wishlist h3{
+  font:500 14px/1.6 'EB Garamond',Georgia,serif;
+  letter-spacing:3.3px;text-transform:uppercase;color:#f3dff0;
+}
+.gift-eight-wishlist-intro{
+  color:#f4e4ee;font:400 15px/1.55 'EB Garamond',Georgia,serif;
+}
+.gift-eight-items{gap:13px}
+.gift-eight-item{
+  background:rgba(253,239,250,.1);
+  border:1px solid rgba(245,216,239,.2);
+  color:#fff1f9;box-shadow:none;
+}
+.gift-eight-item h4,.gift-eight-item p,.gift-eight-actions span{color:#f7e6f0}
+.gift-eight-actions button:disabled{background:#e7cbdc;color:#5b294d}
+.gift-eight-disclaimer{color:#e2c2d4}
+@media(max-width:350px){.gift-eight{min-height:1043px}}
+@media(min-width:351px) and (max-width:374px){.gift-eight{min-height:1013px}}
+@media(min-width:375px) and (max-width:414px){.gift-eight{min-height:991px}}
+@media(min-width:415px){.gift-eight{min-height:923px}}
+@media(prefers-reduced-motion:reduce){.gift-eight-art{animation:none!important}}
+
+
+/* Authorized local blush butterfly: appears near the Gift→RSVP exit,
+   where the reference screenshot shows a small pale butterfly.
+   Source position/motion remains provisional pending frame-by-frame audit. */
+.gift-eight-butterfly{
+  position:absolute;
+  left:61%;
+  bottom:91px;
+  width:51px;
+  height:43px;
+  z-index:3;
+  pointer-events:none;
+  opacity:0;
+  visibility:hidden;
+  transform:translate3d(0,0,0) rotate(-8deg);
+  transform-origin:center;
+  filter:drop-shadow(0 2px 3px rgba(25,6,23,.22));
+}
+.gift-eight[data-gift-butterfly="reference-local"] .gift-eight-butterfly{
+  opacity:.9;
+  visibility:visible;
+  animation:gift-eight-butterfly-drift 5.6s ease-in-out infinite;
+}
+.gift-eight-bfly-wing{
+  position:absolute;
+  top:2px;
+  width:26px;
+  height:38px;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:contain;
+}
+.gift-eight[data-gift-butterfly="reference-local"] .gift-eight-bfly-wing{
+  background-image:url("./assets/reference-dev/bfly_blush.webp");
+}
+.gift-eight-bfly-left{
+  left:1px;
+  transform-origin:95% 60%;
+  animation:gift-eight-butterfly-left 1.15s ease-in-out infinite alternate;
+}
+.gift-eight-bfly-right{
+  right:1px;
+  transform-origin:5% 60%;
+  animation:gift-eight-butterfly-right 1.15s ease-in-out infinite alternate;
+}
+.gift-eight-bfly-body{
+  position:absolute;
+  top:13px;
+  left:23px;
+  width:4px;
+  height:21px;
+  border-radius:100%;
+  background:linear-gradient(#f8e4ca,#9b5982);
+  box-shadow:0 0 4px #f1cada;
+}
+@keyframes gift-eight-butterfly-drift{
+  0%,100%{transform:translate3d(0,0,0) rotate(-8deg)}
+  47%{transform:translate3d(-7px,-10px,0) rotate(6deg)}
+}
+@keyframes gift-eight-butterfly-left{
+  from{transform:rotateY(18deg) rotate(-5deg)}
+  to{transform:rotateY(69deg) rotate(-13deg)}
+}
+@keyframes gift-eight-butterfly-right{
+  from{transform:scaleX(-1) rotateY(18deg) rotate(-5deg)}
+  to{transform:scaleX(-1) rotateY(69deg) rotate(-13deg)}
+}
+@media(prefers-reduced-motion:reduce){
+  .gift-eight .gift-eight-butterfly,
+  .gift-eight .gift-eight-bfly-wing{
+    animation:none!important;
+  }
+}
+
+
+/* Screenshot comparison, 390×844: hidden default Gift content and
+   278px/14px horizontal bank strip after Send Gift. */
+/* 390px expanded source audit: button ref y395.6/local y348.1, +47px;
+   wishlist panel ref ~y692/local y653.7, +37px net after -10px margin. */
+.gift-eight-send{position:relative;margin-top:73px}
+.gift-eight-trigger{
+  position:relative;z-index:4;
+  min-width:175px;min-height:46px;
+  padding:10px 24px;letter-spacing:2.7px;
+  background:#fffaf5;color:#6b3159;
+}
+.gift-eight-bank-list[hidden],.gift-eight-wishlist[hidden]{display:none!important}
+.gift-eight-bank-list:not([hidden]){
+  display:flex;
+  align-items:stretch;gap:14px;
+  width:calc(100% + 28px);
+  overflow-x:auto;overflow-y:hidden;
+  padding:0 28px 5px 0;
+  margin: -20px 0 0;
+  scroll-snap-type:x mandatory;
+  scroll-padding-left:0;
+  scrollbar-width:none;
+  touch-action:pan-x;
+}
+.gift-eight-bank-list::-webkit-scrollbar{display:none}
+.gift-eight-bank{
+  flex:0 0 278px;
+  min-height:230px;
+  scroll-snap-align:start;
+  padding:29px 18px 24px;
+  border:1px solid rgba(143,96,128,.2);
+  border-radius:15px;
+  background:
+    radial-gradient(ellipse at 30% 15%,rgba(250,244,250,.92),transparent 74%),
+    linear-gradient(150deg,#fffafc,#f8edf8);
+  text-align:center;box-shadow:0 9px 18px #2a122b18;
+}
+.gift-eight-bank-name{
+  color:#653454;letter-spacing:4px;
+  font:600 12px/1.4 'EB Garamond',Georgia,serif;
+  text-transform:uppercase;
+}
+.gift-eight-account{
+  margin:18px 0 8px;
+  color:#643752;
+  letter-spacing:1.6px;
+  font:600 17px/1.4 'EB Garamond',Georgia,serif;
+}
+.gift-eight-holder{
+  color:#6b5164;min-height:27px;
+  font:400 14px/1.4 'EB Garamond',Georgia,serif;
+}
+.gift-eight-copy{
+  min-height:44px;margin-top:8px;
+  padding:9px 20px;border:0;
+  border-radius:999px;background:#f2e7ee;color:#653757;
+  text-transform:uppercase;
+  letter-spacing:1.45px;
+  font:600 11px/1.55 'EB Garamond',Georgia,serif;
+}
+.gift-eight-wishlist:not([hidden]){
+  display:block;
+  margin:34px 0 0;
+  padding:23px 18px 29px;
+  border-radius:18px 18px 10px 10px;
+  background:rgba(255,252,253,.98);
+  box-shadow:0 7px 28px #250e1d28;
+  color:#5c264f;
+}
+.gift-eight-wishlist h3{
+  color:#6b365d;
+  font:500 12px/1.6 'EB Garamond',Georgia,serif;
+  letter-spacing:4px;
+}
+.gift-eight-wishlist-intro{
+  margin:6px 0 19px;color:#78556f;
+  font:400 14px/1.55 'EB Garamond',Georgia,serif;
+}
+.gift-eight-item{
+  grid-template-columns:54px minmax(0,1fr);
+  min-height:95px;gap:9px;padding:9px;
+  background:#fff;border:1px solid #eadddf;
+  border-radius:12px;
+  box-shadow:0 4px 15px #3c173213;
+  color:#59364c;
+}
+.gift-eight-thumb{
+  background:linear-gradient(145deg,#f8f2f4,#e7dce3);
+  color:#936f89;
+}
+.gift-eight-item h4{color:#59364c}
+.gift-eight-item p{color:#846f7b}
+.gift-eight-actions span{color:#6b3759}
+.gift-eight-actions button:disabled{background:#f1e7ed;color:#67455d}
+.gift-eight-disclaimer{
+  max-width:37ch;margin:19px auto 0;
+  color:#e4cddd;
+}
+.gift-eight-petals{
+  position:absolute;inset:0;z-index:3;
+  overflow:hidden;pointer-events:none;
+}
+.gift-eight-petals i{
+  position:absolute;width:7px;height:12px;
+  background:linear-gradient(125deg,#efcfec,#b88bc1);
+  border-radius:75% 5% 80% 15%;
+  opacity:.58;transform:rotate(33deg);
+  animation:gift-eight-petal-fall 11s linear infinite;
+}
+.gift-eight-petals i:nth-child(1){left:18%;top:12%;animation-delay:-4s;animation-duration:12s}
+.gift-eight-petals i:nth-child(2){left:73%;top:4%;animation-delay:-7s;animation-duration:9s}
+.gift-eight-petals i:nth-child(3){left:49%;top:34%;animation-delay:-3s;animation-duration:13s}
+.gift-eight-petals i:nth-child(4){left:81%;top:49%;animation-delay:-5s;animation-duration:10s}
+.gift-eight-petals i:nth-child(5){left:20%;top:67%;animation-delay:-9s;animation-duration:15s}
+.gift-eight-petals i:nth-child(6){left:56%;top:86%;animation-delay:-6s;animation-duration:12s}
+.gift-eight-petals i:nth-child(7){left:33%;top:25%;animation-delay:-1s;animation-duration:14s}
+.gift-eight-petals i:nth-child(8){left:70%;top:73%;animation-delay:-10s;animation-duration:16s}
+@keyframes gift-eight-petal-fall{
+  0%{transform:translate3d(-10px,-26px,0) rotate(15deg);opacity:0}
+  14%{opacity:.65}
+  79%{opacity:.65}
+  100%{transform:translate3d(24px,95px,0) rotate(195deg);opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .gift-eight-petals i{animation:none!important}
+}
+
+
+/* Private licensed thumbnail comparison; original demo glyphs remain otherwise. */
+.gift-eight[data-gift-thumb-rice="reference-local"] .gift-eight-thumb-rice{
+  background:#fff url("./assets/reference-dev/gift-rice-cooker.jpg") center/contain no-repeat;
+  font-size:0;
+}
+.gift-eight[data-gift-thumb-kettle="reference-local"] .gift-eight-thumb-kettle{
+  background:#fff url("./assets/reference-dev/gift-kettle.webp") center/contain no-repeat;
+  font-size:0;
+}
+
+
+/* At the Gift handoff the source blush butterfly flies around the upper
+   edge, not the bottom; dimensions remain a frame-calibrated approximation. */
+.gift-eight-butterfly{
+  left:42%;top:21px;bottom:auto;
+  width:32px;height:28px;
+  z-index:5;
+}
+.gift-eight-bfly-wing{
+  top:0;width:17px;height:25px;
+}
+.gift-eight-bfly-left{left:0}
+.gift-eight-bfly-right{right:0}
+.gift-eight-bfly-body{
+  left:14px;top:6px;
+  width:3px;height:18px;
+}
+@keyframes gift-eight-butterfly-drift{
+  0%{transform:translate3d(15px,-13px,0) rotate(-8deg)}
+  32%{transform:translate3d(-24px,11px,0) rotate(8deg)}
+  58%{transform:translate3d(-49px,2px,0) rotate(-3deg)}
+  78%{transform:translate3d(-13px,-9px,0) rotate(12deg)}
+  100%{transform:translate3d(15px,-13px,0) rotate(-8deg)}
+}
+
+
+/* Section 8 expanded wishlist: first-card geometry from the 390px
+   read-only source measurement (185.5px item, 68x68px product thumbs).
+   Apply only when disclosed; the already-calibrated closed Gift stays untouched.
+   Source imagery is NOT committed: customer/licensed local art remains optional. */
+.gift-eight-wishlist:not([hidden]) {
+  padding-bottom: 16px;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item {
+  grid-template-columns: 68px minmax(0,1fr);
+  align-items: center;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-thumb {
+  width: 68px;
+  height: 68px;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:first-child {
+  min-height: 185.5px;
+  align-items: stretch;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:first-child > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:first-child .gift-eight-actions {
+  margin-top: auto;
+  padding-top: 12px;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:first-child .gift-eight-thumb {
+  align-self: start;
+}
+
+
+/* Visual audit 41786898384: the 390px wishlist panel and first item now
+   match their measured heights, but the source uses borderless separated
+   rows (not individual rounded tiles) and the expanded section has an
+   extra ~47px from the demo notice. Keep safe demo notice visible without
+   adding flow height. Do not alter the default/collapsed section geometry. */
+.gift-eight-wishlist:not([hidden]) {
+  background: #fff;
+  border-radius: 16px;
+  padding-bottom: 10px;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-wishlist-intro {
+  margin-bottom: 11px;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-items {
+  gap: 0;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  min-width: 0;
+  padding: 14px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #59364c;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:not(:last-child) {
+  border-bottom: 1px solid #d9cbd2;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:first-child {
+  min-height: 185.5px;
+  padding-top: 14px;
+  padding-bottom: 0;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:nth-child(2) {
+  min-height: 140.5px;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:nth-child(3) {
+  min-height: 98.6px;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item > div:last-child {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  min-width: 0;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-thumb {
+  align-self: start;
+  width: 68px;
+  height: 68px;
+  margin: 0;
+  border: 1px solid #e1d3dc;
+  border-radius: 10px;
+  background: #fff;
+  color: #793d70;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item h4 {
+  margin: 0 0 4px;
+  color: #59364c;
+  font: 400 16px/1.3 'EB Garamond',Georgia,serif;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item p {
+  margin: 0;
+  color: #82617a;
+  font: 500 9px/1.4 'EB Garamond',Georgia,serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-actions {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 0;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:first-child .gift-eight-actions {
+  margin-top: 10px;
+  padding-top: 0;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-actions span,
+.gift-eight-wishlist:not([hidden]) .gift-eight-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 3px 12px #44243e16;
+  color: #753c67;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  letter-spacing: 1.8px;
+  font: 500 10px/1.3 'EB Garamond',Georgia,serif;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:first-child .gift-eight-actions button {
+  background: #7b3d6e;
+  box-shadow: none;
+  color: #fff;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:nth-child(2) .gift-eight-actions button {
+  display: none;
+}
+.gift-eight-wishlist:not([hidden]) .gift-eight-item:nth-child(3) .gift-eight-actions button {
+  background: #fff;
+  color: #753c67;
+}
+.gift-eight .gift-eight-disclaimer:not([hidden]) {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 17px;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  font-size: 9px;
+  line-height: 1.25;
+  color: #e5cedf;
+  opacity: .8;
+}
+/* At 320px the source and local browser both scale 68px thumbnails to
+   ~64.9px. Keep base row heights here; applying measured visual pixels as
+   CSS min-heights would double-scale the rows. */
+@media(min-width:351px) and (max-width:374px) {
+  .gift-eight-wishlist:not([hidden]) .gift-eight-item:first-child { min-height: 182.1px; }
+  .gift-eight-wishlist:not([hidden]) .gift-eight-item:nth-child(2) { min-height: 137.9px; }
+  .gift-eight-wishlist:not([hidden]) .gift-eight-item:nth-child(3) { min-height: 96.8px; }
+}
+@media(min-width:415px) {
+  .gift-eight-wishlist:not([hidden]) .gift-eight-item:first-child { min-height: 138.3px; }
+  .gift-eight-wishlist:not([hidden]) .gift-eight-item:nth-child(2) { min-height: 117.9px; }
+  .gift-eight-wishlist:not([hidden]) .gift-eight-item:nth-child(3) { min-height: 97.7px; }
+  .gift-eight-wishlist:not([hidden]) .gift-eight-item:first-child .gift-eight-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+
+/* Source geometry checkpoints from four-viewport audit 41786898384:
+   At 430px, the Send Gift button was 51.6px too low; the expanded
+   wishlist top was 12.2px too high. Other widths' button positions
+   already matched within ~1px and must not move. This only changes
+   large-phone anchoring; the 430px closed section min-height stays 923px. */
+@media(min-width:415px) {
+  .gift-eight-send {
+    margin-top: 21px; /* 73px - 52px, align source CTA Y 308.4 */
+  }
+  .gift-eight-trigger {
+    min-width: 183px;
+    min-height: 48px; /* Source large-phone CTA: 183×47.8px */
+  }
+  .gift-eight-wishlist:not([hidden]) {
+    margin-top: 98px; /* restore source wishlist Y ~667.6 */
+  }
+}
+
+
+/* Source audit (run 41789080486): 390px panel was +9.3px tall solely
+   because the unconfigured third item's subtitle added an extra line.
+   Short demo labels remain truthful while restoring the reference's
+   single-line source captions. Width-specific wishlist anchoring does
+   not change the closed Gift scene or other workers' sections. */
+@media (max-width:350px) {
+  .gift-eight-wishlist:not([hidden]) {
+    margin-top:84px; /* source wishlist top 798.1px; prior local 748.1px */
+  }
+}
+@media (min-width:351px) and (max-width:374px) {
+  .gift-eight-wishlist:not([hidden]) {
+    margin:55px 2px -10px; /* source 360px panel x=30.2, y=676.4 */
+  }
+  .gift-eight-wishlist:not([hidden]) .gift-eight-wishlist-intro {
+    margin-bottom:31px; /* source first card sits 101px below panel top */
+  }
+}
+@media (min-width:415px) {
+  .gift-eight-wishlist:not([hidden]) {
+    margin:92px 1px -6px; /* source 430px panel x=29.5, y=666.5 */
+  }
+}
+
+
+/* Original, independently drawn gift appliance thumbnails. These are generic
+   illustrations, not Philips product photography or vendor-owned artwork.
+   A user-authorized reference-dev photo, when available in the testing prototype, wins
+   over these selectors through higher specificity. */
+.gift-eight .gift-eight-thumb-rice {
+  background:#fff url("./assets/section8-rice-cooker-original.svg") center / contain no-repeat;
+  font-size:0;
+}
+.gift-eight .gift-eight-thumb-kettle {
+  background:#fff url("./assets/section8-kettle-original.svg") center / contain no-repeat;
+  font-size:0;
+}
+.gift-eight .gift-eight-item:nth-child(3) .gift-eight-thumb {
+  background:#fff url("./assets/section8-giftcard-original.svg") center / contain no-repeat;
+  font-size:0;
+}
+
+
+/* Original blush butterfly fallback: always visible even when private
+   comparison artwork is unavailable. Native vector wing art and CSS motion
+   avoid publishing or hotlinking the reference site's assets. The original
+   local authorized image, when present, takes priority by specificity. */
+.gift-eight .gift-eight-butterfly{
+  opacity:.87;
+  visibility:visible;
+  animation:gift-eight-butterfly-drift 5.6s ease-in-out infinite;
+}
+.gift-eight .gift-eight-bfly-wing{
+  background-image:url("./assets/section8-blush-wing-original.svg");
+}
+
+
+/* Expanded wishlist background resets were hiding the original fallback
+   illustrations. Reapply their images with higher specificity, and always
+   prefer verified local comparison photos if available in the testing prototype. */
+.gift-eight .gift-eight-wishlist:not([hidden]) .gift-eight-thumb-rice {
+  background: #fff url("./assets/section8-rice-cooker-original.svg") center / contain no-repeat;
+}
+.gift-eight .gift-eight-wishlist:not([hidden]) .gift-eight-thumb-kettle {
+  background: #fff url("./assets/section8-kettle-original.svg") center / contain no-repeat;
+}
+.gift-eight .gift-eight-wishlist:not([hidden]) .gift-eight-item:nth-child(3) .gift-eight-thumb {
+  background: #fff url("./assets/section8-giftcard-original.svg") center / contain no-repeat;
+}
+.gift-eight[data-gift-thumb-rice="reference-local"] .gift-eight-wishlist:not([hidden]) .gift-eight-thumb-rice {
+  background: #fff url("./assets/reference-dev/gift-rice-cooker.jpg") center / contain no-repeat;
+}
+.gift-eight[data-gift-thumb-kettle="reference-local"] .gift-eight-wishlist:not([hidden]) .gift-eight-thumb-kettle {
+  background: #fff url("./assets/reference-dev/gift-kettle.webp") center / contain no-repeat;
+}
+
+
+/* Match the adjacent Section 9 butterfly system: paired 52x41 wings,
+   0.22727s sprite flap with staggered right wing and 13s linear flight.
+   Keep this scoped to Section 8 and preserve the existing handoff position. */
+.gift-eight .gift-eight-butterfly{
+  width:52px;height:41px;
+  animation:gift-eight-shared-flight 13s linear infinite;
+  will-change:transform;
+}
+.gift-eight .gift-eight-bfly-wing{
+  top:3px;width:27px;height:34px;
+  background-image:url("./assets/section8-blush-wing-original.svg");
+  background-size:contain;background-position:center;background-repeat:no-repeat;
+  border-radius:0;filter:none;
+}
+.gift-eight .gift-eight-bfly-left{
+  left:0;transform-origin:right center;
+  animation:gift-eight-shared-flap-left .41s ease-in-out infinite alternate;
+}
+.gift-eight .gift-eight-bfly-right{
+  right:0;transform-origin:left center;
+  animation:gift-eight-shared-flap-right .41s ease-in-out infinite alternate;
+}
+.gift-eight .gift-eight-bfly-body{left:24px;top:12px}
+.gift-eight[data-gift-butterfly="reference-local"] .gift-eight-bfly-wing{
+  top:0;width:50%;height:100%;border-radius:0;filter:none;
+  background-image:url("./assets/reference-dev/bfly_blush.webp");
+  background-repeat:no-repeat;background-size:200% 100%;
+}
+.gift-eight[data-gift-butterfly="reference-local"] .gift-eight-bfly-left{
+  background-position:0 0;transform-origin:100% 50%;
+  animation:gift-eight-shared-sprite-left .22727s ease-in-out infinite alternate;
+}
+.gift-eight[data-gift-butterfly="reference-local"] .gift-eight-bfly-right{
+  background-position:100% 0;transform-origin:0 50%;
+  animation:gift-eight-shared-sprite-right .22727s ease-in-out -.065s infinite alternate;
+}
+@keyframes gift-eight-shared-flight{
+  0%,100%{transform:translate3d(15px,-13px,0) rotate(-8deg)}
+  25%{transform:translate3d(-14px,-20px,0) rotate(6deg)}
+  50%{transform:translate3d(-49px,2px,0) rotate(-3deg)}
+  75%{transform:translate3d(-13px,11px,0) rotate(8deg)}
+}
+@keyframes gift-eight-shared-flap-left{
+  from{transform:perspective(210px) rotateY(8deg)}
+  to{transform:perspective(210px) rotateY(72deg)}
+}
+@keyframes gift-eight-shared-flap-right{
+  from{transform:scaleX(-1) perspective(210px) rotateY(8deg)}
+  to{transform:scaleX(-1) perspective(210px) rotateY(72deg)}
+}
+@keyframes gift-eight-shared-sprite-left{
+  from{transform:perspective(210px) rotateY(8deg)}
+  to{transform:perspective(210px) rotateY(72deg)}
+}
+@keyframes gift-eight-shared-sprite-right{
+  from{transform:perspective(210px) rotateY(8deg)}
+  to{transform:perspective(210px) rotateY(72deg)}
+}
+@media(prefers-reduced-motion:reduce){
+  .gift-eight .gift-eight-butterfly,.gift-eight .gift-eight-bfly-wing{
+    animation:none!important;will-change:auto;
+  }
+}
+
+
+/* Section 8 living garden: keep the original floral artwork in place, with
+   restrained background sway and layered petal motion throughout the section.
+   All selectors are local to Wedding Gift. */
+.gift-eight .gift-eight-art{
+  background-position:center top,center top;
+  animation:gift-eight-garden-breathe 12s ease-in-out infinite alternate;
+  will-change:auto; /* background-position cannot use compositor promotion */
+}
+.gift-eight[data-gift-artwork="reference-local"] .gift-eight-art{
+  background-position:center top,center center;
+  animation:gift-eight-garden-reference-breathe 12s ease-in-out infinite alternate;
+}
+@keyframes gift-eight-garden-breathe{
+  from{background-position:center top,49% top}
+  to{background-position:center top,51% top}
+}
+@keyframes gift-eight-garden-reference-breathe{
+  from{background-position:center top,49% center}
+  to{background-position:center top,51% center}
+}
+.gift-eight .gift-eight-petals i{
+  animation-name:gift-eight-petal-meander;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+  will-change:transform,opacity;
+}
+.gift-eight .gift-eight-petals i:nth-child(even){
+  animation-direction:reverse;
+}
+.gift-eight .gift-eight-petals i:nth-child(3n){
+  width:5px;height:9px;opacity:.42;
+}
+@keyframes gift-eight-petal-meander{
+  0%{transform:translate3d(-10px,-36px,0) rotate(12deg) scale(.8);opacity:0}
+  14%{opacity:.56}
+  28%{transform:translate3d(14px,-4px,0) rotate(65deg) scale(1)}
+  53%{transform:translate3d(-7px,30px,0) rotate(115deg) scale(.9);opacity:.62}
+  76%{transform:translate3d(20px,62px,0) rotate(170deg) scale(1)}
+  100%{transform:translate3d(4px,115px,0) rotate(225deg) scale(.8);opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .gift-eight .gift-eight-art,
+  .gift-eight .gift-eight-petals i{
+    animation:none!important;
+    will-change:auto;
+  }
+}
+
+
+/* Performance only: leave the exact garden, petal and butterfly keyframes
+   untouched. Pause their animation clocks when the Gift is well offscreen,
+   closed, or the tab is hidden; unpause before it reaches the viewport. */
+.gift-eight[data-gift-ambient="paused"] .gift-eight-art,
+.gift-eight[data-gift-ambient="paused"] .gift-eight-butterfly,
+.gift-eight[data-gift-ambient="paused"] .gift-eight-bfly-wing,
+.gift-eight[data-gift-ambient="paused"] .gift-eight-petals i {
+  animation-play-state:paused!important;
+  will-change:auto!important;
+}

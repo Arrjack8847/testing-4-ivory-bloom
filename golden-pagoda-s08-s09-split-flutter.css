@@ -1,0 +1,341 @@
+/* Optional split-wing artwork: activates only after all three assets load.
+   Existing flight keyframes, layout and original butterfly remain the fallback. */
+.gift-eight.gp-s08-split-ready .gift-eight-butterfly,
+.s9-rsvp.gp-s09-split-ready .s9-butterfly,
+.s9-rsvp.gp-s09-split-ready .s9-butterfly-forward{
+  isolation:isolate;perspective:240px;transform-style:preserve-3d;
+}
+.gift-eight.gp-s08-split-ready .gift-eight-bfly-wing,
+.s9-rsvp.gp-s09-split-ready .s9-wing{
+  position:absolute;inset:0!important;width:100%!important;height:100%!important;
+  background-size:100% 100%!important;background-repeat:no-repeat!important;
+  background-position:center!important;backface-visibility:visible;
+  transform-style:preserve-3d;pointer-events:none;
+}
+.gift-eight.gp-s08-split-ready .gift-eight-bfly-left{
+  background-image:url('assets/skins/golden-pagoda-garden/section-08/s08-butterfly-left-wing.webp')!important;
+  transform-origin:46% 50%!important;animation:gp-split-flap-left .46s ease-in-out infinite alternate!important;
+}
+.gift-eight.gp-s08-split-ready .gift-eight-bfly-right{
+  background-image:url('assets/skins/golden-pagoda-garden/section-08/s08-butterfly-right-wing.webp')!important;
+  transform-origin:54% 50%!important;animation:gp-split-flap-right .46s ease-in-out infinite alternate!important;
+}
+.gift-eight.gp-s08-split-ready .gift-eight-bfly-body{
+  position:absolute;inset:0!important;width:100%!important;height:100%!important;
+  background:url('assets/skins/golden-pagoda-garden/section-08/s08-butterfly-body.webp') center/100% 100% no-repeat!important;
+  pointer-events:none;z-index:2;
+}
+.s9-rsvp.gp-s09-split-ready .s9-wing-left{
+  background-image:url('assets/skins/golden-pagoda-garden/section-09/s09-butterfly-left-wing.webp')!important;
+  transform-origin:46% 50%!important;animation:gp-split-flap-left .42s ease-in-out infinite alternate!important;
+}
+.s9-rsvp.gp-s09-split-ready .s9-wing-right{
+  background-image:url('assets/skins/golden-pagoda-garden/section-09/s09-butterfly-right-wing.webp')!important;
+  transform-origin:54% 50%!important;animation:gp-split-flap-right .42s ease-in-out infinite alternate!important;
+}
+.s9-rsvp.gp-s09-split-ready .s9-butterfly::after,
+.s9-rsvp.gp-s09-split-ready .s9-butterfly-forward::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:url('assets/skins/golden-pagoda-garden/section-09/s09-butterfly-body.webp') center/100% 100% no-repeat;
+}
+.s9-rsvp.gp-s09-split-ready .s9-butterfly-forward .s9-wing-left{animation-duration:.52s!important;animation-delay:-.18s!important}
+.s9-rsvp.gp-s09-split-ready .s9-butterfly-forward .s9-wing-right{animation-duration:.52s!important;animation-delay:-.18s!important}
+@keyframes gp-split-flap-left{from{transform:rotateY(8deg)}to{transform:rotateY(67deg)}}
+@keyframes gp-split-flap-right{from{transform:rotateY(-8deg)}to{transform:rotateY(-67deg)}}
+.gift-eight[data-gift-ambient="paused"].gp-s08-split-ready .gift-eight-bfly-wing,
+.s9-rsvp.gp-s09-split-ready:not(.s9-active) .s9-wing{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){
+ .gift-eight.gp-s08-split-ready .gift-eight-bfly-wing,
+ .s9-rsvp.gp-s09-split-ready .s9-wing{animation:none!important;transform:none!important}
+}
+/* Override the full-image fallback only when all split assets have loaded. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-butterfly::before,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly::before,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward::before{display:none!important}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-body,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing{display:block!important}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward{mix-blend-mode:normal}
+@media(prefers-reduced-motion:reduce){
+ html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+ html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing{animation:none!important;transform:none!important}
+}
+
+/* Butterfly overlay priority within the two isolated sections.
+   Keep all artwork click-through and avoid obscuring interactive controls. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward{
+ z-index:100!important;pointer-events:none!important;visibility:visible!important;
+ opacity:1!important;overflow:visible!important;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly > *,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly > *,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward > *{pointer-events:none!important}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing{
+ display:block!important;opacity:1!important;visibility:visible!important;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-body{display:block!important;opacity:1!important}
+
+/* Visibility repair: the legacy royal butterfly stylesheet hides wing fragments
+   with !important. Explicitly restore all parts only after six-source readiness. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-left,
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-right,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing-left,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing-right{
+ display:block!important;
+ visibility:visible!important;
+ opacity:1!important;
+ animation-name:gp-split-flap-left!important;
+ animation-duration:.46s!important;
+ animation-timing-function:ease-in-out!important;
+ animation-iteration-count:infinite!important;
+ animation-direction:alternate!important;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-right,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing-right{animation-name:gp-split-flap-right!important}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward .s9-wing{animation-duration:.52s!important;animation-delay:-.18s!important}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-body{display:block!important;visibility:visible!important;opacity:1!important}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward{opacity:1!important}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active .s9-butterfly-forward{animation-play-state:running!important}
+@media(prefers-reduced-motion:reduce){
+ html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+ html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing{animation:none!important;transform:none!important}
+ html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+ html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward{opacity:1!important;animation:none!important;left:calc(50% - 26px)!important}
+}
+
+
+/* 2026-11-20 royal RSVP visibility review.
+   The original S09 butterflies fly near the very BOTTOM of a tall RSVP panel
+   and begin their old flight paths offscreen. Make both approved split-wing
+   butterflies visible near the introductory arch on narrow phones, with
+   quiet, opposed floating motion that does not cross the RSVP form.
+   This ONLY affects the Golden Pagoda skin after assets load.
+   The default template's Section 9 flight geometry is unchanged. */
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward {
+  width:clamp(58px,17.5vw,72px)!important;
+  height:clamp(58px,17.5vw,72px)!important;
+  z-index:110!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  transform-origin:center center;
+  filter:none!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly {
+  left:clamp(14px,5.5vw,38px)!important;
+  top:clamp(40px,9vw,64px)!important;
+  animation:gp-s09-visible-drift-left 9.4s ease-in-out infinite!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward {
+  left:auto!important;
+  right:clamp(14px,5.5vw,38px)!important;
+  top:clamp(54px,12vw,82px)!important;
+  animation:gp-s09-visible-drift-right 10.6s ease-in-out -3s infinite!important;
+}
+@keyframes gp-s09-visible-drift-left {
+  0%,100% {transform:translate3d(0,0,0) rotate(-8deg)}
+  32% {transform:translate3d(9px,-12px,0) rotate(5deg)}
+  67% {transform:translate3d(3px,6px,0) rotate(-3deg)}
+}
+@keyframes gp-s09-visible-drift-right {
+  0%,100% {transform:translate3d(0,0,0) rotate(9deg)}
+  35% {transform:translate3d(-11px,9px,0) rotate(-5deg)}
+  70% {transform:translate3d(-4px,-13px,0) rotate(3deg)}
+}
+/* Honor the original open/viewport gating. A paused butterfly still appears
+   in its visible starting position rather than disappearing offscreen. */
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready:not(.s9-active) .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready:not(.s9-active) .s9-butterfly-forward {
+  animation-play-state:paused!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active .s9-butterfly-forward {
+  animation-play-state:running!important;
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward {
+    animation:none!important;
+    transform:none!important;
+    opacity:1!important;
+  }
+}
+
+
+/* Preserve full alpha silhouettes: template wings used elliptical border-radius
+   and the template Gift body used a pill shape. Those clip the real WebPs. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-body,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing {
+  border-radius:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  background-color:transparent!important;
+}
+
+
+/* Royal butterfly wing-hinge correction (approved six WebPs, S08/S09).
+   The uploaded transparent wing files are whole, separately cropped canvases,
+   NOT the left/right halves of one sprite atlas. Their artwork attachment tips
+   sit around x=76% (left wing) and x=21% (right wing), not at x=50%.
+   Keep each FULL image visible, offset its canvas so both roots meet at the
+   body center, then rotate at the actual painted wing root.
+   Never force the full artwork into a 50%-width crop. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing {
+  width:100%!important;
+  height:100%!important;
+  top:0!important;
+  bottom:auto!important;
+  border-radius:0!important;
+  background-size:contain!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  backface-visibility:visible;
+  transform-style:preserve-3d;
+}
+
+/* Section 8 source wing hinges measured from its isolated painted roots. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-left {
+  left:-26%!important;right:auto!important;
+  transform-origin:76% 50%!important;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-right {
+  left:29%!important;right:auto!important;
+  transform-origin:21% 50%!important;
+}
+
+/* Section 9 uses the separately uploaded ivory/gold wing pair. */
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing-left {
+  left:-29%!important;right:auto!important;
+  transform-origin:79% 51%!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing-right {
+  left:29%!important;right:auto!important;
+  transform-origin:21% 51%!important;
+}
+
+/* Keep original body/antennae dimensions and alpha aspect ratio intact. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-body,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly::after,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward::after {
+  background-size:contain!important;
+  background-position:center center!important;
+}
+
+/* Gentle, mirrored hinge rotations: never fold the engraving edge-on.
+   The old 67-degree rotation produced the thin, upright butterfly. */
+/* Follow Section 1's proven butterfly wing system (styles.css).
+   Section 1: paired inner-edge hinges, perspective(210px),
+   8deg -> 72deg, .54s/.46s, ease-in-out alternate.
+   These are independent full-canvas royal WebPs with larger wing surfaces
+   than Section 1's half-sprite. Keep the same motion mechanics and mirrored
+   rotation signs, but cap the far fold at 48deg so the ornate wings retain
+   >=cos(48deg)=66.9% of their flat projected width (instead of 30.9% at 72deg).
+   The previously calibrated image-root offsets remain intact above. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-butterfly {
+  --gp-wing-perspective:210px;
+  perspective:none; /* the per-wing transform owns depth, exactly as in S1 */
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward {
+  --gp-wing-perspective:270px; /* scale 3D perspective for larger RSVP sprites */
+  perspective:none;
+}
+@keyframes gp-split-flap-left {
+  from {transform:perspective(var(--gp-wing-perspective,210px)) rotateY(-8deg);}
+  to   {transform:perspective(var(--gp-wing-perspective,210px)) rotateY(-48deg);}
+}
+@keyframes gp-split-flap-right {
+  from {transform:perspective(var(--gp-wing-perspective,210px)) rotateY(8deg);}
+  to   {transform:perspective(var(--gp-wing-perspective,210px)) rotateY(48deg);}
+}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing {
+  animation-direction:alternate!important;
+  animation-timing-function:ease-in-out!important;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-left,
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-right,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly .s9-wing {
+  animation-duration:.54s!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward .s9-wing {
+  animation-duration:.46s!important;
+  animation-delay:-.1s!important;
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing {
+    animation:none!important;transform:none!important;
+  }
+}
+
+
+/* Golden Pagoda RSVP: keep the two existing TOP butterflies unchanged.
+   Add two independent BOTTOM flights only after split assets are verified
+   and the mobile RSVP's lower edge is near the viewport. The same three
+   S09 transparent WebPs render all four butterflies (no asset duplication).
+   Reuse the original template's 13s/16s opposite flight keyframes.
+   z-index/pointer-events protect the approved paper and RSVP interaction. */
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-bottom-butterfly-zone{
+  position:absolute;
+  left:0;right:0;bottom:24px;
+  height:130px;
+  z-index:115;
+  pointer-events:none;
+  overflow:visible;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly.s9-butterfly-bottom-reverse,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward.s9-butterfly-bottom-forward{
+  position:absolute;
+  top:34px!important;
+  left:-52px!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:clamp(48px,13vw,58px)!important;
+  height:clamp(48px,13vw,58px)!important;
+  z-index:116!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  filter:none!important;
+  animation:s9-flight 13s linear -4.5s infinite!important;
+  animation-play-state:paused!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward.s9-butterfly-bottom-forward{
+  top:50px!important;
+  left:-11px!important;
+  animation:s9-flight-forward 16s linear -7.2s infinite!important;
+  animation-play-state:paused!important;
+}
+/* Both the parent section and lower viewport zone must be active. Top
+   butterflies retain their own motion rules and remain fully independent. */
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active.gp-s09-bottom-in-view .s9-butterfly.s9-butterfly-bottom-reverse,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active.gp-s09-bottom-in-view .s9-butterfly-forward.s9-butterfly-bottom-forward{
+  animation-play-state:running!important;
+}
+@media (prefers-reduced-motion:reduce){
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly.s9-butterfly-bottom-reverse,
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward.s9-butterfly-bottom-forward{
+    animation:none!important;
+    opacity:1!important;
+    transform:none!important;
+    top:48px!important;
+    left:18px!important;
+    right:auto!important;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward.s9-butterfly-bottom-forward{
+    left:auto!important;
+    right:18px!important;
+  }
+}

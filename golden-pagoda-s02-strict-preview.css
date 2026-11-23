@@ -1,0 +1,167 @@
+/* S02 STRICT Artwork-First Skin Adaptation, isolated preview only.
+   Base layout: Testing-4 #message / section-two.css, preserved verbatim.
+   Reference technique: fix/golden-pagoda-s03-iphone-visual-20261113.
+   Artwork reuses the active #message background and original paper overlay
+   plus the original section geometry, with a skin-only footer image placed
+   after the frame to avoid oversized spacer padding. The artwork, text,
+   Section 1 camera, scroll behavior and existing animations are unchanged. */
+
+/* Preserve the entire 1080x1920 parchment WebP at its own ratio.
+   Match its width to the viewport; shift its original painted pagoda scene
+   into the gap below the live letter and ABOVE the existing royal footer.
+   The user-approved canopy, letter wording, scroll and full footer image
+   are left untouched. No source-art edits, stretching, filters or masks. */
+html[data-golden-pagoda-skin="true"] #message.invitation-letter {
+  color:#64482f;
+  background-color:#faead6;
+  background-image:
+    url("./assets/skins/golden-pagoda-garden/section-02/message-paper.webp"),
+    linear-gradient(180deg,#f9dfd4 0%,#fae8d7 47%,#fbead8 100%);
+  background-repeat:no-repeat,no-repeat;
+  /* The source pagoda is painted near the paper's lower edge. Balance its
+     alignment with the shorter flow-sized footer so the scenic spire stays
+     between the closing English line and the bottom border. This changes
+     only background placement, not source pixels or the visible artwork. */
+  background-position:center calc(100% - clamp(115px,35vw,160px)),center;
+  background-size:100% auto,100% 100%;
+}
+
+html[data-golden-pagoda-skin="true"] #message.invitation-letter::before {
+  opacity:1;
+  background-image:url("./assets/skins/golden-pagoda-garden/section-02/s02-strict-decor-composite.svg");
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+/* Retint the original existing mauve edge vignette; same pseudo surface. */
+html[data-golden-pagoda-skin="true"] #message.invitation-letter::after {
+  background:linear-gradient(90deg,rgba(116,74,32,.06),transparent 18%,transparent 82%,rgba(116,74,32,.05));
+}
+
+/* Preserve the letter's reading space; the separate flowing footer controls
+   the distance from the bottom border to Section 3 without fake padding. */
+html[data-golden-pagoda-skin="true"] #message .letter-frame {
+  color:#69492e;
+  border-color:rgba(149,104,50,.47);
+  min-height:0;
+}
+html[data-golden-pagoda-skin="true"] #message .letter-content {
+  padding-bottom:clamp(112px,30vw,130px);
+}
+html[data-golden-pagoda-skin="true"] #message .letter-frame::before {
+  border-color:rgba(160,113,60,.27);
+}
+
+html[data-golden-pagoda-skin="true"] #message .letter-bismillah,
+html[data-golden-pagoda-skin="true"] #message .letter-lead,
+html[data-golden-pagoda-skin="true"] #message .letter-quote,
+html[data-golden-pagoda-skin="true"] #message .letter-source {
+  color:#67472e;
+  text-shadow:0 1px 2px rgba(255,252,243,.48);
+}
+
+/* Keep the header as it is; close the section with a full-width WebP below the frame. */
+
+html[data-golden-pagoda-skin="true"] #message .letter-petal {
+  background:radial-gradient(ellipse at 30% 24%,#ffe4ee 0%,#e6b5c9 48%,#d29cb7 100%);
+}
+
+/* Royal Finale — artifact-first flow layout.
+   The 600x350 closing-ornament.webp is now a real image AFTER the frame,
+   not a background painted outside its containing box. A small negative
+   margin allows a natural overlap of the bottom frame border, mirroring
+   the opening canopy. Because the full image participates in flex layout,
+   Section 2 ends just after its transparent canvas with no excess 190px
+   reserved padding. No asset edits, crops, distortion, or new animations. */
+html[data-golden-pagoda-skin="true"] #message.invitation-letter {
+  min-height:0;
+  padding-bottom:14px;
+}
+html[data-golden-pagoda-skin="true"] #message .letter-frame::after {
+  content:none;
+}
+html[data-golden-pagoda-skin="true"] #message .royal-message-footer {
+  position:relative;
+  z-index:2;
+  display:block;
+  flex:none;
+  align-self:center;
+  width:min(calc(100vw - 8px),430px);
+  max-width:none;
+  height:auto;
+  aspect-ratio:600 / 350;
+  margin:calc(0px - clamp(64px,20vw,84px)) 0 0;
+  padding:0;
+  object-fit:contain;
+  pointer-events:none;
+  user-select:none;
+}
+
+/* S02 Royal Message — match S01's ivory/antique-gold Myanmar typography.
+   Preserve the original letter frame and text column without changing
+   text positions or scroll logic. The footer is independent of the text reveal. */
+html[data-golden-pagoda-skin="true"] #message .royal-message-kicker {
+  margin:0 auto 9px!important;
+  color:#927044;
+  font:500 10px/1.5 'Cinzel','EB Garamond',Georgia,serif;
+  letter-spacing:.2em;
+  direction:ltr;
+}
+html[data-golden-pagoda-skin="true"] #message .royal-message-title {
+  margin:0 auto 19px!important;
+  max-width:100%;
+  color:#754c30;
+  font:600 clamp(19px,5.3vw,22px)/1.6 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+  overflow-wrap:break-word;
+}
+html[data-golden-pagoda-skin="true"] #message .royal-message-title::after {
+  content:none;
+}
+html[data-golden-pagoda-skin="true"] #message .royal-message-paragraph {
+  box-sizing:border-box;
+  max-width:314px;
+  margin:0 auto 13px!important;
+  padding:0 5px;
+  color:#67472e;
+  font:400 clamp(15px,4vw,16.5px)/1.85 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  text-align:center;
+  letter-spacing:0;
+  overflow-wrap:break-word;
+  text-shadow:0 1px 2px rgba(255,252,243,.48);
+}
+html[data-golden-pagoda-skin="true"] #message .royal-message-paragraph:nth-last-child(2) {
+  margin-bottom:0!important;
+}
+html[data-golden-pagoda-skin="true"] #message .royal-message-signoff {
+  margin:15px auto 0!important;
+  padding-left:0;
+  color:#967248;
+  font:italic 400 14px/1.55 'EB Garamond',Georgia,serif;
+  letter-spacing:.015em;
+  text-transform:none;
+}
+html[data-golden-pagoda-skin="true"] #message .letter-content > :nth-child(5) {
+  transition-delay:530ms;
+}
+@media (max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #message .royal-message-title {
+    font-size:19px;
+    margin-bottom:17px!important;
+  }
+  html[data-golden-pagoda-skin="true"] #message .royal-message-paragraph {
+    font-size:15px;
+    line-height:1.7;
+    padding:0 3px;
+  }
+}
+
+/* Section 2 — clean royal parchment.
+   Four optional corner overlays are disabled at the user's request.
+   This guard also hides any corner node left in an older page instance;
+   it does not change the canopy, letter frame, footer or artwork assets. */
+html[data-golden-pagoda-skin="true"] #message .royal-corner-assets,
+html[data-golden-pagoda-skin="true"] #message .royal-corner-asset {
+  display: none !important;
+}

@@ -1,0 +1,147 @@
+/* Myanmar Royal — Golden Pagoda Garden release skin.
+   Completely inert unless ?skin=golden-pagoda-garden is selected.
+   One 4:3 plate owns the golden pagoda, garden shoreline and lake. */
+html[data-golden-pagoda-skin="true"] .animated-scene > :not(.sky-layer):not(.palace):not(.arch):not(.canopy):not(.peacock-sprite):not(.hanging):not(.plant):not(.leaf) {
+  display:none !important;
+}
+html[data-golden-pagoda-skin="true"] .depth.palace .waterfalls,
+html[data-golden-pagoda-skin="true"] .depth.palace .scene-mist,
+html[data-golden-pagoda-skin="true"] .water-glow {
+  display:none !important;
+}
+html[data-golden-pagoda-skin="true"] .master-art {display:none !important;}
+html[data-golden-pagoda-skin="true"] .invitation[data-layers="ready"] .animated-scene {
+  display:block !important;
+  opacity:1 !important;
+}
+html[data-golden-pagoda-skin="true"] .viewport {background:#e8bed0;}
+html[data-golden-pagoda-skin="true"] .depth.arch {
+  width:56.25lvh;
+  max-width:none;
+}
+html[data-golden-pagoda-skin="true"] .animated-scene > .sprite.leaf {
+  pointer-events:none;
+}
+/* Cover retreat: keep the temple spire below names and preserve the lake.
+   Camera offsets return to this exact cover anchor while scrolling away. */
+html[data-golden-pagoda-skin="true"] .depth.palace img {
+  /* The 4:3 plate has CSS height:100% of the stage. Keep bottom fixed,
+     then translate by 10% of its own (unscaled) height. This matches the
+     old -11% → -1% bottom trajectory without per-frame layout changes. */
+  bottom:-11%;
+  translate:-50% 0;
+  scale:.78;
+  /* Complete the cover-to-lake camera entrance before guests normally swipe.
+     Keep the exact approved endpoints and scale; only the pacing changes. */
+  transition:scale 1050ms cubic-bezier(.22,.61,.36,1),
+             translate 1050ms cubic-bezier(.22,.61,.36,1);
+}
+/* Open invitation: the gateway zooms away while the pagoda and lake
+   move upward together; retreat follows the original scroll timeline. */
+html[data-golden-pagoda-skin="true"] .invitation[data-state="opened"] .depth.palace img {
+  translate:-50% calc(-10% + 10% * var(--royal-core-retreat,0));
+  scale:calc(.98 - .20 * var(--royal-core-retreat,0));
+}
+html[data-golden-pagoda-skin="true"] .invitation[data-state="opened"][data-scroll-active="yes"] .depth.palace img {
+  transition:none;
+}
+
+/* Royal S01 entrance: synchronize the gateway, sky and floral curtains with
+   the palace. Once scrolling begins the existing no-transition rule takes
+   over, and JS supplies short, frame-independent camera smoothing. */
+html[data-golden-pagoda-skin="true"] .invitation[data-state="opened"][data-scroll-active="no"] :is(
+  .sky-layer,.depth.arch,.depth.canopy,.sprite.hanging,.sprite.front
+) {
+  transition-duration:1050ms;
+  transition-timing-function:cubic-bezier(.22,.61,.36,1);
+}
+
+/* Phase 3 — coordinated Royal breeze.
+   The approved WebPs remain intact; hanging flowers and rooted plants have
+   separate correct attachment pivots but share the same traveling gust.
+   The mirrored image wrappers reverse local rotation, restoring one global
+   physical wind direction across both sides of the ceremony. */
+html[data-golden-pagoda-skin="true"] .sprite.hanging .swing {
+  transform-origin:50% 0%;
+  animation:royal-hanging-wind var(--royal-swing-duration,16s)
+    cubic-bezier(.42,0,.58,1) var(--royal-swing-delay,-2.4s) infinite normal;
+}
+html[data-golden-pagoda-skin="true"] .sprite.plant .plant-sway {
+  transform-origin:50% 100%;
+  animation:royal-rooted-wind var(--royal-swing-duration,16.9s)
+    cubic-bezier(.42,0,.58,1) var(--royal-swing-delay,-2.4s) infinite normal;
+}
+@keyframes royal-hanging-wind {
+  0%,100% {transform:rotate(calc(var(--royal-left,-3.8deg) * .64));}
+  22% {transform:rotate(var(--royal-right,3.8deg));}
+  27% {transform:rotate(calc(var(--royal-right,3.8deg) * .83));}
+  49% {transform:rotate(var(--royal-gust-left,-4.7deg));}
+  54% {transform:rotate(calc(var(--royal-gust-left,-4.7deg) * .85));}
+  74% {transform:rotate(var(--royal-gust-right,4.7deg));}
+  79% {transform:rotate(calc(var(--royal-gust-right,4.7deg) * .85));}
+}
+@keyframes royal-rooted-wind {
+  0%,100% {transform:rotate(calc(var(--royal-left,-2.2deg) * .65));}
+  25% {transform:rotate(var(--royal-right,2.2deg));}
+  50% {transform:rotate(var(--royal-gust-left,-2.5deg));}
+  75% {transform:rotate(var(--royal-gust-right,2.5deg));}
+}
+
+/* The approved drape.webp is one *two-curtain* transparent canvas.
+   It has attachment clusters around x=31% and x=69%, not x=82%.
+   Two identical render instances are masked to complementary halves;
+   their union still shows 100% of the original image with no file edits,
+   reshaping, scaling, mirroring or loss of its painted composition.
+   The first image stays in document flow to retain wrapper height. */
+html[data-golden-pagoda-skin="true"] .depth.canopy .royal-drape-left,
+html[data-golden-pagoda-skin="true"] .depth.canopy .royal-drape-right {
+  display:block;
+  width:100%;
+  height:auto;
+  pointer-events:none;
+  backface-visibility:hidden;
+}
+html[data-golden-pagoda-skin="true"] .depth.canopy .royal-drape-left {
+  clip-path:inset(0 50% 0 0);
+  transform-origin:31% 0%;
+  animation:royal-drape-left-breeze 16.2s cubic-bezier(.42,0,.58,1) -3.05s infinite normal;
+}
+html[data-golden-pagoda-skin="true"] .depth.canopy .royal-drape-right {
+  position:absolute;
+  inset:0 auto auto 0;
+  clip-path:inset(0 0 0 50%);
+  transform-origin:69% 0%;
+  animation:royal-drape-right-breeze 16.2s cubic-bezier(.42,0,.58,1) -4.05s infinite normal;
+}
+/* Fabric has less amplitude than the 4–5deg hanging flower swings.
+   The free bottom ends trace a longer path while both top pins stay still. */
+@keyframes royal-drape-left-breeze {
+  0%,100% {transform:rotate(-1.45deg);}
+  22% {transform:rotate(1.65deg);}
+  49% {transform:rotate(-2.15deg);}
+  74% {transform:rotate(2.35deg);}
+}
+@keyframes royal-drape-right-breeze {
+  0%,100% {transform:rotate(-1.5deg);}
+  22% {transform:rotate(1.75deg);}
+  49% {transform:rotate(-2.35deg);}
+  74% {transform:rotate(2.55deg);}
+}
+/* Graceful fallback on very old browsers without clipping support: show
+   the original full curtain image as-is instead of duplicating the artwork. */
+@supports not (clip-path:inset(0)) {
+  html[data-golden-pagoda-skin="true"] .depth.canopy .royal-drape-left {
+    clip-path:none;
+    animation:none;
+  }
+  html[data-golden-pagoda-skin="true"] .depth.canopy .royal-drape-right {display:none;}
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-golden-pagoda-skin="true"] .sprite.hanging .swing,
+  html[data-golden-pagoda-skin="true"] .sprite.plant .plant-sway,
+  html[data-golden-pagoda-skin="true"] .depth.canopy .royal-drape-left,
+  html[data-golden-pagoda-skin="true"] .depth.canopy .royal-drape-right {
+    animation:none!important;
+    transform:none!important;
+  }
+}

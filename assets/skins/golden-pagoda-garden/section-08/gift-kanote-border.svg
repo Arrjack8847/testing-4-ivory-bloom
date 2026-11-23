@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 950" width="700" height="950">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E5C889"/>
+      <stop offset="50%" stop-color="#B88432"/>
+      <stop offset="100%" stop-color="#E7CF95"/>
+    </linearGradient>
+    <style>
+      .line { fill: none; stroke: url(#gold); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: url(#gold); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+      .fillg { fill: url(#gold); stroke: url(#gold); stroke-width: 1.2; stroke-linejoin: round; }
+    </style>
+    <g id="lotus"><path class="fillg" d="M0,12 C5,2 12,0 18,12 C13,10 9,11 9,24 C9,11 5,10 0,12z"/></g>
+    <g id="corner">
+      <path class="line" d="M0,88 C18,50 30,26 76,6"/>
+      <path class="thin" d="M13,88 C28,60 42,34 82,18"/>
+      <path class="line" d="M8,102 C14,74 18,44 16,14"/>
+      <path class="thin" d="M22,98 C28,70 32,42 31,20"/>
+      <path class="line" d="M16,56 C42,65 60,49 72,30"/>
+      <path class="thin" d="M24,70 C40,75 56,62 66,42"/>
+      <use href="#lotus" x="44" y="40"/>
+      <path class="thin" d="M46,28 C58,20 66,12 82,10"/>
+      <path class="thin" d="M30,58 C18,52 12,42 10,28"/>
+    </g>
+    <g id="sideUnit">
+      <use href="#lotus" x="0" y="0"/>
+      <path class="thin" d="M9,-6 C3,-12 2,-18 4,-24"/>
+      <path class="thin" d="M9,-6 C15,-12 16,-18 14,-24"/>
+    </g>
+  </defs>
+  <rect x="38" y="38" width="624" height="874" rx="28" ry="28" class="line"/>
+  <rect x="48" y="48" width="604" height="854" rx="22" ry="22" class="thin"/>
+
+  <use href="#corner" x="28" y="28"/>
+  <use href="#corner" x="672" y="28" transform="translate(672,28) scale(-1,1) translate(-672,-28)"/>
+  <use href="#corner" x="28" y="922" transform="translate(28,922) scale(1,-1) translate(-28,-922)"/>
+  <use href="#corner" x="672" y="922" transform="translate(672,922) scale(-1,-1) translate(-672,-922)"/>
+
+  <path class="line" d="M124,40 C180,18 250,22 320,24 C334,4 366,4 380,24 C450,22 520,18 576,40"/>
+  <path class="thin" d="M145,50 C210,34 270,36 328,36 C338,22 362,22 372,36 C430,36 490,34 555,50"/>
+  <path class="fillg" d="M350,4 C366,18 382,44 350,60 C318,44 334,18 350,4z"/>
+  <use href="#lotus" x="341" y="28"/>
+
+  <path class="line" d="M124,910 C180,932 250,928 320,926 C334,946 366,946 380,926 C450,928 520,932 576,910"/>
+  <path class="thin" d="M145,900 C210,916 270,914 328,914 C338,928 362,928 372,914 C430,914 490,916 555,900"/>
+  <use href="#lotus" x="341" y="896"/>
+
+  <g>
+    <use href="#sideUnit" x="56" y="220"/>
+    <use href="#sideUnit" x="56" y="400"/>
+    <use href="#sideUnit" x="56" y="580"/>
+    <use href="#sideUnit" x="56" y="760"/>
+    <use href="#sideUnit" x="644" y="220"/>
+    <use href="#sideUnit" x="644" y="400"/>
+    <use href="#sideUnit" x="644" y="580"/>
+    <use href="#sideUnit" x="644" y="760"/>
+    <path class="thin" d="M54,100 C70,130 70,170 56,200"/>
+    <path class="thin" d="M54,280 C70,310 70,350 56,380"/>
+    <path class="thin" d="M54,460 C70,490 70,530 56,560"/>
+    <path class="thin" d="M54,640 C70,670 70,710 56,740"/>
+    <path class="thin" d="M646,100 C630,130 630,170 644,200"/>
+    <path class="thin" d="M646,280 C630,310 630,350 644,380"/>
+    <path class="thin" d="M646,460 C630,490 630,530 644,560"/>
+    <path class="thin" d="M646,640 C630,670 630,710 644,740"/>
+  </g>
+</svg>
