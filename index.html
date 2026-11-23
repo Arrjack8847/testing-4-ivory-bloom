@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en" class="invitation-cover-locked">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <style>
+    /* The unopened one-screen cover must not scroll, including on iOS Safari.
+       Inline for first paint; scene.js removes this class on VIEW INVITATION. */
+    html.invitation-cover-locked {
+      overflow: hidden !important;
+      height: 100%;
+      overscroll-behavior-y: none;
+    }
+    html.invitation-cover-locked body {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      overscroll-behavior-y: none;
+    }
+  </style>
+  <meta name="theme-color" content="#d4c8de">
+  <meta name="description" content="Celestial Lake mobile invitation prototype — animated garden, wedding letter, couple portraits, celebration and RSVP.">
+  <title>Celestial Lake — Mobile Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Alex+Brush&family=Pinyon+Script&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles-bundle-a.css">
+  <link rel="stylesheet" href="styles-bundle-b.css">
+  <!-- Keep Myanmar @import inside the standalone source file; @import is invalid after CSS declarations in a concatenated stylesheet. -->
+  <link rel="stylesheet" href="golden-pagoda-s01-bilingual-preview.css">
+  <link rel="stylesheet" href="styles-bundle-c.css">
+  <link rel="stylesheet" href="golden-pagoda-s03-parchment.css?v=20261122-s03-paper1">
+  <link rel="stylesheet" href="golden-pagoda-s04-s05-handoff.css?v=20261122-handoff1">
+  <script src="scene.js?v=20261122-ios-cover-lock1" defer></script>
+  <script src="golden-pagoda-s01-bilingual-preview.js" defer></script>
+<script src="golden-pagoda-s02-royal-wording.js" defer></script>
+  <script src="section-two.js" defer></script>
+  <script src="section-couple.js" defer></script>
+  <script src="section-couple-reference.js" defer></script>
+<script src="golden-pagoda-s03-royal-wording.js" defer></script>
+  <script src="golden-pagoda-s03-parchment.js?v=20261122-s03-paper1" defer></script>
+  <script src="section-three.js" defer></script>
+  <script src="section-four.js" defer></script>
+  <script src="order-program.js" defer></script>
+  <script src="section-five.js" defer></script>
+  <script src="golden-pagoda-s07.js" defer></script>
+  <script src="section-six.js" defer></script>
+  <script src="dress-code.js" defer></script>
+  <script src="reference-continuation.js" defer></script>
+  <script src="section-eight-gift.js" defer></script>
+  <script src="section-nine.js" defer></script>
+  <script src="golden-pagoda-s08-s09-split-flutter.js" defer></script>
+  <script src="section-ten.js" defer></script>
+  <script src="global-petals.js" defer></script>
+  <script src="golden-pagoda-s05-s10-royal-wording.js" defer></script>
+  <script src="golden-pagoda-s08-royal-wording.js" defer></script>
+  <script src="golden-pagoda-s04-chatrium-yangon.js" defer></script>
+  <script src="royal-music.js" defer></script>
+</head>
+<body>
+  <canvas id="globalPetalCanvas" class="global-petal-canvas" aria-hidden="true"></canvas>
+  <main class="invitation" id="invitation" data-state="cover" data-layers="loading">
+    <!-- The original lake hero stays sticky while the guest scrolls. -->
+    <div class="scene-scroll-track" id="sceneTrack">
+    <section class="viewport" id="viewport" aria-label="Wedding invitation opening scene">
+      <div class="scene-stage" id="stage" aria-hidden="true">
+        <img class="master-art" id="masterArt" alt="" fetchpriority="high">
+        <div class="animated-scene" id="animatedScene"></div>
+      </div>
+      <div class="reading-veil" aria-hidden="true"></div>
+      <canvas id="petalCanvas" class="petal-canvas" aria-hidden="true"></canvas>
+      <!-- The reference includes two paired-wing butterflies over each mobile scene state.
+           Image URLs are hotlinked, not copied into this public repository. -->
+      <div class="butterfly-layer butterfly-cover" aria-hidden="true">
+        <span class="butterfly violet" style="--fly-size-w:52px;--fly-size-h:41px;--fly-image:url('https://undangankahwin.com/images/concierge/packs/serambi-ungu/bfly_1.webp')"><i class="butterfly-wing butterfly-wing-l"></i><i class="butterfly-wing butterfly-wing-r"></i></span>
+        <span class="butterfly ivory" style="--fly-size-w:44px;--fly-size-h:34px;--fly-image:url('https://undangankahwin.com/images/concierge/packs/anggerik-nirmala/bfly_white.webp')"><i class="butterfly-wing butterfly-wing-l"></i><i class="butterfly-wing butterfly-wing-r"></i></span>
+      </div>
+      <div class="butterfly-layer butterfly-hero" aria-hidden="true">
+        <span class="butterfly violet" style="--fly-size-w:52px;--fly-size-h:41px;--fly-image:url('https://undangankahwin.com/images/concierge/packs/serambi-ungu/bfly_1.webp')"><i class="butterfly-wing butterfly-wing-l"></i><i class="butterfly-wing butterfly-wing-r"></i></span>
+        <span class="butterfly ivory" style="--fly-size-w:44px;--fly-size-h:34px;--fly-image:url('https://undangankahwin.com/images/concierge/packs/anggerik-nirmala/bfly_white.webp')"><i class="butterfly-wing butterfly-wing-l"></i><i class="butterfly-wing butterfly-wing-r"></i></span>
+      </div>
+      <section class="cover" id="cover" aria-label="Invitation cover" aria-hidden="false">
+        <div class="monogram" aria-label="R and S"><span>R</span><span>S</span></div>
+        <div class="cover-copy">
+          <p class="eyebrow">The Wedding of</p>
+          <h1>Rayyan <em>&amp;</em> Sofea</h1>
+        </div>
+        <i class="cover-rule" aria-hidden="true"></i>
+        <button class="open-button" id="openButton" type="button">Open Invitation</button>
+      </section>
+      <section class="opened" id="opened" aria-label="Opened invitation" aria-hidden="true" inert>
+        <div class="opened-copy">
+          <p class="eyebrow">The Wedding of</p>
+          <h2 class="ceremony-names" aria-label="Rayyan and Sofea">
+            <span class="name-line name-first">Rayyan</span>
+            <span class="name-amp" aria-hidden="true">&amp;</span>
+            <span class="name-line name-second">Sofea</span>
+          </h2>
+          <p class="date">23 . 01 . 2027</p>
+          <p class="guest"><span>Specially inviting</span><strong>Family &amp; Friends</strong></p>
+        </div>
+        <a href="#message" class="swipe-cue" aria-label="Swipe up for wedding message">Swipe up <span aria-hidden="true">⌄</span></a>
+      </section>
+      <div class="network-note" id="networkNote" role="status" aria-live="polite" hidden></div>
+    </section>
+    </div>
+    <!-- Section 2 — reference-observed mauve invitation message band.
+         Original procedural texture and decorative motion; no vendor image copied. -->
+    <section class="message invitation-letter" id="message" data-section="2"
+      aria-labelledby="messageHeading">
+      <div class="letter-ambient" aria-hidden="true">
+        <span class="letter-petal letter-petal-1"></span>
+        <span class="letter-petal letter-petal-2"></span>
+        <span class="letter-petal letter-petal-3"></span>
+        <span class="letter-petal letter-petal-4"></span>
+        <span class="letter-petal letter-petal-5"></span>
+        <span class="letter-petal letter-petal-6"></span>
+        <span class="letter-petal letter-petal-7"></span>
+        <span class="letter-petal letter-petal-8"></span>
+      </div>
+      <h2 class="letter-visually-hidden" id="messageHeading">Wedding invitation message</h2>
+      <div class="letter-frame letter-reveal">
+        <div class="letter-content">
+          <p class="letter-bismillah" lang="ar" dir="rtl" aria-label="Bismillah">﷽</p>
+          <p class="letter-lead">With grateful hearts and surrounded by the love of our families, we request the pleasure of your company as we celebrate the joy of our marriage and the beginning of a lifetime together.</p>
+          <blockquote class="letter-quote">
+            “Among His signs is the companionship He created for you, so that hearts may find tranquility together; and between you He placed love, tenderness, and mercy.”
+          </blockquote>
+          <p class="letter-source">SURAH AR-RUM · 21</p>
+        </div>
+      </div>
+    </section>
+    <!-- Section 3: default reference-recreation prototype.
+         Third-party reference photos are loaded for development comparison
+         and are not bundled with this public repository. -->
+    <section class="couple-section" id="couple" data-section="3" data-art="reference"
+      aria-labelledby="coupleHeading" aria-hidden="true" inert>
+      <div class="couple-reference-track" aria-hidden="true">
+        <div class="couple-reference-scene"></div>
+      </div>
+      <div class="couple-lake-finish" aria-hidden="true"></div>
+      <div class="couple-arch" aria-hidden="true"></div>
+      <div class="couple-botanical-edges" aria-hidden="true"></div>
+      <span class="couple-arch-finial" aria-hidden="true"></span>
+      <div class="couple-hanging" aria-hidden="true"></div>
+      <div class="couple-floating-petals" aria-hidden="true">
+        <span style="--p-x:8%;--p-delay:-7s;--p-duration:14s"></span>
+        <span style="--p-x:22%;--p-delay:-2s;--p-duration:16s"></span>
+        <span style="--p-x:76%;--p-delay:-11s;--p-duration:13s"></span>
+        <span style="--p-x:93%;--p-delay:-5s;--p-duration:19s"></span>
+        <span style="--p-x:46%;--p-delay:-15s;--p-duration:21s"></span>
+      </div>
+      <div class="couple-inner">
+        <header class="couple-intro couple-reveal">
+          <p class="couple-salutation">Assalamualaikum W.B.T.</p>
+          <h2 class="couple-title" id="coupleHeading">The Couple</h2>
+        </header>
+        <article class="couple-profile couple-profile--groom" aria-label="Groom">
+          <div class="couple-portrait couple-reveal">
+            <img id="groomPortrait" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              width="240" height="333" loading="lazy" decoding="async"
+              alt="Reference website example groom portrait (development comparison only)">
+          </div>
+          <h3 class="couple-name couple-reveal">Muhammad Rayyan bin Bujang</h3>
+          <p class="couple-role couple-reveal">Beloved son of</p>
+          <p class="couple-family couple-reveal">Tuan Haji Bujang bin Rahman &amp; Puan Hajah Salmah binti Yaakob</p>
+        </article>
+        <p class="couple-separator couple-reveal" aria-label="and">&amp;</p>
+        <article class="couple-profile couple-profile--bride" aria-label="Bride">
+          <div class="couple-portrait couple-reveal">
+            <img id="bridePortrait" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              width="240" height="333" loading="lazy" decoding="async"
+              alt="Reference website example bride portrait (development comparison only)">
+          </div>
+          <h3 class="couple-name couple-reveal">Nur Sofea binti Dzulkharnain</h3>
+          <p class="couple-role couple-reveal">Beloved daughter of</p>
+          <p class="couple-family couple-reveal">Tuan Haji Dzulkharnain bin Ismail &amp; Puan Hajah Rosnah binti Hamzah</p>
+        </article>
+      </div>
+    </section>
+    <!-- Section 4: Tasik Kayangan Events reference-recreation prototype.
+         All identities, dates, venues and links below are reference SAMPLE data.
+         Reference-only development preview hotlinks vendor art; never bundled. -->
+    <section class="event-section" id="eventDetails" data-section="4" data-art="pending"
+      aria-label="Wedding events reference prototype"
+      aria-hidden="true" inert>
+      <div class="event-stage" aria-hidden="true">
+        <div class="event-stage-paint"></div>
+        <img class="event-source-paper" id="eventSourcePaper" alt="" decoding="async">
+        <span class="event-flower event-flower-left">❧</span>
+        <span class="event-flower event-flower-right">❧</span>
+        <img class="event-source-butterfly" id="eventSourceButterfly" alt="" decoding="async">
+      </div>
+      <!-- Section 4 source butterfly layer for authorized local comparison. -->
+      <span class="event-reference-butterfly-layer" aria-hidden="true">
+        <span class="event-reference-butterfly">
+          <i class="event-reference-butterfly-wing event-reference-butterfly-left"></i>
+          <i class="event-reference-butterfly-wing event-reference-butterfly-right"></i>
+        </span>
+      </span>
+      <span class="event-petal-field" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+      <div class="event-body">
+        <p class="event-prototype-label">Reference recreation · sample event details</p>
+        <div class="event-shared-arch" aria-label="Wedding ceremony and reception">
+        <article class="event-reference-card event-card-nikah" aria-labelledby="eventNikahHeading">
+          <div class="event-card-ornament" aria-hidden="true">✧</div>
+          <h2 id="eventNikahHeading" class="event-card-title event-reveal" lang="my" aria-label="မင်္ဂလာအခမ်းအနား — Wedding Ceremony">မင်္ဂလာအခမ်းအနား</h2>
+          <time datetime="2027-01-23" class="event-card-date event-reveal">Saturday, 23 January 2027</time>
+          <p class="event-card-time event-reveal" id="eventTime"><time datetime="10:00">10:00 AM</time><span aria-hidden="true"> — </span><time datetime="12:00">12:00 PM</time></p>
+          <span class="event-card-diamond event-reveal" aria-hidden="true">❖</span>
+          <h3 class="event-card-place event-reveal" id="eventVenue">Masjid Wilayah Persekutuan</h3>
+          <p class="event-card-address event-reveal" id="eventAddress">Jalan Tuanku Abdul Halim, 50480 Kuala Lumpur</p>
+          <a class="event-map-link event-reveal" id="eventDirections" target="_blank" rel="noopener noreferrer"
+            href="https://www.google.com/maps/search/?api=1&amp;query=Masjid+Wilayah+Persekutuan+Kuala+Lumpur">Open in Maps</a>
+        </article>
+
+        <article class="event-reference-card event-card-reception" aria-labelledby="eventReceptionHeading">
+          <div class="event-card-ornament" aria-hidden="true">✧</div>
+          <h2 id="eventReceptionHeading" class="event-card-title event-reveal" lang="my" aria-label="မင်္ဂလာဧည့်ခံပွဲ — Wedding Reception">မင်္ဂလာဧည့်ခံပွဲ</h2>
+          <time datetime="2027-01-23" class="event-card-date event-reveal">Saturday, 23 January 2027</time>
+          <p class="event-card-time event-reveal"><time datetime="19:30">7:30 PM</time><span aria-hidden="true"> — </span><time datetime="22:30">10:30 PM</time></p>
+          <span class="event-card-diamond event-reveal" aria-hidden="true">❖</span>
+          <h3 class="event-card-place event-reveal">Grand Ballroom, St. Regis Kuala Lumpur</h3>
+          <p class="event-card-address event-reveal">6, Jalan Stesen Sentral 2, 50470 Kuala Lumpur</p>
+          <div class="event-card-links">
+            <a class="event-map-link event-reveal" target="_blank" rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/?api=1&amp;query=The+St+Regis+Kuala+Lumpur">Open in Maps</a>
+            <a class="event-map-link event-waze-link event-reveal" target="_blank" rel="noopener noreferrer"
+              href="https://waze.com/ul?q=The%20St%20Regis%20Kuala%20Lumpur">Waze</a>
+          </div>
+        </article>
+
+        </div>
+
+        <div class="event-countdown event-reveal" id="eventCountdown">
+          <div class="event-countdown-grid" role="timer" aria-label="Countdown to the sample Wedding Reception in Malaysia">
+            <span><strong id="eventCountDays">00</strong><small>Days</small></span>
+            <span><strong id="eventCountHours">00</strong><small>Hours</small></span>
+            <span><strong id="eventCountMinutes">00</strong><small>Mins</small></span>
+            <span><strong id="eventCountSeconds">00</strong><small>Secs</small></span>
+          </div>
+          <a class="event-calendar-link" target="_blank" rel="noopener noreferrer"
+             href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text=The%20Wedding%20of%20Rayyan%20%26%20Sofea&amp;dates=20270123T113000Z/20270123T143000Z&amp;location=The%20St.%20Regis%20Kuala%20Lumpur">Add to Calendar</a>
+          <p class="event-demo-note" id="eventDirectionsNote">Demonstration only — these are the reference website's sample wedding details, not a confirmed invitation.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Tasik Kayangan reference Section 5: Order of the Day.
+         Source sequence follows Events. No separate Save the Date scene appears here. -->
+    <section class="order-section" id="runningOrder" data-section="5"
+      aria-labelledby="runningOrderHeading" aria-hidden="true" inert>
+      <div class="order-stage" aria-hidden="true">
+        <div class="order-stage-original"></div>
+        <img class="order-art-image" id="orderSourceBand" alt="">
+        <img class="order-butterfly" id="orderSourceButterfly" alt="">
+        <span class="order-leaf">❧</span><span class="order-leaf order-leaf-right">❧</span>
+        <div class="order-petals" aria-hidden="true">
+          <span style="--px:12%;--py:23%;--pd:-4s;--pt:12s;--r:-25deg"></span>
+          <span style="--px:67%;--py:13%;--pd:-9s;--pt:16s;--r:27deg"></span>
+          <span style="--px:83%;--py:44%;--pd:-2s;--pt:13s;--r:41deg"></span>
+          <span style="--px:34%;--py:70%;--pd:-7s;--pt:17s;--r:16deg"></span>
+          <span style="--px:9%;--py:80%;--pd:-1s;--pt:15s;--r:-51deg"></span>
+          <span style="--px:56%;--py:59%;--pd:-11s;--pt:18s;--r:30deg"></span>
+        </div>
+      </div>
+      <!-- Match the reference's two sprite-wing halves, not a static butterfly image.
+           The split sprite is loaded only from a locally staged WebP. -->
+      <span id="orderButterflyFlight" class="order-bf" aria-hidden="true">
+        <i class="order-bf-wing order-bf-left"></i>
+        <i class="order-bf-wing order-bf-right"></i>
+      </span>
+      <!-- The reference draws drifting petals on a fixed canvas rather than CSS spans. -->
+      <canvas id="orderPetalCanvas" class="order-petal-canvas" aria-hidden="true"></canvas>
+      <p id="orderArtworkNotice" class="order-artwork-notice" role="status" aria-live="polite" hidden></p>
+      <div class="order-inner">
+        <p class="order-eyebrow order-reveal">Running order</p>
+        <h2 id="runningOrderHeading" class="order-heading order-reveal">Order of the Day</h2>
+        <ol class="order-timeline" aria-label="Illustrative wedding running order">
+          <li class="order-entry order-reveal">
+            <time class="order-time" datetime="11:00">11:00 am</time>
+            <div class="order-event-text"><strong>Guests arrive</strong><small>Lunch service opens</small></div>
+          </li>
+          <li class="order-entry order-reveal">
+            <time class="order-time" datetime="12:00">12:00 pm</time>
+            <div class="order-event-text"><strong>The couple arrive</strong></div>
+          </li>
+          <li class="order-entry order-reveal">
+            <time class="order-time" datetime="12:30">12:30 pm</time>
+            <div class="order-event-text"><strong>Wedding procession</strong><small>Led by kompang from the main entrance</small></div>
+          </li>
+          <li class="order-entry order-reveal">
+            <time class="order-time" datetime="13:00">1:00 pm</time>
+            <div class="order-event-text"><strong>Bersanding &amp; photographs</strong></div>
+          </li>
+          <li class="order-entry order-reveal">
+            <time class="order-time" datetime="14:00">2:00 pm</time>
+            <div class="order-event-text"><strong>Lunch is served</strong></div>
+          </li>
+          <li class="order-entry order-reveal">
+            <time class="order-time" datetime="16:00">4:00 pm</time>
+            <div class="order-event-text"><strong>Celebration ends</strong></div>
+          </li>
+        </ol>
+        <span class="order-bottom-mark" aria-hidden="true">❦</span>
+        <p class="order-disclosure">Reference wedding schedule is an example, not a verified customer schedule.</p>
+      </div>
+    </section>
+    <!-- Legacy date-only countdown, opt-in via ?legacySaveDate=1; source Events has its own live clock. -->
+    <section class="save-date-section" id="saveTheDate" data-section="legacy-save-date" hidden
+             aria-labelledby="saveDateHeading" aria-hidden="true" inert>
+      <div class="save-date-atmosphere" aria-hidden="true">
+        <span class="save-date-halo save-date-halo-a"></span>
+        <span class="save-date-halo save-date-halo-b"></span>
+        <span class="save-date-bloom save-date-bloom-left">❧</span>
+        <span class="save-date-bloom save-date-bloom-right">❧</span>
+        <span class="save-date-star save-date-star-one">✧</span>
+        <span class="save-date-star save-date-star-two">✦</span>
+        <span class="save-date-star save-date-star-three">✧</span>
+      </div>
+      <div class="save-date-content">
+        <p class="save-date-eyebrow save-date-reveal">A moment worth remembering</p>
+        <div class="save-date-flourish save-date-reveal" aria-hidden="true"><span></span>✦<span></span></div>
+        <h2 class="save-date-title save-date-reveal" id="saveDateHeading">Save the Date</h2>
+        <p class="save-date-intro save-date-reveal">A beautiful beginning, and a day to cherish.</p>
+        <div class="save-date-orbit save-date-reveal" aria-label="Days until the sample wedding date">
+          <div class="save-date-orbit-inner">
+            <span class="save-date-orbit-kicker">Counting the days</span>
+            <span id="countdownDays" class="save-date-days" aria-live="off">—</span>
+            <span id="countdownUnit" class="save-date-days-unit">Days</span>
+            <span class="save-date-orbit-ornament" aria-hidden="true">❦</span>
+          </div>
+        </div>
+        <p class="save-date-status save-date-reveal" id="countdownStatus" role="status" aria-live="polite">Calculating days until the sample wedding date…</p>
+        <div class="save-date-card save-date-reveal">
+          <span class="save-date-small-label">Sample wedding date</span>
+          <time datetime="2027-01-23" class="save-date-full-date">Saturday, 23 January 2027</time>
+          <p class="save-date-disclaimer">Demonstration date only. The wedding schedule has not been confirmed.</p>
+          <button type="button" id="saveDateButton" class="save-date-button" disabled>Save to Calendar</button>
+          <p class="save-date-help" id="saveDateHelp">Calendar reminder available after the wedding date is confirmed.</p>
+        </div>
+        <p class="save-date-closing save-date-reveal">We can't wait to share this day with you.</p>
+        <div class="save-date-ending save-date-reveal" aria-hidden="true">✧</div>
+      </div>
+    </section>
+    <!-- Tasik Kayangan reference Section 6: Dress Code, following Order of the Day.
+         Authorized source WebP artwork is stored locally in assets/section6. -->
+    <section class="dress-section" id="dressCode" data-section="6"
+      aria-labelledby="dressCodeHeading" aria-hidden="true" inert>
+      <div class="dress-art" aria-hidden="true">
+        <div class="dress-art-original"></div>
+        <img class="dress-source-scene" id="dressSourceScene" alt="">
+      </div>
+      <!-- Dress Code source-measured 22% paper wash, independent of parallax. -->
+      <div class="dress-paper-wash" aria-hidden="true"></div>
+      <!-- Licensed local WebP butterfly, split into two 3D wings.
+           Time-based flight stays independent of the paper's scroll parallax. -->
+      <div class="dress-flight" id="dressFlight" aria-hidden="true">
+        <span class="dress-flight-wing dress-flight-wing-left"></span>
+        <span class="dress-flight-wing dress-flight-wing-right"></span>
+        <span class="dress-flight-thorax"></span>
+        <span class="dress-flight-antenna dress-flight-antenna-left"></span>
+        <span class="dress-flight-antenna dress-flight-antenna-right"></span>
+      </div>
+      <div class="dress-inner">
+        <div class="dress-body">
+        <p class="dress-eyebrow dress-reveal">Attire</p>
+        <h2 class="dress-heading dress-reveal" id="dressCodeHeading">Dress Code</h2>
+        <p class="dress-intro dress-reveal">We would be delighted if you could dress along with our chosen palette.</p>
+        <div class="dress-palettes">
+          <article class="dress-palette dress-reveal" aria-label="Groom's Side colour palette">
+            <h3 class="dress-side">Groom's Side</h3>
+            <p class="dress-palette-name">Sage Green &amp; Cream</p>
+            <div class="dress-swatches" role="img" aria-label="Sage, soft sage, cream">
+              <span class="dress-swatch" style="--dress-colour:#8a9a7b"></span>
+              <span class="dress-swatch" style="--dress-colour:#b3c0a4"></span>
+              <span class="dress-swatch" style="--dress-colour:#ede7d9"></span>
+            </div>
+            <p class="dress-colour-label">Sage, soft sage, cream</p>
+          </article>
+          <article class="dress-palette dress-reveal" aria-label="Bride's Side colour palette">
+            <h3 class="dress-side">Bride's Side</h3>
+            <p class="dress-palette-name">Terracotta &amp; Blush</p>
+            <div class="dress-swatches" role="img" aria-label="Terracotta, blush, sand">
+              <span class="dress-swatch" style="--dress-colour:#b4694f"></span>
+              <span class="dress-swatch" style="--dress-colour:#dca79a"></span>
+              <span class="dress-swatch" style="--dress-colour:#efddd1"></span>
+            </div>
+            <p class="dress-colour-label">Terracotta, blush, sand</p>
+          </article>
+        </div>
+        </div>
+        <span class="dress-finish dress-reveal" aria-hidden="true" hidden>❦</span>
+        <p class="dress-disclosure">Demonstration attire palette from the public template, not a confirmed dress code.</p>
+      </div>
+    </section>
+    <!-- Section 7: original gallery. No photos are invented or embedded. -->
+    <section class="gallery-section" id="gallery" data-section="7"
+      aria-labelledby="galleryHeading" aria-hidden="true" inert>
+      <!-- Section 7 owns a second sticky use of the locally stored scene.webp.
+           Keep this behind Gallery content, separate from Section 1's hero. -->
+      <div class="gallery-scene-backdrop" aria-hidden="true">
+        <img class="gallery-scene-image" src="./assets/scene.webp" alt=""
+          loading="lazy" decoding="async" draggable="false">
+        <div class="gallery-scene-wash"></div>
+      </div>
+      <div class="gallery-atmosphere" aria-hidden="true">
+        <span class="gallery-halo"></span>
+        <span class="gallery-flora gallery-flora-left">❧</span>
+        <span class="gallery-flora gallery-flora-right">❧</span>
+        <span class="gallery-spark gallery-spark-one">✧</span>
+        <span class="gallery-spark gallery-spark-two">✦</span>
+        <span class="gallery-spark gallery-spark-three">✧</span>
+      </div>
+      <div class="gallery-content">
+        <p class="gallery-eyebrow gallery-reveal">Moments</p>
+        <div class="gallery-flourish gallery-reveal" aria-hidden="true"><span></span>✦<span></span></div>
+        <h2 id="galleryHeading" class="gallery-heading gallery-reveal">Our Gallery</h2>
+        <div class="gallery-photos" aria-label="Five wedding gallery frames">
+          <button type="button" class="gallery-photo gallery-photo-feature gallery-reveal" data-gallery-slot="0" disabled>
+      <span class="gallery-photo-placeholder"><span class="gallery-placeholder-icon" aria-hidden="true">✧</span><span class="gallery-slot-label">Together</span><span class="gallery-photo-note">Awaiting your photograph</span></span>
+      <span class="gallery-frame-caption" aria-hidden="true">Together</span>
+     </button>
+          <button type="button" class="gallery-photo gallery-photo-small gallery-reveal" data-gallery-slot="1" disabled>
+       <span class="gallery-photo-placeholder"><span class="gallery-placeholder-icon" aria-hidden="true">❦</span><span class="gallery-slot-label">The Bride</span><span class="gallery-photo-note">Photo pending</span></span>
+       <span class="gallery-frame-caption" aria-hidden="true">The Bride</span>
+      </button>
+          <button type="button" class="gallery-photo gallery-photo-small gallery-reveal" data-gallery-slot="2" disabled>
+       <span class="gallery-photo-placeholder"><span class="gallery-placeholder-icon" aria-hidden="true">✧</span><span class="gallery-slot-label">The Groom</span><span class="gallery-photo-note">Photo pending</span></span>
+       <span class="gallery-frame-caption" aria-hidden="true">The Groom</span>
+      </button>
+          <button type="button" class="gallery-photo gallery-photo-small gallery-reveal" data-gallery-slot="3" disabled>
+       <span class="gallery-photo-placeholder"><span class="gallery-placeholder-icon" aria-hidden="true">❦</span><span class="gallery-slot-label">The Garden</span><span class="gallery-photo-note">Photo pending</span></span>
+       <span class="gallery-frame-caption" aria-hidden="true">The Garden</span>
+      </button>
+          <button type="button" class="gallery-photo gallery-photo-small gallery-reveal" data-gallery-slot="4" disabled>
+       <span class="gallery-photo-placeholder"><span class="gallery-placeholder-icon" aria-hidden="true">✧</span><span class="gallery-slot-label">The Lake</span><span class="gallery-photo-note">Photo pending</span></span>
+       <span class="gallery-frame-caption" aria-hidden="true">The Lake</span>
+      </button>
+        </div>
+        <p class="gallery-intro gallery-reveal">Tap a frame to view</p>
+        <p class="gallery-reference-note" hidden>Private visual comparison only. Sample photos must not be reused in client invitations without permission.</p>
+        <p class="gallery-disclaimer gallery-reveal">Gallery preview — the couple's photographs have not been provided yet.</p>
+      </div>
+    </section>
+    <!-- Section 8: Wedding Gift; vendor sample details are deliberately non-transactional. -->
+    <section id="weddingGift" class="gift-eight" data-section="8" aria-labelledby="giftEightHeading" aria-hidden="true" inert data-gift-artwork="original" data-gift-butterfly="original">
+      <div class="gift-eight-art" aria-hidden="true"></div>
+      <div class="gift-eight-petals" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <!-- Local-only blossom butterfly for the Gift-to-RSVP handoff. -->
+      <div class="gift-eight-butterfly" aria-hidden="true">
+        <i class="gift-eight-bfly-wing gift-eight-bfly-left"></i>
+        <i class="gift-eight-bfly-wing gift-eight-bfly-right"></i>
+        <i class="gift-eight-bfly-body"></i>
+      </div>
+      <div class="gift-eight-content">
+        <h2 id="giftEightHeading" class="gift-eight-heading gift-eight-reveal">Wedding Gift</h2>
+        <p class="gift-eight-intro gift-eight-reveal">Your presence at our wedding is the greatest gift of all. However, if you wish to bless us with a gift, you may do so through the details provided below.</p>
+        <div class="gift-eight-send gift-eight-reveal">
+          <button class="gift-eight-trigger" id="giftEightTrigger" type="button" aria-expanded="false" aria-controls="giftEightBanks giftEightWishlist giftEightDisclaimer" title="Preview only: no payments or reservations are enabled"><span aria-hidden="true">🎁</span> Send Gift</button>
+          <div class="gift-eight-bank-list" id="giftEightBanks" hidden>
+            <article class="gift-eight-bank" data-gift-bank="0">
+              <h4 class="gift-eight-bank-name">Maybank</h4>
+              <p class="gift-eight-account">Account details not configured</p>
+              <p class="gift-eight-holder">Demo only · Recipient not verified</p>
+              <button class="gift-eight-copy" type="button" disabled>Copy Account Number</button>
+              <p class="gift-eight-status" role="status" aria-live="polite"></p>
+            </article>
+            <article class="gift-eight-bank" data-gift-bank="1">
+              <h4 class="gift-eight-bank-name">CIMB</h4>
+              <p class="gift-eight-account">Account details not configured</p>
+              <p class="gift-eight-holder">Demo only · Recipient not verified</p>
+              <button class="gift-eight-copy" type="button" disabled>Copy Account Number</button>
+              <p class="gift-eight-status" role="status" aria-live="polite"></p>
+            </article>
+          </div>
+        </div>
+        <div class="gift-eight-wishlist gift-eight-reveal" id="giftEightWishlist" hidden>
+          <h3>Gift Wishlist</h3>
+          <p class="gift-eight-wishlist-intro">Reserve a gift so no two guests buy the same one.</p>
+          <div class="gift-eight-items">
+            <article class="gift-eight-item">
+              <div class="gift-eight-thumb gift-eight-thumb-rice" aria-hidden="true">✧</div>
+              <div><h4>Philips Avance Collection Rice Cooker HD3175/62</h4>
+                <p>Shopee · Demo</p>
+                <div class="gift-eight-actions"><span>View on Shopee</span><button type="button" disabled title="No reservation service connected">Reserve</button></div>
+              </div>
+            </article>
+            <article class="gift-eight-item">
+              <div class="gift-eight-thumb gift-eight-thumb-kettle" aria-hidden="true">❦</div>
+              <div><h4>Philips 1.7L Kettle 1000 Series HD9314</h4>
+                <p>Lazada · Demo</p>
+                <div class="gift-eight-actions"><span>View on Lazada</span><button type="button" disabled title="No verified reservation state">Reserved</button></div>
+              </div>
+            </article>
+            <article class="gift-eight-item">
+              <div class="gift-eight-thumb" aria-hidden="true">✦</div>
+              <div><h4>IKEA Gift Card</h4>
+                <div class="gift-eight-actions"><button type="button" disabled title="No verified purchase destination">Buy</button></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <!-- Preserve Section 8 source-measured height while retaining a clear demo notice. -->
+      <p class="gift-eight-disclaimer gift-eight-reveal" id="giftEightDisclaimer" hidden>Demonstration only. Bank transfers, purchases and reservations are not enabled.</p>
+    </section>
+    <!-- Section 9: RSVP & Wishes. Source-measured; live submissions require RSVP API. -->
+    <section class="s9-rsvp" id="rsvp" data-section="9" aria-labelledby="rsvpHeading" aria-hidden="true" inert>
+      <div class="s9-art" aria-hidden="true">
+        <div class="s9-original-paper"></div>
+        <img id="s9ReferenceArt" class="s9-reference-art" alt="" decoding="async">
+        <div class="s9-art-wash"></div>
+      </div>
+      <!-- Original CSS petals evoke the reference's floating plum accents.
+           Decorative only; no third-party artwork or interactions. -->
+      <div class="s9-petals" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="s9-butterfly" aria-hidden="true"><i class="s9-wing s9-wing-left"></i><i class="s9-wing s9-wing-right"></i></div>
+      <div class="s9-butterfly-forward" aria-hidden="true"><i class="s9-wing s9-wing-left"></i><i class="s9-wing s9-wing-right"></i></div>
+      <div class="s9-inner">
+        <div class="s9-frame s9-reveal" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <p class="s9-eyebrow s9-reveal">Kindly respond by 31 December 2026</p>
+        <h2 id="rsvpHeading" class="s9-heading s9-reveal">RSVP &amp; Wishes</h2>
+        <form id="s9RsvpForm" class="s9-form s9-reveal">
+          <div class="s9-field">
+            <label for="s9Name">Your name</label>
+            <input id="s9Name" name="guestName" maxlength="60" autocomplete="name" placeholder="e.g. Aiman" required>
+          </div>
+          <div class="s9-row2">
+            <div class="s9-field">
+              <label for="s9Attendance">Attendance</label>
+              <select id="s9Attendance" name="attendance" required>
+                <option value="" selected disabled>Choose</option>
+                <option value="yes">Joyfully attending</option>
+                <option value="no">Sending love from afar</option>
+              </select>
+            </div>
+            <div class="s9-field">
+              <label for="s9Guests">Guests</label>
+              <select id="s9Guests" name="guests">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+          </div>
+          <div class="s9-field">
+            <label for="s9Wish">Your wish for the couple</label>
+            <textarea id="s9Wish" name="wish" maxlength="300" rows="3" placeholder="Write a few warm words…"></textarea>
+          </div>
+          <button class="s9-submit" type="submit">Send RSVP</button>
+          <p id="s9FormStatus" class="s9-form-status" role="status" aria-live="polite">Submit your RSVP to save it privately.</p>
+          <p class="s9-note" id="s9WishesNote">Wishes appear on the wall below and are visible to all guests.</p>
+          <label class="s9-note s9-consent" for="s9ShareWish" hidden><input type="checkbox" id="s9ShareWish" name="shareWish"> Allow my wish to appear publicly after review.</label>
+        </form>
+        <div class="s9-preview" id="s9Preview" hidden>
+          <p id="s9ReceiptState">Your RSVP has been saved privately. Wishes appear publicly only after approval.</p>
+          <dl>
+            <dt>Name</dt><dd id="s9PreviewName"></dd>
+            <dt>Attendance</dt><dd id="s9PreviewAttendance"></dd>
+            <dt>Guests</dt><dd id="s9PreviewGuests"></dd>
+            <dt>Wish</dt><dd id="s9PreviewWish"></dd>
+          </dl>
+          <button type="button" id="s9Copy">Copy confirmation</button>
+        </div>
+        <div class="s9-wall" id="wishesWall" aria-label="Guest wishes and design examples">
+          <article class="s9-wish s9-reveal">
+            <div class="s9-who"><strong>Aunty Zaharah</strong><span>Kajang</span></div>
+            <p>“So proud of you both. See you at the wedding!”</p>
+          </article>
+          <article class="s9-wish s9-reveal">
+            <div class="s9-who"><strong>The Tan Family</strong><span>Penang</span></div>
+            <p>“Two of the kindest souls we know. Congratulations!”</p>
+          </article>
+          <article class="s9-wish s9-reveal">
+            <div class="s9-who"><strong>Farah &amp; Iqbal</strong><span>Kuala Lumpur</span></div>
+            <p>“Wishing you a lifetime of love and laughter. Can't wait to celebrate!”</p>
+          </article>
+          <p class="s9-demo-note">Sample wishes for visual comparison — not real guest submissions.</p>
+        </div>
+      </div>
+    </section>
+    <section class="reference-continuation ref-closing section-ten" id="closingMessage"
+      data-section="10" data-artwork="original" aria-labelledby="closingHeading" aria-hidden="true" inert>
+      <div class="ref-environment" aria-hidden="true">
+        <div class="closing10-sticky-art"><img class="closing10-source-scene" alt=""></div>
+        <i class="ref-vine ref-vine-left"></i><i class="ref-vine ref-vine-right"></i>
+        <i class="ref-light ref-light-b"></i>
+      </div>
+      <div class="closing10-inner">
+        <div class="closing10-frame closing10-reveal" aria-hidden="true">
+          <i class="closing10-corner closing10-corner-bl"></i>
+          <i class="closing10-corner closing10-corner-br"></i>
+        </div>
+        <h2 class="closing10-label closing10-reveal" id="closingHeading">Until we meet</h2>
+        <p class="closing10-message closing10-reveal">It would be the greatest honour of our lives to have you beside us as two families become one. Thank you — for every prayer, every wish, and every mile travelled.</p>
+        <div class="closing10-rule closing10-reveal" aria-hidden="true"></div>
+        <p class="closing10-label closing10-signoff closing10-reveal">With love &amp; gratitude,</p>
+        <p class="closing10-names closing10-reveal"><span>Rayyan</span><span class="closing10-ampersand">&amp;</span><span>Sofea</span></p>
+        <div class="closing10-contacts closing10-reveal" aria-label="Contact information">
+          <p class="closing10-contacts-title">Contact Us</p>
+          <div class="closing10-contact-row">
+            <button type="button" disabled title="Contact number not supplied">Call</button>
+            <button type="button" disabled title="WhatsApp number not supplied">WhatsApp</button>
+          </div>
+        </div>
+        <p class="closing10-credit closing10-reveal">✦ Celestial Lake invitation study ✦</p>
+        <p class="closing10-disclosure closing10-reveal">Example wedding details · Contact links are unavailable until verified.</p>
+      </div>
+    </section>
+  </main>
+  <audio id="royalSoundtrack" preload="none" loop playsinline data-src="./assets/audio/endless-beauty-main.mp3"></audio>
+  <button class="royal-music-control" id="royalMusicToggle" type="button" hidden aria-label="Play wedding music" aria-pressed="false"><span aria-hidden="true">♫</span></button>
+  <dialog class="gallery-dialog" id="galleryDialog" aria-label="Wedding photo viewer">
+    <div class="gallery-viewer">
+      <button type="button" id="galleryClose" class="gallery-viewer-close" aria-label="Close photo viewer">✕</button>
+      <figure class="gallery-viewer-figure">
+        <img id="galleryViewImage" alt="">
+        <figcaption id="galleryViewCaption"></figcaption>
+      </figure>
+      <nav class="gallery-viewer-navigation" aria-label="Photo navigation">
+        <button type="button" id="galleryPrevious" aria-label="Previous photo">‹</button>
+        <span id="galleryPosition" aria-live="polite"></span>
+        <button type="button" id="galleryNext" aria-label="Next photo">›</button>
+      </nav>
+    </div>
+  </dialog>
+  <aside class="debug-panel" id="debugPanel" hidden aria-label="Developer comparison panel">
+    <b>Artwork comparison</b>
+    <label>Mode
+      <select id="compareMode">
+        <option value="normal">Normal invitation</option>
+        <option value="master">Original master image</option>
+        <option value="layers">Individual artwork layers</option>
+        <option value="blend">Blend / overlap check</option>
+      </select>
+    </label>
+    <label id="blendControl" hidden>Layer opacity
+      <input id="blendSlider" type="range" min="0" max="100" value="50">
+      <output id="blendValue">50%</output>
+    </label>
+    <label><input type="checkbox" id="freezeMotion" checked> Freeze animation</label>
+    <small class="stats" id="debugStats">Checking artwork…</small>
+    <div class="debug-actions">
+      <button id="resetButton" type="button">Reset</button>
+      <button id="debugOpen" type="button">Open</button>
+    </div>
+    <small>Source asset rights and original motion curves must be verified before publication.</small>
+  </aside>
+</body>
+</html>

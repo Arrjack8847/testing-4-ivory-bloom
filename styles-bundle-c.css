@@ -1,0 +1,1146 @@
+/* Generated from ordered source stylesheets by scripts/build-styles.mjs; do not edit manually. */
+
+/* START golden-pagoda-s05-s10-royal-wording.css */
+/* Golden Pagoda Garden — Section 5–10 typography only.
+   Exact S01/S02 ivory/antique-gold language system, applied only to live
+   Myanmar copy. All artwork, source section dimensions, scroll/reveal timing,
+   sticky cameras, buttons, form states and reduced-motion rules are preserved. */
+html[data-golden-pagoda-skin="true"] [data-royal-wording="true"] .royal-my-text {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+  text-transform:none;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+
+/* S05 — compact Myanmar running-order labels in the existing time grid. */
+html[data-golden-pagoda-skin="true"] #runningOrder[data-royal-wording="true"] h2.order-heading.royal-my-text {
+  font:600 clamp(21px,6vw,27px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#754c30;
+  letter-spacing:0;
+  margin-bottom:26px;
+}
+html[data-golden-pagoda-skin="true"] #runningOrder[data-royal-wording="true"] .order-event-text strong.royal-my-text {
+  font:500 clamp(13px,3.6vw,15px)/1.7 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#60422c;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #runningOrder[data-royal-wording="true"] .order-event-text small.royal-my-text {
+  font:400 11px/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#755b3c;
+  letter-spacing:0;
+}
+
+/* S06 — keep exact original swatches; no extra instructions or cards. */
+html[data-golden-pagoda-skin="true"] #dressCode[data-royal-wording="true"] h2.dress-heading.royal-my-text {
+  font:600 clamp(22px,6.1vw,27px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#754c30;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #dressCode[data-royal-wording="true"] .dress-intro.royal-my-text {
+  font:400 clamp(13px,3.5vw,15px)/1.8 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#67472e;
+  letter-spacing:0;
+  max-width:34ch;
+}
+html[data-golden-pagoda-skin="true"] #dressCode[data-royal-wording="true"] .dress-side.royal-my-text {
+  font:500 12px/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+  color:#795735;
+}
+
+/* S07 — existing gallery slots/camera unchanged, including the photo overlays. */
+html[data-golden-pagoda-skin="true"] #gallery[data-royal-wording="true"] h2.gallery-heading.royal-my-text {
+  font:600 clamp(23px,6.1vw,29px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+  color:#754c30;
+  text-shadow:0 1px 7px rgba(255,248,234,.94);
+}
+html[data-golden-pagoda-skin="true"] #gallery[data-royal-wording="true"] .gallery-frame-caption.royal-my-text,
+html[data-golden-pagoda-skin="true"] #gallery[data-royal-wording="true"] .gallery-slot-label.royal-my-text {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:clamp(10px,3.05vw,13px);
+  line-height:1.6;
+  letter-spacing:0;
+  white-space:normal;
+}
+
+/* S08 — original ornament, gift action and bank/wishlist states untouched. */
+html[data-golden-pagoda-skin="true"] #weddingGift[data-royal-wording="true"] h2.gift-eight-heading.royal-my-text {
+  font:600 clamp(24px,6.6vw,30px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#754c30;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift[data-royal-wording="true"] .gift-eight-intro.royal-my-text {
+  font:400 clamp(13px,3.6vw,15px)/1.83 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#67472e;
+  letter-spacing:0;
+  max-width:35ch;
+}
+
+/* S09 — shorter, verifiable RSVP microcopy. Keep native input height,
+   validation semantics and the backend confirmation flow unchanged. */
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] h2.s9-heading.royal-my-text {
+  font:600 clamp(21px,5.9vw,26px)/1.67 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#754c30;
+  letter-spacing:0;
+  max-width:100%;
+  margin-bottom:31px;
+}
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-field label.royal-my-text {
+  font:500 clamp(11px,3.2vw,12px)/1.8 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color:#795735;
+  letter-spacing:0;
+  text-transform:none;
+  white-space:normal;
+}
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-note.royal-my-text {
+  font:400 11px/1.7 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-wish p.royal-my-text {
+  font:400 13px/1.75 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-who strong.royal-my-text,
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-demo-note.royal-my-text {
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:11px;
+  line-height:1.7;
+  letter-spacing:0;
+}
+
+/* S10 — mobile closing typography only. Preserve the original 664px
+   content BOX and 346×720 frame, but replace the overly tall 92/42/92px
+   name rows with calm, naturally legible Myanmar lines. Nothing here
+   changes the painted WebPs, source camera, reveal order or contact state. */
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-inner {
+  padding: clamp(34px, 9.2vw, 44px) 12px 0;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] #closingHeading.royal-my-text {
+  margin: 0 auto 12px;
+  font: 600 clamp(19px, 5.3vw, 22px)/1.65 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color: #694528;
+  letter-spacing: 0;
+  text-transform: none;
+  text-shadow: 0 1px 5px rgba(255,250,237,.94);
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-message.royal-my-text {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 288px;
+  margin: 0 auto;
+  font: 400 clamp(13px, 3.5vw, 14.5px)/1.85 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color: #4e3524;
+  letter-spacing: 0;
+  text-align: center;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  text-shadow: 0 1px 5px rgba(255,250,237,.96);
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-rule {
+  margin: 19px auto 22px;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-signoff {
+  margin: 0 auto 2px;
+  font-size: 10.5px;
+  line-height: 1.55;
+  letter-spacing: .13em;
+  color: #7b512f;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names {
+  width: 100%;
+  max-width: 280px;
+  margin: 11px auto 0;
+  font: 600 clamp(26px, 7.2vw, 30px)/1.7 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color: #754522;
+  letter-spacing: 0;
+  text-align: center;
+  text-shadow: 0 1px 5px rgba(255,249,234,.96);
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names span {
+  display: block;
+  height: 54px;
+  line-height: 54px;
+  white-space: normal;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names .closing10-ampersand {
+  height: 30px;
+  line-height: 30px;
+  font-size: clamp(18px, 5.2vw, 21px);
+  font-weight: 400;
+  color: #906539;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-contacts {
+  margin: 14px auto 0;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-contacts-title {
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 2px;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-contact-row {
+  gap: 8px;
+  margin-top: 8px;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-contact-row button {
+  min-height: 40px;
+  margin-top: 0;
+  padding: 7px 14px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-credit {
+  margin: 21px auto 0;
+  font-size: 10px;
+  line-height: 1.45;
+  letter-spacing: 1.5px;
+}
+html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-disclosure {
+  max-width: 30ch;
+  margin: 9px auto 0;
+  font-size: 10px;
+  line-height: 1.45;
+}
+@media (max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #runningOrder[data-royal-wording="true"] .order-event-text strong.royal-my-text {
+    font-size:12.5px;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-field label.royal-my-text {
+    font-size:11px;
+  }
+}
+/* At 320px the Myanmar message naturally occupies additional lines.
+   Reduce decorative gaps, not the available glyph height or the artwork. */
+@media (max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-inner {
+    padding-top: 28px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] #closingHeading.royal-my-text {
+    margin-bottom: 7px;
+    font-size: 18px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-message.royal-my-text {
+    font-size: 12.5px;
+    line-height: 1.8;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-rule {
+    margin: 14px auto 18px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names {
+    margin-top: 7px;
+    font-size: 25px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names span {
+    height: 48px;
+    line-height: 48px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-names .closing10-ampersand {
+    height: 26px;
+    line-height: 26px;
+    font-size: 18px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-contacts {
+    margin-top: 9px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-credit {
+    margin-top: 13px;
+  }
+  html[data-golden-pagoda-skin="true"] #closingMessage[data-royal-wording="true"] .closing10-disclosure {
+    margin-top: 6px;
+  }
+}
+/* END golden-pagoda-s05-s10-royal-wording.css */
+
+/* START golden-pagoda-s08-frame-review.css */
+/* Section 08 — Royal Wedding Gift frame review.
+ * Exact approved transparent 1076×1461 WebP at its natural ratio.
+ * Scoped to the Golden Pagoda skin; no changes to default Testing-4.
+ * Existing gift disclosure, account verification, wishlist, motion and scrolling
+ * remain owned by the original HTML/JS and Section 8 stylesheet.
+ */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content {
+  position: relative;
+  isolation: isolate;
+  padding-top: 68px;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -66px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100vw - 10px), calc(100% + 46px));
+  height: auto;
+  aspect-ratio: 1076 / 1461;
+  background-image: url("./assets/skins/golden-pagoda-garden/section-08/s08-royal-frame.webp");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 1;
+  pointer-events: none;
+}
+/* The new frame includes the crown, lotus corners and bottom flourish:
+   suppress the old separate motifs rather than stacking duplicates. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-heading::before,
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content::after {
+  display: none;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-heading {
+  font-size: clamp(39px, 10.5vw, 46px);
+  line-height: 1.15;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-intro {
+  max-width: 34ch;
+  margin: 13px auto 12px;
+  font-size: clamp(14px, 4vw, 16px);
+  line-height: 1.45;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-send {
+  margin-top: clamp(12px, 4vw, 23px);
+}
+/* When expanded, bank cards start below the frame's original bottom artwork.
+   The frame is never stretched to the height of the expanded gift content. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-bank-list:not([hidden]) {
+  margin-top: clamp(96px, 30vw, 145px);
+}
+@media (max-width: 350px) {
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content { padding-top: 60px; }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-heading {
+    font-size: 36px;
+  }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-intro {
+    margin: 9px auto 6px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-send { margin-top: 8px; }
+}
+@media (min-width: 351px) and (max-width: 374px) {
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-content { padding-top: 63px; }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-intro {
+    font-size: 14.5px;
+    margin-bottom: 7px;
+  }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-send { margin-top: 10px; }
+}
+/* Full original artwork stays visible, and reduced-motion behavior is unchanged. */
+/* END golden-pagoda-s08-frame-review.css */
+
+/* START golden-pagoda-s08-royal-wording.css */
+/* Golden Pagoda Garden — Section 08 royal wording.
+ * Matches S01's Myanmar primary text and S02's English kicker/signoff.
+ * Does not modify any WebP, image placement, gift bank logic or scroll motion. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-heading {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin:0 auto!important;
+  color:#754c30;
+  text-shadow:none;
+  letter-spacing:0;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-royal-kicker {
+  display:block;
+  color:#927044;
+  font:500 10px/1.5 'Cinzel','EB Garamond',Georgia,serif;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-royal-title {
+  display:block;
+  max-width:100%;
+  color:#754c30;
+  font:600 clamp(20px,5.4vw,23px)/1.6 'Noto Serif Myanmar','Myanmar Sangam MN','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-intro {
+  box-sizing:border-box;
+  margin:12px auto 6px!important;
+  max-width:min(34ch,calc(100% - 28px));
+  color:#67472e;
+  text-align:center;
+  text-shadow:0 1px 2px rgba(255,252,243,.48);
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-royal-message {
+  display:block;
+  color:#67472e;
+  font:400 clamp(14px,3.8vw,16px)/1.77 'Noto Serif Myanmar','Myanmar Sangam MN','Myanmar Text','Padauk',serif;
+  letter-spacing:0;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-royal-signoff {
+  display:block;
+  margin-top:10px;
+  color:#967248;
+  font:italic 400 14px/1.55 'EB Garamond',Georgia,serif;
+  letter-spacing:.015em;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-send {
+  margin-top:clamp(13px,4vw,22px);
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-trigger {
+  font-size:11px;
+  letter-spacing:2.4px;
+}
+@media(max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-heading {gap:4px}
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-royal-title {font-size:19px;line-height:1.56}
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-intro {
+    max-width:calc(100% - 16px);
+    margin:6px auto 3px!important;
+  }
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-royal-message {font-size:14px;line-height:1.68}
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-royal-signoff {margin-top:6px;font-size:13px}
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-send {margin-top:9px}
+}
+@media(min-width:351px) and (max-width:374px) {
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-intro {margin:8px auto 4px!important}
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-royal-signoff {margin-top:8px}
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-send {margin-top:12px}
+}
+/* END golden-pagoda-s08-royal-wording.css */
+
+/* START golden-pagoda-s03-rings-and-garden.css */
+/* Section 3: approved open-garden composition + wedding rings.
+   Apply only to Golden Pagoda Garden. The prior SVG border-image uses
+   'fill' and paints an opaque ivory panel across the garden. Remove its
+   entire decorative outer frame (NOT the portrait frames).
+   Original garden composite, photos, floral layers, names, thin dividers,
+   section geometry, sticky camera and portrait animations remain unchanged. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-arch {
+  display: none !important;
+}
+
+/* Render the approved transparent Kanote-lotus wedding-ring crest.
+   Preserve the exact uploaded WebP pixels and alpha, without cropping,
+   recoloring, resizing its source file or stretching its aspect ratio. Keep the live Myanmar separator word and aria-label in
+   the DOM for assistive technology, while replacing only its appearance.
+   The wider proportional contain slot makes engraved bands identifiable on
+   iPhone screens, without stretching or cropping any source pixels.
+   The softly feathered paper-light behind the ring is CSS only. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"][data-royal-wording="true"] .couple-separator {
+  display: block;
+  box-sizing: border-box;
+  width: min(220px, 60vw);
+  height: clamp(126px, 36vw, 146px);
+  min-height: 126px;
+  margin: 35px auto 0;
+  padding: 0;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  letter-spacing: 0;
+  background-image:
+    url("./assets/skins/golden-pagoda-garden/section-03/s03-kanote-lotus-ring-crest.webp"),
+    radial-gradient(ellipse at center, rgba(255,249,234,.68) 0%, rgba(255,249,234,.26) 52%, rgba(255,249,234,0) 78%);
+  background-position: center, center;
+  background-size: contain, 95% 90%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 3px 3px rgba(79,43,17,.24));
+}
+@media (max-width: 350px) {
+  html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"][data-royal-wording="true"] .couple-separator {
+    width: min(192px, 60vw);
+    height: 126px;
+    min-height: 126px;
+  }
+}
+/* END golden-pagoda-s03-rings-and-garden.css */
+
+/* START golden-pagoda-s03-floral-pavilion.css */
+/* Golden Pagoda Garden — Section 3, clean open-garden review.
+   User preference: remove the repeated left and right edge florals.
+   Hide ONLY the botanical side decoration layer; all source assets remain
+   in the repository untouched for rollback. Preserve the approved garden,
+   portraits, frames, Kanote lotus ring crest, text and scroll choreography.
+   Other skins are unaffected, as are Section 2's four corner ornaments. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-botanical-edges {
+  display: none !important;
+  background: none !important;
+  animation: none !important;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-botanical-edges::before,
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-botanical-edges::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+/* END golden-pagoda-s03-floral-pavilion.css */
+
+/* START golden-pagoda-s09-text-layout.css */
+/* Golden Pagoda Garden — Section 09 mobile typography and spacing review.
+   Text/layout ONLY. Do not alter the approved SVG nine-slice royal frame,
+   floral parchment, background layers, image crop, native form validation,
+   RSVP submission, preview-only privacy semantics, camera or reveal animations.
+   Selectors are restricted to the royal skin and Section 9. */
+
+html[data-golden-pagoda-skin="true"] #rsvp.s9-rsvp {
+  /* The natural content determines section height; never clip long Myanmar
+     text, guest wishes, the confirmation preview or the sample disclosure. */
+  height: auto;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-inner {
+  /* The original ornate arch begins 91px above this box. Move COPY below
+     its high Kanote crown without moving or scaling any artwork. */
+  padding-top: clamp(86px, 23vw, 108px);
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-eyebrow {
+  max-width: 100%;
+  margin: 0 auto 8px;
+  color: #795635;
+  font: 600 11px/1.6 'Cinzel','EB Garamond',Georgia,serif;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] h2.s9-heading.royal-my-text {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 315px;
+  margin: 0 auto 29px;
+  padding: 0 4px;
+  color: #593722;
+  font: 600 clamp(22px, 5.8vw, 26px)/1.7 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing: 0;
+  text-align: center;
+  text-wrap: balance;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-shadow: 0 1px 4px rgba(255,250,239,.92);
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-form {
+  width: 100%;
+  max-width: 328px;
+  margin: 0 auto;
+  gap: 18px;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field {
+  min-width: 0;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-field label.royal-my-text {
+  display: block;
+  margin: 0 0 7px;
+  color: #654029;
+  font: 600 clamp(12px, 3.3vw, 13.5px)/1.8 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field input,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field select,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field textarea {
+  min-width: 0;
+  min-height: 54px;
+  padding: 12px 14px;
+  font: 400 16px/1.55 'Noto Serif Myanmar','Myanmar Text','Padauk','EB Garamond',Georgia,serif;
+  letter-spacing: 0;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-field textarea {
+  height: 116px;
+  min-height: 116px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-submit {
+  align-self: center;
+  display: block;
+  width: min(100%, 260px);
+  margin-top: 10px;
+  min-height: 50px;
+  padding: 12px 18px;
+  font: 600 12px/1.55 'Cinzel','EB Garamond',Georgia,serif;
+  letter-spacing: .12em;
+  white-space: normal;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-note.royal-my-text {
+  max-width: 32ch;
+  margin: 4px auto 0;
+  color: #6a4a32;
+  font: 400 clamp(12px, 3.2vw, 13px)/1.8 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing: 0;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-consent {
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  max-width: 320px;
+  min-height: 0;
+  text-align: left;
+  line-height: 1.7;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-consent input {
+  flex: 0 0 16px;
+  margin-top: 5px;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-wall {
+  max-width: 328px;
+  margin: 38px auto 0;
+  padding: 0;
+  gap: 15px;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-wish {
+  min-width: 0;
+  padding: 18px 17px;
+  text-align: left;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-who {
+  gap: 5px 10px;
+  align-items: baseline;
+  line-height: 1.65;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-who strong.royal-my-text {
+  font: 600 13px/1.75 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  color: #60402b;
+  letter-spacing: 0;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-who span {
+  letter-spacing: .11em;
+  font-size: 10px;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-wish p.royal-my-text {
+  margin-top: 7px;
+  color: #64442d;
+  font: 400 clamp(13.5px, 3.7vw, 14.5px)/1.85 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] .s9-demo-note.royal-my-text {
+  /* Place the honest SAMPLE label after the wish cards instead of
+     absolutely positioning it beyond a variable-height royal frame. */
+  position: static;
+  max-width: 29ch;
+  margin: 15px auto 0;
+  color: #795b43;
+  font: 400 11px/1.8 'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  letter-spacing: 0;
+  text-align: center;
+  pointer-events: none;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-preview {
+  margin-top: 22px;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-form-status.s9-feedback-visible {
+  max-width: 32ch;
+  margin: 4px auto 0;
+  line-height: 1.6;
+}
+
+/* On mobile, put Attendance and Guests on separate rows.
+   A two-column layout truncates long values and Myanmar labels at 320–430px. */
+@media (max-width: 480px) {
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-row2 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+  }
+}
+
+/* 320px iPhone: use typography clearance, never scale or distort the art. */
+@media (max-width: 350px) {
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-inner {
+    padding-top: 86px;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp[data-royal-wording="true"] h2.s9-heading.royal-my-text {
+    font-size: 22px;
+    line-height: 1.72;
+    margin-bottom: 24px;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-form {
+    gap: 16px;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-wish {
+    padding: 16px 14px;
+  }
+}
+/* END golden-pagoda-s09-text-layout.css */
+
+/* START golden-pagoda-s08-s09-butterflies.css */
+/* Golden Pagoda Garden: original user-uploaded royal butterflies, Sections 8–9.
+   Scope: golden-pagoda skin only, preserve original full WebP compositions.
+   Uploads are opaque-white VP8 WebPs, not alpha sprites. Multiplying the
+   complete butterfly image removes the visible white matte over ivory paper
+   without cropping, mirroring, splitting, retouching or modifying source files.
+   The EXISTING motion: S08 floating path and S09 two opposing flight paths,
+   visibility gating and reduced-motion policy remain authoritative. Since
+   the source is one flattened butterfly, disable the prior independent
+   CSS wing flaps rather than pretending the full image has movable wings. */
+
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward {
+  width: clamp(42px, 12vw, 52px);
+  height: clamp(42px, 12vw, 52px);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Tint/filter originally used for the template SVG wings must not recolour
+   the uploaded pale blush/champagne gold butterfly artwork. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly {
+  filter: none;
+}
+
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly::before,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly::before,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly::before {
+  background-image: url("./assets/skins/golden-pagoda-garden/section-08/s08-royal-butterfly.webp");
+}
+
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly::before,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward::before {
+  background-image: url("./assets/skins/golden-pagoda-garden/section-09/s09-royal-butterfly.webp");
+}
+
+/* Do not stack the old CSS butterfly wings/body over the complete upload,
+   or animate fragments of the approved, unsplittable painting. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-bfly-body,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-wing {
+  display: none !important;
+  animation: none !important;
+}
+
+/* The royal S08 butterfly must be visible on its own. The earlier
+   reference-demo JS sets data-gift-butterfly=reference-local only when a
+   separate comparison sprite loads; that must not gate approved royal art. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly {
+  visibility: visible;
+  opacity: .87;
+  animation: gift-eight-butterfly-drift 5.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly,
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly,
+  html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward {
+    animation: none !important;
+  }
+}
+/* END golden-pagoda-s08-s09-butterflies.css */
+
+/* START golden-pagoda-s08-s09-split-flutter.css */
+/* Optional split-wing artwork: activates only after all three assets load.
+   Existing flight keyframes, layout and original butterfly remain the fallback. */
+.gift-eight.gp-s08-split-ready .gift-eight-butterfly,
+.s9-rsvp.gp-s09-split-ready .s9-butterfly,
+.s9-rsvp.gp-s09-split-ready .s9-butterfly-forward{
+  isolation:isolate;perspective:240px;transform-style:preserve-3d;
+}
+.gift-eight.gp-s08-split-ready .gift-eight-bfly-wing,
+.s9-rsvp.gp-s09-split-ready .s9-wing{
+  position:absolute;inset:0!important;width:100%!important;height:100%!important;
+  background-size:100% 100%!important;background-repeat:no-repeat!important;
+  background-position:center!important;backface-visibility:visible;
+  transform-style:preserve-3d;pointer-events:none;
+}
+.gift-eight.gp-s08-split-ready .gift-eight-bfly-left{
+  background-image:url('assets/skins/golden-pagoda-garden/section-08/s08-butterfly-left-wing.webp')!important;
+  transform-origin:46% 50%!important;animation:gp-split-flap-left .46s ease-in-out infinite alternate!important;
+}
+.gift-eight.gp-s08-split-ready .gift-eight-bfly-right{
+  background-image:url('assets/skins/golden-pagoda-garden/section-08/s08-butterfly-right-wing.webp')!important;
+  transform-origin:54% 50%!important;animation:gp-split-flap-right .46s ease-in-out infinite alternate!important;
+}
+.gift-eight.gp-s08-split-ready .gift-eight-bfly-body{
+  position:absolute;inset:0!important;width:100%!important;height:100%!important;
+  background:url('assets/skins/golden-pagoda-garden/section-08/s08-butterfly-body.webp') center/100% 100% no-repeat!important;
+  pointer-events:none;z-index:2;
+}
+.s9-rsvp.gp-s09-split-ready .s9-wing-left{
+  background-image:url('assets/skins/golden-pagoda-garden/section-09/s09-butterfly-left-wing.webp')!important;
+  transform-origin:46% 50%!important;animation:gp-split-flap-left .42s ease-in-out infinite alternate!important;
+}
+.s9-rsvp.gp-s09-split-ready .s9-wing-right{
+  background-image:url('assets/skins/golden-pagoda-garden/section-09/s09-butterfly-right-wing.webp')!important;
+  transform-origin:54% 50%!important;animation:gp-split-flap-right .42s ease-in-out infinite alternate!important;
+}
+.s9-rsvp.gp-s09-split-ready .s9-butterfly::after,
+.s9-rsvp.gp-s09-split-ready .s9-butterfly-forward::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:url('assets/skins/golden-pagoda-garden/section-09/s09-butterfly-body.webp') center/100% 100% no-repeat;
+}
+.s9-rsvp.gp-s09-split-ready .s9-butterfly-forward .s9-wing-left{animation-duration:.52s!important;animation-delay:-.18s!important}
+.s9-rsvp.gp-s09-split-ready .s9-butterfly-forward .s9-wing-right{animation-duration:.52s!important;animation-delay:-.18s!important}
+@keyframes gp-split-flap-left{from{transform:rotateY(8deg)}to{transform:rotateY(67deg)}}
+@keyframes gp-split-flap-right{from{transform:rotateY(-8deg)}to{transform:rotateY(-67deg)}}
+.gift-eight[data-gift-ambient="paused"].gp-s08-split-ready .gift-eight-bfly-wing,
+.s9-rsvp.gp-s09-split-ready:not(.s9-active) .s9-wing{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){
+ .gift-eight.gp-s08-split-ready .gift-eight-bfly-wing,
+ .s9-rsvp.gp-s09-split-ready .s9-wing{animation:none!important;transform:none!important}
+}
+/* Override the full-image fallback only when all split assets have loaded. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-butterfly::before,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly::before,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward::before{display:none!important}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-body,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing{display:block!important}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward{mix-blend-mode:normal}
+@media(prefers-reduced-motion:reduce){
+ html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+ html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing{animation:none!important;transform:none!important}
+}
+
+/* Butterfly overlay priority within the two isolated sections.
+   Keep all artwork click-through and avoid obscuring interactive controls. */
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward{
+ z-index:100!important;pointer-events:none!important;visibility:visible!important;
+ opacity:1!important;overflow:visible!important;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-butterfly > *,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly > *,
+html[data-golden-pagoda-skin="true"] #rsvp .s9-butterfly-forward > *{pointer-events:none!important}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing{
+ display:block!important;opacity:1!important;visibility:visible!important;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-body{display:block!important;opacity:1!important}
+
+/* Visibility repair: the legacy royal butterfly stylesheet hides wing fragments
+   with !important. Explicitly restore all parts only after six-source readiness. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-left,
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-right,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing-left,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing-right{
+ display:block!important;
+ visibility:visible!important;
+ opacity:1!important;
+ animation-name:gp-split-flap-left!important;
+ animation-duration:.46s!important;
+ animation-timing-function:ease-in-out!important;
+ animation-iteration-count:infinite!important;
+ animation-direction:alternate!important;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-right,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing-right{animation-name:gp-split-flap-right!important}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward .s9-wing{animation-duration:.52s!important;animation-delay:-.18s!important}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-body{display:block!important;visibility:visible!important;opacity:1!important}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward{opacity:1!important}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active .s9-butterfly-forward{animation-play-state:running!important}
+@media(prefers-reduced-motion:reduce){
+ html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+ html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing{animation:none!important;transform:none!important}
+ html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+ html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward{opacity:1!important;animation:none!important;left:calc(50% - 26px)!important}
+}
+
+
+/* 2026-11-20 royal RSVP visibility review.
+   The original S09 butterflies fly near the very BOTTOM of a tall RSVP panel
+   and begin their old flight paths offscreen. Make both approved split-wing
+   butterflies visible near the introductory arch on narrow phones, with
+   quiet, opposed floating motion that does not cross the RSVP form.
+   This ONLY affects the Golden Pagoda skin after assets load.
+   The default template's Section 9 flight geometry is unchanged. */
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward {
+  width:clamp(58px,17.5vw,72px)!important;
+  height:clamp(58px,17.5vw,72px)!important;
+  z-index:110!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  transform-origin:center center;
+  filter:none!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly {
+  left:clamp(14px,5.5vw,38px)!important;
+  top:clamp(40px,9vw,64px)!important;
+  animation:gp-s09-visible-drift-left 9.4s ease-in-out infinite!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward {
+  left:auto!important;
+  right:clamp(14px,5.5vw,38px)!important;
+  top:clamp(54px,12vw,82px)!important;
+  animation:gp-s09-visible-drift-right 10.6s ease-in-out -3s infinite!important;
+}
+@keyframes gp-s09-visible-drift-left {
+  0%,100% {transform:translate3d(0,0,0) rotate(-8deg)}
+  32% {transform:translate3d(9px,-12px,0) rotate(5deg)}
+  67% {transform:translate3d(3px,6px,0) rotate(-3deg)}
+}
+@keyframes gp-s09-visible-drift-right {
+  0%,100% {transform:translate3d(0,0,0) rotate(9deg)}
+  35% {transform:translate3d(-11px,9px,0) rotate(-5deg)}
+  70% {transform:translate3d(-4px,-13px,0) rotate(3deg)}
+}
+/* Honor the original open/viewport gating. A paused butterfly still appears
+   in its visible starting position rather than disappearing offscreen. */
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready:not(.s9-active) .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready:not(.s9-active) .s9-butterfly-forward {
+  animation-play-state:paused!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active .s9-butterfly-forward {
+  animation-play-state:running!important;
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward {
+    animation:none!important;
+    transform:none!important;
+    opacity:1!important;
+  }
+}
+
+
+/* Preserve full alpha silhouettes: template wings used elliptical border-radius
+   and the template Gift body used a pill shape. Those clip the real WebPs. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-body,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing {
+  border-radius:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  background-color:transparent!important;
+}
+
+
+/* Royal butterfly wing-hinge correction (approved six WebPs, S08/S09).
+   The uploaded transparent wing files are whole, separately cropped canvases,
+   NOT the left/right halves of one sprite atlas. Their artwork attachment tips
+   sit around x=76% (left wing) and x=21% (right wing), not at x=50%.
+   Keep each FULL image visible, offset its canvas so both roots meet at the
+   body center, then rotate at the actual painted wing root.
+   Never force the full artwork into a 50%-width crop. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing {
+  width:100%!important;
+  height:100%!important;
+  top:0!important;
+  bottom:auto!important;
+  border-radius:0!important;
+  background-size:contain!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  backface-visibility:visible;
+  transform-style:preserve-3d;
+}
+
+/* Section 8 source wing hinges measured from its isolated painted roots. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-left {
+  left:-26%!important;right:auto!important;
+  transform-origin:76% 50%!important;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-right {
+  left:29%!important;right:auto!important;
+  transform-origin:21% 50%!important;
+}
+
+/* Section 9 uses the separately uploaded ivory/gold wing pair. */
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing-left {
+  left:-29%!important;right:auto!important;
+  transform-origin:79% 51%!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing-right {
+  left:29%!important;right:auto!important;
+  transform-origin:21% 51%!important;
+}
+
+/* Keep original body/antennae dimensions and alpha aspect ratio intact. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-body,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly::after,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward::after {
+  background-size:contain!important;
+  background-position:center center!important;
+}
+
+/* Gentle, mirrored hinge rotations: never fold the engraving edge-on.
+   The old 67-degree rotation produced the thin, upright butterfly. */
+/* Follow Section 1's proven butterfly wing system (styles.css).
+   Section 1: paired inner-edge hinges, perspective(210px),
+   8deg -> 72deg, .54s/.46s, ease-in-out alternate.
+   These are independent full-canvas royal WebPs with larger wing surfaces
+   than Section 1's half-sprite. Keep the same motion mechanics and mirrored
+   rotation signs, but cap the far fold at 48deg so the ornate wings retain
+   >=cos(48deg)=66.9% of their flat projected width (instead of 30.9% at 72deg).
+   The previously calibrated image-root offsets remain intact above. */
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-butterfly {
+  --gp-wing-perspective:210px;
+  perspective:none; /* the per-wing transform owns depth, exactly as in S1 */
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward {
+  --gp-wing-perspective:270px; /* scale 3D perspective for larger RSVP sprites */
+  perspective:none;
+}
+@keyframes gp-split-flap-left {
+  from {transform:perspective(var(--gp-wing-perspective,210px)) rotateY(-8deg);}
+  to   {transform:perspective(var(--gp-wing-perspective,210px)) rotateY(-48deg);}
+}
+@keyframes gp-split-flap-right {
+  from {transform:perspective(var(--gp-wing-perspective,210px)) rotateY(8deg);}
+  to   {transform:perspective(var(--gp-wing-perspective,210px)) rotateY(48deg);}
+}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing {
+  animation-direction:alternate!important;
+  animation-timing-function:ease-in-out!important;
+}
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-left,
+html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-right,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly .s9-wing {
+  animation-duration:.54s!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward .s9-wing {
+  animation-duration:.46s!important;
+  animation-delay:-.1s!important;
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html[data-golden-pagoda-skin="true"] #weddingGift.gp-s08-split-ready .gift-eight-bfly-wing,
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-wing {
+    animation:none!important;transform:none!important;
+  }
+}
+
+
+/* Golden Pagoda RSVP: keep the two existing TOP butterflies unchanged.
+   Add two independent BOTTOM flights only after split assets are verified
+   and the mobile RSVP's lower edge is near the viewport. The same three
+   S09 transparent WebPs render all four butterflies (no asset duplication).
+   Reuse the original template's 13s/16s opposite flight keyframes.
+   z-index/pointer-events protect the approved paper and RSVP interaction. */
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-bottom-butterfly-zone{
+  position:absolute;
+  left:0;right:0;bottom:24px;
+  height:130px;
+  z-index:115;
+  pointer-events:none;
+  overflow:visible;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly.s9-butterfly-bottom-reverse,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward.s9-butterfly-bottom-forward{
+  position:absolute;
+  top:34px!important;
+  left:-52px!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:clamp(48px,13vw,58px)!important;
+  height:clamp(48px,13vw,58px)!important;
+  z-index:116!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  filter:none!important;
+  animation:s9-flight 13s linear -4.5s infinite!important;
+  animation-play-state:paused!important;
+}
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward.s9-butterfly-bottom-forward{
+  top:50px!important;
+  left:-11px!important;
+  animation:s9-flight-forward 16s linear -7.2s infinite!important;
+  animation-play-state:paused!important;
+}
+/* Both the parent section and lower viewport zone must be active. Top
+   butterflies retain their own motion rules and remain fully independent. */
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active.gp-s09-bottom-in-view .s9-butterfly.s9-butterfly-bottom-reverse,
+html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready.s9-active.gp-s09-bottom-in-view .s9-butterfly-forward.s9-butterfly-bottom-forward{
+  animation-play-state:running!important;
+}
+@media (prefers-reduced-motion:reduce){
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly.s9-butterfly-bottom-reverse,
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward.s9-butterfly-bottom-forward{
+    animation:none!important;
+    opacity:1!important;
+    transform:none!important;
+    top:48px!important;
+    left:18px!important;
+    right:auto!important;
+  }
+  html[data-golden-pagoda-skin="true"] #rsvp.gp-s09-split-ready .s9-butterfly-forward.s9-butterfly-bottom-forward{
+    left:auto!important;
+    right:18px!important;
+  }
+}
+/* END golden-pagoda-s08-s09-split-flutter.css */
+
+/* START royal-music.css */
+/* Royal soundtrack control; isolated from artwork and scroll choreography. */
+html[data-golden-pagoda-skin="true"] .royal-music-control {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 4000;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid rgba(174, 127, 57, .8);
+  border-radius: 50%;
+  background: rgba(255, 250, 233, .96);
+  color: #83551c;
+  box-shadow: 0 3px 15px rgba(68, 39, 12, .20);
+  font: 500 25px/1 Georgia, serif;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+.royal-music-control[hidden], html:not([data-golden-pagoda-skin="true"]) .royal-music-control { display: none !important; }
+.royal-music-control:focus-visible { outline: 2px solid #946a27; outline-offset: 3px; }
+.royal-music-control[data-muted="yes"]::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 26px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: rotate(-45deg);
+}
+@media (prefers-reduced-motion: reduce) { .royal-music-control { transition: none; } }
+/* END royal-music.css */
