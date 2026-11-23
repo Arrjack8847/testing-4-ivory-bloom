@@ -1,0 +1,63 @@
+/* Golden Pagoda Garden — Section 4 restrained decoration review
+   Art is overlaid on original card surfaces; geometry and animations unchanged.
+   Original frame artwork, border-image slices, labels, actions, and events remain intact. */
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-diamond {
+  /* Replace the tiny generic glyph with the supplied royal divider.
+     Its line box retains the original 29.7px vertical footprint. */
+  width:180px;
+  height:29.7px;
+  font-size:0;
+  line-height:29.7px;
+  background:url("./assets/skins/golden-pagoda-garden/section-04/event-divider.webp") center center / contain no-repeat;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-diamond::before,
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-diamond::after {
+  display:none;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-reference-card {
+  /* Delicate side accents follow the existing card, not the scroll camera. */
+  background-image:url("./assets/skins/golden-pagoda-garden/section-04/event-side-left.webp"),url("./assets/skins/golden-pagoda-garden/section-04/event-side-right.webp");
+  background-repeat:no-repeat,no-repeat;
+  background-position:left 1px top 57%,right 1px top 57%;
+  background-size:26px 78px,26px 78px;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-reference-card::after {
+  /* Existing second outline is intentionally replaced by a faint lower vignette.
+     This pseudo-element is paint-only and does not affect content or card sizing. */
+  display:block;
+  content:"";
+  position:absolute;
+  inset:auto 12px 7px;
+  height:72px;
+  width:auto;
+  border:0;
+  border-radius:0;
+  pointer-events:none;
+  z-index:-1;
+  opacity:.22;
+  background:url("./assets/skins/golden-pagoda-garden/section-04/event-scene-bottom.webp") center bottom / contain no-repeat;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-map-link:not(.event-waze-link) {
+  position:relative;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-map-link:not(.event-waze-link)::before {
+  /* Small lotus attachment visually ties the existing Maps pill to the card. */
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-19px;
+  width:53px;
+  height:20px;
+  transform:translateX(-50%);
+  pointer-events:none;
+  background:url("./assets/skins/golden-pagoda-garden/section-04/event-bottom-ornament.webp") center / contain no-repeat;
+}
+@media(max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-reference-card {
+    background-size:20px 67px,20px 67px;
+  }
+  html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-reference-card::after {
+    height:60px;
+  }
+}
+/* No new keyframes, HTML elements, layout padding, or scroll transforms. */

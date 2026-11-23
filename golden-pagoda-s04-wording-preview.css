@@ -1,0 +1,40 @@
+/* Section 04 — wedding-copy harmony with Sections 01 and 02.
+   S01: Myanmar couple names, warm antique-gold text, English CTA.
+   S02: Myanmar romantic heading, English supporting copy.
+   Only typography and headings are changed; no animation, size or JS changes. */
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-title[lang="my"] {
+  /* Preserve original 69.3px title box, with enough vertical space for Burmese combining glyphs. */
+  box-sizing:border-box;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:69.3px;
+  min-height:69.3px;
+  padding:0 2px;
+  margin-bottom:12px;
+  font-family:'Noto Serif Myanmar','Myanmar Text','Padauk',serif;
+  font-size:clamp(18px,5.6vw,23px);
+  font-weight:600;
+  line-height:1.65;
+  letter-spacing:0;
+  text-align:center;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  color:#764d2f;
+  text-shadow:0 1px 3px rgba(255,249,236,.72);
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-title[lang="my"]::before,
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-title[lang="my"]::after {
+  content:none;
+}
+@media(max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-title[lang="my"] {
+    font-size:clamp(16px,5.25vw,18.5px);
+    height:69.3px;
+    min-height:69.3px;
+    line-height:1.7;
+  }
+}
+/* All dates, venue information, maps links, live countdown and calendar action remain unchanged. */

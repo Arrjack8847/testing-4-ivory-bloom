@@ -1,0 +1,69 @@
+/* Golden Pagoda Garden: Section 04 -> 05 visual handoff.
+   Pure paint + spacing refinement; no new scene asset, snapping, or JS scroll loop.
+   The existing approved WebPs retain their pixel content and aspect ratios. */
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-countdown {
+  /* ::after begins 12px below this element and is 142px tall. Reserve that
+     full footprint in flow before Section 5 starts; never crop the lotus. */
+  margin-bottom: 160px;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-body {
+  padding-bottom: 30px;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: clamp(110px, 31vw, 140px);
+  z-index: 1; /* behind the existing live content and closing ornament */
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(249,236,221,0), rgba(249,236,221,.7) 72%, #f9ecdd 100%);
+}
+html[data-golden-pagoda-skin="true"] #runningOrder.order-section[data-art="royal"]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0 0 auto;
+  height: clamp(110px, 31vw, 140px);
+  z-index: 1; /* above paper texture, below royal top WebP and live text */
+  opacity: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, #f9ecdd, rgba(249,236,221,.65) 48%, rgba(249,236,221,0) 100%);
+}
+/* Trim only redundant empty space; leave sufficient clearance below the
+   approved Section 5 top crown and preserve its unmodified image geometry. */
+html[data-golden-pagoda-skin="true"] #runningOrder.order-section[data-art="royal"] .order-inner {
+  padding-top: clamp(122px, 30vw, 152px);
+}
+/* Early IntersectionObserver activation + small reveal distances are less
+   jarring during quick swipes than the template's 52px/0.955 entrance. */
+html[data-golden-pagoda-skin="true"] #runningOrder.order-section[data-art="royal"][data-reveal-ready="true"] .order-reveal {
+  transform: translate3d(0, 16px, 0);
+  transition: opacity .7s ease, transform .75s cubic-bezier(.2,.7,.17,1);
+  transition-delay: 0ms;
+}
+html[data-golden-pagoda-skin="true"] #runningOrder.order-section[data-art="royal"][data-reveal-ready="true"] .order-reveal.order-in-view {
+  transform: none;
+  transition-delay: var(--royal-entrance-delay, 0ms);
+}
+html[data-golden-pagoda-skin="true"] #runningOrder .order-eyebrow { --royal-entrance-delay: 0ms; }
+html[data-golden-pagoda-skin="true"] #runningOrder .order-heading { --royal-entrance-delay: 60ms; }
+html[data-golden-pagoda-skin="true"] #runningOrder .order-entry:nth-child(1) { --royal-entrance-delay: 80ms; }
+html[data-golden-pagoda-skin="true"] #runningOrder .order-entry:nth-child(2) { --royal-entrance-delay: 140ms; }
+html[data-golden-pagoda-skin="true"] #runningOrder .order-entry:nth-child(3) { --royal-entrance-delay: 200ms; }
+html[data-golden-pagoda-skin="true"] #runningOrder .order-entry:nth-child(4) { --royal-entrance-delay: 260ms; }
+html[data-golden-pagoda-skin="true"] #runningOrder .order-entry:nth-child(5) { --royal-entrance-delay: 320ms; }
+html[data-golden-pagoda-skin="true"] #runningOrder .order-entry:nth-child(6) { --royal-entrance-delay: 380ms; }
+@media(max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #runningOrder.order-section[data-art="royal"] .order-inner { padding-top: 114px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html[data-golden-pagoda-skin="true"] #runningOrder.order-section[data-art="royal"] .order-reveal {
+    transform:none !important;
+    transition:none !important;
+    opacity:1 !important;
+  }
+}

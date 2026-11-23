@@ -1,0 +1,76 @@
+/* S04 Royal Events — strict original-slot artwork replacement.
+   Original source: Testing-4 #eventDetails in section-three.css/js.
+   Preserve its section height, two ceremony-card geometry, border-image slices
+   (200 28 26 fill), paper camera shift, reveal, countdown, links and petals.
+   The HTML / event data / original animations are unchanged. */
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] {
+  background:#f9ecdd;
+  color:#674a34;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-stage-paint {
+  background:#f9ecdd;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-stage::after {
+  background:#fff9ed;
+  opacity:.15;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-body::before {
+  background:radial-gradient(90% 80% at 50% 47%,
+    rgba(255,250,239,.75) 0%,rgba(255,250,239,.63) 46%,
+    rgba(255,250,239,.31) 70%,rgba(255,250,239,0) 90%);
+}
+/* Important: existing ::before is the *active* reference border-image. 
+   Route its inherited variable from the card without altering border
+   width, slice, transform, layout, or introducing another pseudo-element. */
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-reference-card {
+  --event-arch-source:url("./assets/skins/golden-pagoda-garden/section-04/s04-royal-frame.webp");
+  color:#654932;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-reference-card::after {
+  /* Refined single-border choice: remove second inner outline, no geometry changes. */
+  border-color:transparent;
+  opacity:0;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-title,
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-place {
+  color:#764d2f;
+  text-shadow:0 1px 3px rgba(255,251,240,.78);
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-date,
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-address,
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-time {
+  color:#604936;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-diamond,
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-diamond::before,
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-diamond::after {
+  color:#ae814a;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-map-link {
+  background:#fff9ee;
+  color:#735034;
+  box-shadow:0 2px 10px rgba(87,59,31,.15);
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-countdown-grid span {
+  background:#815d38;
+  box-shadow:0 8px 22px rgba(88,61,33,.21);
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-calendar-link {
+  background:#90683e;
+  color:#fff8ea;
+  box-shadow:0 12px 34px rgba(84,59,35,.26);
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-petal-field i {
+  background:#e6b6c4;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-petal-field i:nth-child(3n+1) {
+  background:#d59cae;
+}
+/* No transition duration, camera or reduced-motion rules are replaced. */
+
+/* Section 4 Royal frame WebP trial; strictly scoped to the Royal skin. */
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-reference-card::before {
+  /* Master artwork is exactly 3x original 326x617 source; scale slice indices,
+     not rendered CSS widths (200px 28px 26px), preserving the runtime camera. */
+  border-image-slice:600 84 78 fill;
+}

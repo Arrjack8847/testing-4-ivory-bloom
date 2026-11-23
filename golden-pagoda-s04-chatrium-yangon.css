@@ -1,0 +1,87 @@
+/* Royal-only Yangon venue typography. Preserve source card geometry, frame
+   artwork, heading slot height, scroll and reveal animations unchanged. */
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-title[lang="my"] {
+  flex-direction:column;
+  gap:0;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-nikah .event-card-title[lang="my"]::after {
+  content:"WEDDING CEREMONY";
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-reception .event-card-title[lang="my"]::after {
+  content:"WEDDING RECEPTION";
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-title[lang="my"]::after {
+  display:block;
+  font:600 9px/1.5 'Cinzel',Georgia,serif;
+  letter-spacing:.12em;
+  color:#90683e;
+  text-shadow:none;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-place {
+  margin-bottom:3px;
+  font-size:clamp(17px,4.7vw,19px);
+  line-height:1.3;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-address {
+  max-width:100%;
+  margin-bottom:12px;
+  line-height:1.38;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-address .royal-event-hotel {
+  display:block;
+  font:600 13.5px/1.35 'EB Garamond',Georgia,serif;
+  color:#6d4b32;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-address .royal-event-street {
+  display:block;
+  margin-top:2px;
+  font:400 12px/1.38 'EB Garamond',Georgia,serif;
+  color:#66503c;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-links {
+  display:flex;
+  flex-wrap:nowrap;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  margin-inline:auto;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-links .event-map-link {
+  box-sizing:border-box;
+  min-width:0;
+  min-height:44px;
+  padding:10px 11px;
+  white-space:nowrap;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-links .event-map-link:not(.event-waze-link) {
+  width:136px;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+.event-card-links .event-waze-link {
+  width:72px;
+}
+@media(max-width:350px) {
+  html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+  .event-card-address .royal-event-street {font-size:11.5px;}
+  html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+  .event-card-links {gap:6px;}
+  html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+  .event-card-links .event-map-link:not(.event-waze-link) {width:128px;}
+  html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"]
+  .event-card-links .event-waze-link {width:68px;}
+}
+/* No image URL, frame height, keyframe, sticky scroll or button behavior changes. */

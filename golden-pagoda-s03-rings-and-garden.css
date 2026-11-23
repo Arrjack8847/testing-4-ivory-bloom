@@ -1,0 +1,45 @@
+/* Section 3: approved open-garden composition + wedding rings.
+   Apply only to Golden Pagoda Garden. The prior SVG border-image uses
+   'fill' and paints an opaque ivory panel across the garden. Remove its
+   entire decorative outer frame (NOT the portrait frames).
+   Original garden composite, photos, floral layers, names, thin dividers,
+   section geometry, sticky camera and portrait animations remain unchanged. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-arch {
+  display: none !important;
+}
+
+/* Render the approved transparent Kanote-lotus wedding-ring crest.
+   Preserve the exact uploaded WebP pixels and alpha, without cropping,
+   recoloring, resizing its source file or stretching its aspect ratio. Keep the live Myanmar separator word and aria-label in
+   the DOM for assistive technology, while replacing only its appearance.
+   The wider proportional contain slot makes engraved bands identifiable on
+   iPhone screens, without stretching or cropping any source pixels.
+   The softly feathered paper-light behind the ring is CSS only. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"][data-royal-wording="true"] .couple-separator {
+  display: block;
+  box-sizing: border-box;
+  width: min(220px, 60vw);
+  height: clamp(126px, 36vw, 146px);
+  min-height: 126px;
+  margin: 35px auto 0;
+  padding: 0;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  letter-spacing: 0;
+  background-image:
+    url("./assets/skins/golden-pagoda-garden/section-03/s03-kanote-lotus-ring-crest.webp"),
+    radial-gradient(ellipse at center, rgba(255,249,234,.68) 0%, rgba(255,249,234,.26) 52%, rgba(255,249,234,0) 78%);
+  background-position: center, center;
+  background-size: contain, 95% 90%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 3px 3px rgba(79,43,17,.24));
+}
+@media (max-width: 350px) {
+  html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"][data-royal-wording="true"] .couple-separator {
+    width: min(192px, 60vw);
+    height: 126px;
+    min-height: 126px;
+  }
+}

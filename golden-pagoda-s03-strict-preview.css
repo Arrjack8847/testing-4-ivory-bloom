@@ -1,0 +1,78 @@
+/* Golden Pagoda Garden Section 3 — STRICT three-slot visual replacement trial.
+   Layout/geometry, 1840px section height, camera, zoom, transitions and original DOM are NOT overridden.
+   Existing image-bearing surfaces: sticky ::before, arch border-image, portrait card.
+   Scope: ?skin=golden-pagoda-garden only. Do not merge or deploy to the existing production project.
+*/
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-reference-scene::before {
+  background-image:url("./assets/skins/golden-pagoda-garden/section-03/s03-strict-garden-composite.svg") !important;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-arch {
+  border-image-source:url("./assets/skins/golden-pagoda-garden/section-03/s03-strict-arch-border.svg") !important;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-portrait {
+  position:relative;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-portrait::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:url("./assets/skins/golden-pagoda-garden/section-03/s03-strict-portrait-overlay.svg")
+     center / 100% 100% no-repeat;
+}
+
+/* iPhone screenshot QA 2026-11-13:
+   Remove the original visible rectangular portrait-card matte without altering
+   its box dimensions, the existing border's layout allocation, camera, or zoom.
+   Portrait overlay is now alpha-only outside the Kanote silhouette. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-portrait {
+  border-color:transparent;
+  background:transparent;
+  box-shadow:none;
+}
+/* Keep the full original 1024x1536 bride/groom WebPs and the approved
+   Kanote frame unmodified. The transparent oval is a fixed visual window
+   within the EXISTING portrait card. Only each source image is positioned
+   lower behind it; clipping does not move with the image (unlike the old
+   top:20% + clip-path-on-img combination). The original focal 1.05x CSS
+   zoom still applies to the img beneath this stationary mask. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .royal-portrait-window {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  overflow:hidden;
+  pointer-events:none;
+  clip-path:ellipse(28% 24.4% at 49.5% 51.2%);
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .royal-portrait-window img {
+  position:absolute;
+  left:0;
+  top:26%;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  clip-path:none;
+}
+/* Long reference names were wrapping beyond the locked 92.4px text block.
+   Adjust typography only, not portrait geometry, scroll or layout offsets. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-name {
+  font-size:clamp(29px,7.8vw,32px);
+  line-height:1.22;
+  color:#784f35;
+  text-shadow:0 1px 5px rgba(255,248,234,.92);
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-title,
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-separator {
+  color:#795033;
+  text-shadow:0 2px 9px rgba(255,248,235,.92);
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-family {
+  color:#604733;
+}
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-role,
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"] .couple-salutation {
+  color:#886344;
+}
