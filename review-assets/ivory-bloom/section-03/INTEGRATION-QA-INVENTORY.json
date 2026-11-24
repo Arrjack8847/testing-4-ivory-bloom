@@ -1,0 +1,458 @@
+[
+  {
+    "name": "arch-kanote.webp",
+    "original_canvas": [
+      1080,
+      700
+    ],
+    "prior_candidate_canvas": [
+      1774,
+      887
+    ],
+    "replacement_canvas": [
+      1080,
+      700
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      3,
+      0,
+      1080,
+      540
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 200754,
+    "sha256": "10e83c18df0599bb40ae187be0f325b4d02ab45c82877307c003e2cfa4c63fa1",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Whole arch differs from source shallow canopy; currently hidden by CSS. Visual-source geometry NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "canopy.webp",
+    "original_canvas": [
+      1080,
+      500
+    ],
+    "prior_candidate_canvas": [
+      1843,
+      853
+    ],
+    "replacement_canvas": [
+      1080,
+      500
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      7,
+      0,
+      1073,
+      481
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 160444,
+    "sha256": "63328a73028ab89c912911442767c3b17c0accd92df2f58ac58b8454297f42ab",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Source ratio fits, new canvas with proportional resample. Source alpha margin NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "couple-garden.webp",
+    "original_canvas": [
+      1080,
+      1920
+    ],
+    "prior_candidate_canvas": [
+      1024,
+      1536
+    ],
+    "replacement_canvas": [
+      1080,
+      1920
+    ],
+    "format": "WEBP",
+    "mode": "RGB",
+    "alpha_bbox": null,
+    "alpha_extrema": null,
+    "file_size": 314272,
+    "sha256": "949807e354e071edcfc115b812fe7dd0b1a749cb4090bd2c773fa94d0b64fca8",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Unverified couple identity/outfits; proportional contain with background padding; placement NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "floral-left.webp",
+    "original_canvas": [
+      600,
+      1100
+    ],
+    "prior_candidate_canvas": [
+      1024,
+      1536
+    ],
+    "replacement_canvas": [
+      600,
+      1100
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      0,
+      200,
+      449,
+      1084
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 123310,
+    "sha256": "71483f4d8de1d764cf2296f30f9fac78137020a7e41122e49537393e6793099b",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Side botanical layer currently hidden; proportional contain; source margins NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "floral-right.webp",
+    "original_canvas": [
+      600,
+      1100
+    ],
+    "prior_candidate_canvas": [
+      1024,
+      1536
+    ],
+    "replacement_canvas": [
+      600,
+      1100
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      85,
+      208,
+      600,
+      1068
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 126456,
+    "sha256": "08a6f406efff3896f9fd5e9df1fd4b8303b132bae5c16b2b2ef01f297c3a5da7",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Side botanical layer currently hidden; proportional contain; source margins NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "lake-transition.webp",
+    "original_canvas": [
+      1080,
+      500
+    ],
+    "prior_candidate_canvas": [
+      1824,
+      862
+    ],
+    "replacement_canvas": [
+      1080,
+      500
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      11,
+      0,
+      1069,
+      492
+    ],
+    "alpha_extrema": [
+      0,
+      241
+    ],
+    "file_size": 275896,
+    "sha256": "4f010b187384d2fa4f349ec91fb8b24f28e0d8dab8d2c56098318e4e8512e7b4",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Source is terrace-to-ivory fade; candidate is different lake view; gradient alpha added. Subject geometry NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "portrait-frame.webp",
+    "original_canvas": [
+      800,
+      1100
+    ],
+    "prior_candidate_canvas": [
+      1024,
+      1536
+    ],
+    "replacement_canvas": [
+      800,
+      1100
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      49,
+      5,
+      753,
+      1092
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 141546,
+    "sha256": "8c5af5cf256220382c52a62adf71afa1ab351fae970fc593bb81c0741725a19d",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Source gold oval; candidate arched floral shape; central window NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "s03-kanote-lotus-ring-crest.webp",
+    "original_canvas": [
+      1000,
+      579
+    ],
+    "prior_candidate_canvas": [
+      1000,
+      579
+    ],
+    "replacement_canvas": [
+      1000,
+      579
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      9,
+      133,
+      991,
+      481
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 103084,
+    "sha256": "c03beab173fa75396e15be620e06798f76a56f23a5f8c2cb434171c68add2daf",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Canvas matches; source alpha registration and relative icon scale NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "s03-royal-bride-portrait.webp",
+    "original_canvas": [
+      1024,
+      1536
+    ],
+    "prior_candidate_canvas": [
+      1024,
+      1536
+    ],
+    "replacement_canvas": [
+      1024,
+      1536
+    ],
+    "format": "WEBP",
+    "mode": "RGB",
+    "alpha_bbox": null,
+    "alpha_extrema": null,
+    "file_size": 249828,
+    "sha256": "ac84271f2695e31a42e6c305d60d4799d9a280a0f2372025f91520947348f004",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Source couple identity was not available for face-by-face comparison. NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "s03-royal-card-lotus.webp",
+    "original_canvas": [
+      1983,
+      793
+    ],
+    "prior_candidate_canvas": [
+      1536,
+      1024
+    ],
+    "replacement_canvas": [
+      1983,
+      793
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      396,
+      76,
+      1585,
+      701
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 233280,
+    "sha256": "8d64c1c35486a3a4f765a88ab7460c3492f0633e76824796ddb2344a93bda1d1",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Source is transparent floral footer; candidate contains ornamental plaque. Role NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "s03-royal-groom-portrait.webp",
+    "original_canvas": [
+      1024,
+      1536
+    ],
+    "prior_candidate_canvas": [
+      1024,
+      1536
+    ],
+    "replacement_canvas": [
+      1024,
+      1536
+    ],
+    "format": "WEBP",
+    "mode": "RGB",
+    "alpha_bbox": null,
+    "alpha_extrema": null,
+    "file_size": 206632,
+    "sha256": "17e57baa7ca5f3d4385d90a5be9bb0fc722466bdf094ff03cecd598e0491f693",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Groom candidate wears champagne suit, Section 1 locked attire black tuxedo. FAIL.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "s03-royal-parchment-card.webp",
+    "original_canvas": [
+      971,
+      1619
+    ],
+    "prior_candidate_canvas": [
+      980,
+      1605
+    ],
+    "replacement_canvas": [
+      971,
+      1619
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      6,
+      14,
+      970,
+      1604
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 366876,
+    "sha256": "3443d069325eaf941f21d57762724d4f649f5a8efea9a851dc94b09bae3fa5fb",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Near source canvas; proportional fit and top/bottom padding; original alpha margins NOT CERTIFIED.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "s03-royal-parentage-plaque.webp",
+    "original_canvas": [
+      1983,
+      793
+    ],
+    "prior_candidate_canvas": [
+      1983,
+      793
+    ],
+    "replacement_canvas": [
+      1983,
+      793
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      2,
+      0,
+      1982,
+      778
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 355158,
+    "sha256": "a8390509002ec47d6f733d992a5e80884e64e990206025cb516feb95c2a75dc6",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Canvas matches and center blank; transparent painted bounds not certified.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "s03-royal-rings.webp",
+    "original_canvas": [
+      1254,
+      1254
+    ],
+    "prior_candidate_canvas": [
+      1254,
+      1254
+    ],
+    "replacement_canvas": [
+      1254,
+      1254
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      145,
+      300,
+      1104,
+      1035
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 177734,
+    "sha256": "911ff4a51494678f90eaa618040035a592aaaf53a23fe307a708b16dcb3c1b62",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Canvas matches; original alpha margins not certified.",
+    "ready_for_merge": false
+  },
+  {
+    "name": "s03-royal-wedding-rings.webp",
+    "original_canvas": [
+      192,
+      192
+    ],
+    "prior_candidate_canvas": [
+      1254,
+      1254
+    ],
+    "replacement_canvas": [
+      192,
+      192
+    ],
+    "format": "WEBP",
+    "mode": "RGBA",
+    "alpha_bbox": [
+      22,
+      46,
+      169,
+      158
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "file_size": 9756,
+    "sha256": "9634c3a37a2f2d9e3890e5e96b700fbf0f8943d391b529c18387e20642e19e50",
+    "geometry_method": "uniform proportional contain, no stretching/cropping",
+    "qa_note": "Proportional scaling to 192x192; exact original icon bounds NOT CERTIFIED.",
+    "ready_for_merge": false
+  }
+]
