@@ -1,0 +1,203 @@
+[
+  {
+    "name": "arch-kanote.webp",
+    "source": "a_clean_high_resolution_ornate_wedding_ceremony.png",
+    "expected": "1080x700",
+    "actual": "1774x887",
+    "matches_canvas": false,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      255
+    ],
+    "bytes": 493400,
+    "sha256": "e63b15baebc92466ec74306199e8919157f9c7550ffa7666d5757cbfb06de9d7"
+  },
+  {
+    "name": "canopy.webp",
+    "source": "a_high_resolution_decorative_floral_canopy_border.png",
+    "expected": "1080x500",
+    "actual": "1843x853",
+    "matches_canvas": false,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      255
+    ],
+    "bytes": 447590,
+    "sha256": "9d23654be2e5f79709f7ad3e7b4c5abc582cd159bf373eb51826eea688c7d8c3"
+  },
+  {
+    "name": "couple-garden.webp",
+    "source": "ivory_bloom_garden_wedding_portrait.png",
+    "expected": "1080x1920",
+    "actual": "1024x1536",
+    "matches_canvas": false,
+    "alpha": false,
+    "alpha_range": null,
+    "bytes": 241814,
+    "sha256": "219bf509d83e87f18b4bfb2bdbae5b39dde94e351e638b31f7df382848853648"
+  },
+  {
+    "name": "floral-left.webp",
+    "source": "a_high_resolution_transparent_background_png_flora.png",
+    "expected": "600x1100",
+    "actual": "1024x1536",
+    "matches_canvas": false,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      254
+    ],
+    "bytes": 293758,
+    "sha256": "4a67caaef8abbf6f844e20aa14103ac987710ce15fe631f8ecd4a2dd7af651ff"
+  },
+  {
+    "name": "floral-right.webp",
+    "source": "a_high_quality_realistic_watercolor_gouache_style.png",
+    "expected": "600x1100",
+    "actual": "1024x1536",
+    "matches_canvas": false,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      254
+    ],
+    "bytes": 289412,
+    "sha256": "8fa82c03057f63f9a19e88ae06cd6b684de52010a91f73921dcff286ef6d23f6"
+  },
+  {
+    "name": "lake-transition.webp",
+    "source": "a_lush_romantic_highly_detailed_fantasy_style_la.png",
+    "expected": "1080x500",
+    "actual": "1824x862",
+    "matches_canvas": false,
+    "alpha": true,
+    "alpha_range": [
+      203,
+      249
+    ],
+    "bytes": 660054,
+    "sha256": "e486ec314a1a4cf69d2599e85b91c51da7edf2bd8aa7cd86ce8bde45328d3152"
+  },
+  {
+    "name": "portrait-frame.webp",
+    "source": "ornate_ivory_floral_arch_frame.png",
+    "expected": "800x1100",
+    "actual": "1024x1536",
+    "matches_canvas": false,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      254
+    ],
+    "bytes": 235376,
+    "sha256": "b07c4c0bc70245752d5e4371e14db7752d03dc7d5246c28b71de5bac26669b85"
+  },
+  {
+    "name": "s03-kanote-lotus-ring-crest.webp",
+    "source": "ivory_bloom_section3_batch_missing_review/s03-kanote-lotus-ring-crest.webp",
+    "expected": "1000x579",
+    "actual": "1000x579",
+    "matches_canvas": true,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      255
+    ],
+    "bytes": 309156,
+    "sha256": "a8a5b5061e136f9dd7b0e2d48af09324a71b915e1c0d4fc18e9897cab7d3a1fa"
+  },
+  {
+    "name": "s03-royal-bride-portrait.webp",
+    "source": "ivory_bloom_garden_bride.png",
+    "expected": "1024x1536",
+    "actual": "1024x1536",
+    "matches_canvas": true,
+    "alpha": false,
+    "alpha_range": null,
+    "bytes": 229886,
+    "sha256": "3eeb767aaa053ebd9a6ea89909c08b64b07388537ac7aa4071f63a8ecf7db481"
+  },
+  {
+    "name": "s03-royal-card-lotus.webp",
+    "source": "a_highly_detailed_polished_wedding_romantic_ornam.png",
+    "expected": "1983x793",
+    "actual": "1536x1024",
+    "matches_canvas": false,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      254
+    ],
+    "bytes": 373876,
+    "sha256": "871f583622d2bc683eac293df48e1ea7b026abe663c783f7ee37840667fae4d5"
+  },
+  {
+    "name": "s03-royal-groom-portrait.webp",
+    "source": "ivory_bloom_groom_portrait.png",
+    "expected": "1024x1536",
+    "actual": "1024x1536",
+    "matches_canvas": true,
+    "alpha": false,
+    "alpha_range": null,
+    "bytes": 185460,
+    "sha256": "3f275a593b8db7244ad045d8fb25515846c88f5282850f98017a29a11249bee5"
+  },
+  {
+    "name": "s03-royal-parchment-card.webp",
+    "source": "a_decorative_wedding_stationery_style_framed_parch.png",
+    "expected": "971x1619",
+    "actual": "980x1605",
+    "matches_canvas": false,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      255
+    ],
+    "bytes": 366576,
+    "sha256": "0a2f9f025ce897eb57a143a60e5774339b67523299a3d2a9ae3f8db17eddc49f"
+  },
+  {
+    "name": "s03-royal-parentage-plaque.webp",
+    "source": "ivory_bloom_section3_batch_missing_review/s03-royal-parentage-plaque.webp",
+    "expected": "1983x793",
+    "actual": "1983x793",
+    "matches_canvas": true,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      255
+    ],
+    "bytes": 472476,
+    "sha256": "c1aad6d01edcea6db24dae4a2cced229e558d7bae3935209a51119cad3498050"
+  },
+  {
+    "name": "s03-royal-rings.webp",
+    "source": "ivory_bloom_section3_batch_missing_review/s03-royal-rings.webp",
+    "expected": "1254x1254",
+    "actual": "1254x1254",
+    "matches_canvas": true,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      255
+    ],
+    "bytes": 319556,
+    "sha256": "1893a92bdfcd822ad5594851f232ef08b76c3b3e123c17b43b9c464c788f3a59"
+  },
+  {
+    "name": "s03-royal-wedding-rings.webp",
+    "source": "a_clean_isolated_png_style_product_ornamental_illu.png",
+    "expected": "192x192",
+    "actual": "1254x1254",
+    "matches_canvas": false,
+    "alpha": true,
+    "alpha_range": [
+      0,
+      255
+    ],
+    "bytes": 261612,
+    "sha256": "263f25cf8b5f38ed6d79602f559661a3b53aa921d2250f72a6e63dc8ef934984"
+  }
+]
