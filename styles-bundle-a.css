@@ -1780,6 +1780,39 @@ html[data-golden-pagoda-skin="true"] #message .royal-corner-asset {
 }
 /* END golden-pagoda-s02-strict-preview.css */
 
+/* ivory-bloom-s02-s03-seam — localized transition, no asset or camera changes.
+   The mobile screenshot at 390px shows ~47px of empty area below the
+   last painted leaf. Reclaim only 20–30px of this visible empty space.
+   Offset the paper by the same amount to keep its position relative to text. */
+html[data-golden-pagoda-skin="true"] #message.invitation-letter {
+  --ivory-seam-trim:clamp(20px,7vw,30px);
+  --ivory-paper-end:calc(clamp(115px,35vw,160px) - var(--ivory-seam-trim));
+  --ivory-seam-color:#efd9e5;
+  background-position:center calc(100% - var(--ivory-paper-end)),center;
+}
+html[data-golden-pagoda-skin="true"] #message .royal-message-footer {
+  margin-bottom:calc(0px - var(--ivory-seam-trim));
+}
+/* Blend over the original paper's lower edge, behind live text and the
+   unchanged foreground floral ornament. First 44px soften the paper edge;
+   remaining space leads from ivory into blush. Keep the original vignette. */
+html[data-golden-pagoda-skin="true"] #message.invitation-letter::after {
+  background:
+    linear-gradient(to bottom,rgba(247,234,218,0) 0px,#f7eada 44px,
+      var(--ivory-seam-color) 100%) center bottom /
+      100% calc(var(--ivory-paper-end) + 44px) no-repeat,
+    linear-gradient(90deg,rgba(116,74,32,.06),transparent 18%,transparent 82%,rgba(116,74,32,.05));
+}
+/* Static incoming section-edge veil, not part of the moving sticky scene.
+   Preserve the original 10% paper tint everywhere beyond the first 48px. */
+html[data-golden-pagoda-skin="true"] #couple.couple-section[data-art="reference"]::before {
+  opacity:1;
+  background:
+    linear-gradient(to bottom,#efd9e5 0px,rgba(239,217,229,0) 48px),
+    rgba(248,241,236,.1);
+}
+
+
 /* START section-couple.css */
 /* Section 3 — original, reference-structured floral couple portrait scene.
    At 390px the reference spans about 1840px. No vendor artwork is embedded. */
