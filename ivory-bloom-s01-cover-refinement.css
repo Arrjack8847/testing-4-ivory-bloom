@@ -314,3 +314,17 @@ html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #vi
     transform:none;
   }
 }
+
+/* Opened-scene portrait clearance. The reused palace layer now contains the
+   couple cutout; its inherited .78 retreat endpoint puts their heads behind
+   the English lettering. Keep the cover exactly as approved and retain the
+   same camera progress/easing and bottom anchor, but retreat the portrait
+   further once opened, preserving its aspect ratio and artwork bytes. */
+html[data-golden-pagoda-skin="true"] #invitation[data-state="opened"] #viewport .depth.palace img {
+  scale:calc(.98 - .38 * var(--royal-core-retreat,0));
+}
+@media(max-height:650px) {
+  html[data-golden-pagoda-skin="true"] #invitation[data-state="opened"] #viewport .depth.palace img {
+    scale:calc(.98 - .42 * var(--royal-core-retreat,0));
+  }
+}
