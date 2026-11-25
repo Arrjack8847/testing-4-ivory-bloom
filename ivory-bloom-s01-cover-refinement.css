@@ -218,3 +218,104 @@ html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="cover"] #vie
     top:21.5%;
   }
 }
+
+/* Opened Section 1: matching Testing-4 calligraphy, adapted to the longer
+   English names and existing Ivory Bloom scene. Retain scroll-opacity
+   variables, stationary name positions and the existing 4.25H handoff. */
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .opened-copy {
+  top:25%;
+  left:0;
+  width:100%;
+  padding:0;
+  text-align:center;
+  overflow:visible;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .opened-copy .eyebrow {
+  width:min(86%,300px);
+  margin:0 auto 4px;
+  font-family:'Cinzel','EB Garamond',Georgia,serif !important;
+  font-size:clamp(11px,3.4vw,15px);
+  font-weight:500;
+  line-height:1.5;
+  letter-spacing:.17em;
+  color:#754b35;
+  text-shadow:0 1px 3px rgba(255,251,245,.96);
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .opened-copy .eyebrow::after {
+  content:"";
+  display:block;
+  width:min(76%,230px);
+  height:9px;
+  margin:4px auto 3px;
+  background:url("./assets/skins/golden-pagoda-garden/royal-name-divider.webp") center / contain no-repeat;
+  pointer-events:none;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names {
+  --ivory-open-name-size:clamp(28px,min(13.2vw,6.5lvh),56px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:0;
+  width:min(86%,334px);
+  height:auto;
+  margin:0 auto;
+  color:#65432c;
+  text-shadow:0 1px 3px rgba(255,251,245,.92);
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names .name-line {
+  font-family:'Pinyon Script','Alex Brush',cursive !important;
+  font-size:var(--ivory-open-name-size);
+  font-weight:400;
+  line-height:1.16;
+  width:max-content;
+  max-width:100%;
+  height:auto;
+  padding:0 4px;
+  translate:none !important;
+  transform:none !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names .name-amp {
+  font-family:'Pinyon Script','Alex Brush',cursive !important;
+  font-size:calc(var(--ivory-open-name-size) * .59);
+  line-height:1;
+  height:auto;
+  font-weight:400;
+  margin:0;
+  color:#a17a43;
+  translate:none !important;
+  transform:none !important;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .opened-copy .date {
+  margin:9px auto 0;
+  font:500 clamp(11px,3.3vw,14px)/1.5 'Cinzel','EB Garamond',Georgia,serif;
+  letter-spacing:.12em;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .opened-copy .date::before {
+  content:"";
+  display:block;
+  width:min(56%,230px);
+  height:9px;
+  margin:0 auto 6px;
+  background:url("./assets/skins/golden-pagoda-garden/royal-name-divider.webp") center / contain no-repeat;
+  pointer-events:none;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .opened-copy .guest {
+  width:min(90%,300px);
+  max-width:100%;
+  margin:6px auto 0;
+  font-family:'EB Garamond',Georgia,serif !important;
+  font-size:clamp(14px,4.2vw,18px);
+  line-height:1.4;
+  font-weight:400;
+  white-space:normal;
+  color:#65432c;
+}
+html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .opened-copy .guest strong {
+  font-weight:500;
+}
+@media(max-height:650px) {
+  html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .opened-copy { top:23%; }
+  html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names { --ivory-open-name-size:clamp(26px,min(12vw,6lvh),46px); }
+  html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .opened-copy .date { margin-top:4px; }
+}
