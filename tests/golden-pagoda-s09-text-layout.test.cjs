@@ -31,9 +31,9 @@ test('Native form controls are not modified and 320–430 mobile values have ful
  assert.match(css,/\.s9-row2\s*\{\s*grid-template-columns: minmax\(0, 1fr\)/);
  assert.match(read('section-nine.js'),/RSVP preview \(not sent or saved\)/);
 });
-test('Approved Section 9 frame and fill are still referenced unchanged',()=>{
+test('Section 9 frame and fill retain the calibrated Ivory Bloom slices',()=>{
  const css=read('golden-pagoda-s09-review.css');
  assert.match(css,/rsvp-royal-frame-paper\.svg/);
- assert.match(css,/border-image-slice: 340 45 225 45 fill/);
+ assert.match(css,/border-image-slice: 420 45 250 45 fill/);
  assert.match(css,/border-image-repeat: stretch/);
 });

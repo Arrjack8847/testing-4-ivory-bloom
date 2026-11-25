@@ -51,7 +51,7 @@ test('S09 shaped paper frame exists; original MVP preview RSVP is not sent or sa
  assert.ok(exists('assets/skins/golden-pagoda-garden/section-09/rsvp-royal-frame-paper.svg'));
  const css=source('golden-pagoda-s09-review.css');
  assert.match(css,/rsvp-royal-frame-paper.svg/);
- assert.match(css,/border-image-slice: 340 45 225 45 fill/);
+ assert.match(css,/border-image-slice: 420 45 250 45 fill/);
  assert.match(source('section-nine.js'),/RSVP preview \(not sent or saved\)/);
 });
 

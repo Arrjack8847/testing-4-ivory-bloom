@@ -63,7 +63,7 @@ html[data-golden-pagoda-skin="true"] #rsvp .s9-art-wash::after {
 /* Keep original .s9-frame in its exact absolute top/bottom/left/right slot.
    The painterly decoration overlays it without adding a DOM node, changing
    the frame geometry or disturbing form movement. */
-/* The approved 724 x 2172 gold-lotus frame has a short engraved arch,
+/* The Ivory Bloom 724 x 2172 frame has a taller floral arch;
    straight middle side rails, and a floral foot. Its natural 1:3 ratio would
    leave the RSVP wall outside if displayed with background-size: contain.
    Nine-slice the STRAIGHT vertical rails only. Top arch, side ornaments and
@@ -86,11 +86,11 @@ html[data-golden-pagoda-skin="true"] #rsvp .s9-frame::before {
   border-radius: 0;
   background: none;
   border-image-source: url("./assets/skins/golden-pagoda-garden/section-09/rsvp-royal-frame-paper.svg");
-  border-image-slice: 340 45 225 45 fill;
+  border-image-slice: 420 45 250 45 fill;
   border-image-width:
-    calc(var(--s9-frame-w) * 0.469613)
+    calc(var(--s9-frame-w) * 0.580110497)
     calc(var(--s9-frame-w) * 0.062155)
-    calc(var(--s9-frame-w) * 0.310773)
+    calc(var(--s9-frame-w) * 0.345303867)
     calc(var(--s9-frame-w) * 0.062155);
   border-image-repeat: stretch;
   border-image-outset: 0;
