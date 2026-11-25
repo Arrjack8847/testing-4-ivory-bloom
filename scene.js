@@ -614,14 +614,13 @@ function applyScrollScene(fraction, cameraFraction = fraction) {
   // Re-measured live at 390x844 after steady scroll: heading opacity
   // ~0 at 1.35H, ~.43 at 1.50H, fully visible by 1.70H.
   // The earlier 1.29-1.54H curve revealed this title too quickly.
-  // Royal names fade in at their permanently fixed positions.
-  // All other skins preserve the original Testing-4 scroll choreography.
-  const greeting = royalS01WordingPreview ? easeBetween(fraction,1.34,1.49) : easeBetween(fraction,1.37,1.67);
-  const firstName = royalS01WordingPreview ? easeBetween(fraction,1.51,1.67) : easeBetween(fraction,1.28,1.65);
-  const ampersand = royalS01WordingPreview ? easeBetween(fraction,1.69,1.79) : easeBetween(fraction,1.64,1.90);
-  const secondName = royalS01WordingPreview ? easeBetween(fraction,1.81,1.98) : easeBetween(fraction,1.79,2.08);
+  // Ivory Bloom uses the original Testing-4 lettering and detail timings.
+  const greeting = easeBetween(fraction,1.37,1.67);
+  const firstName = easeBetween(fraction,1.28,1.65);
+  const ampersand = easeBetween(fraction,1.64,1.90);
+  const secondName = easeBetween(fraction,1.79,2.08);
   const names = Math.max(firstName,secondName);
-  const details = royalS01WordingPreview ? easeBetween(fraction,2.02,2.22) : easeBetween(fraction,2.08,2.42);
+  const details = easeBetween(fraction,2.08,2.42);
   const set = (name,value) => {
     const next=String(value);
     if(rootStyle.getPropertyValue(name)!==next)rootStyle.setProperty(name,next);
@@ -674,10 +673,9 @@ function applyScrollScene(fraction, cameraFraction = fraction) {
   // for the rest of the opening until reset, even at scroll position zero.
   if (fraction > .025) engageScrollMode();
   // The original invitation starts a one-time handwritten-name animation
-  // when the returning garden reaches its title. The Royal wording preview
-  // starts with the heading fade; other skins retain the reference threshold.
+  // when the returning garden reaches the original 1.29H threshold.
   // Writing continues even if the user stops or reverses; reset starts a new take.
-  if (fraction >= (royalS01WordingPreview ? 1.45 : 1.29) && invite.dataset.lettering !== 'playing') {
+  if (fraction >= 1.29 && invite.dataset.lettering !== 'playing') {
     invite.dataset.lettering = 'playing';
   }
 }

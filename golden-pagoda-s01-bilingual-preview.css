@@ -318,16 +318,8 @@ html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .guest strong
 }
 /* At the full date reveal, remove the handwritten masks rather than leave
    incomplete Burmese syllables when scrolling quickly. */
-html[data-golden-pagoda-s01-wording="true"] #invitation[data-royal-details="yes"] .ceremony-names .name-line {
-  animation:none !important;
-  -webkit-mask-image:none !important;
-  mask-image:none !important;
-}
-html[data-golden-pagoda-s01-wording="true"] #invitation[data-royal-details="yes"] .ceremony-names .name-amp {
-  animation:none !important;
-  opacity:1 !important;
-  transform:none !important;
-}
+
+
 /* Preserve Royal preview's approved upper-arch butterfly routes. */
 html[data-golden-pagoda-s01-wording="true"] #viewport .butterfly-hero .violet {
   animation-name:royal-s01-violet-safe-flight;
@@ -435,18 +427,12 @@ html[data-golden-pagoda-s01-wording="true"] #invitation[data-lettering="playing"
   from { opacity:0; }
   to { opacity:1; }
 }
-html[data-golden-pagoda-s01-wording="true"] #invitation[data-royal-details="yes"] #viewport .ceremony-names .name-line,
-html[data-golden-pagoda-s01-wording="true"] #invitation[data-royal-details="yes"] #viewport .ceremony-names .name-amp {
-  animation:none !important;
-  opacity:1 !important;
-  -webkit-mask-image:none !important;
-  mask-image:none !important;
-}
+
 @media (prefers-reduced-motion:reduce) {
   html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line,
   html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
     animation:none !important;
-    opacity:1 !important;
+    opacity:1;
   }
 }
 @media(max-width:359px) {
@@ -495,7 +481,7 @@ html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-line
 html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp {
   position:static;top:auto;left:auto;right:auto;bottom:auto;
   flex:0 0 auto;
-  translate:none !important;transform:none !important;
+  translate:none !important;transform:none;
   clip-path:none !important;-webkit-clip-path:none !important;
   mask-image:none !important;-webkit-mask-image:none !important;
   overflow:visible;white-space:nowrap;animation:none !important;
@@ -509,13 +495,13 @@ html[data-golden-pagoda-s01-wording="true"] #viewport .ceremony-names .name-amp 
   font-size:clamp(13px,3.8vw,15px);font-weight:400;
 }
 html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names .name-first {
-  opacity:var(--first-name-progress,0) !important;
+  opacity:var(--first-name-progress,0);
 }
 html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names .name-amp {
-  opacity:var(--amp-progress,0) !important;
+  opacity:var(--amp-progress,0);
 }
 html[data-golden-pagoda-s01-wording="true"] #invitation[data-state="opened"] #viewport .ceremony-names .name-second {
-  opacity:var(--second-name-progress,0) !important;
+  opacity:var(--second-name-progress,0);
 }
 html[data-golden-pagoda-s01-wording="true"] #viewport .opened-copy .date {
   margin:3px auto 0;font-size:clamp(10px,3vw,12px);
