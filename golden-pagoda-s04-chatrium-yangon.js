@@ -10,6 +10,11 @@
   const section = document.getElementById('eventDetails');
   if (!section) return;
 
+  for (const [id, title] of [['eventNikahHeading', 'Wedding Ceremony'], ['eventReceptionHeading', 'Wedding Reception']]) {
+    const heading = document.getElementById(id);
+    if (heading) { heading.textContent = title; heading.lang = 'en'; heading.setAttribute('aria-label', title); }
+  }
+
   const hotel = 'Chatrium Hotel Royal Lake Yangon';
   const street = '40 Natmauk Road, Tamwe Township, Yangon 11211, Myanmar';
   const destination = hotel + ', ' + street;
@@ -75,7 +80,7 @@
   if (configured !== venues.length) return;
 
   const headline = section.querySelector('.event-prototype-label');
-  if (headline) headline.textContent = 'ROYAL WEDDING · YANGON · SAMPLE DETAILS';
+  if (headline) headline.textContent = 'WEDDING DETAILS · YANGON · SAMPLE';
 
   const countdown = section.querySelector('.event-countdown-grid');
   if (countdown) countdown.setAttribute('aria-label',
@@ -88,7 +93,7 @@
     const calendarUrl = new URL('https://www.google.com/calendar/render');
     calendarUrl.search = new URLSearchParams({
       action: 'TEMPLATE',
-      text: 'The Wedding of Rayyan & Sofea — Sample Reception',
+      text: 'The Wedding of Thiha Aung & Thiri May — Sample Reception',
       dates: '20270123T130000Z/20270123T160000Z',
       ctz: 'Asia/Yangon',
       location: 'Grand Ballroom, ' + destination,

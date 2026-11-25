@@ -12,7 +12,7 @@
   const heading = document.getElementById('messageHeading');
   if (!content || !heading) return;
 
-  const line = (className, text, language = 'my') => {
+  const line = (className, text, language = 'en') => {
     const element = document.createElement('p');
     element.className = className;
     element.lang = language;
@@ -22,12 +22,12 @@
 
   content.replaceChildren(
     line('letter-bismillah royal-message-kicker', 'WITH LOVE', 'en'),
-    line('letter-lead royal-message-title', 'မင်္ဂလာအခါသမယ'),
-    line('royal-message-paragraph', 'ချစ်ခြင်းမေတ္တာနှင့် ပြည့်ဝသော ဘဝခရီးသစ်ကို ကျွန်ုပ်တို့နှစ်ဦး အတူတကွ စတင်တော့မည်ဖြစ်ပါသည်။'),
-    line('royal-message-paragraph', 'ကျွန်ုပ်တို့၏ မင်္ဂလာနေ့ရက်လေးတွင် လူကြီးမင်းတို့နှင့်အတူ ပျော်ရွှင်မှုနှင့် အမှတ်တရများကို မျှဝေခွင့်ရမည်ဆိုပါက အထူးဝမ်းမြောက်မိပါသည်။'),
+    line('letter-lead royal-message-title', 'Our Wedding Invitation'),
+    line('royal-message-paragraph', 'With hearts full of love, we are about to begin a beautiful new chapter together.'),
+    line('royal-message-paragraph', 'We would be delighted to have you join us as we celebrate our wedding and share the joy of this special day.'),
     line('letter-source royal-message-signoff', 'Two hearts, one beautiful journey.', 'en')
   );
-  heading.textContent = 'Royal wedding message';
+  heading.textContent = 'Wedding invitation message';
 
   // Section 2's four optional corner WebPs are intentionally not injected.
   // The approved assets are preserved in GitHub for a possible future skin.

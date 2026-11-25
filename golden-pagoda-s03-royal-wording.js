@@ -20,26 +20,26 @@
   };
 
   setCopy('.couple-salutation', 'TOGETHER IN LOVE', 'en');
-  setCopy('.couple-title', 'မင်္ဂလာမောင်နှံ', 'my');
+  setCopy('.couple-title', 'The Bride & Groom', 'en');
 
-  setCopy('.couple-profile--groom .couple-name', 'သီဟအောင်', 'my');
+  setCopy('.couple-profile--groom .couple-name', 'Thiha Aung', 'en');
   setCopy('.couple-profile--groom .couple-role', 'THE GROOM', 'en');
-  setCopy('.couple-profile--groom .couple-family', 'ချစ်ခြင်းမေတ္တာဖြင့်', 'my');
+  setCopy('.couple-profile--groom .couple-family', 'With love', 'en');
 
-  setCopy('.couple-separator', 'နှင့်', 'my');
+  setCopy('.couple-separator', '&', 'en');
   const separator = section.querySelector('.couple-separator');
-  if (separator) separator.setAttribute('aria-label', 'နှင့်');
+  if (separator) separator.setAttribute('aria-label', '&');
 
-  setCopy('.couple-profile--bride .couple-name', 'သီရိမေ', 'my');
+  setCopy('.couple-profile--bride .couple-name', 'Thiri May', 'en');
   setCopy('.couple-profile--bride .couple-role', 'THE BRIDE', 'en');
-  setCopy('.couple-profile--bride .couple-family', 'ဘဝခရီးသစ်ဆီသို့', 'my');
+  setCopy('.couple-profile--bride .couple-family', 'A beautiful beginning', 'en');
 
   // Former source-demo parent names were unverified for this couple.
   // Use two short, non-biographical romantic captions instead.
   const groom = section.querySelector('.couple-profile--groom');
   const bride = section.querySelector('.couple-profile--bride');
-  if (groom) groom.setAttribute('aria-label', 'သတို့သား သီဟအောင်');
-  if (bride) bride.setAttribute('aria-label', 'သတို့သမီး သီရိမေ');
+  if (groom) groom.setAttribute('aria-label', 'The groom, Thiha Aung');
+  if (bride) bride.setAttribute('aria-label', 'The bride, Thiri May');
 
   section.dataset.royalWording = 'true';
 })();

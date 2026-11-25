@@ -97,3 +97,52 @@ html[data-golden-pagoda-skin="true"] #invitation[data-state="opened"][data-layer
     transition: none !important;
   }
 }
+
+
+/* Ivory Bloom English typography. Text-only overrides, after all source styles.
+   Keep existing layout slots, animation properties and artwork bytes intact. */
+html[data-golden-pagoda-skin="true"] #viewport .cover-copy h1,
+html[data-golden-pagoda-skin="true"] #viewport .ceremony-names .name-line,
+html[data-golden-pagoda-skin="true"] #viewport .ceremony-names .name-amp,
+html[data-golden-pagoda-skin="true"] #viewport .ceremony-names-compact,
+html[data-golden-pagoda-skin="true"] #viewport .opened-copy .guest,
+html[data-golden-pagoda-skin="true"] #message .royal-message-paragraph,
+html[data-golden-pagoda-skin="true"] #couple :is(.couple-name,.couple-family,.couple-separator,.royal-parentage-my),
+html[data-golden-pagoda-skin="true"] [data-royal-wording="true"] .royal-my-text,
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-royal-message,
+html[data-golden-pagoda-skin="true"] #rsvp :is(input,select,textarea),
+html[data-golden-pagoda-skin="true"] #closingMessage .closing10-names {
+  font-family: 'EB Garamond', Georgia, serif !important;
+}
+html[data-golden-pagoda-skin="true"] #viewport .opened-copy .eyebrow,
+html[data-golden-pagoda-skin="true"] #message .royal-message-title,
+html[data-golden-pagoda-skin="true"] #couple .couple-title,
+html[data-golden-pagoda-skin="true"] #weddingGift .gift-eight-royal-title {
+  font-family: 'Cinzel', 'EB Garamond', Georgia, serif !important;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-title[lang="en"] {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 69.3px;
+  min-height: 69.3px;
+  width: 100%;
+  padding: 0 2px;
+  margin-bottom: 12px;
+  font: 500 clamp(17px, 5vw, 23px)/1.45 'Cinzel', 'EB Garamond', Georgia, serif;
+  text-align: center;
+  letter-spacing: 0;
+  white-space: normal;
+  color: #764d2f;
+}
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-title[lang="en"]::before,
+html[data-golden-pagoda-skin="true"] #eventDetails.event-section[data-art="reference"] .event-card-title[lang="en"]::after { content:none; }
+html[data-golden-pagoda-skin="true"] :is(#runningOrder,#dressCode,#gallery,#rsvp,#closingMessage)[data-royal-wording="true"] h2.royal-my-text {
+  font-family: 'Cinzel', 'EB Garamond', Georgia, serif !important;
+  font-size: clamp(19px, 5.4vw, 25px);
+  line-height: 1.45;
+  text-wrap: balance;
+}
+html[data-golden-pagoda-skin="true"] #gallery .gallery-frame-caption.royal-my-text { white-space: nowrap; }
+html[data-golden-pagoda-skin="true"] #message .royal-message-title { font-size: clamp(19px,5.1vw,24px); line-height:1.4; }

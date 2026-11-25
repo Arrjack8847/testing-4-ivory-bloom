@@ -8,7 +8,7 @@
   if (params.get('skin') !== 'golden-pagoda-garden') return;
 
   document.documentElement.dataset.goldenPagodaS01Wording = 'true';
-  document.title = 'Golden Pagoda Garden — Royal Wedding Invitation';
+  document.title = 'Ivory Bloom — Wedding Invitation';
 
   const cover = document.getElementById('cover');
   const opened = document.getElementById('opened');
@@ -30,10 +30,10 @@
   const coverNames = cover.querySelector('.cover-copy h1');
   if (coverNames) {
     const connector = coverNames.querySelector('em') || document.createElement('em');
-    connector.textContent = 'နှင့်';
-    connector.lang = 'my';
-    coverNames.replaceChildren(document.createTextNode('သီဟအောင် '),connector,document.createTextNode(' သီရိမေ'));
-    coverNames.lang = 'my';
+    connector.textContent = '&';
+    connector.lang = 'en';
+    coverNames.replaceChildren(document.createTextNode('Thiha Aung '),connector,document.createTextNode(' Thiri May'));
+    coverNames.lang = 'en';
   }
 
   // Refine the CTA copy without replacing the button or its original event handler.
@@ -41,24 +41,24 @@
   if (openButton) { openButton.textContent = 'VIEW INVITATION'; openButton.setAttribute('aria-label', 'View wedding invitation'); }
 
   const heading = opened.querySelector('.opened-copy .eyebrow');
-  if (heading) { heading.textContent = 'မင်္ဂလာလက်ထပ်ပွဲ'; heading.lang = 'my'; }
+  if (heading) { heading.textContent = 'THE WEDDING OF'; heading.lang = 'en'; }
 
   const names = opened.querySelector('.ceremony-names');
-  if (names) names.setAttribute('aria-label','သီဟအောင် နှင့် သီရိမေ');
+  if (names) names.setAttribute('aria-label','Thiha Aung & Thiri May');
   const first = opened.querySelector('.name-first');
   const conjunction = opened.querySelector('.name-amp');
   const second = opened.querySelector('.name-second');
-  if (first) { first.textContent = 'သီဟအောင်'; first.lang = 'my'; }
-  if (conjunction) { conjunction.textContent = 'နှင့်'; conjunction.lang = 'my'; }
-  if (second) { second.textContent = 'သီရိမေ'; second.lang = 'my'; }
+  if (first) { first.textContent = 'Thiha Aung'; first.lang = 'en'; }
+  if (conjunction) { conjunction.textContent = '&'; conjunction.lang = 'en'; }
+  if (second) { second.textContent = 'Thiri May'; second.lang = 'en'; }
 
   // Static vertical Myanmar composition — no compact font-width measuring.
 
   // Reuse the two original guest text slots. They still reveal with the date.
   const guestIntro = opened.querySelector('.guest span');
   const guestEmphasis = opened.querySelector('.guest strong');
-  if (guestIntro) { guestIntro.textContent = 'လေးစားစွာ'; guestIntro.lang = 'my'; }
-  if (guestEmphasis) { guestEmphasis.textContent = 'ဖိတ်ကြားအပ်ပါသည်။'; guestEmphasis.lang = 'my'; }
+  if (guestIntro) { guestIntro.textContent = 'You are cordially'; guestIntro.lang = 'en'; }
+  if (guestEmphasis) { guestEmphasis.textContent = 'Invited'; guestEmphasis.lang = 'en'; }
 
   const swipe = opened.querySelector('.swipe-cue');
   if (swipe) {

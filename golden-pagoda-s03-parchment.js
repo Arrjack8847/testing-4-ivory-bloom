@@ -16,8 +16,8 @@
     lotus: 's03-royal-card-lotus.webp'
   };
   const profiles = [
-    {selector: '.couple-profile--groom', titleMy: 'ချစ်ခင်မြတ်နိုးရသော သား', titleEn: 'BELOVED SON OF', parents: 'ဦးအောင်မြင့် နှင့် ဒေါ်ခင်သန်း'},
-    {selector: '.couple-profile--bride', titleMy: 'ချစ်ခင်မြတ်နိုးရသော သမီး', titleEn: 'BELOVED DAUGHTER OF', parents: 'ဦးမင်းဇော် နှင့် ဒေါ်သီတာဝင်း'}
+    {selector: '.couple-profile--groom', titleMy: 'Beloved son of', titleEn: 'WITH FAMILY BLESSINGS', parents: 'U Aung Myint & Daw Khin Than'},
+    {selector: '.couple-profile--bride', titleMy: 'Beloved daughter of', titleEn: 'WITH FAMILY BLESSINGS', parents: 'U Min Zaw & Daw Thida Win'}
   ];
   const decorativeImage = (file, className) => {
     const img = document.createElement('img');
@@ -51,7 +51,7 @@
     plaque.appendChild(decorativeImage(images.plaque, 'royal-parentage-art'));
     const myanmar = document.createElement('span');
     myanmar.className = 'royal-parentage-my';
-    myanmar.lang = 'my';
+    myanmar.lang = 'en';
     myanmar.textContent = config.titleMy;
     const english = document.createElement('span');
     english.className = 'royal-parentage-en';
@@ -62,7 +62,7 @@
 
     // Fictional sample parent names; keep live text editable per wedding.
     family.textContent = config.parents;
-    family.lang = 'my';
+    family.lang = 'en';
     family.dataset.parentNames = 'sample';
     stack.appendChild(family);
     stack.appendChild(decorativeImage(images.lotus, 'royal-lotus-footer'));

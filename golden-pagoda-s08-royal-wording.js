@@ -25,14 +25,14 @@
 
   heading.replaceChildren(
     span('gift-eight-royal-kicker', 'WITH GRATITUDE', 'en'),
-    span('gift-eight-royal-title', 'မင်္ဂလာလက်ဆောင်', 'my')
+    span('gift-eight-royal-title', 'Wedding Gift', 'en')
   );
-  heading.setAttribute('aria-label', 'Wedding Gift — မင်္ဂလာလက်ဆောင်');
+  heading.setAttribute('aria-label', 'Wedding Gift');
 
   intro.replaceChildren(
     span('gift-eight-royal-message',
-      'ကျွန်ုပ်တို့၏ မင်္ဂလာပွဲသို့ ကြွရောက်ချီးမြှင့်ပေးခြင်းသည်ပင် အဖိုးတန်ဆုံး လက်ဆောင်ဖြစ်ပါသည်။',
-      'my'),
+      'Your presence at our wedding is the greatest gift of all.',
+      'en'),
     span('gift-eight-royal-signoff', 'With love and gratitude.', 'en')
   );
 
