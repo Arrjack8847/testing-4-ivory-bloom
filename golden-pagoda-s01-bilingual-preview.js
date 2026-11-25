@@ -32,7 +32,14 @@
     const connector = coverNames.querySelector('em') || document.createElement('em');
     connector.textContent = '&';
     connector.lang = 'en';
-    coverNames.replaceChildren(document.createTextNode('Thiha Aung '),connector,document.createTextNode(' Thiri May'));
+    const firstLine = document.createElement('span');
+    firstLine.className = 'ivory-cover-name';
+    firstLine.textContent = 'Thiha Aung';
+    const secondLine = document.createElement('span');
+    secondLine.className = 'ivory-cover-name';
+    secondLine.textContent = 'Thiri May';
+    coverNames.replaceChildren(firstLine, connector, secondLine);
+    coverNames.setAttribute('aria-label', 'Thiha Aung and Thiri May');
     coverNames.lang = 'en';
   }
 
