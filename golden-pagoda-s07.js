@@ -24,8 +24,8 @@
     }
   }
 
-  // Replace the reference lake with the SAME royal landscape plate used in
-  // Section 1. Preserve the existing sticky gallery image surface, not hero JS.
+  // Ivory Bloom Section 1 foreground is a couple cutout, not scenery.
+  // Reuse the approved people-free lakeside finale scene in the gallery.
   const inheritedScene = section.querySelector('.gallery-scene-image');
   if (inheritedScene) {
     inheritedScene.removeAttribute('srcset');
@@ -39,7 +39,7 @@
     if (section.dataset.goldenGalleryActive === 'true') return;
     section.dataset.goldenGalleryActive = 'true';
     if (inheritedScene) {
-      inheritedScene.src = './assets/skins/golden-pagoda-garden/palace-horizontal.webp';
+      inheritedScene.src = './assets/skins/golden-pagoda-garden/section-10/finale-scene.webp';
     }
   }
 

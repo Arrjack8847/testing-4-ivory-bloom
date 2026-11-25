@@ -40,7 +40,7 @@ test('S07 approved art, five frames, keyboard lightbox, reverse scroll', async (
   const gallery=page.locator('#gallery');
   await gallery.scrollIntoViewIfNeeded();
   await expect(gallery).toHaveAttribute('data-golden-gallery-active','true');
-  await expect(page.locator('.gallery-scene-image')).toHaveAttribute('src', /palace-horizontal[.]webp$/);
+  await expect(page.locator('.gallery-scene-image')).toHaveAttribute('src', /section-10\/finale-scene[.]webp$/);
   const scene=await gallery.evaluate(el=>{
     const image=el.querySelector('.gallery-scene-image');
     const wash=el.querySelector('.gallery-scene-wash');
@@ -57,12 +57,13 @@ test('S07 approved art, five frames, keyboard lightbox, reverse scroll', async (
   const slots=page.locator('#gallery [data-gallery-slot]');
   await expect(slots).toHaveCount(5);
   // The approved Royal DOM and keyboard order is Groom, Bride, Together,
-  // Garden, Lake. Full-image contain is deliberate: no portrait cropping.
+  // Garden, Lake. Thumbnails fill the arch; lightbox retains the source image.
   expect(await slots.evaluateAll(nodes=>nodes.map(n=>Number(n.dataset.gallerySlot))))
     .toEqual([2,1,0,3,4]);
   for(let i=0;i<5;i++)await expect(slots.nth(i)).toBeEnabled();
   await expect(slots.nth(0)).toHaveAttribute('aria-label','View photo: The Groom');
-  await expect(slots.nth(0).locator('.gallery-image')).toHaveCSS('object-fit','contain');
+  await expect(slots.nth(0).locator('.gallery-image')).toHaveCSS('object-fit','cover');
+  await expect(slots.nth(0).locator('.gallery-image')).toHaveCSS('clip-path', /polygon/);
   const frame=await slots.nth(0).evaluate(el=>getComputedStyle(el,'::before').backgroundImage);
   expect(frame).toContain('photo-frame.webp');
   const fit=await gallery.evaluate(el=>{

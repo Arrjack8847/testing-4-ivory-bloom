@@ -494,18 +494,24 @@ html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="
 html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"],
 html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"],
 html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] {
-  background-image: url("./assets/skins/golden-pagoda-garden/section-07/s07-royal-lotus-parchment.webp");
+  background-image: none;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 84% 76%;
 }
-/* Keep the entire approved photo visible within its face-safe frame opening.
-   Parchment softly fills the unavoidable surrounding areas on tall portraits. */
+/* Fill the actual Ivory Bloom opening instead of the old smaller photo rectangle. */
 html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"] .gallery-image,
 html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="1"] .gallery-image,
 html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="2"] .gallery-image {
-  object-fit: contain;
+  /* Match the Ivory Bloom arch opening, with a small overlap under the gold rail.
+     Clip only the gallery thumbnail; the original photo and lightbox stay intact. */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: cover;
   object-position: center top;
+  clip-path: polygon(50% 9%, 61% 10%, 73% 14%, 81% 19%, 85% 25%, 85% 70%, 82% 79%, 70% 88%, 57% 94%, 43% 94%, 30% 88%, 18% 79%, 14% 70%, 14% 25%, 19% 19%, 27% 14%, 39% 10%);
 }
 /* Do not demote the ornate frame behind photo or overlap its caption. */
 html[data-golden-pagoda-skin="true"] #gallery .gallery-photo[data-gallery-slot="0"]::before,
