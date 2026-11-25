@@ -16,8 +16,8 @@
     lotus: 's03-royal-card-lotus.webp'
   };
   const profiles = [
-    {selector: '.couple-profile--groom', titleMy: 'Beloved son of', titleEn: 'WITH FAMILY BLESSINGS', parents: 'U Aung Myint & Daw Khin Than'},
-    {selector: '.couple-profile--bride', titleMy: 'Beloved daughter of', titleEn: 'WITH FAMILY BLESSINGS', parents: 'U Min Zaw & Daw Thida Win'}
+    {selector: '.couple-profile--groom', titleMy: 'Beloved son of', parents: 'U Aung Myint & Daw Khin Than'},
+    {selector: '.couple-profile--bride', titleMy: 'Beloved daughter of', parents: 'U Min Zaw & Daw Thida Win'}
   ];
   const decorativeImage = (file, className) => {
     const img = document.createElement('img');
@@ -53,11 +53,7 @@
     myanmar.className = 'royal-parentage-my';
     myanmar.lang = 'en';
     myanmar.textContent = config.titleMy;
-    const english = document.createElement('span');
-    english.className = 'royal-parentage-en';
-    english.lang = 'en';
-    english.textContent = config.titleEn;
-    plaque.append(myanmar, english);
+    plaque.appendChild(myanmar);
     stack.appendChild(plaque);
 
     // Fictional sample parent names; keep live text editable per wedding.
