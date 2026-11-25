@@ -16,8 +16,8 @@
     lotus: 's03-royal-card-lotus.webp'
   };
   const profiles = [
-    {selector: '.couple-profile--groom', titleMy: 'Beloved son of', titleEn: 'WITH FAMILY BLESSINGS', parents: 'U Aung Myint & Daw Khin Than'},
-    {selector: '.couple-profile--bride', titleMy: 'Beloved daughter of', titleEn: 'WITH FAMILY BLESSINGS', parents: 'U Min Zaw & Daw Thida Win'}
+    {selector: '.couple-profile--groom', titleMy: 'Beloved son of', parents: 'U Aung Myint & Daw Khin Than'},
+    {selector: '.couple-profile--bride', titleMy: 'Beloved daughter of', parents: 'U Min Zaw & Daw Thida Win'}
   ];
   const decorativeImage = (file, className) => {
     const img = document.createElement('img');
@@ -53,18 +53,13 @@
     myanmar.className = 'royal-parentage-my';
     myanmar.lang = 'en';
     myanmar.textContent = config.titleMy;
-    const english = document.createElement('span');
-    english.className = 'royal-parentage-en';
-    english.lang = 'en';
-    english.textContent = config.titleEn;
-    plaque.append(myanmar, english);
-    stack.appendChild(plaque);
-
-    // Fictional sample parent names; keep live text editable per wedding.
+    // Keep the parentage label and the existing live family text together.
+    // Moving the existing family node retains its original reveal observer.
     family.textContent = config.parents;
     family.lang = 'en';
     family.dataset.parentNames = 'sample';
-    stack.appendChild(family);
+    plaque.append(myanmar, family);
+    stack.appendChild(plaque);
     stack.appendChild(decorativeImage(images.lotus, 'royal-lotus-footer'));
 
     // Moving the existing text nodes preserves their scroll-reveal observers.
